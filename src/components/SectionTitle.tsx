@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 type SectionTitleProps = {
   title: string;
@@ -9,13 +10,15 @@ type SectionTitleProps = {
 };
 
 const SectionTitle = ({ title, subtitle, center = false, light = false }: SectionTitleProps) => {
+  const isMobile = useIsMobile();
+
   return (
-    <div className={`mb-12 ${center ? 'text-center' : ''}`}>
-      <h2 className={`text-3xl md:text-4xl font-semibold mb-4 font-playfair ${light ? 'text-white' : ''}`}>
+    <div className={`mb-8 md:mb-12 ${center ? 'text-center' : ''}`}>
+      <h2 className={`text-2xl ${isMobile ? '' : 'text-3xl md:text-4xl'} font-semibold mb-3 md:mb-4 font-playfair ${light ? 'text-white' : ''}`}>
         {title}
       </h2>
       {subtitle && (
-        <p className={`text-lg ${light ? 'text-gray-300' : 'text-gray-600'}`}>
+        <p className={`text-base md:text-lg ${light ? 'text-gray-300' : 'text-gray-600'}`}>
           {subtitle}
         </p>
       )}

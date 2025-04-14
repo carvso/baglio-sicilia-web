@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
 import SectionTitle from '@/components/SectionTitle';
@@ -16,41 +17,42 @@ const galleryCategories = [
 
 // Define different image arrays for each category
 const structureImages = [
-  { src: 'https://images.unsplash.com/photo-1606402179428-a57976d71fa4?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Facciata del Baglio', category: 'structure' },
-  { src: 'https://images.unsplash.com/photo-1629078691977-dc51e9a9a436?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Cortile interno', category: 'structure' },
-  { src: 'https://images.unsplash.com/photo-1561144257-e32e8efc6c4f?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Sala interna', category: 'structure' },
-  { src: 'https://images.unsplash.com/photo-1519167576308-04f23db61d38?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Terrazza', category: 'structure' },
-  { src: 'https://images.unsplash.com/photo-1572916118970-fb5c8a1b535f?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Giardino', category: 'structure' },
+  { src: '/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png', alt: 'Arco interno con soffitto in legno', category: 'structure' },
+  { src: '/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png', alt: 'Ingresso del Baglio con piante', category: 'structure' },
+  { src: '/lovable-uploads/7c87682b-32e2-45e6-b99b-3b4bce99f00f.png', alt: 'Vista esterna del Baglio', category: 'structure' },
+  { src: '/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png', alt: 'Ingresso con decorazioni floreali', category: 'structure' },
+  { src: '/lovable-uploads/097078d4-e512-4c97-b039-a82f102e8608.png', alt: 'Cortile principale', category: 'structure' },
 ];
 
 const foodImages = [
-  { src: 'https://images.unsplash.com/photo-1560611588-163f49a6bedd?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Pasta alla Norma', category: 'food' },
-  { src: 'https://images.unsplash.com/photo-1626711934535-9749ea933cd7?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Pesce al forno', category: 'food' },
-  { src: 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Dolci siciliani', category: 'food' },
-  { src: 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Cocktail speciali', category: 'food' },
-  { src: 'https://images.unsplash.com/photo-1600891965430-12cf8d68da67?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Piatti tipici', category: 'food' },
+  { src: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Antipasto siciliano', category: 'food' },
+  { src: 'https://images.unsplash.com/photo-1579349443343-73da56a71a20?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Pasta con frutti di mare', category: 'food' },
+  { src: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Pesce alla griglia', category: 'food' },
+  { src: 'https://images.unsplash.com/photo-1510148199876-8a856ee41d42?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Dessert siciliano', category: 'food' },
+  { src: 'https://images.unsplash.com/photo-1621328406700-17f517c790ec?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Cocktail siciliano', category: 'food' },
 ];
 
 const eventsImages = [
-  { src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Matrimonio', category: 'events' },
-  { src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Evento privato', category: 'events' },
-  { src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Evento aziendale', category: 'events' },
-  { src: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Cerimonia', category: 'events' },
-  { src: 'https://images.unsplash.com/photo-1496318447583-f524534e9ce1?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Celebrazione', category: 'events' },
+  { src: '/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png', alt: 'Allestimento per cerimonia', category: 'events' },
+  { src: '/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png', alt: 'Vista mare per eventi', category: 'events' },
+  { src: '/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png', alt: 'Tavolo decorato all\'esterno', category: 'events' },
+  { src: '/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png', alt: 'Sala interna apparecchiata', category: 'events' },
+  { src: '/lovable-uploads/059acecc-9864-4084-bb89-9644fd4e4a41.png', alt: 'Reception del Baglio', category: 'events' },
 ];
 
 const detailsImages = [
-  { src: 'https://images.unsplash.com/photo-1526057565006-20beab8dd2ed?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Dettagli architettonici', category: 'details' },
-  { src: 'https://images.unsplash.com/photo-1574172639304-d5144f154c6a?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Decorazioni', category: 'details' },
-  { src: 'https://images.unsplash.com/photo-1507652955-f3dcef5a3be5?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Interni', category: 'details' },
-  { src: 'https://images.unsplash.com/photo-1542902093-f4c5f7f9b7de?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Particolari del giardino', category: 'details' },
-  { src: 'https://images.unsplash.com/photo-1591825729269-caeb344f6df2?ixlib=rb-1.2.1&auto=format&fit=crop&q=80', alt: 'Elementi decorativi', category: 'details' },
+  { src: '/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png', alt: 'Interni eleganti con archi', category: 'details' },
+  { src: '/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png', alt: 'Dettagli architettonici', category: 'details' },
+  { src: '/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png', alt: 'Arco di ingresso', category: 'details' },
+  { src: '/lovable-uploads/7c87682b-32e2-45e6-b99b-3b4bce99f00f.png', alt: 'Ciminiera storica', category: 'details' },
+  { src: '/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png', alt: 'Dettagli decorativi', category: 'details' },
 ];
 
 // Combine all images
 const allImages = [...structureImages, ...foodImages, ...eventsImages, ...detailsImages];
 
 const Gallery = () => {
+  const isMobile = useIsMobile();
   const [activeCategory, setActiveCategory] = useState('all');
   const [modalImage, setModalImage] = useState<null | { src: string; alt: string }>(null);
 
@@ -71,15 +73,15 @@ const Gallery = () => {
   return (
     <Layout>
       <ImageWithOverlay 
-        src="https://images.unsplash.com/photo-1583396718537-9f59e76ab2b6?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
+        src="/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png"
         alt="Galleria del Baglio Abbate"
-        className="h-[60vh]"
+        className="h-[40vh] md:h-[60vh]"
       >
         <div className="baglio-container text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-playfair">
+          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-4 font-playfair">
             La nostra galleria
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+          <p className="text-lg md:text-2xl max-w-3xl mx-auto">
             Scopri l'essenza del Baglio Abbate attraverso le immagini
           </p>
         </div>
@@ -93,12 +95,12 @@ const Gallery = () => {
             center
           />
           
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12">
             {galleryCategories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-2 rounded-full transition-colors ${
+                className={`px-4 py-1.5 md:px-6 md:py-2 rounded-full text-sm md:text-base transition-colors ${
                   activeCategory === category.id
                     ? 'bg-baglio-terracotta text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -109,7 +111,7 @@ const Gallery = () => {
             ))}
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {filteredImages.map((image, index) => (
               <div
                 key={index}
@@ -119,10 +121,10 @@ const Gallery = () => {
                 <img 
                   src={image.src} 
                   alt={image.alt} 
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-48 md:h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300 flex items-center justify-center">
-                  <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-lg">
+                  <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-base md:text-lg px-3 text-center">
                     {image.alt}
                   </p>
                 </div>
@@ -154,8 +156,8 @@ const Gallery = () => {
             </a>
           </div>
           
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-            {allImages.slice(0, 6).map((image, index) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 md:gap-4">
+            {allImages.slice(0, isMobile ? 4 : 6).map((image, index) => (
               <div
                 key={index}
                 className="relative overflow-hidden rounded-lg shadow-md group"
@@ -163,7 +165,7 @@ const Gallery = () => {
                 <img 
                   src={image.src} 
                   alt={image.alt} 
-                  className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-32 md:h-40 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300"></div>
               </div>
@@ -188,7 +190,7 @@ const Gallery = () => {
               alt={modalImage.alt} 
               className="max-w-full max-h-[85vh] object-contain"
             />
-            <p className="text-white text-center mt-4 text-lg">{modalImage.alt}</p>
+            <p className="text-white text-center mt-4 text-base md:text-lg">{modalImage.alt}</p>
           </div>
         </div>
       )}

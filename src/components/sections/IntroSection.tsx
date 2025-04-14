@@ -1,48 +1,55 @@
 
 import React from 'react';
 import SectionTitle from '../SectionTitle';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const IntroSection = () => {
+  const isMobile = useIsMobile();
+  
   return (
     <section className="section-padding bg-baglio-cream bg-opacity-20">
       <div className="baglio-container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="animate-fade-up">
             <SectionTitle 
               title="Benvenuti al Baglio Abbate" 
               subtitle="Una storica struttura siciliana nel cuore di Balestrate"
             />
-            <p className="text-gray-700 mb-6">
+            <p className="text-gray-700 mb-4 md:mb-6">
               Situato in un'antica masseria restaurata con amore e passione, il Baglio Abbate è un luogo dove storia, 
               tradizione e innovazione si fondono in un'esperienza indimenticabile. I nostri spazi, immersi nel 
               fascino senza tempo della Sicilia, offrono un'atmosfera unica per ogni momento speciale.
             </p>
-            <p className="text-gray-700 mb-6">
+            <p className="text-gray-700 mb-4 md:mb-6">
               Dal nostro ristorante che celebra i sapori autentici della cucina siciliana al lounge bar 
               dove gustare cocktail artigianali al tramonto, ogni elemento è pensato per regalare 
               emozioni e ricordi che durano nel tempo.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <div className={`grid grid-cols-2 gap-3 md:gap-4 animate-fade-up ${isMobile ? 'mt-4' : ''}`} style={{ animationDelay: '0.2s' }}>
             <img 
-              src="https://images.unsplash.com/photo-1583227061267-8428fb76fbfd?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" 
-              alt="Esterni del Baglio Abbate" 
+              src="/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png" 
+              alt="Arco interno con soffitto in legno" 
               className="rounded-lg shadow-md h-full object-cover"
+              loading="lazy"
             />
             <img 
-              src="https://images.unsplash.com/photo-1561144257-e32e8efc6c4f?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" 
-              alt="Interni del Baglio Abbate" 
-              className="rounded-lg shadow-md h-full object-cover mt-6 md:mt-12"
+              src="/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png" 
+              alt="Ingresso con decorazioni floreali" 
+              className="rounded-lg shadow-md h-full object-cover mt-4 md:mt-12"
+              loading="lazy"
             />
             <img 
-              src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" 
-              alt="Dettagli architettonici" 
+              src="/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png" 
+              alt="Interni eleganti con archi" 
               className="rounded-lg shadow-md h-full object-cover"
+              loading="lazy"
             />
             <img 
-              src="https://images.unsplash.com/photo-1611424564056-d7c670f71e2f?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" 
-              alt="Piatti tipici siciliani" 
-              className="rounded-lg shadow-md h-full object-cover mt-6 md:mt-12"
+              src="/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png" 
+              alt="Tavolo decorato all'esterno" 
+              className="rounded-lg shadow-md h-full object-cover mt-4 md:mt-12"
+              loading="lazy"
             />
           </div>
         </div>
