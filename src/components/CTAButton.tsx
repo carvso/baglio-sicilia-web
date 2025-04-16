@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { cn } from '@/lib/utils';
 
 type CTAButtonProps = {
   children: React.ReactNode;
@@ -22,16 +23,20 @@ const CTAButton = ({
 }: CTAButtonProps) => {
   const isMobile = useIsMobile();
   
-  const baseClasses = outline 
-    ? 'cta-button-outline' 
-    : 'cta-button';
-  
-  const mobileClasses = isMobile && fullWidth ? 'w-full justify-center' : '';
+  const baseClasses = cn(
+    'inline-flex items-center justify-center font-semibold py-3 px-6 rounded-sm transition-all duration-300',
+    {
+      'bg-white text-baglio-terracotta hover:bg-gray-100': !outline,
+      'border-2 border-white text-white hover:bg-white hover:text-baglio-terracotta': outline,
+      'w-full justify-center': isMobile && fullWidth
+    },
+    className
+  );
   
   return (
     <Link 
       to={to} 
-      className={`${baseClasses} ${mobileClasses} ${className}`}
+      className={baseClasses}
       onClick={onClick}
     >
       {children}
