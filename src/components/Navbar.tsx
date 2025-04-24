@@ -40,7 +40,8 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-6 items-center">
             <NavLink to="/" isScrolled={isScrolled}>Home</NavLink>
             <NavLink to="/chi-siamo" isScrolled={isScrolled}>Chi Siamo</NavLink>
-            <NavLink to="/ristorante" isScrolled={isScrolled}>Ristorante & Lounge</NavLink>
+            <NavLink to="/baglio-abbate" isScrolled={isScrolled}>Baglio Abbate</NavLink>
+            <NavLink to="/terrazza-lounge" isScrolled={isScrolled}>Terrazza Elite</NavLink>
             <NavLink to="/eventi" isScrolled={isScrolled}>Eventi</NavLink>
             <NavLink to="/gallery" isScrolled={isScrolled}>Gallery</NavLink>
             <NavLink to="/contatti" isScrolled={isScrolled}>Contatti</NavLink>
@@ -80,7 +81,8 @@ const Navbar = () => {
         <div className="flex flex-col h-full justify-center items-center space-y-8 p-4">
           <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
           <MobileNavLink to="/chi-siamo" onClick={toggleMenu}>Chi Siamo</MobileNavLink>
-          <MobileNavLink to="/ristorante" onClick={toggleMenu}>Ristorante & Lounge</MobileNavLink>
+          <MobileNavLink to="/baglio-abbate" onClick={toggleMenu}>Baglio Abbate</MobileNavLink>
+          <MobileNavLink to="/terrazza-lounge" onClick={toggleMenu}>Terrazza Elite</MobileNavLink>
           <MobileNavLink to="/eventi" onClick={toggleMenu}>Eventi</MobileNavLink>
           <MobileNavLink to="/gallery" onClick={toggleMenu}>Gallery</MobileNavLink>
           <MobileNavLink to="/contatti" onClick={toggleMenu}>Contatti</MobileNavLink>
