@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Layout from '@/components/Layout';
 import SectionTitle from '@/components/SectionTitle';
@@ -216,7 +215,7 @@ const BaglioAbbate = () => {
           />
           
           <div className="mt-8">
-            <OpenTableReservation restaurantId="1234" className="max-w-2xl mx-auto" />
+            <OpenTableReservation restaurantId="1234" className="max-w-2xl mx-auto" isEventVenue={true} />
           </div>
         </div>
       </section>

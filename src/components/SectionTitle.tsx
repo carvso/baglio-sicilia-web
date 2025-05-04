@@ -7,13 +7,14 @@ type SectionTitleProps = {
   subtitle?: string;
   center?: boolean;
   light?: boolean;
+  className?: string;
 };
 
-const SectionTitle = ({ title, subtitle, center = false, light = false }: SectionTitleProps) => {
+const SectionTitle = ({ title, subtitle, center = false, light = false, className = '' }: SectionTitleProps) => {
   const isMobile = useIsMobile();
 
   return (
-    <div className={`mb-8 md:mb-12 ${center ? 'text-center' : ''}`}>
+    <div className={`mb-8 md:mb-12 ${center ? 'text-center' : ''} ${className}`}>
       <h2 className={`text-2xl ${isMobile ? '' : 'text-3xl md:text-4xl'} font-semibold mb-3 md:mb-4 font-playfair ${light ? 'text-white' : ''}`}>
         {title}
       </h2>

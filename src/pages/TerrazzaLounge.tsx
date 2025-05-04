@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Layout from '@/components/Layout';
 import SectionTitle from '@/components/SectionTitle';
@@ -99,7 +98,7 @@ const TerrazzaLounge = () => {
             title="La Nostra Selezione" 
             subtitle="I migliori cocktail e tapas con vista sul tramonto"
             center
-            className="text-white"
+            light={true}
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-10">
