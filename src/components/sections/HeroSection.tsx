@@ -39,8 +39,8 @@ const HeroSection = ({ title, subtitle, imageSrc }: HeroSectionProps) => {
           {subtitle}
         </p>
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 ${isMobile ? 'w-full' : ''}`}>
-          <CTAButton to="/contatti" fullWidth={isMobile}>Prenota un tavolo</CTAButton>
-          <CTAButton to="/eventi" outline={true} fullWidth={isMobile}>Organizza il tuo evento</CTAButton>
+          <CTAButton to="/baglio-abbate" fullWidth={isMobile}>Esplora il Baglio</CTAButton>
+          <CTAButton to="/eventi" outline={true} fullWidth={isMobile}>Scopri i nostri eventi</CTAButton>
         </div>
         <button 
           onClick={scrollToNextSection}

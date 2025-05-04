@@ -12,7 +12,7 @@ const OpenTableReservation = ({
   restaurantId = "1234", // Replace with actual OpenTable restaurant ID
   className = "",
   theme = "light",
-  isEventVenue = false
+  isEventVenue = true
 }: OpenTableReservationProps) => {
   return (
     <div className={`open-table-container ${className}`}>

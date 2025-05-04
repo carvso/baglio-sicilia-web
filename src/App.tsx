@@ -12,7 +12,6 @@ import Gallery from "./pages/Gallery";
 import Contatti from "./pages/Contatti";
 import NotFound from "./pages/NotFound";
 import BaglioAbbate from "./pages/BaglioAbbate";
-import TerrazzaLounge from "./pages/TerrazzaLounge";
 
 const queryClient = new QueryClient();
 
@@ -30,7 +29,6 @@ const App = () => (
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contatti" element={<Contatti />} />
           <Route path="/baglio-abbate" element={<BaglioAbbate />} />
-          <Route path="/terrazza-lounge" element={<TerrazzaLounge />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
