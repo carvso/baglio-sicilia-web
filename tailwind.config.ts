@@ -69,7 +69,17 @@ export default {
 					pink: '#F55EEBDD',      // Rosa (mantenuto dalla palette precedente)
 					lightpink: '#F55EBDD',  // Rosa più chiaro/sfondo principale (mantenuto dalla palette precedente)
 					gray: '#A9A9A9',        // Grigio (mantenuto dalla palette precedente)
-					burgundy: '#722F37'     // Bordeaux (mantenuto dalla palette precedente)
+					burgundy: '#722F37',     // Bordeaux (mantenuto dalla palette precedente)
+					
+					// Nuova palette Blu Notte
+					bluNotte: '#2a2a4d',    // Blu Notte – accento principale
+					indaco: '#4c537d',      // Indaco Polveroso – dettagli interattivi
+					verdeScuro: '#4e6437',  // Salvia Profonda – elemento naturale 
+					cremaSabbia: '#e7d9c0', // Crema Sabbia – sfondo alternativo chiaro
+					rameAntico: '#a2703d',  // Rame Antico – caldo e rustico
+					vinoTerre: '#7b2e3a',   // Vino Terre Bruciate – profondità emozionale
+					lavagna: '#8a8fa3',     // Grigio Lavagna – testi secondari
+					perla: '#cfcfd6',       // Perla Fredda – contrasto delicato
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

@@ -6,7 +6,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  /* Default palette (original) */
+  .palette-default {
     /* Light theme variables */
     --background: 39 39% 89%; /* Crema Sabbia */
     --foreground: 0 0% 11%; /* Ebano Notte */
@@ -48,7 +49,7 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
+  .palette-default.dark {
     /* Dark theme variables */
     --background: 0 0% 11%; /* Ebano Notte */
     --foreground: 39 39% 89%; /* Crema Sabbia */
@@ -87,9 +88,90 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
 
-@layer base {
+  /* Dark Blue palette */
+  .palette-dark-blue {
+    /* Light theme variables */
+    --background: 34 39% 89%; /* Crema Sabbia */
+    --foreground: 240 0% 11%; /* Ebano Notte */
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 28% 23%; /* Blu Notte */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 28% 23%; /* Blu Notte */
+
+    --primary: 230 24% 39%; /* Blu Notte/Indaco */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 134 30% 30%; /* Salvia Profonda */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 13% 91%;
+    --muted-foreground: 223 11% 60%; /* Grigio Lavagna */
+
+    --accent: 230 24% 39%; /* Indaco */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 350 45% 33%; /* Vino Terre */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 33 46% 43%; /* Rame Antico */
+    --input: 220 13% 91%;
+    --ring: 230 24% 39%; /* Indaco */
+
+    --radius: 1rem; /* More rounded for this style */
+
+    --sidebar-background: 240 5.3% 26.1%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .palette-dark-blue.dark {
+    /* Dark theme variables */
+    --background: 240 28% 12%; /* Ebano/Blu Notte più scuro */
+    --foreground: 220 13% 91%; /* Perla Fredda */
+
+    --card: 240 28% 19%; /* Blu Notte */
+    --card-foreground: 220 13% 91%; /* Perla Fredda */
+
+    --popover: 240 28% 19%; /* Blu Notte */
+    --popover-foreground: 220 13% 91%; /* Perla Fredda */
+
+    --primary: 228 24% 42%; /* Indaco */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 134 30% 30%; /* Salvia Profonda */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 228 16% 25%;
+    --muted-foreground: 223 11% 70%; /* Grigio Lavagna più chiaro */
+
+    --accent: 33 46% 43%; /* Rame Antico */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 350 45% 33%; /* Vino Terre */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 228 24% 42%; /* Indaco */
+    --input: 240 17% 26%;
+    --ring: 228 24% 42%; /* Indaco */
+
+    --sidebar-background: 240 28% 15%;
+    --sidebar-foreground: 220 13% 91%;
+    --sidebar-primary: 228 24% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 28% 25%;
+    --sidebar-accent-foreground: 220 13% 91%;
+    --sidebar-border: 240 28% 25%;
+    --sidebar-ring: 228 24% 42%;
+  }
+
   * {
     @apply border-border;
   }
@@ -100,6 +182,15 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-playfair text-baglio-oro dark:text-baglio-oro;
+  }
+
+  .palette-dark-blue h1,
+  .palette-dark-blue h2,
+  .palette-dark-blue h3,
+  .palette-dark-blue h4,
+  .palette-dark-blue h5,
+  .palette-dark-blue h6 {
+    @apply text-baglio-bluNotte dark:text-baglio-indaco;
   }
 
   a {
@@ -118,6 +209,14 @@
   ::-webkit-scrollbar-thumb {
     @apply bg-baglio-oro/70 rounded-full hover:bg-baglio-oro;
   }
+
+  .palette-dark-blue ::-webkit-scrollbar-track {
+    @apply bg-baglio-cremaSabbia/50 dark:bg-baglio-bluNotte/70;
+  }
+  
+  .palette-dark-blue ::-webkit-scrollbar-thumb {
+    @apply bg-baglio-indaco/70 rounded-full hover:bg-baglio-indaco;
+  }
 }
 
 /* Custom utility classes */
@@ -134,12 +233,20 @@
     @apply absolute inset-0 bg-baglio-ebano bg-opacity-40 dark:bg-opacity-60 z-10;
   }
 
+  .palette-dark-blue .hero-overlay {
+    @apply absolute inset-0 bg-baglio-bluNotte bg-opacity-40 dark:bg-opacity-70 z-10;
+  }
+
   .hero-content {
     @apply z-20 text-center text-white p-4;
   }
 
   .section-title {
     @apply text-3xl md:text-4xl font-semibold mb-6 font-playfair text-baglio-oro;
+  }
+
+  .palette-dark-blue .section-title {
+    @apply text-3xl md:text-4xl font-semibold mb-6 font-playfair text-baglio-bluNotte dark:text-baglio-indaco;
   }
 
   .section-padding {
@@ -150,12 +257,24 @@
     @apply bg-baglio-oro hover:bg-baglio-oro/90 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md;
   }
 
+  .palette-dark-blue .cta-button {
+    @apply bg-baglio-indaco hover:bg-baglio-indaco/90 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md;
+  }
+
   .cta-button-outline {
     @apply border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-white font-semibold py-3 px-6 rounded-md transition-all duration-300;
   }
 
+  .palette-dark-blue .cta-button-outline {
+    @apply border-2 border-baglio-indaco text-baglio-indaco hover:bg-baglio-indaco hover:text-white font-semibold py-3 px-6 rounded-md transition-all duration-300;
+  }
+
   .navbar-scrolled {
     @apply bg-white/90 dark:bg-baglio-ebano/90 backdrop-blur-sm shadow-md text-baglio-ebano dark:text-baglio-crema;
+  }
+
+  .palette-dark-blue .navbar-scrolled {
+    @apply bg-white/90 dark:bg-baglio-bluNotte/90 backdrop-blur-sm shadow-md text-baglio-bluNotte dark:text-baglio-cremaSabbia;
   }
 
   .navbar-transparent {

@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ThemeToggle from './ThemeToggle';
+import PaletteToggle from './PaletteToggle';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,7 +54,10 @@ const Navbar = () => {
             <NavLink to="/contatti" isActive={location.pathname === "/contatti"} isScrolled={isScrolled}>Contatti</NavLink>
             
             {/* Theme Toggle */}
-            <ThemeToggle className="ml-2" />
+            <div className="flex items-center gap-2">
+              <PaletteToggle />
+              <ThemeToggle className="ml-2" />
+            </div>
             
             <Link 
               to="/contatti" 
