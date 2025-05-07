@@ -1,11 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +21,11 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Close the mobile menu when changing routes
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -38,19 +45,18 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center">
-            <NavLink to="/" isScrolled={isScrolled}>Home</NavLink>
-            <NavLink to="/chi-siamo" isScrolled={isScrolled}>Chi Siamo</NavLink>
-            <NavLink to="/baglio-abbate" isScrolled={isScrolled}>Baglio Abbate</NavLink>
-            <NavLink to="/terrazza-lounge" isScrolled={isScrolled}>Terrazza Elite</NavLink>
-            <NavLink to="/eventi" isScrolled={isScrolled}>Eventi</NavLink>
-            <NavLink to="/gallery" isScrolled={isScrolled}>Gallery</NavLink>
-            <NavLink to="/contatti" isScrolled={isScrolled}>Contatti</NavLink>
+            <NavLink to="/" isActive={location.pathname === "/"} isScrolled={isScrolled}>Home</NavLink>
+            <NavLink to="/baglio-abbate" isActive={location.pathname === "/baglio-abbate"} isScrolled={isScrolled}>Baglio Abbate</NavLink>
+            <NavLink to="/terrazza-lounge" isActive={location.pathname === "/terrazza-lounge"} isScrolled={isScrolled}>Terrazza Elite</NavLink>
+            <NavLink to="/eventi" isActive={location.pathname === "/eventi"} isScrolled={isScrolled}>Eventi</NavLink>
+            <NavLink to="/gallery" isActive={location.pathname === "/gallery"} isScrolled={isScrolled}>Gallery</NavLink>
+            <NavLink to="/contatti" isActive={location.pathname === "/contatti"} isScrolled={isScrolled}>Contatti</NavLink>
             <Link 
               to="/contatti" 
               className={`ml-4 py-2 px-4 border ${
                 isScrolled 
-                  ? 'border-baglio-terracotta text-baglio-terracotta hover:bg-baglio-terracotta hover:text-white' 
-                  : 'border-white text-white hover:bg-white hover:text-baglio-terracotta'
+                  ? 'border-baglio-burgundy text-baglio-burgundy hover:bg-baglio-burgundy hover:text-white' 
+                  : 'border-white text-white hover:bg-white hover:text-baglio-burgundy'
               } transition duration-300 rounded-sm`}
             >
               Prenota
@@ -80,7 +86,6 @@ const Navbar = () => {
       >
         <div className="flex flex-col h-full justify-center items-center space-y-8 p-4">
           <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
-          <MobileNavLink to="/chi-siamo" onClick={toggleMenu}>Chi Siamo</MobileNavLink>
           <MobileNavLink to="/baglio-abbate" onClick={toggleMenu}>Baglio Abbate</MobileNavLink>
           <MobileNavLink to="/terrazza-lounge" onClick={toggleMenu}>Terrazza Elite</MobileNavLink>
           <MobileNavLink to="/eventi" onClick={toggleMenu}>Eventi</MobileNavLink>
@@ -103,14 +108,20 @@ type NavLinkProps = {
   to: string;
   children: React.ReactNode;
   isScrolled: boolean;
+  isActive: boolean;
 };
 
-const NavLink = ({ to, children, isScrolled }: NavLinkProps) => (
+const NavLink = ({ to, children, isScrolled, isActive }: NavLinkProps) => (
   <Link 
     to={to} 
-    className={`font-medium transition-colors duration-300 hover:text-baglio-terracotta ${
-      isScrolled ? 'text-gray-800' : 'text-white'
-    }`}
+    className={cn(
+      `font-medium transition-colors duration-300 hover:text-baglio-burgundy`,
+      {
+        'text-gray-800': isScrolled && !isActive,
+        'text-white': !isScrolled && !isActive,
+        'text-baglio-burgundy font-semibold': isActive,
+      }
+    )}
   >
     {children}
   </Link>
@@ -126,7 +137,7 @@ const MobileNavLink = ({ to, children, onClick }: MobileNavLinkProps) => (
   <Link 
     to={to} 
     onClick={onClick}
-    className="text-white text-2xl font-playfair hover:text-baglio-terracotta transition duration-300"
+    className="text-white text-2xl font-playfair hover:text-baglio-burgundy transition duration-300"
   >
     {children}
   </Link>

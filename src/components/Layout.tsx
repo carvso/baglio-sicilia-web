@@ -3,14 +3,21 @@ import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { useIsMobile } from '@/hooks/use-mobile';
+import WhatsAppButton from './WhatsAppButton';
 
 type LayoutProps = {
   children: React.ReactNode;
   hideNavbar?: boolean;
   hideFooter?: boolean;
+  whatsAppMessage?: string;
 };
 
-const Layout = ({ children, hideNavbar = false, hideFooter = false }: LayoutProps) => {
+const Layout = ({ 
+  children, 
+  hideNavbar = false, 
+  hideFooter = false,
+  whatsAppMessage = "Ciao! Sono interessato a maggiori informazioni su Baglio Abbate." 
+}: LayoutProps) => {
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -23,6 +30,7 @@ const Layout = ({ children, hideNavbar = false, hideFooter = false }: LayoutProp
       {!hideNavbar && <Navbar />}
       <main className="flex-grow">{children}</main>
       {!hideFooter && <Footer />}
+      <WhatsAppButton message={whatsAppMessage} />
     </div>
   );
 };
