@@ -34,7 +34,7 @@ const OpenTableReservation = ({
           href={`https://www.opentable.it/restref/client/?rid=${restaurantId}`}
           target="_blank"
           rel="noopener noreferrer" 
-          className="inline-flex items-center justify-center font-semibold py-3 px-6 rounded-sm transition-all duration-300 bg-baglio-terracotta text-white hover:bg-baglio-terracotta/90"
+          className="inline-flex items-center justify-center font-semibold py-3 px-6 rounded-sm transition-all duration-300 bg-baglio-burgundy text-white hover:bg-baglio-burgundy/90"
         >
           {isEventVenue ? "Prenota ora una visita" : "Prenota ora su OpenTable"}
         </a>

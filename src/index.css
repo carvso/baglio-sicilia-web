@@ -127,11 +127,11 @@
   }
 
   .cta-button {
-    @apply bg-baglio-terracotta hover:bg-opacity-90 text-white font-semibold py-3 px-6 rounded-sm transition-all duration-300;
+    @apply bg-baglio-burgundy hover:bg-opacity-90 text-white font-semibold py-3 px-6 rounded-sm transition-all duration-300;
   }
 
   .cta-button-outline {
-    @apply border-2 border-baglio-terracotta text-baglio-terracotta hover:bg-baglio-terracotta hover:text-white font-semibold py-3 px-6 rounded-sm transition-all duration-300;
+    @apply border-2 border-baglio-burgundy text-baglio-burgundy hover:bg-baglio-burgundy hover:text-white font-semibold py-3 px-6 rounded-sm transition-all duration-300;
   }
 
   .navbar-scrolled {

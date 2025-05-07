@@ -53,12 +53,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Custom colors for Baglio Abbate
+				// Nuova palette di colori per Baglio Abbate
 				baglio: {
-					cream: '#FDE1D3',
-					sand: '#F5E9D9',
-					terracotta: '#E07D54',
-					olive: '#7D8C65'
+					cream: '#DCC9A3',       // Beige/Crema
+					dark: '#1A1A40',        // Blu scuro
+					pink: '#F55EEBDD',      // Rosa
+					gray: '#A9A9A9',        // Grigio
+					burgundy: '#722F37'      // Bordeaux
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
