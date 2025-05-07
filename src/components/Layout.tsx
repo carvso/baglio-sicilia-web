@@ -19,7 +19,7 @@ const Layout = ({ children, hideNavbar = false, hideFooter = false }: LayoutProp
   }, []);
 
   return (
-    <div className={`flex flex-col min-h-screen ${isMobile ? 'mobile-layout' : ''}`}>
+    <div className={`flex flex-col min-h-screen bg-baglio-lightpink ${isMobile ? 'mobile-layout' : ''}`}>
       {!hideNavbar && <Navbar />}
       <main className="flex-grow">{children}</main>
       {!hideFooter && <Footer />}

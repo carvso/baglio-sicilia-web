@@ -58,6 +58,7 @@ export default {
 					cream: '#DCC9A3',       // Beige/Crema
 					dark: '#1A1A40',        // Blu scuro
 					pink: '#F55EEBDD',      // Rosa
+					lightpink: '#F55EBDD',  // Rosa più chiaro/sfondo principale
 					gray: '#A9A9A9',        // Grigio
 					burgundy: '#722F37'      // Bordeaux
 				},
