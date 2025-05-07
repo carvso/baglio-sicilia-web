@@ -7,37 +7,38 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Light theme variables */
+    --background: 39 39% 89%; /* Crema Sabbia */
+    --foreground: 0 0% 11%; /* Ebano Notte */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 11%; /* Ebano Notte */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 11%; /* Ebano Notte */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 46 68% 47%; /* Oro Antico */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 135 30% 30%; /* Salvia Profonda */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 69%; /* Grigio Fumo */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 334 60% 77%; /* Rosa Cipria */
+    --accent-foreground: 240 5.9% 10%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 356 43% 39%; /* Vino Terroso */
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 30 46% 43%; /* Rame Antico */
+    --input: 0 0% 96%;
+    --ring: 46 68% 47%; /* Oro Antico */
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 240 5.3% 26.1%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
@@ -48,33 +49,35 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark theme variables */
+    --background: 0 0% 11%; /* Ebano Notte */
+    --foreground: 39 39% 89%; /* Crema Sabbia */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 11%; /* Ebano Notte */
+    --card-foreground: 39 39% 89%; /* Crema Sabbia */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 11%; /* Ebano Notte */
+    --popover-foreground: 39 39% 89%; /* Crema Sabbia */
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 46 68% 47%; /* Oro Antico */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 135 30% 30%; /* Salvia Profonda */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 225 27% 23%;
+    --muted-foreground: 0 0% 69%; /* Grigio Fumo */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 334 60% 50%; /* Rosa Cipria più scuro */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 356 43% 39%; /* Vino Terroso */
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 30 46% 30%; /* Rame Antico più scuro */
+    --input: 240 17% 26%;
+    --ring: 46 68% 47%; /* Oro Antico */
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -92,11 +95,28 @@
   }
 
   body {
-    @apply bg-baglio-lightpink text-foreground font-montserrat;
+    @apply bg-background text-foreground font-montserrat transition-colors duration-300;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair;
+    @apply font-playfair text-baglio-oro dark:text-baglio-oro;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  /* Scrollbar customization */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-baglio-crema/50 dark:bg-baglio-ebano;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-baglio-oro/70 rounded-full hover:bg-baglio-oro;
   }
 }
 
@@ -111,7 +131,7 @@
   }
 
   .hero-overlay {
-    @apply absolute inset-0 bg-black bg-opacity-40 z-10;
+    @apply absolute inset-0 bg-baglio-ebano bg-opacity-40 dark:bg-opacity-60 z-10;
   }
 
   .hero-content {
@@ -119,7 +139,7 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-semibold mb-6 font-playfair;
+    @apply text-3xl md:text-4xl font-semibold mb-6 font-playfair text-baglio-oro;
   }
 
   .section-padding {
@@ -127,18 +147,35 @@
   }
 
   .cta-button {
-    @apply bg-baglio-burgundy hover:bg-opacity-90 text-white font-semibold py-3 px-6 rounded-sm transition-all duration-300;
+    @apply bg-baglio-oro hover:bg-baglio-oro/90 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md;
   }
 
   .cta-button-outline {
-    @apply border-2 border-baglio-burgundy text-baglio-burgundy hover:bg-baglio-burgundy hover:text-white font-semibold py-3 px-6 rounded-sm transition-all duration-300;
+    @apply border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-white font-semibold py-3 px-6 rounded-md transition-all duration-300;
   }
 
   .navbar-scrolled {
-    @apply bg-white shadow-md text-gray-800;
+    @apply bg-white/90 dark:bg-baglio-ebano/90 backdrop-blur-sm shadow-md text-baglio-ebano dark:text-baglio-crema;
   }
 
   .navbar-transparent {
     @apply bg-transparent text-white;
   }
 }
+
+/* Custom animations */
+@keyframes gentle-fade-in {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-gentle-fade-in {
+  animation: gentle-fade-in 1s ease forwards;
+}
+
+/* Add animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }

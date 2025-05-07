@@ -26,7 +26,7 @@ const Layout = ({
   }, []);
 
   return (
-    <div className={`flex flex-col min-h-screen bg-baglio-lightpink ${isMobile ? 'mobile-layout' : ''}`}>
+    <div className="flex flex-col min-h-screen bg-background transition-colors duration-300">
       {!hideNavbar && <Navbar />}
       <main className="flex-grow">{children}</main>
       {!hideFooter && <Footer />}

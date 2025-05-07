@@ -24,10 +24,10 @@ const CTAButton = ({
   const isMobile = useIsMobile();
   
   const baseClasses = cn(
-    'inline-flex items-center justify-center font-semibold py-3 px-6 rounded-sm transition-all duration-300',
+    'inline-flex items-center justify-center font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md',
     {
-      'bg-white text-baglio-burgundy hover:bg-gray-100': !outline,
-      'border-2 border-white text-white hover:bg-white hover:text-baglio-burgundy': outline,
+      'bg-baglio-oro text-white hover:bg-baglio-oro/90': !outline,
+      'border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-white': outline,
       'w-full justify-center': isMobile && fullWidth
     },
     className

@@ -55,12 +55,21 @@ export default {
 				},
 				// Nuova palette di colori per Baglio Abbate
 				baglio: {
-					cream: '#DCC9A3',       // Beige/Crema
-					dark: '#1A1A40',        // Blu scuro
-					pink: '#F55EEBDD',      // Rosa
-					lightpink: '#F55EBDD',  // Rosa più chiaro/sfondo principale
-					gray: '#A9A9A9',        // Grigio
-					burgundy: '#722F37'      // Bordeaux
+					ebano: '#1b1b1b',       // Ebano Notte – sfondo scuro
+					oro: '#c9a227',         // Oro Antico – accenti e titoli
+					rosa: '#e8a0bd',        // Rosa Cipria – dettagli romantici
+					salvia: '#4e6437',      // Salvia Profonda – connessione naturale
+					crema: '#e7d9c0',       // Crema Sabbia – sfondo chiaro alternativo
+					vino: '#8c3743',        // Vino Terroso – elementi emozionali
+					blu: '#2a2a4d',         // Blu Notte – alternativa elegante al nero
+					grigio: '#b0b0b0',      // Grigio Fumo – testi secondari
+					rame: '#a2703d',        // Rame Antico – dettagli rustici caldi
+					cream: '#DCC9A3',       // Beige/Crema (mantenuto dalla palette precedente)
+					dark: '#1A1A40',        // Blu scuro (mantenuto dalla palette precedente)
+					pink: '#F55EEBDD',      // Rosa (mantenuto dalla palette precedente)
+					lightpink: '#F55EBDD',  // Rosa più chiaro/sfondo principale (mantenuto dalla palette precedente)
+					gray: '#A9A9A9',        // Grigio (mantenuto dalla palette precedente)
+					burgundy: '#722F37'     // Bordeaux (mantenuto dalla palette precedente)
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

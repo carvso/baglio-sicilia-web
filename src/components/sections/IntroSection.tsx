@@ -2,12 +2,17 @@
 import React from 'react';
 import SectionTitle from '../SectionTitle';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { cn } from '@/lib/utils';
 
-const IntroSection = () => {
+type IntroSectionProps = {
+  className?: string;
+};
+
+const IntroSection = ({ className }: IntroSectionProps) => {
   const isMobile = useIsMobile();
   
   return (
-    <section className="section-padding bg-baglio-cream bg-opacity-20">
+    <section className={cn("section-padding bg-baglio-crema/20 dark:bg-baglio-blu/20", className)}>
       <div className="baglio-container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="animate-fade-up">
@@ -15,18 +20,18 @@ const IntroSection = () => {
               title="Benvenuti al Baglio Abbate" 
               subtitle="Una storica struttura siciliana nel cuore di Balestrate"
             />
-            <p className="text-gray-700 mb-4 md:mb-6">
+            <p className="text-gray-700 dark:text-baglio-grigio mb-4 md:mb-6">
               Situato in un'antica masseria restaurata con amore e passione, il Baglio Abbate è un luogo dove storia, 
               tradizione e innovazione si fondono in un'esperienza indimenticabile. I nostri spazi, immersi nel 
               fascino senza tempo della Sicilia, offrono un'atmosfera unica per ogni momento speciale.
             </p>
-            <p className="text-gray-700 mb-4 md:mb-6">
+            <p className="text-gray-700 dark:text-baglio-grigio mb-4 md:mb-6">
               Dal nostro ristorante che celebra i sapori autentici della cucina siciliana al lounge bar 
               dove gustare cocktail artigianali al tramonto, ogni elemento è pensato per regalare 
               emozioni e ricordi che durano nel tempo.
             </p>
           </div>
-          <div className={`grid grid-cols-2 gap-3 md:gap-4 animate-fade-up ${isMobile ? 'mt-4' : ''}`} style={{ animationDelay: '0.2s' }}>
+          <div className={cn("grid grid-cols-2 gap-3 md:gap-4 animate-fade-up", isMobile ? 'mt-4' : '')} style={{ animationDelay: '0.2s' }}>
             <img 
               src="/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png" 
               alt="Arco interno con soffitto in legno" 
