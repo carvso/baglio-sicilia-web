@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -117,21 +116,20 @@ const Navbar = () => {
         </nav>
       </div>
 
-      {/* Mobile Menu - Improved with animation and better positioning */}
+      {/* Mobile Menu - Fixed to viewport */}
       {isMenuOpen && (
-        <div className="mobile-menu-overlay" onClick={toggleMenu}>
-          <div 
-            className="fixed inset-0 bg-black bg-opacity-50 fade-in"
-            aria-hidden="true"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
+        <div 
+          className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40 fade-in"
+          onClick={toggleMenu}
+          aria-hidden="true"
+        />
       )}
       <div 
         className={cn(
           "md:hidden fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-baglio-ebano/95 dark:bg-baglio-blu/95 z-40 backdrop-blur-md shadow-xl transition-transform duration-300 overflow-y-auto",
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
+        style={{ height: '100%' }} // Make sure the height is always 100% of the viewport
       >
         <div className="flex flex-col h-full pt-20 pb-8 px-6">
           <div className="flex-grow flex flex-col space-y-6">

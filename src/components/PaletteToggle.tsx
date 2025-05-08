@@ -15,6 +15,7 @@ import {
   DrawerContent,
   DrawerTrigger,
   DrawerClose,
+  DrawerOverlay,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 
@@ -46,7 +47,8 @@ const PaletteToggle = ({ className }: PaletteToggleProps) => {
             <Palette size={20} className="text-baglio-blu dark:text-baglio-oro" />
           </button>
         </DrawerTrigger>
-        <DrawerContent className="px-4 py-6">
+        <DrawerOverlay />
+        <DrawerContent className="px-4 py-6 max-h-[80vh] overflow-y-auto">
           <div className="space-y-4">
             <h3 className="text-lg font-medium text-center mb-4">Scegli una palette colori</h3>
             <div className="grid grid-cols-2 gap-4">
