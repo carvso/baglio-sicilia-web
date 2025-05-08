@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -47,89 +48,98 @@ const Navbar = () => {
   };
 
   return (
-    <header 
-      className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-        isScrolled 
-          ? "navbar-scrolled" 
-          : "navbar-transparent"
-      )}
-    >
-      <div className="baglio-container">
-        <nav className="flex justify-between items-center py-4 px-4 md:px-0">
-          <Link to="/" className="font-playfair text-2xl font-bold tracking-wider relative z-50 text-baglio-ebano dark:text-white">
-            Baglio Abbate
-          </Link>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6 items-center">
-            <NavLink to="/" isActive={location.pathname === "/"} isScrolled={isScrolled}>Home</NavLink>
-            <NavLink to="/baglio-abbate" isActive={location.pathname === "/baglio-abbate"} isScrolled={isScrolled}>Baglio Abbate</NavLink>
-            <NavLink to="/ristorante" isActive={location.pathname === "/ristorante"} isScrolled={isScrolled}>Ristorante</NavLink>
-            <NavLink to="/eventi" isActive={location.pathname === "/eventi"} isScrolled={isScrolled}>Eventi</NavLink>
-            <NavLink to="/gallery" isActive={location.pathname === "/gallery"} isScrolled={isScrolled}>Gallery</NavLink>
-            <NavLink to="/contatti" isActive={location.pathname === "/contatti"} isScrolled={isScrolled}>Contatti</NavLink>
-            
-            {/* Theme & Palette Toggles */}
-            <div className="flex items-center gap-2">
-              <PaletteToggle />
-              <ThemeToggle className="ml-2" />
-            </div>
-            
-            <Link 
-              to="/contatti" 
-              className={cn(
-                "ml-4 py-2 px-4 border rounded-md transition duration-300",
-                isScrolled 
-                  ? 'border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-white' 
-                  : 'border-white text-white hover:bg-white hover:text-baglio-oro'
-              )}
-            >
-              Prenota
+    <>
+      <header 
+        className={cn(
+          "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+          isScrolled 
+            ? "navbar-scrolled" 
+            : "navbar-transparent"
+        )}
+      >
+        <div className="baglio-container">
+          <nav className="flex justify-between items-center py-4 px-4 md:px-0">
+            <Link to="/" className="font-playfair text-2xl font-bold tracking-wider relative z-50 text-baglio-ebano dark:text-white">
+              Baglio Abbate
             </Link>
-          </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4 z-50">
-            <div className="flex items-center gap-2">
-              <PaletteToggle />
-              <ThemeToggle />
+            {/* Desktop Menu */}
+            <div className="hidden md:flex space-x-6 items-center">
+              <NavLink to="/" isActive={location.pathname === "/"} isScrolled={isScrolled}>Home</NavLink>
+              <NavLink to="/baglio-abbate" isActive={location.pathname === "/baglio-abbate"} isScrolled={isScrolled}>Baglio Abbate</NavLink>
+              <NavLink to="/ristorante" isActive={location.pathname === "/ristorante"} isScrolled={isScrolled}>Ristorante</NavLink>
+              <NavLink to="/eventi" isActive={location.pathname === "/eventi"} isScrolled={isScrolled}>Eventi</NavLink>
+              <NavLink to="/gallery" isActive={location.pathname === "/gallery"} isScrolled={isScrolled}>Gallery</NavLink>
+              <NavLink to="/contatti" isActive={location.pathname === "/contatti"} isScrolled={isScrolled}>Contatti</NavLink>
+              
+              {/* Theme & Palette Toggles */}
+              <div className="flex items-center gap-2">
+                <PaletteToggle />
+                <ThemeToggle className="ml-2" />
+              </div>
+              
+              <Link 
+                to="/contatti" 
+                className={cn(
+                  "ml-4 py-2 px-4 border rounded-md transition duration-300",
+                  isScrolled 
+                    ? 'border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-white' 
+                    : 'border-white text-white hover:bg-white hover:text-baglio-oro'
+                )}
+              >
+                Prenota
+              </Link>
             </div>
-            <button 
-              onClick={toggleMenu} 
-              className="focus:outline-none"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? (
-                <X size={24} className={cn(
-                  "transition-colors",
-                  isScrolled ? 'text-gray-800 dark:text-white' : 'text-white'
-                )} />
-              ) : (
-                <Menu size={24} className={cn(
-                  "transition-colors",
-                  isScrolled ? 'text-gray-800 dark:text-white' : 'text-white'
-                )} />
-              )}
-            </button>
-          </div>
-        </nav>
-      </div>
 
-      {/* Mobile Menu - Fixed to viewport */}
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center space-x-4 z-50">
+              <div className="flex items-center gap-2">
+                <PaletteToggle />
+                <ThemeToggle />
+              </div>
+              <button 
+                onClick={toggleMenu} 
+                className="focus:outline-none"
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? (
+                  <X size={24} className={cn(
+                    "transition-colors",
+                    isScrolled ? 'text-gray-800 dark:text-white' : 'text-white'
+                  )} />
+                ) : (
+                  <Menu size={24} className={cn(
+                    "transition-colors",
+                    isScrolled ? 'text-gray-800 dark:text-white' : 'text-white'
+                  )} />
+                )}
+              </button>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      {/* Mobile Menu - Overlay */}
       {isMenuOpen && (
         <div 
           className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40 fade-in"
           onClick={toggleMenu}
           aria-hidden="true"
+          style={{ top: 0, bottom: 0, left: 0, right: 0 }}
         />
       )}
+      
+      {/* Mobile Menu - Content */}
       <div 
         className={cn(
           "md:hidden fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-baglio-ebano/95 dark:bg-baglio-blu/95 z-40 backdrop-blur-md shadow-xl transition-transform duration-300 overflow-y-auto",
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
-        style={{ height: '100%' }} // Make sure the height is always 100% of the viewport
+        style={{ 
+          height: '100vh',  // Use viewport height instead of 100%
+          top: 0,          // Explicitly set top to 0
+          position: 'fixed' // Ensure fixed positioning
+        }}
       >
         <div className="flex flex-col h-full pt-20 pb-8 px-6">
           <div className="flex-grow flex flex-col space-y-6">
@@ -151,7 +161,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 };
 
