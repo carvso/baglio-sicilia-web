@@ -26,7 +26,7 @@ const PaletteToggle = ({ className }: PaletteToggleProps) => {
   const { palette, setPalette } = usePalette();
   const isMobile = useIsMobile();
 
-  // Funzione per gestire la selezione della palette
+  // Function to handle palette selection
   const handlePaletteChange = (selectedPalette: PaletteType) => {
     setPalette(selectedPalette);
   };
@@ -108,7 +108,7 @@ const PaletteToggle = ({ className }: PaletteToggleProps) => {
   );
 };
 
-// Componente opzione palette per la visualizzazione mobile
+// Palette option component for mobile view
 interface PaletteOptionProps {
   title: string;
   palette: PaletteType;

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -51,8 +52,8 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
         isScrolled 
-          ? "bg-white/95 dark:bg-baglio-ebano/95 backdrop-blur-md shadow-md" 
-          : "bg-transparent"
+          ? "navbar-scrolled" 
+          : "navbar-transparent"
       )}
     >
       <div className="baglio-container">
@@ -116,27 +117,40 @@ const Navbar = () => {
         </nav>
       </div>
 
-      {/* Mobile Menu - Fixed position instead of absolute */}
+      {/* Mobile Menu - Improved with animation and better positioning */}
+      {isMenuOpen && (
+        <div className="mobile-menu-overlay" onClick={toggleMenu}>
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 fade-in"
+            aria-hidden="true"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
       <div 
         className={cn(
-          "md:hidden fixed inset-0 bg-baglio-ebano/95 dark:bg-baglio-blu/95 z-40 backdrop-blur-md transition-transform duration-300",
+          "md:hidden fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-baglio-ebano/95 dark:bg-baglio-blu/95 z-40 backdrop-blur-md shadow-xl transition-transform duration-300 overflow-y-auto",
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
-        <div className="flex flex-col h-full justify-center items-center space-y-8 p-4 pt-20">
-          <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
-          <MobileNavLink to="/baglio-abbate" onClick={toggleMenu}>Baglio Abbate</MobileNavLink>
-          <MobileNavLink to="/ristorante" onClick={toggleMenu}>Ristorante</MobileNavLink>
-          <MobileNavLink to="/eventi" onClick={toggleMenu}>Eventi</MobileNavLink>
-          <MobileNavLink to="/gallery" onClick={toggleMenu}>Gallery</MobileNavLink>
-          <MobileNavLink to="/contatti" onClick={toggleMenu}>Contatti</MobileNavLink>
-          <Link 
-            to="/contatti" 
-            onClick={toggleMenu}
-            className="py-2 px-6 border-2 border-baglio-oro text-white hover:bg-baglio-oro hover:text-white transition duration-300 rounded-md mt-4"
-          >
-            Prenota
-          </Link>
+        <div className="flex flex-col h-full pt-20 pb-8 px-6">
+          <div className="flex-grow flex flex-col space-y-6">
+            <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
+            <MobileNavLink to="/baglio-abbate" onClick={toggleMenu}>Baglio Abbate</MobileNavLink>
+            <MobileNavLink to="/ristorante" onClick={toggleMenu}>Ristorante</MobileNavLink>
+            <MobileNavLink to="/eventi" onClick={toggleMenu}>Eventi</MobileNavLink>
+            <MobileNavLink to="/gallery" onClick={toggleMenu}>Gallery</MobileNavLink>
+            <MobileNavLink to="/contatti" onClick={toggleMenu}>Contatti</MobileNavLink>
+          </div>
+          <div className="mt-8 pt-6 border-t border-white/10">
+            <Link 
+              to="/contatti" 
+              onClick={toggleMenu}
+              className="w-full inline-block text-center py-3 px-6 rounded-md bg-baglio-oro/90 text-white hover:bg-baglio-oro transition duration-300"
+            >
+              Prenota Ora
+            </Link>
+          </div>
         </div>
       </div>
     </header>
