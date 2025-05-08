@@ -1,7 +1,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-export type PaletteType = "default" | "dark-blue";
+export type PaletteType = "default" | "dark-blue" | "rustico-elegante" | "eleganza-notturna";
 
 type PaletteProviderProps = {
   children: React.ReactNode;
@@ -31,7 +31,7 @@ export function PaletteProvider({
     const root = window.document.documentElement;
     
     // Remove palette classes
-    root.classList.remove("palette-default", "palette-dark-blue");
+    root.classList.remove("palette-default", "palette-dark-blue", "palette-rustico-elegante", "palette-eleganza-notturna");
     
     // Add current palette class
     root.classList.add(`palette-${palette}`);

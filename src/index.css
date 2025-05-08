@@ -172,6 +172,172 @@
     --sidebar-ring: 228 24% 42%;
   }
 
+  /* Rustico Elegante con Accenti Oro/Rosa */
+  .palette-rustico-elegante {
+    /* Light theme variables */
+    --background: 47 56% 89%; /* Crema Intonacata */
+    --foreground: 0 0% 6%; /* Ebano Intenso */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 6%; /* Ebano Intenso */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 6%; /* Ebano Intenso */
+
+    --primary: 45 82% 46%; /* Oro Imperiale */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 110 28% 28%; /* Verde Ulivo */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 47 56% 95%;
+    --muted-foreground: 0 0% 80%; /* Grigio Marmoreo */
+
+    --accent: 334 90% 70%; /* Rosa Bouganvillea */
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 348 61% 26%; /* Vino Siciliano */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 42% 40%; /* Bronzo Antico */
+    --input: 47 56% 95%;
+    --ring: 45 82% 46%; /* Oro Imperiale */
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 5.3% 26.1%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .palette-rustico-elegante.dark {
+    /* Dark theme variables */
+    --background: 0 0% 6%; /* Ebano Intenso */
+    --foreground: 47 56% 89%; /* Crema Intonacata */
+
+    --card: 0 0% 6%; /* Ebano Intenso */
+    --card-foreground: 47 56% 89%; /* Crema Intonacata */
+
+    --popover: 0 0% 6%; /* Ebano Intenso */
+    --popover-foreground: 47 56% 89%; /* Crema Intonacata */
+
+    --primary: 45 82% 46%; /* Oro Imperiale */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 110 28% 28%; /* Verde Ulivo */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 230 20% 15%;
+    --muted-foreground: 0 0% 80%; /* Grigio Marmoreo */
+
+    --accent: 334 90% 60%; /* Rosa Bouganvillea più scuro */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 348 61% 26%; /* Vino Siciliano */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 42% 30%; /* Bronzo Antico più scuro */
+    --input: 240 17% 26%;
+    --ring: 45 82% 46%; /* Oro Imperiale */
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Eleganza Notturna con Accenti Blu */
+  .palette-eleganza-notturna {
+    /* Light theme variables */
+    --background: 39 52% 92%; /* Avorio Calcareo */
+    --foreground: 240 16% 8%; /* Nero Fumo */
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 16% 8%; /* Nero Fumo */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 16% 8%; /* Nero Fumo */
+
+    --primary: 226 51% 37%; /* Blu Notte Reale */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 104 27% 22%; /* Verde Bosco */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 13% 91%;
+    --muted-foreground: 225 11% 63%; /* Grigio Grafite */
+
+    --accent: 226 34% 52%; /* Indaco Vibrante */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 39% 30%; /* Rosso Bruciato */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 24 58% 40%; /* Rame Bruciato */
+    --input: 220 13% 91%;
+    --ring: 226 51% 37%; /* Blu Notte Reale */
+
+    --radius: 1rem; /* Rounded edges */
+
+    --sidebar-background: 240 5.3% 26.1%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .palette-eleganza-notturna.dark {
+    /* Dark theme variables */
+    --background: 240 16% 8%; /* Nero Fumo */
+    --foreground: 240 10% 96%; /* Perla Pura */
+
+    --card: 240 16% 12%; /* Nero Fumo più chiaro */
+    --card-foreground: 240 10% 96%; /* Perla Pura */
+
+    --popover: 240 16% 12%; /* Nero Fumo più chiaro */
+    --popover-foreground: 240 10% 96%; /* Perla Pura */
+
+    --primary: 226 51% 42%; /* Blu Notte Reale più luminoso */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 104 27% 22%; /* Verde Bosco */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 226 16% 25%;
+    --muted-foreground: 225 11% 70%; /* Grigio Grafite più chiaro */
+
+    --accent: 226 34% 52%; /* Indaco Vibrante */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 39% 30%; /* Rosso Bruciato */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 226 34% 42%; /* Indaco Vibrante più scuro */
+    --input: 240 17% 26%;
+    --ring: 226 34% 52%; /* Indaco Vibrante */
+
+    --sidebar-background: 240 16% 15%;
+    --sidebar-foreground: 240 10% 96%;
+    --sidebar-primary: 226 51% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 16% 25%;
+    --sidebar-accent-foreground: 240 10% 96%;
+    --sidebar-border: 240 16% 25%;
+    --sidebar-ring: 226 34% 52%;
+  }
+
   * {
     @apply border-border;
   }
@@ -191,6 +357,24 @@
   .palette-dark-blue h5,
   .palette-dark-blue h6 {
     @apply text-baglio-bluNotte dark:text-baglio-indaco;
+  }
+
+  .palette-rustico-elegante h1,
+  .palette-rustico-elegante h2,
+  .palette-rustico-elegante h3,
+  .palette-rustico-elegante h4,
+  .palette-rustico-elegante h5,
+  .palette-rustico-elegante h6 {
+    @apply text-baglio-oroImperiale dark:text-baglio-oroImperiale;
+  }
+
+  .palette-eleganza-notturna h1,
+  .palette-eleganza-notturna h2,
+  .palette-eleganza-notturna h3,
+  .palette-eleganza-notturna h4,
+  .palette-eleganza-notturna h5,
+  .palette-eleganza-notturna h6 {
+    @apply text-baglio-bluNottaReale dark:text-baglio-indacoVibrante;
   }
 
   a {
@@ -217,6 +401,22 @@
   .palette-dark-blue ::-webkit-scrollbar-thumb {
     @apply bg-baglio-indaco/70 rounded-full hover:bg-baglio-indaco;
   }
+
+  .palette-rustico-elegante ::-webkit-scrollbar-track {
+    @apply bg-baglio-cremaIntonacata/50 dark:bg-baglio-ebanoIntenso;
+  }
+  
+  .palette-rustico-elegante ::-webkit-scrollbar-thumb {
+    @apply bg-baglio-oroImperiale/70 rounded-full hover:bg-baglio-oroImperiale;
+  }
+
+  .palette-eleganza-notturna ::-webkit-scrollbar-track {
+    @apply bg-baglio-avorioCalcareo/50 dark:bg-baglio-neroFumo/70;
+  }
+  
+  .palette-eleganza-notturna ::-webkit-scrollbar-thumb {
+    @apply bg-baglio-bluNottaReale/70 rounded-full hover:bg-baglio-bluNottaReale;
+  }
 }
 
 /* Custom utility classes */
@@ -237,6 +437,14 @@
     @apply absolute inset-0 bg-baglio-bluNotte bg-opacity-40 dark:bg-opacity-70 z-10;
   }
 
+  .palette-rustico-elegante .hero-overlay {
+    @apply absolute inset-0 bg-baglio-ebanoIntenso bg-opacity-40 dark:bg-opacity-60 z-10;
+  }
+
+  .palette-eleganza-notturna .hero-overlay {
+    @apply absolute inset-0 bg-baglio-neroFumo bg-opacity-40 dark:bg-opacity-70 z-10;
+  }
+
   .hero-content {
     @apply z-20 text-center text-white p-4;
   }
@@ -247,6 +455,14 @@
 
   .palette-dark-blue .section-title {
     @apply text-3xl md:text-4xl font-semibold mb-6 font-playfair text-baglio-bluNotte dark:text-baglio-indaco;
+  }
+
+  .palette-rustico-elegante .section-title {
+    @apply text-3xl md:text-4xl font-semibold mb-6 font-playfair text-baglio-oroImperiale dark:text-baglio-oroImperiale;
+  }
+
+  .palette-eleganza-notturna .section-title {
+    @apply text-3xl md:text-4xl font-semibold mb-6 font-playfair text-baglio-bluNottaReale dark:text-baglio-indacoVibrante;
   }
 
   .section-padding {
@@ -261,6 +477,14 @@
     @apply bg-baglio-indaco hover:bg-baglio-indaco/90 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md;
   }
 
+  .palette-rustico-elegante .cta-button {
+    @apply bg-baglio-oroImperiale hover:bg-baglio-oroImperiale/90 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md;
+  }
+
+  .palette-eleganza-notturna .cta-button {
+    @apply bg-baglio-bluNottaReale hover:bg-baglio-bluNottaReale/90 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md;
+  }
+
   .cta-button-outline {
     @apply border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-white font-semibold py-3 px-6 rounded-md transition-all duration-300;
   }
@@ -269,12 +493,28 @@
     @apply border-2 border-baglio-indaco text-baglio-indaco hover:bg-baglio-indaco hover:text-white font-semibold py-3 px-6 rounded-md transition-all duration-300;
   }
 
+  .palette-rustico-elegante .cta-button-outline {
+    @apply border-2 border-baglio-oroImperiale text-baglio-oroImperiale hover:bg-baglio-oroImperiale hover:text-white font-semibold py-3 px-6 rounded-md transition-all duration-300;
+  }
+
+  .palette-eleganza-notturna .cta-button-outline {
+    @apply border-2 border-baglio-bluNottaReale text-baglio-bluNottaReale hover:bg-baglio-bluNottaReale hover:text-white font-semibold py-3 px-6 rounded-md transition-all duration-300;
+  }
+
   .navbar-scrolled {
     @apply bg-white/90 dark:bg-baglio-ebano/90 backdrop-blur-sm shadow-md text-baglio-ebano dark:text-baglio-crema;
   }
 
   .palette-dark-blue .navbar-scrolled {
     @apply bg-white/90 dark:bg-baglio-bluNotte/90 backdrop-blur-sm shadow-md text-baglio-bluNotte dark:text-baglio-cremaSabbia;
+  }
+
+  .palette-rustico-elegante .navbar-scrolled {
+    @apply bg-white/90 dark:bg-baglio-ebanoIntenso/90 backdrop-blur-sm shadow-md text-baglio-ebanoIntenso dark:text-baglio-cremaIntonacata;
+  }
+
+  .palette-eleganza-notturna .navbar-scrolled {
+    @apply bg-white/90 dark:bg-baglio-neroFumo/90 backdrop-blur-sm shadow-md text-baglio-neroFumo dark:text-baglio-avorioCalcareo;
   }
 
   .navbar-transparent {

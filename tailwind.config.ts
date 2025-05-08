@@ -80,6 +80,28 @@ export default {
 					vinoTerre: '#7b2e3a',   // Vino Terre Bruciate – profondità emozionale
 					lavagna: '#8a8fa3',     // Grigio Lavagna – testi secondari
 					perla: '#cfcfd6',       // Perla Fredda – contrasto delicato
+					
+					// Rustico Elegante con Accenti Oro/Rosa
+					ebanoIntenso: '#0f0f0f',  // Ebano Intenso - sfondo principale (dark mode)
+					oroImperiale: '#d4a017',  // Oro Imperiale - accenti, pulsanti, titoli
+					rosaBouganvillea: '#f76fa8', // Rosa Bouganvillea - dettagli femminili e delicati
+					verdeUlivo: '#3f5228',    // Verde Ulivo - naturale ma contrastante
+					cremaIntonacata: '#f2e7d2', // Crema Intonacata - sfondo chiaro elegante
+					vinoSiciliano: '#6a1b2a', // Vino Siciliano - emozione, inviti/eventi speciali
+					bluLavagna: '#1a1f3c',    // Blu Lavagna - alternativa elegante al nero
+					grigioMarmoreo: '#cccccc', // Grigio Marmoreo - testo secondario
+					bronzoAntico: '#8b5e3c',  // Bronzo Antico - decorazioni, bordi
+					
+					// Eleganza Notturna con Accenti Blu
+					neroFumo: '#121218',      // Nero Fumo - sfondo base, potente e pulito
+					bluNottaReale: '#2f3a8f', // Blu Notte Reale - accenti forti (CTA, link)
+					indacoVibrante: '#5b6cae', // Indaco Vibrante - hover, effetti interattivi
+					verdeBosco: '#3a4727',    // Verde Bosco - contrasto naturale
+					avorioCalcareo: '#f3eada', // Avorio Calcareo - sfondo chiaro elegante
+					rameBruciato: '#a05a2c',  // Rame Bruciato - dettagli rustici
+					rossoBruciato: '#6a2a2f', // Rosso Bruciato - elementi emozionali
+					grigioGrafite: '#999ca8', // Grigio Grafite - testi, cornici
+					perlaPura: '#f5f5f7',     // Perla Pura - contrasto delicato su scuro
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

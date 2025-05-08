@@ -62,6 +62,18 @@ const PaletteToggle = ({ className }: PaletteToggleProps) => {
                 currentPalette={palette} 
                 onClick={() => handlePaletteChange("dark-blue")} 
               />
+              <PaletteOption 
+                title="Rustico Elegante" 
+                palette="rustico-elegante" 
+                currentPalette={palette} 
+                onClick={() => handlePaletteChange("rustico-elegante")} 
+              />
+              <PaletteOption 
+                title="Eleganza Notturna" 
+                palette="eleganza-notturna" 
+                currentPalette={palette} 
+                onClick={() => handlePaletteChange("eleganza-notturna")} 
+              />
             </div>
             <div className="flex justify-center mt-4">
               <DrawerClose asChild>
@@ -103,6 +115,20 @@ const PaletteToggle = ({ className }: PaletteToggleProps) => {
             {palette === "dark-blue" && <span className="ml-auto">✓</span>}
           </div>
         </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handlePaletteChange("rustico-elegante")}>
+          <div className="flex items-center">
+            <div className="w-4 h-4 rounded-full bg-[#d4a017] mr-2" />
+            <span>Rustico Elegante</span>
+            {palette === "rustico-elegante" && <span className="ml-auto">✓</span>}
+          </div>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handlePaletteChange("eleganza-notturna")}>
+          <div className="flex items-center">
+            <div className="w-4 h-4 rounded-full bg-[#2f3a8f] mr-2" />
+            <span>Eleganza Notturna</span>
+            {palette === "eleganza-notturna" && <span className="ml-auto">✓</span>}
+          </div>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
@@ -119,6 +145,16 @@ interface PaletteOptionProps {
 const PaletteOption = ({ title, palette, currentPalette, onClick }: PaletteOptionProps) => {
   const isSelected = palette === currentPalette;
   
+  let bgColor = "bg-baglio-oro";
+  
+  if (palette === "dark-blue") {
+    bgColor = "bg-baglio-bluNotte";
+  } else if (palette === "rustico-elegante") {
+    bgColor = "bg-[#d4a017]";
+  } else if (palette === "eleganza-notturna") {
+    bgColor = "bg-[#2f3a8f]";
+  }
+  
   return (
     <button
       onClick={onClick}
@@ -132,7 +168,7 @@ const PaletteOption = ({ title, palette, currentPalette, onClick }: PaletteOptio
       <div 
         className={cn(
           "w-10 h-10 rounded-full mb-2",
-          palette === "default" ? "bg-baglio-oro" : "bg-baglio-bluNotte"
+          bgColor
         )}
       />
       <span className="text-sm font-medium">{title}</span>
