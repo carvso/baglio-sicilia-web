@@ -1,10 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ThemeToggle from './ThemeToggle';
-import PaletteToggle from './PaletteToggle';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
@@ -72,11 +70,8 @@ const Navbar = () => {
               <NavLink to="/gallery" isActive={location.pathname === "/gallery"} isScrolled={isScrolled}>Gallery</NavLink>
               <NavLink to="/contatti" isActive={location.pathname === "/contatti"} isScrolled={isScrolled}>Contatti</NavLink>
               
-              {/* Theme & Palette Toggles */}
-              <div className="flex items-center gap-2">
-                <PaletteToggle />
-                <ThemeToggle className="ml-2" />
-              </div>
+              {/* Theme Toggle */}
+              <ThemeToggle className="ml-4" />
               
               <Link 
                 to="/contatti" 
@@ -93,10 +88,7 @@ const Navbar = () => {
 
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center space-x-4 z-50">
-              <div className="flex items-center gap-2">
-                <PaletteToggle />
-                <ThemeToggle />
-              </div>
+              <ThemeToggle />
               <button 
                 onClick={toggleMenu} 
                 className="focus:outline-none"
@@ -136,9 +128,9 @@ const Navbar = () => {
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
         style={{ 
-          height: '100vh',  // Use viewport height instead of 100%
-          top: 0,          // Explicitly set top to 0
-          position: 'fixed' // Ensure fixed positioning
+          height: '100vh',
+          top: 0,
+          position: 'fixed'
         }}
       >
         <div className="flex flex-col h-full pt-20 pb-8 px-6">
