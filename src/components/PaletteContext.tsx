@@ -1,7 +1,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-export type PaletteType = "default" | "dark-blue" | "rustico-elegante" | "eleganza-notturna";
+export type PaletteType = "default";
 
 type PaletteProviderProps = {
   children: React.ReactNode;
@@ -23,26 +23,25 @@ export function PaletteProvider({
   ...props
 }: PaletteProviderProps) {
   const [palette, setPalette] = useState<PaletteType>(() => {
-    const storedPalette = typeof window !== "undefined" && localStorage.getItem(storageKey);
-    return (storedPalette as PaletteType) || defaultPalette;
+    return "default"; // Always use default
   });
 
   useEffect(() => {
     const root = window.document.documentElement;
     
-    // Remove palette classes
+    // Remove all palette classes
     root.classList.remove("palette-default", "palette-dark-blue", "palette-rustico-elegante", "palette-eleganza-notturna");
     
-    // Add current palette class
-    root.classList.add(`palette-${palette}`);
+    // Always add default palette class
+    root.classList.add("palette-default");
     
     // Store in localStorage
-    localStorage.setItem(storageKey, palette);
-  }, [palette, storageKey]);
+    localStorage.setItem(storageKey, "default");
+  }, [storageKey]);
 
   const value = {
-    palette,
-    setPalette: (newPalette: PaletteType) => setPalette(newPalette),
+    palette: "default" as PaletteType,
+    setPalette: () => {}, // No-op since we only have default
   };
 
   return (
