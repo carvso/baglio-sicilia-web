@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import ThemeToggle from './ThemeToggle';
+import LanguageSelector from './LanguageSelector';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
@@ -64,14 +64,12 @@ const Navbar = () => {
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-6 items-center">
               <NavLink to="/" isActive={location.pathname === "/"} isScrolled={isScrolled}>Home</NavLink>
-              <NavLink to="/baglio-abbate" isActive={location.pathname === "/baglio-abbate"} isScrolled={isScrolled}>Baglio Abbate</NavLink>
-              <NavLink to="/ristorante" isActive={location.pathname === "/ristorante"} isScrolled={isScrolled}>Ristorante</NavLink>
               <NavLink to="/eventi" isActive={location.pathname === "/eventi"} isScrolled={isScrolled}>Eventi</NavLink>
               <NavLink to="/gallery" isActive={location.pathname === "/gallery"} isScrolled={isScrolled}>Gallery</NavLink>
               <NavLink to="/contatti" isActive={location.pathname === "/contatti"} isScrolled={isScrolled}>Contatti</NavLink>
               
-              {/* Theme Toggle */}
-              <ThemeToggle className="ml-4" />
+              {/* Language Selector */}
+              <LanguageSelector className="ml-4" isScrolled={isScrolled} />
               
               <Link 
                 to="/contatti" 
@@ -88,7 +86,7 @@ const Navbar = () => {
 
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center space-x-4 z-50">
-              <ThemeToggle />
+              <LanguageSelector isScrolled={isScrolled} />
               <button 
                 onClick={toggleMenu} 
                 className="focus:outline-none"
@@ -136,8 +134,6 @@ const Navbar = () => {
         <div className="flex flex-col h-full pt-20 pb-8 px-6">
           <div className="flex-grow flex flex-col space-y-6">
             <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
-            <MobileNavLink to="/baglio-abbate" onClick={toggleMenu}>Baglio Abbate</MobileNavLink>
-            <MobileNavLink to="/ristorante" onClick={toggleMenu}>Ristorante</MobileNavLink>
             <MobileNavLink to="/eventi" onClick={toggleMenu}>Eventi</MobileNavLink>
             <MobileNavLink to="/gallery" onClick={toggleMenu}>Gallery</MobileNavLink>
             <MobileNavLink to="/contatti" onClick={toggleMenu}>Contatti</MobileNavLink>
