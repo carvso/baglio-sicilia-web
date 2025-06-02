@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +51,15 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				// Elite Dark Color Palette
+				elite: {
+					dark: '#1A1F2C',        // Blu scuro principale
+					darker: '#0F1319',      // Blu molto scuro per sfondi
+					gold: '#D4AF37',        // Oro principale
+					goldLight: '#E5C76B',   // Oro chiaro per hover
+					sunset: '#F97316',      // Arancione tramonto
+					sunsetLight: '#FDBA74', // Arancione tramonto chiaro
 				},
 				// Nuova palette di colori per Baglio Abbate
 				baglio: {
