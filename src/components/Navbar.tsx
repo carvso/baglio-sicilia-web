@@ -58,9 +58,10 @@ const Navbar = () => {
             ? "bg-white/98 backdrop-blur-md shadow-lg border-b border-gray-200" 
             : "bg-black/30 backdrop-blur-sm"
         )}
+        style={{ margin: 0, padding: 0 }}
       >
-        <div className="baglio-container">
-          <nav className="flex justify-between items-center py-4 px-4 md:px-0 min-h-[64px]">
+        <div className="baglio-container" style={{ margin: '0 auto', padding: '0 1rem' }}>
+          <nav className="flex justify-between items-center py-4 min-h-[64px]" style={{ margin: 0, padding: '1rem 0' }}>
             <Link 
               to="/" 
               className={cn(
@@ -68,6 +69,7 @@ const Navbar = () => {
                 isScrolled ? "text-elite-blue" : "text-white"
               )}
               onClick={handleLinkClick}
+              style={{ margin: 0, padding: 0 }}
             >
               Baglio Abbate
             </Link>

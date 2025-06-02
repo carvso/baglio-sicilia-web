@@ -49,23 +49,35 @@
   --ring: 212.7 26.8% 83.9%;
 }
 
-/* Reset margins and padding to eliminate white lines */
+/* Complete reset to eliminate any white lines or gaps */
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
+html {
+  margin: 0 !important;
+  padding: 0 !important;
   height: 100%;
   overflow-x: hidden;
+  line-height: 1.15;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: inherit;
 }
 
 #root {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Custom utility classes */
@@ -99,8 +111,8 @@ html, body {
     background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
     min-height: 100vh;
     min-height: 100dvh;
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   /* Navbar styles */
@@ -125,8 +137,8 @@ html, body {
   @media (max-width: 768px) {
     .hero-section-enhanced {
       min-height: 100vh;
-      padding: 0;
-      margin: 0;
+      padding: 0 !important;
+      margin: 0 !important;
     }
     
     .event-card {
