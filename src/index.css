@@ -93,9 +93,26 @@
     @apply border-border;
   }
 
+  /* Mobile-optimized scrolling */
+  html {
+    scroll-behavior: auto; /* Avoid smooth scroll conflicts on iOS */
+  }
+
+  @media (min-width: 768px) {
+    html {
+      scroll-behavior: smooth; /* Enable only on desktop */
+    }
+  }
+
   body {
     @apply bg-background text-foreground font-montserrat transition-colors duration-300;
     font-family: system-ui, 'Inter', 'Helvetica Neue', sans-serif;
+    /* iOS smooth scrolling optimization */
+    -webkit-overflow-scrolling: touch;
+    /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    /* Optimize for 60fps scrolling */
+    will-change: scroll-position;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -105,6 +122,23 @@
 
   a {
     @apply transition-colors duration-200;
+    /* Improve touch targets */
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Touch-friendly buttons */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+
+  /* Prevent touch delay on iOS */
+  a, button, [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   /* Scrollbar customization - Elite Heritage themed */
@@ -118,6 +152,21 @@
   
   ::-webkit-scrollbar-thumb {
     @apply bg-elite-gold/70 rounded-full hover:bg-elite-gold;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -150,14 +199,24 @@
 
   .cta-button {
     @apply bg-elite-gold hover:bg-elite-goldLight text-elite-darker font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md;
+    /* Mobile-optimized touch targets */
+    min-height: 48px;
+    min-width: 120px;
+    touch-action: manipulation;
   }
 
   .cta-button-outline {
     @apply border-2 border-elite-gold text-elite-gold hover:bg-elite-gold hover:text-elite-darker font-semibold py-3 px-6 rounded-md transition-all duration-300;
+    /* Mobile-optimized touch targets */
+    min-height: 48px;
+    min-width: 120px;
+    touch-action: manipulation;
   }
 
   .navbar-scrolled {
     @apply bg-elite-darker/95 backdrop-blur-sm shadow-md text-foreground;
+    /* Optimize for mobile performance */
+    will-change: transform;
   }
 
   .navbar-transparent {
@@ -166,21 +225,51 @@
 
   .event-card {
     @apply bg-card border border-elite-gold/20 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:border-elite-goldLight;
+    /* Mobile-optimized interactions */
+    touch-action: manipulation;
+    cursor: pointer;
+  }
+
+  /* Mobile-first card improvements */
+  @media (max-width: 768px) {
+    .event-card {
+      /* Larger touch targets on mobile */
+      min-height: 120px;
+      padding: 1rem;
+    }
+    
+    .event-card:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
   }
 
   .premium-callout {
     @apply bg-elite-sunsetLight/10 border border-elite-sunsetLight/30 rounded-lg p-6 text-center;
   }
+
+  /* Mobile navigation improvements */
+  .mobile-nav-overlay {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
 
-/* Custom animations */
+/* Custom animations - mobile optimized */
 @keyframes gentle-fade-in {
   0% { opacity: 0; transform: translateY(10px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
+/* Lightweight animations for mobile */
 .animate-gentle-fade-in {
-  animation: gentle-fade-in 1s ease forwards;
+  animation: gentle-fade-in 0.4s ease forwards;
+}
+
+@media (max-width: 768px) {
+  .animate-gentle-fade-in {
+    animation-duration: 0.2s; /* Faster on mobile */
+  }
 }
 
 /* Add animation delays */
@@ -190,8 +279,45 @@
 .delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
 
-/* Heritage decorative pattern */
+/* Heritage decorative pattern - mobile optimized */
 .heritage-pattern {
   background-image: radial-gradient(circle at 1px 1px, rgba(212, 175, 55, 0.1) 1px, transparent 0);
   background-size: 20px 20px;
+}
+
+@media (max-width: 768px) {
+  .heritage-pattern {
+    background-size: 15px 15px; /* Smaller pattern on mobile */
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Improve mobile spacing */
+  .section-padding {
+    @apply py-12;
+  }
+  
+  /* Better mobile text sizing */
+  .section-title {
+    @apply text-2xl mb-4;
+  }
+  
+  /* Optimize container padding */
+  .baglio-container {
+    @apply px-4;
+  }
+  
+  /* Improve mobile forms */
+  input, textarea, select {
+    min-height: 48px;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  /* Better mobile buttons */
+  button, .btn {
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 16px;
+  }
 }
