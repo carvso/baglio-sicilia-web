@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { ArrowRight, Heart, Users, Building, Camera } from 'lucide-react';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
+import OptimizedImage from '@/components/OptimizedImage';
 import SectionTitle from '@/components/SectionTitle';
 import CTAButton from '@/components/CTAButton';
 
@@ -11,29 +11,30 @@ type EventCategoryProps = {
   title: string;
   description: string;
   imageSrc: string;
+  webpSrc?: string;
 };
 
-const EventCategory = ({ icon, title, description, imageSrc }: EventCategoryProps) => {
+const EventCategory = ({ icon, title, description, imageSrc, webpSrc }: EventCategoryProps) => {
   return (
-    <div className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <div className="h-64 overflow-hidden">
-        <img 
-          src={imageSrc} 
-          alt={title} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-      </div>
+    <div className="group bg-card border border-elite-gold/20 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:border-elite-goldLight">
+      <OptimizedImage
+        src={imageSrc}
+        webpSrc={webpSrc}
+        alt={title}
+        className="h-64"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      />
       <div className="p-6">
         <div className="flex items-center mb-4">
-          <div className="text-baglio-terracotta mr-3">
+          <div className="text-elite-gold mr-3">
             {icon}
           </div>
-          <h3 className="text-xl font-playfair font-semibold">{title}</h3>
+          <h3 className="text-xl font-playfair font-semibold text-elite-gold">{title}</h3>
         </div>
-        <p className="text-gray-600 mb-4">{description}</p>
+        <p className="text-muted-foreground mb-4">{description}</p>
         <a 
           href="#contact-section"
-          className="inline-flex items-center font-medium text-baglio-terracotta hover:underline"
+          className="inline-flex items-center font-medium text-elite-goldLight hover:text-elite-gold transition-colors"
         >
           Richiedi informazioni <ArrowRight size={16} className="ml-2" />
         </a>
@@ -46,12 +47,14 @@ const Eventi = () => {
   return (
     <Layout>
       <ImageWithOverlay 
-        src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
-        alt="Eventi al Baglio Abbate"
+        src="/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png"
+        alt="Eventi al Baglio Abbate - Location per matrimoni e cerimonie in Sicilia"
         className="h-[60vh]"
+        priority={true}
+        sizes="100vw"
       >
-        <div className="baglio-container text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-playfair">
+        <div className="baglio-container text-center text-foreground">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-playfair text-elite-gold">
             Eventi Indimenticabili
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
@@ -60,7 +63,7 @@ const Eventi = () => {
         </div>
       </ImageWithOverlay>
 
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-background">
         <div className="baglio-container">
           <SectionTitle 
             title="I tuoi eventi più speciali" 
@@ -73,19 +76,19 @@ const Eventi = () => {
               icon={<Heart size={24} />}
               title="Matrimoni e Cerimonie"
               description="Dalla cerimonia intima al grande ricevimento, rendiamo il vostro giorno speciale ancora più magico con ambientazioni suggestive e servizi personalizzati."
-              imageSrc="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
+              imageSrc="/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png"
             />
             <EventCategory 
               icon={<Users size={24} />}
               title="Eventi Privati"
               description="Compleanni, anniversari, lauree, battesimi: ogni celebrazione diventa memorabile nei nostri spazi eleganti e versatili."
-              imageSrc="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
+              imageSrc="/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png"
             />
             <EventCategory 
               icon={<Building size={24} />}
               title="Eventi Aziendali"
               description="Meeting, team building, cene di gala: offriamo spazi e servizi su misura per le esigenze del vostro business."
-              imageSrc="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
+              imageSrc="/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png"
             />
           </div>
         </div>
@@ -93,12 +96,13 @@ const Eventi = () => {
 
       <section className="relative py-20">
         <ImageWithOverlay 
-          src="https://images.unsplash.com/photo-1496318447583-f524534e9ce1?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" 
-          alt="Catering di qualità" 
+          src="/lovable-uploads/059acecc-9864-4084-bb89-9644fd4e4a41.png"
+          alt="Catering di qualità - Cucina siciliana autentica" 
           className="h-[500px]"
+          sizes="100vw"
         >
-          <div className="baglio-container text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-playfair font-semibold mb-4">
+          <div className="baglio-container text-center text-foreground">
+            <h2 className="text-3xl md:text-4xl font-playfair font-semibold mb-4 text-elite-gold">
               Un'esperienza culinaria d'eccellenza
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
@@ -109,7 +113,7 @@ const Eventi = () => {
         </ImageWithOverlay>
       </section>
 
-      <section className="section-padding bg-baglio-cream bg-opacity-20">
+      <section className="section-padding bg-card">
         <div className="baglio-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -117,38 +121,42 @@ const Eventi = () => {
                 title="I nostri spazi" 
                 subtitle="Ambienti versatili per eventi di ogni dimensione"
               />
-              <p className="text-gray-700 mb-6">
+              <p className="text-muted-foreground mb-6">
                 Il Baglio Abbate offre diversi ambienti, ognuno con il suo carattere distintivo, adattabili 
                 a eventi di varia natura e dimensione. Dal suggestivo cortile interno alla sala principale 
                 con volte in pietra, dalla terrazza panoramica al giardino, ogni spazio è curato nei minimi 
                 dettagli per creare l'atmosfera perfetta.
               </p>
-              <p className="text-gray-700 mb-6">
+              <p className="text-muted-foreground mb-6">
                 La nostra location può ospitare fino a 200 persone per eventi con posti a sedere e fino a 
                 350 per cocktail party e ricevimenti in piedi. Il nostro team di professionisti vi guiderà 
                 nella scelta degli spazi più adatti alle vostre esigenze.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img 
-                src="https://images.unsplash.com/photo-1609587459039-810acb6e7092?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" 
-                alt="Cortile interno" 
-                className="rounded-lg shadow-md h-full object-cover"
+              <OptimizedImage
+                src="/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png"
+                alt="Cortile interno con archi storici"
+                className="rounded-lg shadow-md"
+                sizes="(max-width: 768px) 50vw, 25vw"
               />
-              <img 
-                src="https://images.unsplash.com/photo-1519167576308-04f23db61d38?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" 
-                alt="Sala principale" 
-                className="rounded-lg shadow-md h-full object-cover mt-6 md:mt-12"
+              <OptimizedImage
+                src="/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png"
+                alt="Sala principale con volte in pietra"
+                className="rounded-lg shadow-md mt-6 md:mt-12"
+                sizes="(max-width: 768px) 50vw, 25vw"
               />
-              <img 
-                src="https://images.unsplash.com/photo-1572916118970-fb5c8a1b535f?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" 
-                alt="Terrazza panoramica" 
-                className="rounded-lg shadow-md h-full object-cover"
+              <OptimizedImage
+                src="/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png"
+                alt="Terrazza panoramica con vista mare"
+                className="rounded-lg shadow-md"
+                sizes="(max-width: 768px) 50vw, 25vw"
               />
-              <img 
-                src="https://images.unsplash.com/photo-1522413321085-1ce1010ea094?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" 
-                alt="Giardino" 
-                className="rounded-lg shadow-md h-full object-cover mt-6 md:mt-12"
+              <OptimizedImage
+                src="/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png"
+                alt="Giardino per cerimonie all'aperto"
+                className="rounded-lg shadow-md mt-6 md:mt-12"
+                sizes="(max-width: 768px) 50vw, 25vw"
               />
             </div>
           </div>
@@ -224,7 +232,7 @@ const Eventi = () => {
         </div>
       </section>
 
-      <section id="contact-section" className="section-padding bg-gray-900 text-white">
+      <section id="contact-section" className="section-padding bg-elite-darker text-foreground">
         <div className="baglio-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -233,19 +241,19 @@ const Eventi = () => {
                 subtitle="Contattaci per un preventivo personalizzato"
                 light
               />
-              <p className="text-gray-300 mb-6">
+              <p className="text-muted-foreground mb-6">
                 Il nostro team di esperti è a disposizione per aiutarti a pianificare ogni dettaglio del tuo 
                 evento speciale. Compila il modulo o contattaci direttamente per discutere delle tue esigenze 
                 e ricevere un preventivo personalizzato.
               </p>
               <div className="flex items-center mb-4">
-                <Camera size={20} className="text-baglio-terracotta mr-3" />
-                <p className="text-gray-300">
+                <Camera size={20} className="text-elite-gold mr-3" />
+                <p className="text-muted-foreground">
                   Possiamo organizzare sopralluoghi su appuntamento
                 </p>
               </div>
             </div>
-            <div className="bg-white p-8 rounded-lg">
+            <div className="bg-card p-8 rounded-lg border border-elite-gold/20">
               <form className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
