@@ -55,8 +55,8 @@ const Navbar = () => {
         className={cn(
           "fixed top-0 left-0 w-full z-50 transition-all duration-300",
           isScrolled 
-            ? "bg-white/95 backdrop-blur-md shadow-lg" 
-            : "bg-transparent"
+            ? "bg-white/98 backdrop-blur-md shadow-lg border-b border-gray-200" 
+            : "bg-black/30 backdrop-blur-sm"
         )}
       >
         <div className="baglio-container">
@@ -64,8 +64,8 @@ const Navbar = () => {
             <Link 
               to="/" 
               className={cn(
-                "font-playfair text-2xl font-bold tracking-wider relative z-50 transition-colors duration-300",
-                isScrolled ? "text-elite-darker" : "text-white"
+                "font-playfair text-2xl font-bold tracking-wider relative z-50 transition-colors duration-300 drop-shadow-lg",
+                isScrolled ? "text-elite-blue" : "text-white"
               )}
               onClick={handleLinkClick}
             >
@@ -78,10 +78,10 @@ const Navbar = () => {
                 <Link 
                   to="/eventi" 
                   className={cn(
-                    "font-medium transition-colors duration-300 min-h-[44px] flex items-center",
+                    "font-medium transition-colors duration-300 min-h-[44px] flex items-center drop-shadow-sm",
                     isScrolled 
-                      ? "text-elite-darker hover:text-elite-gold" 
-                      : "text-white hover:text-elite-goldLight"
+                      ? "text-elite-blue hover:text-elite-gold" 
+                      : "text-white hover:text-elite-gold"
                   )}
                   onClick={handleLinkClick}
                 >
@@ -90,10 +90,10 @@ const Navbar = () => {
                 <Link 
                   to="/gallery" 
                   className={cn(
-                    "font-medium transition-colors duration-300 min-h-[44px] flex items-center",
+                    "font-medium transition-colors duration-300 min-h-[44px] flex items-center drop-shadow-sm",
                     isScrolled 
-                      ? "text-elite-darker hover:text-elite-gold" 
-                      : "text-white hover:text-elite-goldLight"
+                      ? "text-elite-blue hover:text-elite-gold" 
+                      : "text-white hover:text-elite-gold"
                   )}
                   onClick={handleLinkClick}
                 >
@@ -102,10 +102,10 @@ const Navbar = () => {
                 <Link 
                   to="/contatti" 
                   className={cn(
-                    "font-medium transition-colors duration-300 min-h-[44px] flex items-center",
+                    "font-medium transition-colors duration-300 min-h-[44px] flex items-center drop-shadow-sm",
                     isScrolled 
-                      ? "text-elite-darker hover:text-elite-gold" 
-                      : "text-white hover:text-elite-goldLight"
+                      ? "text-elite-blue hover:text-elite-gold" 
+                      : "text-white hover:text-elite-gold"
                   )}
                   onClick={handleLinkClick}
                 >
@@ -115,7 +115,7 @@ const Navbar = () => {
               
               <Link 
                 to="/contatti" 
-                className="py-3 px-6 bg-elite-gold text-elite-darker hover:bg-elite-goldLight rounded-md transition-all duration-300 font-semibold min-h-[44px] flex items-center shadow-md hover:shadow-lg"
+                className="py-3 px-6 bg-elite-gold text-white hover:bg-elite-goldLight rounded-md transition-all duration-300 font-semibold min-h-[44px] flex items-center shadow-lg hover:shadow-xl"
               >
                 Prenota
               </Link>
@@ -125,8 +125,8 @@ const Navbar = () => {
             <button 
               onClick={toggleMenu} 
               className={cn(
-                "md:hidden focus:outline-none p-2 min-h-[48px] min-w-[48px] flex items-center justify-center transition-colors duration-300",
-                isScrolled ? "text-elite-darker" : "text-white"
+                "md:hidden focus:outline-none p-2 min-h-[48px] min-w-[48px] flex items-center justify-center transition-colors duration-300 drop-shadow-lg",
+                isScrolled ? "text-elite-blue" : "text-white"
               )}
               aria-label="Toggle menu"
             >
@@ -169,7 +169,7 @@ const Navbar = () => {
             <Link 
               to="/contatti" 
               onClick={handleLinkClick}
-              className="w-full inline-block text-center py-4 px-6 rounded-md bg-elite-gold text-elite-darker hover:bg-elite-goldLight transition-all duration-300 font-semibold"
+              className="w-full inline-block text-center py-4 px-6 rounded-md bg-elite-gold text-white hover:bg-elite-goldLight transition-all duration-300 font-semibold"
             >
               Prenota Ora
             </Link>
@@ -193,7 +193,7 @@ const MobileNavLink = ({ to, children, onClick, isActive }: MobileNavLinkProps) 
     onClick={onClick}
     className={cn(
       "text-xl font-medium transition-colors duration-300 min-h-[48px] flex items-center border-b border-gray-200 pb-3",
-      isActive ? "text-elite-gold font-semibold" : "text-elite-darker hover:text-elite-gold"
+      isActive ? "text-elite-gold font-semibold" : "text-elite-blue hover:text-elite-gold"
     )}
   >
     {children}
