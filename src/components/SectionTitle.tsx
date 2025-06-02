@@ -22,7 +22,7 @@ const SectionTitle = ({ title, subtitle, center = false, light = false, classNam
     )}>
       <h2 className={cn(
         'text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 md:mb-4 font-playfair',
-        light ? 'text-elite-gold' : 'text-elite-gold'
+        light ? 'text-elite-gold' : 'text-elite-dark'
       )}>
         {title}
       </h2>
