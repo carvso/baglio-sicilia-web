@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -57,7 +58,7 @@ const Navbar = () => {
       >
         <div className="baglio-container">
           <nav className="flex justify-between items-center py-4 px-4 md:px-0">
-            <Link to="/" className="font-playfair text-2xl font-bold tracking-wider relative z-50 text-baglio-ebano dark:text-white">
+            <Link to="/" className="font-playfair text-2xl font-bold tracking-wider relative z-50 text-elite-gold">
               Baglio Abbate
             </Link>
 
@@ -73,12 +74,7 @@ const Navbar = () => {
               
               <Link 
                 to="/contatti" 
-                className={cn(
-                  "ml-4 py-2 px-4 border rounded-md transition duration-300",
-                  isScrolled 
-                    ? 'border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-white' 
-                    : 'border-white text-white hover:bg-white hover:text-baglio-oro'
-                )}
+                className="ml-4 py-2 px-4 bg-elite-gold text-elite-darker hover:bg-elite-goldLight rounded-md transition duration-300 font-semibold"
               >
                 Prenota
               </Link>
@@ -93,15 +89,9 @@ const Navbar = () => {
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
-                  <X size={24} className={cn(
-                    "transition-colors",
-                    isScrolled ? 'text-gray-800 dark:text-white' : 'text-white'
-                  )} />
+                  <X size={24} className="text-foreground" />
                 ) : (
-                  <Menu size={24} className={cn(
-                    "transition-colors",
-                    isScrolled ? 'text-gray-800 dark:text-white' : 'text-white'
-                  )} />
+                  <Menu size={24} className="text-foreground" />
                 )}
               </button>
             </div>
@@ -122,7 +112,7 @@ const Navbar = () => {
       {/* Mobile Menu - Content */}
       <div 
         className={cn(
-          "md:hidden fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-baglio-ebano/95 dark:bg-baglio-blu/95 z-40 backdrop-blur-md shadow-xl transition-transform duration-300 overflow-y-auto",
+          "md:hidden fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-elite-darker/95 z-40 backdrop-blur-md shadow-xl transition-transform duration-300 overflow-y-auto",
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
         style={{ 
@@ -138,11 +128,11 @@ const Navbar = () => {
             <MobileNavLink to="/gallery" onClick={toggleMenu}>Gallery</MobileNavLink>
             <MobileNavLink to="/contatti" onClick={toggleMenu}>Contatti</MobileNavLink>
           </div>
-          <div className="mt-8 pt-6 border-t border-white/10">
+          <div className="mt-8 pt-6 border-t border-elite-gold/20">
             <Link 
               to="/contatti" 
               onClick={toggleMenu}
-              className="w-full inline-block text-center py-3 px-6 rounded-md bg-baglio-oro/90 text-white hover:bg-baglio-oro transition duration-300"
+              className="w-full inline-block text-center py-3 px-6 rounded-md bg-elite-gold text-elite-darker hover:bg-elite-goldLight transition duration-300 font-semibold"
             >
               Prenota Ora
             </Link>
@@ -164,11 +154,10 @@ const NavLink = ({ to, children, isScrolled, isActive }: NavLinkProps) => (
   <Link 
     to={to} 
     className={cn(
-      `font-medium transition-colors duration-300 hover:text-baglio-oro`,
+      `font-medium transition-colors duration-300`,
       {
-        'text-gray-800 dark:text-baglio-crema': isScrolled && !isActive,
-        'text-white': !isScrolled && !isActive,
-        'text-baglio-oro font-semibold': isActive,
+        'text-foreground hover:text-elite-goldLight': !isActive,
+        'text-elite-gold font-semibold': isActive,
       }
     )}
   >
@@ -186,7 +175,7 @@ const MobileNavLink = ({ to, children, onClick }: MobileNavLinkProps) => (
   <Link 
     to={to} 
     onClick={onClick}
-    className="text-white text-2xl font-playfair hover:text-baglio-oro transition duration-300"
+    className="text-foreground text-2xl font-playfair hover:text-elite-goldLight transition duration-300"
   >
     {children}
   </Link>

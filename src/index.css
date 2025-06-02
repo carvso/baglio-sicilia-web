@@ -6,43 +6,43 @@
 @tailwind utilities;
 
 @layer base {
-  /* Elite Dark Color Palette */
+  /* Elite Heritage Color Palette */
   :root {
-    /* Light theme variables - using Elite colors */
-    --background: 45 54% 90%; /* Elite gold light for light background */
-    --foreground: 220 33% 9%; /* Elite dark for text */
+    /* Light theme variables - Elite Heritage */
+    --background: 220 33% 9%; /* elite-darker */
+    --foreground: 45 54% 90%; /* foreground cream */
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 33% 9%; /* Elite dark */
+    --card: 220 28% 12%; /* elite-dark variant */
+    --card-foreground: 45 54% 90%; /* foreground cream */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 33% 9%; /* Elite dark */
+    --popover: 220 28% 12%; /* elite-dark variant */
+    --popover-foreground: 45 54% 90%; /* foreground cream */
 
-    --primary: 45 64% 42%; /* Elite gold */
-    --primary-foreground: 0 0% 100%;
+    --primary: 45 64% 42%; /* elite-gold */
+    --primary-foreground: 220 33% 9%; /* elite-darker */
 
-    --secondary: 220 33% 15%; /* Elite dark variant */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 33% 15%; /* elite-dark variant */
+    --secondary-foreground: 45 54% 90%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 69%;
+    --muted: 220 28% 15%;
+    --muted-foreground: 45 25% 65%; /* muted text */
 
-    --accent: 24 95% 53%; /* Elite sunset */
-    --accent-foreground: 0 0% 100%;
+    --accent: 24 95% 53%; /* elite-sunset */
+    --accent-foreground: 220 33% 9%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 45 64% 42%; /* Elite gold */
-    --input: 0 0% 96%;
-    --ring: 45 64% 42%; /* Elite gold */
+    --border: 45 64% 42%; /* elite-gold */
+    --input: 220 28% 15%;
+    --ring: 45 64% 42%; /* elite-gold */
 
     --radius: 0.75rem;
 
     --sidebar-background: 220 33% 9%;
     --sidebar-foreground: 45 54% 90%;
     --sidebar-primary: 45 64% 42%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-primary-foreground: 220 33% 9%;
     --sidebar-accent: 220 33% 15%;
     --sidebar-accent-foreground: 45 54% 90%;
     --sidebar-border: 220 33% 15%;
@@ -50,39 +50,39 @@
   }
 
   .dark {
-    /* Dark theme variables - Elite Dark focused */
-    --background: 220 33% 9%; /* Elite dark */
-    --foreground: 45 54% 90%; /* Elite gold light */
+    /* Dark theme variables - Same as light for Elite Heritage */
+    --background: 220 33% 9%; /* elite-darker */
+    --foreground: 45 54% 90%; /* foreground cream */
 
-    --card: 220 28% 12%; /* Elite darker variant */
-    --card-foreground: 45 54% 90%; /* Elite gold light */
+    --card: 220 28% 12%; /* elite-dark variant */
+    --card-foreground: 45 54% 90%; /* foreground cream */
 
-    --popover: 220 28% 12%; /* Elite darker variant */
-    --popover-foreground: 45 54% 90%; /* Elite gold light */
+    --popover: 220 28% 12%; /* elite-dark variant */
+    --popover-foreground: 45 54% 90%; /* foreground cream */
 
-    --primary: 45 64% 42%; /* Elite gold */
-    --primary-foreground: 0 0% 100%;
+    --primary: 45 64% 42%; /* elite-gold */
+    --primary-foreground: 220 33% 9%; /* elite-darker */
 
-    --secondary: 220 33% 15%; /* Elite dark variant */
+    --secondary: 220 33% 15%; /* elite-dark variant */
     --secondary-foreground: 45 54% 90%;
 
     --muted: 220 28% 15%;
-    --muted-foreground: 0 0% 69%;
+    --muted-foreground: 45 25% 65%; /* muted text */
 
-    --accent: 24 95% 53%; /* Elite sunset */
-    --accent-foreground: 0 0% 100%;
+    --accent: 24 95% 53%; /* elite-sunset */
+    --accent-foreground: 220 33% 9%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 33% 15%; /* Elite dark variant */
+    --border: 220 33% 15%; /* elite-dark variant */
     --input: 220 28% 15%;
-    --ring: 45 64% 42%; /* Elite gold */
+    --ring: 45 64% 42%; /* elite-gold */
 
     --sidebar-background: 220 33% 9%;
     --sidebar-foreground: 45 54% 90%;
     --sidebar-primary: 45 64% 42%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-primary-foreground: 220 33% 9%;
     --sidebar-accent: 220 33% 15%;
     --sidebar-accent-foreground: 45 54% 90%;
     --sidebar-border: 220 33% 15%;
@@ -95,23 +95,25 @@
 
   body {
     @apply bg-background text-foreground font-montserrat transition-colors duration-300;
+    font-family: system-ui, 'Inter', 'Helvetica Neue', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair text-elite-gold dark:text-elite-gold;
+    @apply font-playfair text-elite-gold;
+    font-family: 'Georgia', 'Playfair Display', serif;
   }
 
   a {
     @apply transition-colors duration-200;
   }
 
-  /* Scrollbar customization - Elite Dark themed */
+  /* Scrollbar customization - Elite Heritage themed */
   ::-webkit-scrollbar {
     width: 8px;
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-elite-goldLight/20 dark:bg-elite-darker;
+    @apply bg-elite-darker;
   }
   
   ::-webkit-scrollbar-thumb {
@@ -119,7 +121,7 @@
   }
 }
 
-/* Custom utility classes - Updated for Elite Dark */
+/* Custom utility classes - Elite Heritage */
 @layer components {
   .baglio-container {
     @apply max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8;
@@ -127,14 +129,15 @@
 
   .hero-section {
     @apply relative h-screen flex items-center justify-center overflow-hidden;
+    background: linear-gradient(135deg, #1A1F2C 0%, #0F1319 100%);
   }
 
   .hero-overlay {
-    @apply absolute inset-0 bg-elite-dark bg-opacity-40 dark:bg-opacity-60 z-10;
+    @apply absolute inset-0 bg-elite-dark bg-opacity-60 z-10;
   }
 
   .hero-content {
-    @apply z-20 text-center text-white p-4;
+    @apply z-20 text-center text-foreground p-4;
   }
 
   .section-title {
@@ -146,19 +149,27 @@
   }
 
   .cta-button {
-    @apply bg-elite-gold hover:bg-elite-goldLight text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md;
+    @apply bg-elite-gold hover:bg-elite-goldLight text-elite-darker font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md;
   }
 
   .cta-button-outline {
-    @apply border-2 border-elite-gold text-elite-gold hover:bg-elite-gold hover:text-white font-semibold py-3 px-6 rounded-md transition-all duration-300;
+    @apply border-2 border-elite-gold text-elite-gold hover:bg-elite-gold hover:text-elite-darker font-semibold py-3 px-6 rounded-md transition-all duration-300;
   }
 
   .navbar-scrolled {
-    @apply bg-white/90 dark:bg-elite-dark/90 backdrop-blur-sm shadow-md text-elite-dark dark:text-elite-goldLight;
+    @apply bg-elite-darker/95 backdrop-blur-sm shadow-md text-foreground;
   }
 
   .navbar-transparent {
-    @apply bg-transparent text-white;
+    @apply bg-transparent text-foreground;
+  }
+
+  .event-card {
+    @apply bg-card border border-elite-gold/20 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:border-elite-goldLight;
+  }
+
+  .premium-callout {
+    @apply bg-elite-sunsetLight/10 border border-elite-sunsetLight/30 rounded-lg p-6 text-center;
   }
 }
 
@@ -178,3 +189,9 @@
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
+
+/* Heritage decorative pattern */
+.heritage-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(212, 175, 55, 0.1) 1px, transparent 0);
+  background-size: 20px 20px;
+}
