@@ -1,7 +1,6 @@
 
 import React, { useEffect } from 'react';
 import Navbar from './Navbar';
-import SecondaryNavigation from './SecondaryNavigation';
 import BreadcrumbNavigation from './BreadcrumbNavigation';
 import Footer from './Footer';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -45,7 +44,6 @@ const Layout = ({
   return (
     <div className="flex flex-col min-h-screen bg-background transition-colors duration-300">
       {!hideNavbar && <Navbar />}
-      {!hideSecondaryNav && <SecondaryNavigation />}
       {!hideBreadcrumb && <BreadcrumbNavigation />}
       <main 
         className="flex-grow"
