@@ -1,7 +1,6 @@
 
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
-import CTAButton from '../CTAButton';
+import { ChevronDown, MapPin } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
 
@@ -22,34 +21,100 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
     });
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div className={cn("hero-section heritage-pattern", className)}>
+    <div className={cn("hero-section-enhanced relative overflow-hidden", className)}>
+      {/* Background Image with Enhanced Overlay */}
       <div className="absolute inset-0">
         <img 
           src={imageSrc} 
           alt={title} 
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-full object-cover"
           loading="eager"
         />
+        {/* Multi-layer overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-elite-darker/40 via-elite-darker/70 to-elite-darker/90"></div>
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-elite-darker/20 to-elite-darker/60"></div>
       </div>
-      <div className="hero-overlay"></div>
-      <div className="hero-content animate-fade-in px-4 max-w-4xl">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-playfair text-elite-gold">
-          {title}
-        </h1>
-        <p className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 max-w-2xl text-foreground">
-          {subtitle}
-        </p>
-        <div className={`flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 ${isMobile ? 'w-full' : ''}`}>
-          <CTAButton to="/gallery" fullWidth={isMobile}>Esplora il Baglio</CTAButton>
-          <CTAButton to="/eventi" outline={true} fullWidth={isMobile}>Scopri i nostri eventi</CTAButton>
+      
+      {/* Heritage Pattern Overlay */}
+      <div className="absolute inset-0 heritage-pattern opacity-20"></div>
+      
+      {/* Main Content */}
+      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
+        
+        {/* Main Title - Enhanced Typography */}
+        <div className="mb-8 animate-gentle-fade-in">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-playfair font-bold text-elite-gold mb-6">
+            {title}
+          </h1>
+          
+          {/* Poetic Subtitle */}
+          <div className="space-y-3 max-w-3xl mx-auto">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-foreground leading-relaxed">
+              Il tuo evento tra pietra antica, luce dorata e cielo siciliano.
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light italic">
+              Una dimora storica per i momenti che contano davvero.
+            </p>
+          </div>
         </div>
+
+        {/* Primary CTA Button */}
+        <div className="mb-8 animate-gentle-fade-in delay-200">
+          <button 
+            onClick={() => scrollToSection('eventi-section')}
+            className="group bg-elite-gold hover:bg-elite-goldLight text-elite-darker font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center space-x-2 text-lg"
+          >
+            <MapPin size={20} className="group-hover:scale-110 transition-transform duration-300" />
+            <span>Scopri la location</span>
+          </button>
+        </div>
+
+        {/* Secondary Navigation Menu */}
+        <div className="animate-gentle-fade-in delay-300">
+          <nav className="flex flex-wrap justify-center items-center space-x-1 sm:space-x-6 text-sm sm:text-base">
+            <button 
+              onClick={() => scrollToSection('eventi-section')}
+              className="px-3 py-2 text-foreground hover:text-elite-gold transition-colors duration-300 border-b-2 border-transparent hover:border-elite-gold font-medium"
+            >
+              Eventi
+            </button>
+            <span className="text-elite-gold/50 hidden sm:inline">•</span>
+            <button 
+              onClick={() => window.location.href = '/gallery'}
+              className="px-3 py-2 text-foreground hover:text-elite-gold transition-colors duration-300 border-b-2 border-transparent hover:border-elite-gold font-medium"
+            >
+              Gallery
+            </button>
+            <span className="text-elite-gold/50 hidden sm:inline">•</span>
+            <button 
+              onClick={() => window.location.href = '/contatti'}
+              className="px-3 py-2 text-foreground hover:text-elite-gold transition-colors duration-300 border-b-2 border-transparent hover:border-elite-gold font-medium"
+            >
+              Contatti
+            </button>
+          </nav>
+        </div>
+
+        {/* Scroll Hint */}
         <button 
           onClick={scrollToNextSection}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-elite-gold hover:text-elite-goldLight transition-colors duration-300"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-elite-gold hover:text-elite-goldLight transition-colors duration-300 animate-gentle-fade-in delay-500 group"
           aria-label="Scroll down"
         >
-          <ChevronDown size={36} className="animate-bounce" />
+          <div className="flex flex-col items-center space-y-1">
+            <span className="text-xs font-medium tracking-wider opacity-80 group-hover:opacity-100 transition-opacity">
+              Scopri di più
+            </span>
+            <ChevronDown size={24} className="animate-bounce group-hover:scale-110 transition-transform duration-300" />
+          </div>
         </button>
       </div>
     </div>

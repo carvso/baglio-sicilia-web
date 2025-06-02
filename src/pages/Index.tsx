@@ -25,7 +25,7 @@ const Index = () => {
         <meta property="og:image" content="/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png" />
       </Helmet>
       
-      {/* Hero Section */}
+      {/* Enhanced Hero Section */}
       <HeroSection 
         title="Baglio Abbate"
         subtitle="Location esclusiva per eventi indimenticabili nel cuore della Sicilia"
@@ -119,8 +119,8 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Upcoming Events Section */}
-      <section className="py-16 bg-elite-dark">
+      {/* Upcoming Events Section - Added ID for scroll navigation */}
+      <section id="eventi-section" className="py-16 bg-elite-dark">
         <div className="baglio-container">
           <h2 className="text-3xl md:text-4xl font-playfair text-center mb-12 text-elite-gold">Eventi in Programma</h2>
           

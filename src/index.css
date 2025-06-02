@@ -1,234 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  /* Elite Heritage Color Palette */
-  :root {
-    /* Light theme variables - Elite Heritage */
-    --background: 220 33% 9%; /* elite-darker */
-    --foreground: 45 54% 90%; /* foreground cream */
-
-    --card: 220 28% 12%; /* elite-dark variant */
-    --card-foreground: 45 54% 90%; /* foreground cream */
-
-    --popover: 220 28% 12%; /* elite-dark variant */
-    --popover-foreground: 45 54% 90%; /* foreground cream */
-
-    --primary: 45 64% 42%; /* elite-gold */
-    --primary-foreground: 220 33% 9%; /* elite-darker */
-
-    --secondary: 220 33% 15%; /* elite-dark variant */
-    --secondary-foreground: 45 54% 90%;
-
-    --muted: 220 28% 15%;
-    --muted-foreground: 45 25% 65%; /* muted text */
-
-    --accent: 24 95% 53%; /* elite-sunset */
-    --accent-foreground: 220 33% 9%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 45 64% 42%; /* elite-gold */
-    --input: 220 28% 15%;
-    --ring: 45 64% 42%; /* elite-gold */
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 220 33% 9%;
-    --sidebar-foreground: 45 54% 90%;
-    --sidebar-primary: 45 64% 42%;
-    --sidebar-primary-foreground: 220 33% 9%;
-    --sidebar-accent: 220 33% 15%;
-    --sidebar-accent-foreground: 45 54% 90%;
-    --sidebar-border: 220 33% 15%;
-    --sidebar-ring: 45 64% 42%;
-  }
-
-  .dark {
-    /* Dark theme variables - Same as light for Elite Heritage */
-    --background: 220 33% 9%; /* elite-darker */
-    --foreground: 45 54% 90%; /* foreground cream */
-
-    --card: 220 28% 12%; /* elite-dark variant */
-    --card-foreground: 45 54% 90%; /* foreground cream */
-
-    --popover: 220 28% 12%; /* elite-dark variant */
-    --popover-foreground: 45 54% 90%; /* foreground cream */
-
-    --primary: 45 64% 42%; /* elite-gold */
-    --primary-foreground: 220 33% 9%; /* elite-darker */
-
-    --secondary: 220 33% 15%; /* elite-dark variant */
-    --secondary-foreground: 45 54% 90%;
-
-    --muted: 220 28% 15%;
-    --muted-foreground: 45 25% 65%; /* muted text */
-
-    --accent: 24 95% 53%; /* elite-sunset */
-    --accent-foreground: 220 33% 9%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 33% 15%; /* elite-dark variant */
-    --input: 220 28% 15%;
-    --ring: 45 64% 42%; /* elite-gold */
-
-    --sidebar-background: 220 33% 9%;
-    --sidebar-foreground: 45 54% 90%;
-    --sidebar-primary: 45 64% 42%;
-    --sidebar-primary-foreground: 220 33% 9%;
-    --sidebar-accent: 220 33% 15%;
-    --sidebar-accent-foreground: 45 54% 90%;
-    --sidebar-border: 220 33% 15%;
-    --sidebar-ring: 45 64% 42%;
-  }
-
-  * {
-    @apply border-border;
-  }
-
-  /* Mobile-optimized scrolling */
-  html {
-    scroll-behavior: auto; /* Avoid smooth scroll conflicts on iOS */
-  }
-
-  @media (min-width: 768px) {
-    html {
-      scroll-behavior: smooth; /* Enable only on desktop */
-    }
-  }
-
-  body {
-    @apply bg-background text-foreground font-montserrat transition-colors duration-300;
-    font-family: system-ui, 'Inter', 'Helvetica Neue', sans-serif;
-    /* Simplified for better iOS Chrome compatibility */
-    overflow-x: hidden;
-    /* Remove hardware acceleration hints that can cause scroll issues */
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair text-elite-gold;
-    font-family: 'Georgia', 'Playfair Display', serif;
-  }
-
-  a {
-    @apply transition-colors duration-200;
-    /* Improve touch targets */
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  /* Touch-friendly buttons */
-  button {
-    min-height: 44px;
-    min-width: 44px;
-    touch-action: manipulation;
-  }
-
-  /* Prevent touch delay on iOS */
-  a, button, [role="button"] {
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-  }
-
-  /* Scrollbar customization - Elite Heritage themed */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    @apply bg-elite-darker;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    @apply bg-elite-gold/70 rounded-full hover:bg-elite-gold;
-  }
-
-  /* Reduce motion for users who prefer it */
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-    
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-}
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 /* Custom utility classes - Elite Heritage */
 @layer components {
   .baglio-container {
-    @apply max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .hero-section {
-    @apply relative h-screen flex items-center justify-center overflow-hidden;
-    background: linear-gradient(135deg, #1A1F2C 0%, #0F1319 100%);
-  }
-
-  .hero-overlay {
-    @apply absolute inset-0 bg-elite-dark bg-opacity-60 z-10;
-  }
-
-  .hero-content {
-    @apply z-20 text-center text-foreground p-4;
-  }
-
-  .section-title {
-    @apply text-3xl md:text-4xl font-semibold mb-6 font-playfair text-elite-gold;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
 
   .section-padding {
-    @apply py-16 md:py-24;
+    padding: 4rem 0;
   }
 
   .cta-button {
-    @apply bg-elite-gold hover:bg-elite-goldLight text-elite-darker font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md;
-    /* Mobile-optimized touch targets */
-    min-height: 48px;
-    min-width: 120px;
-    touch-action: manipulation;
+    @apply inline-flex items-center justify-center font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md;
+  }
+
+  .cta-button-primary {
+    @apply bg-baglio-oro text-white hover:bg-baglio-oro/90;
   }
 
   .cta-button-outline {
-    @apply border-2 border-elite-gold text-elite-gold hover:bg-elite-gold hover:text-elite-darker font-semibold py-3 px-6 rounded-md transition-all duration-300;
-    /* Mobile-optimized touch targets */
-    min-height: 48px;
-    min-width: 120px;
-    touch-action: manipulation;
+    @apply border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-white;
+  }
+
+  /* Enhanced Hero Section */
+  .hero-section-enhanced {
+    @apply relative h-screen flex items-center justify-center overflow-hidden;
+    background: linear-gradient(135deg, #1A1F2C 0%, #0F1319 100%);
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+
+  /* Radial gradient utility */
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+  }
+
+  /* Navbar styles */
+  .navbar {
+    @apply fixed top-0 left-0 right-0 z-30 bg-background/90 backdrop-blur-md shadow-sm transition-all duration-300;
   }
 
   .navbar-scrolled {
-    @apply bg-elite-darker/95 backdrop-blur-sm shadow-md text-foreground;
-    /* Remove will-change that can cause scroll issues on iOS Chrome */
+    @apply bg-background/95 shadow-lg;
   }
 
   .navbar-transparent {
-    @apply bg-transparent text-foreground;
+    @apply bg-transparent backdrop-blur-none shadow-none;
   }
 
+  .nav-link {
+    @apply text-sm font-medium text-foreground hover:text-primary transition-colors duration-200;
+  }
+
+  /* Event card styles */
   .event-card {
-    @apply bg-card border border-elite-gold/20 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:border-elite-goldLight;
-    /* Mobile-optimized interactions */
-    touch-action: manipulation;
-    cursor: pointer;
+    @apply rounded-lg overflow-hidden shadow-md bg-card border border-border transition-shadow duration-300 hover:shadow-xl;
   }
 
-  /* Mobile-first card improvements */
+  /* Enhanced mobile improvements */
   @media (max-width: 768px) {
+    .hero-section-enhanced {
+      min-height: 100vh;
+      padding-top: 80px; /* Account for mobile navbar */
+    }
+    
     .event-card {
-      /* Larger touch targets on mobile */
       min-height: 120px;
       padding: 1rem;
     }
@@ -239,147 +80,105 @@
     }
   }
 
+  /* Premium callout */
   .premium-callout {
-    @apply bg-elite-sunsetLight/10 border border-elite-sunsetLight/30 rounded-lg p-6 text-center;
+    @apply bg-elite-darker border border-elite-goldLight/20 rounded-lg shadow-md p-6;
   }
 
-  /* Mobile navigation improvements */
+  /* Mobile nav overlay */
   .mobile-nav-overlay {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    @apply fixed top-0 left-0 w-full h-full bg-background/80 backdrop-blur-md z-40 flex items-center justify-center;
   }
 }
 
-/* Custom animations - mobile optimized */
+/* Enhanced animations with better performance */
 @keyframes gentle-fade-in {
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px) scale(0.98); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
 }
 
-/* Lightweight animations for mobile */
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 0.8; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.05); 
+  }
+}
+
+/* Enhanced animation classes */
 .animate-gentle-fade-in {
-  animation: gentle-fade-in 0.4s ease forwards;
+  animation: gentle-fade-in 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 @media (max-width: 768px) {
   .animate-gentle-fade-in {
-    animation-duration: 0.2s; /* Faster on mobile */
+    animation-duration: 0.5s;
   }
 }
 
-/* Add animation delays */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
+/* Delay classes */
+.delay-100 {
+  animation-delay: 0.1s;
+}
 
-/* Heritage decorative pattern - mobile optimized */
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* Heritage decorative pattern */
 .heritage-pattern {
-  background-image: radial-gradient(circle at 1px 1px, rgba(212, 175, 55, 0.1) 1px, transparent 0);
-  background-size: 20px 20px;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(212, 175, 55, 0.15) 1px, transparent 0),
+    radial-gradient(circle at 10px 10px, rgba(212, 175, 55, 0.05) 1px, transparent 0);
+  background-size: 20px 20px, 40px 40px;
 }
 
 @media (max-width: 768px) {
   .heritage-pattern {
-    background-size: 15px 15px; /* Smaller pattern on mobile */
+    background-size: 15px 15px, 30px 30px;
   }
 }
 
 /* Mobile-specific improvements */
 @media (max-width: 768px) {
-  /* Improve mobile spacing */
-  .section-padding {
-    @apply py-12;
+  a, button, [role="button"], [tabindex] {
+    min-height: 44px;
+    min-width: 44px;
   }
   
-  /* Better mobile text sizing */
-  .section-title {
-    @apply text-2xl mb-4;
-  }
-  
-  /* Optimize container padding */
-  .baglio-container {
-    @apply px-4;
-  }
-  
-  /* Improve mobile forms */
+  /* Improve form elements */
   input, textarea, select {
-    min-height: 48px;
     font-size: 16px; /* Prevent zoom on iOS */
-  }
-  
-  /* Better mobile buttons */
-  button, .btn {
     min-height: 48px;
-    padding: 12px 20px;
-    font-size: 16px;
-  }
-}
-
-/* Custom animations - mobile optimized */
-@keyframes gentle-fade-in {
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Lightweight animations for mobile */
-.animate-gentle-fade-in {
-  animation: gentle-fade-in 0.4s ease forwards;
-}
-
-@media (max-width: 768px) {
-  .animate-gentle-fade-in {
-    animation-duration: 0.2s; /* Faster on mobile */
-  }
-}
-
-/* Add animation delays */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
-
-/* Heritage decorative pattern - mobile optimized */
-.heritage-pattern {
-  background-image: radial-gradient(circle at 1px 1px, rgba(212, 175, 55, 0.1) 1px, transparent 0);
-  background-size: 20px 20px;
-}
-
-@media (max-width: 768px) {
-  .heritage-pattern {
-    background-size: 15px 15px; /* Smaller pattern on mobile */
-  }
-}
-
-/* Mobile-specific improvements */
-@media (max-width: 768px) {
-  /* Improve mobile spacing */
-  .section-padding {
-    @apply py-12;
   }
   
-  /* Better mobile text sizing */
-  .section-title {
-    @apply text-2xl mb-4;
-  }
-  
-  /* Optimize container padding */
-  .baglio-container {
-    @apply px-4;
-  }
-  
-  /* Improve mobile forms */
-  input, textarea, select {
-    min-height: 48px;
-    font-size: 16px; /* Prevent zoom on iOS */
-  }
-  
-  /* Better mobile buttons */
-  button, .btn {
-    min-height: 48px;
-    padding: 12px 20px;
-    font-size: 16px;
+  /* Better touch feedback */
+  button:active, 
+  [role="button"]:active,
+  .event-card:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
   }
 }
