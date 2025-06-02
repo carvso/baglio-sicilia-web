@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Heart, Users, Building, Camera } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -12,11 +13,12 @@ type EventCategoryProps = {
   description: string;
   imageSrc: string;
   webpSrc?: string;
+  linkTo: string;
 };
 
-const EventCategory = ({ icon, title, description, imageSrc, webpSrc }: EventCategoryProps) => {
+const EventCategory = ({ icon, title, description, imageSrc, webpSrc, linkTo }: EventCategoryProps) => {
   return (
-    <div className="group bg-card border border-elite-gold/20 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:border-elite-goldLight">
+    <Link to={linkTo} className="group bg-card border border-elite-gold/20 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:border-elite-goldLight block">
       <OptimizedImage
         src={imageSrc}
         webpSrc={webpSrc}
@@ -32,14 +34,11 @@ const EventCategory = ({ icon, title, description, imageSrc, webpSrc }: EventCat
           <h3 className="text-xl font-playfair font-semibold text-elite-gold">{title}</h3>
         </div>
         <p className="text-muted-foreground mb-4">{description}</p>
-        <a 
-          href="#contact-section"
-          className="inline-flex items-center font-medium text-elite-goldLight hover:text-elite-gold transition-colors"
-        >
-          Richiedi informazioni <ArrowRight size={16} className="ml-2" />
-        </a>
+        <div className="inline-flex items-center font-medium text-elite-goldLight hover:text-elite-gold transition-colors">
+          Scopri di più <ArrowRight size={16} className="ml-2" />
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -77,18 +76,21 @@ const Eventi = () => {
               title="Matrimoni e Cerimonie"
               description="Dalla cerimonia intima al grande ricevimento, rendiamo il vostro giorno speciale ancora più magico con ambientazioni suggestive e servizi personalizzati."
               imageSrc="/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png"
+              linkTo="/matrimoni"
             />
             <EventCategory 
               icon={<Users size={24} />}
               title="Eventi Privati"
               description="Compleanni, anniversari, lauree, battesimi: ogni celebrazione diventa memorabile nei nostri spazi eleganti e versatili."
               imageSrc="/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png"
+              linkTo="/eventi-privati"
             />
             <EventCategory 
               icon={<Building size={24} />}
               title="Eventi Aziendali"
               description="Meeting, team building, cene di gala: offriamo spazi e servizi su misura per le esigenze del vostro business."
               imageSrc="/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png"
+              linkTo="/eventi-aziendali"
             />
           </div>
         </div>

@@ -10,6 +10,9 @@ import { PaletteProvider } from "@/components/PaletteContext";
 
 import Index from "./pages/Index";
 import Eventi from "./pages/Eventi";
+import EventiPrivati from "./pages/EventiPrivati";
+import Matrimoni from "./pages/Matrimoni";
+import EventiAziendali from "./pages/EventiAziendali";
 import Gallery from "./pages/Gallery";
 import Contatti from "./pages/Contatti";
 import NotFound from "./pages/NotFound";
@@ -28,6 +31,9 @@ const App = () => (
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/eventi" element={<Eventi />} />
+                <Route path="/eventi-privati" element={<EventiPrivati />} />
+                <Route path="/matrimoni" element={<Matrimoni />} />
+                <Route path="/eventi-aziendali" element={<EventiAziendali />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/contatti" element={<Contatti />} />
                 <Route path="*" element={<NotFound />} />
