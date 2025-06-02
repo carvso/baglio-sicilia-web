@@ -7,6 +7,7 @@ import HeroSection from '@/components/sections/HeroSection';
 import { useIsMobile } from '@/hooks/use-mobile';
 import SectionTitle from '@/components/SectionTitle';
 import CTAButton from '@/components/CTAButton';
+import { MessageCircle } from 'lucide-react';
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -32,19 +33,44 @@ const Index = () => {
         imageSrc="/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png"
       />
       
-      {/* Premium Callout */}
-      <section className="section-padding bg-elite-dark">
-        <div className="baglio-container">
-          <div className="premium-callout max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-playfair font-bold mb-4 text-elite-gold">
-              Prenota il tuo evento da sogno
+      {/* Emotional WhatsApp Invitation */}
+      <section className="section-padding bg-elite-dark relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 opacity-10">
+          <MessageCircle size={200} className="absolute top-10 right-10 text-elite-gold rotate-12" />
+          <MessageCircle size={150} className="absolute bottom-10 left-10 text-elite-gold -rotate-12" />
+        </div>
+        
+        {/* Subtle background image */}
+        <div 
+          className="absolute inset-0 opacity-20 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png')`,
+            filter: 'blur(2px)',
+          }}
+        ></div>
+        
+        <div className="baglio-container relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-bold mb-6 text-elite-gold">
+              Ogni evento inizia con una conversazione.
             </h2>
-            <p className="text-lg text-foreground mb-6">
-              Lasciati incantare dalla magia della Sicilia in una location unica che unisce tradizione e eleganza
-            </p>
-            <CTAButton to="/contatti" className="bg-elite-sunset hover:bg-elite-sunsetLight text-elite-darker">
-              Richiedi un preventivo
-            </CTAButton>
+            <div className="space-y-4 text-lg md:text-xl text-foreground max-w-2xl mx-auto">
+              <p>
+                Parlaci della tua idea. Saremo felici di trasformarla in realtà.
+              </p>
+              <p className="text-base md:text-lg text-muted-foreground">
+                Scrivici quando vuoi: ti risponde una persona vera.
+              </p>
+            </div>
+            
+            {/* Visual hint pointing to WhatsApp button */}
+            <div className="mt-8 flex flex-col items-center space-y-2">
+              <div className="text-elite-gold/70 text-sm font-medium tracking-wide">
+                👆 Inizia la conversazione
+              </div>
+              <div className="w-12 h-0.5 bg-elite-gold/30 rounded-full"></div>
+            </div>
           </div>
         </div>
       </section>
