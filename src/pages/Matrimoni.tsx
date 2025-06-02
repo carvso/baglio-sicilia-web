@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowLeft, Heart, Camera, Music, Flower, Crown, Car } from 'lucide-react';
+import { Heart, Camera, Music, Flower, Crown, Car } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
@@ -60,19 +60,6 @@ const Matrimoni = () => {
   return (
     <Layout>
       <div className="bg-background min-h-screen">
-        {/* Header Navigation */}
-        <div className="bg-elite-darker border-b border-elite-gold/20">
-          <div className="baglio-container py-4">
-            <Link 
-              to="/eventi" 
-              className="inline-flex items-center text-elite-goldLight hover:text-elite-gold transition-colors duration-200"
-            >
-              <ArrowLeft size={20} className="mr-2" />
-              Torna alla pagina Eventi
-            </Link>
-          </div>
-        </div>
-
         {/* Hero Section */}
         <ImageWithOverlay 
           src="/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png"

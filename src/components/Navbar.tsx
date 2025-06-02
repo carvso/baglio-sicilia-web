@@ -69,35 +69,30 @@ const Navbar = () => {
         )}
       >
         <div className="baglio-container">
-          <nav className="flex justify-between items-center py-4 px-4 md:px-0 min-h-[64px]">
+          <nav className="flex justify-between items-center py-3 md:py-4 px-4 md:px-0 min-h-[56px] md:min-h-[64px]">
             <Link 
               to="/" 
-              className="font-playfair text-2xl font-bold tracking-wider relative z-50 text-elite-gold min-h-[44px] flex items-center"
+              className="font-playfair text-xl md:text-2xl font-bold tracking-wider relative z-50 text-elite-gold min-h-[44px] flex items-center"
               onClick={handleLinkClick}
             >
               Baglio Abbate
             </Link>
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-6 items-center">
-              <NavLink to="/" isActive={location.pathname === "/"} isScrolled={isScrolled}>Home</NavLink>
-              <NavLink to="/eventi" isActive={location.pathname === "/eventi"} isScrolled={isScrolled}>Eventi</NavLink>
-              <NavLink to="/gallery" isActive={location.pathname === "/gallery"} isScrolled={isScrolled}>Gallery</NavLink>
-              <NavLink to="/contatti" isActive={location.pathname === "/contatti"} isScrolled={isScrolled}>Contatti</NavLink>
-              
+            {/* Desktop Menu - Simplified */}
+            <div className="hidden md:flex items-center space-x-4">
               {/* Language Selector */}
-              <LanguageSelector className="ml-4" isScrolled={isScrolled} />
+              <LanguageSelector isScrolled={isScrolled} />
               
               <Link 
                 to="/contatti" 
-                className="ml-4 py-3 px-6 bg-elite-gold text-elite-darker hover:bg-elite-goldLight rounded-md transition duration-300 font-semibold min-h-[44px] flex items-center"
+                className="py-2 md:py-3 px-4 md:px-6 bg-elite-gold text-elite-darker hover:bg-elite-goldLight rounded-md transition duration-300 font-semibold min-h-[40px] md:min-h-[44px] flex items-center text-sm md:text-base"
               >
                 Prenota
               </Link>
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden flex items-center space-x-4 z-50">
+            <div className="md:hidden flex items-center space-x-2 md:space-x-4 z-50">
               <LanguageSelector isScrolled={isScrolled} />
               <button 
                 onClick={toggleMenu} 
@@ -106,9 +101,9 @@ const Navbar = () => {
                 aria-expanded={isMenuOpen}
               >
                 {isMenuOpen ? (
-                  <X size={24} className="text-foreground" />
+                  <X size={20} className="text-foreground" />
                 ) : (
-                  <Menu size={24} className="text-foreground" />
+                  <Menu size={20} className="text-foreground" />
                 )}
               </button>
             </div>
@@ -132,14 +127,14 @@ const Navbar = () => {
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
-        <div className="flex flex-col h-full pt-20 pb-8 px-6">
-          <div className="flex-grow flex flex-col space-y-8">
+        <div className="flex flex-col h-full pt-16 pb-8 px-6">
+          <div className="flex-grow flex flex-col space-y-6">
             <MobileNavLink to="/" onClick={handleLinkClick} isActive={location.pathname === "/"}>Home</MobileNavLink>
-            <MobileNavLink to="/eventi" onClick={handleLinkClick} isActive={location.pathname === "/eventi"}>Eventi</MobileNavLink>
+            <MobileNavLink to="/eventi" onClick={handleLinkClick} isActive={location.pathname.startsWith("/eventi")}>Eventi</MobileNavLink>
             <MobileNavLink to="/gallery" onClick={handleLinkClick} isActive={location.pathname === "/gallery"}>Gallery</MobileNavLink>
             <MobileNavLink to="/contatti" onClick={handleLinkClick} isActive={location.pathname === "/contatti"}>Contatti</MobileNavLink>
           </div>
-          <div className="mt-8 pt-6 border-t border-elite-gold/20">
+          <div className="mt-6 pt-6 border-t border-elite-gold/20">
             <Link 
               to="/contatti" 
               onClick={handleLinkClick}
@@ -154,28 +149,6 @@ const Navbar = () => {
   );
 };
 
-type NavLinkProps = {
-  to: string;
-  children: React.ReactNode;
-  isScrolled: boolean;
-  isActive: boolean;
-};
-
-const NavLink = ({ to, children, isScrolled, isActive }: NavLinkProps) => (
-  <Link 
-    to={to} 
-    className={cn(
-      `font-medium transition-colors duration-300 min-h-[44px] flex items-center px-2`,
-      {
-        'text-foreground hover:text-elite-goldLight': !isActive,
-        'text-elite-gold font-semibold': isActive,
-      }
-    )}
-  >
-    {children}
-  </Link>
-);
-
 type MobileNavLinkProps = {
   to: string;
   children: React.ReactNode;
@@ -188,7 +161,7 @@ const MobileNavLink = ({ to, children, onClick, isActive }: MobileNavLinkProps) 
     to={to} 
     onClick={onClick}
     className={cn(
-      "text-2xl font-playfair hover:text-elite-goldLight transition duration-300 min-h-[56px] flex items-center border-b border-elite-gold/20 pb-4",
+      "text-xl font-playfair hover:text-elite-goldLight transition duration-300 min-h-[48px] flex items-center border-b border-elite-gold/20 pb-3",
       {
         'text-foreground': !isActive,
         'text-elite-gold font-semibold': isActive,

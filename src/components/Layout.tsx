@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import Navbar from './Navbar';
+import SecondaryNavigation from './SecondaryNavigation';
 import Footer from './Footer';
 import { useIsMobile } from '@/hooks/use-mobile';
 import WhatsAppButton from './WhatsAppButton';
@@ -9,6 +10,7 @@ type LayoutProps = {
   children: React.ReactNode;
   hideNavbar?: boolean;
   hideFooter?: boolean;
+  hideSecondaryNav?: boolean;
   whatsAppMessage?: string;
 };
 
@@ -16,6 +18,7 @@ const Layout = ({
   children, 
   hideNavbar = false, 
   hideFooter = false,
+  hideSecondaryNav = false,
   whatsAppMessage = "Ciao! Sono interessato a maggiori informazioni su Baglio Abbate." 
 }: LayoutProps) => {
   const isMobile = useIsMobile();
@@ -39,6 +42,7 @@ const Layout = ({
   return (
     <div className="flex flex-col min-h-screen bg-background transition-colors duration-300">
       {!hideNavbar && <Navbar />}
+      {!hideSecondaryNav && <SecondaryNavigation />}
       <main 
         className="flex-grow"
         style={{
