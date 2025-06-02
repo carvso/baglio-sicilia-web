@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -41,12 +40,11 @@ const Index = () => {
           <MessageCircle size={150} className="absolute bottom-10 left-10 text-elite-gold -rotate-12" />
         </div>
         
-        {/* Subtle background image */}
+        {/* Subtle background image without blur - better for mobile performance */}
         <div 
-          className="absolute inset-0 opacity-20 bg-cover bg-center"
+          className="absolute inset-0 opacity-15 bg-cover bg-center"
           style={{
             backgroundImage: `url('/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png')`,
-            filter: 'blur(2px)',
           }}
         ></div>
         
