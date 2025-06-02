@@ -60,12 +60,12 @@ const LanguageSelector = ({ className, isScrolled = false }: LanguageSelectorPro
           <span className="text-lg leading-none">{currentLanguage?.flag}</span>
         </div>
       </SelectTrigger>
-      <SelectContent className="bg-white dark:bg-elite-darker border border-elite-gold/30 shadow-xl rounded-md">
+      <SelectContent className="bg-elite-darker border border-elite-gold/30 shadow-xl rounded-md z-50">
         {languages.map((language) => (
           <SelectItem 
             key={language.code} 
             value={language.code}
-            className="hover:bg-elite-gold/20 focus:bg-elite-gold/20 cursor-pointer text-foreground hover:text-elite-darker transition-colors duration-200"
+            className="hover:bg-elite-gold/30 focus:bg-elite-gold/30 cursor-pointer text-white hover:text-elite-darker transition-colors duration-200 data-[highlighted]:bg-elite-gold/30 data-[highlighted]:text-elite-darker"
           >
             <div className="flex items-center gap-3">
               <span className="text-lg leading-none">{language.flag}</span>
