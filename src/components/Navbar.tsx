@@ -78,8 +78,32 @@ const Navbar = () => {
               Baglio Abbate
             </Link>
 
-            {/* Desktop Menu - Simplified */}
-            <div className="hidden md:flex items-center space-x-4">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-6">
+              <div className="flex space-x-6">
+                <Link 
+                  to="/eventi" 
+                  className="text-foreground hover:text-elite-goldLight transition duration-300 font-medium min-h-[44px] flex items-center"
+                  onClick={handleLinkClick}
+                >
+                  Eventi
+                </Link>
+                <Link 
+                  to="/gallery" 
+                  className="text-foreground hover:text-elite-goldLight transition duration-300 font-medium min-h-[44px] flex items-center"
+                  onClick={handleLinkClick}
+                >
+                  Gallery
+                </Link>
+                <Link 
+                  to="/contatti" 
+                  className="text-foreground hover:text-elite-goldLight transition duration-300 font-medium min-h-[44px] flex items-center"
+                  onClick={handleLinkClick}
+                >
+                  Contatti
+                </Link>
+              </div>
+              
               {/* Language Selector */}
               <LanguageSelector isScrolled={isScrolled} />
               
