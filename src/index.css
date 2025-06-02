@@ -1,8 +1,55 @@
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* Custom utility classes - Elite Heritage */
+/* CSS Variables for consistent colors */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+}
+
+/* Custom utility classes */
 @layer components {
   .baglio-container {
     max-width: 1280px;
@@ -20,53 +67,44 @@
   }
 
   .cta-button-primary {
-    @apply bg-baglio-oro text-white hover:bg-baglio-oro/90;
+    @apply bg-elite-gold text-elite-darker hover:bg-elite-goldLight;
   }
 
   .cta-button-outline {
-    @apply border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-white;
+    @apply border-2 border-elite-gold text-elite-gold hover:bg-elite-gold hover:text-elite-darker;
   }
 
   /* Enhanced Hero Section */
   .hero-section-enhanced {
     @apply relative h-screen flex items-center justify-center overflow-hidden;
-    background: linear-gradient(135deg, #1A1F2C 0%, #0F1319 100%);
+    background: linear-gradient(135deg, #0F1319 0%, #1A1F2C 100%);
     min-height: 100vh;
-    min-height: 100dvh; /* Dynamic viewport height for mobile */
-  }
-
-  /* Radial gradient utility */
-  .bg-gradient-radial {
-    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+    min-height: 100dvh;
   }
 
   /* Navbar styles */
   .navbar {
-    @apply fixed top-0 left-0 right-0 z-30 bg-background/90 backdrop-blur-md shadow-sm transition-all duration-300;
+    @apply fixed top-0 left-0 right-0 z-30 transition-all duration-300;
   }
 
   .navbar-scrolled {
-    @apply bg-background/95 shadow-lg;
+    @apply bg-white/95 backdrop-blur-md shadow-lg;
   }
 
   .navbar-transparent {
     @apply bg-transparent backdrop-blur-none shadow-none;
   }
 
-  .nav-link {
-    @apply text-sm font-medium text-foreground hover:text-primary transition-colors duration-200;
-  }
-
   /* Event card styles */
   .event-card {
-    @apply rounded-lg overflow-hidden shadow-md bg-card border border-border transition-shadow duration-300 hover:shadow-xl;
+    @apply rounded-lg overflow-hidden shadow-md bg-white border border-gray-200 transition-shadow duration-300 hover:shadow-xl;
   }
 
-  /* Enhanced mobile improvements */
+  /* Mobile improvements */
   @media (max-width: 768px) {
     .hero-section-enhanced {
       min-height: 100vh;
-      padding-top: 80px; /* Account for mobile navbar */
+      padding-top: 80px;
     }
     
     .event-card {
@@ -82,16 +120,11 @@
 
   /* Premium callout */
   .premium-callout {
-    @apply bg-elite-darker border border-elite-goldLight/20 rounded-lg shadow-md p-6;
-  }
-
-  /* Mobile nav overlay */
-  .mobile-nav-overlay {
-    @apply fixed top-0 left-0 w-full h-full bg-background/80 backdrop-blur-md z-40 flex items-center justify-center;
+    @apply bg-gray-50 border border-gray-200 rounded-lg shadow-md p-6;
   }
 }
 
-/* Enhanced animations with better performance */
+/* Enhanced animations */
 @keyframes gentle-fade-in {
   0% { 
     opacity: 0; 
@@ -114,7 +147,6 @@
   }
 }
 
-/* Enhanced animation classes */
 .animate-gentle-fade-in {
   animation: gentle-fade-in 0.8s ease-out forwards;
   opacity: 0;
@@ -168,13 +200,11 @@
     min-width: 44px;
   }
   
-  /* Improve form elements */
   input, textarea, select {
-    font-size: 16px; /* Prevent zoom on iOS */
+    font-size: 16px;
     min-height: 48px;
   }
   
-  /* Better touch feedback */
   button:active, 
   [role="button"]:active,
   .event-card:active {

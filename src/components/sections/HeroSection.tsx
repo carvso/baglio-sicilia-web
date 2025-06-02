@@ -38,29 +38,29 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
           className="w-full h-full object-cover"
           loading="eager"
         />
-        {/* Multi-layer overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-elite-darker/40 via-elite-darker/70 to-elite-darker/90"></div>
-        <div className="absolute inset-0 bg-gradient-radial from-transparent via-elite-darker/20 to-elite-darker/60"></div>
+        {/* Strong dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
       </div>
       
       {/* Heritage Pattern Overlay */}
-      <div className="absolute inset-0 heritage-pattern opacity-20"></div>
+      <div className="absolute inset-0 heritage-pattern opacity-10"></div>
       
       {/* Main Content */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
         
-        {/* Main Title - Enhanced Typography */}
+        {/* Main Title */}
         <div className="mb-8 animate-gentle-fade-in">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-playfair font-bold text-elite-gold mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-playfair font-bold text-white mb-6 drop-shadow-lg">
             {title}
           </h1>
           
-          {/* Poetic Subtitle */}
+          {/* Subtitle */}
           <div className="space-y-3 max-w-3xl mx-auto">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-foreground leading-relaxed">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-white leading-relaxed drop-shadow-md">
               Il tuo evento tra pietra antica, luce dorata e cielo siciliano.
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light italic">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 font-light italic drop-shadow-md">
               Una dimora storica per i momenti che contano davvero.
             </p>
           </div>
@@ -82,21 +82,21 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
           <nav className="flex flex-wrap justify-center items-center space-x-1 sm:space-x-6 text-sm sm:text-base">
             <button 
               onClick={() => scrollToSection('eventi-section')}
-              className="px-3 py-2 text-foreground hover:text-elite-gold transition-colors duration-300 border-b-2 border-transparent hover:border-elite-gold font-medium"
+              className="px-3 py-2 text-white hover:text-elite-goldLight transition-colors duration-300 border-b-2 border-transparent hover:border-elite-goldLight font-medium"
             >
               Eventi
             </button>
-            <span className="text-elite-gold/50 hidden sm:inline">•</span>
+            <span className="text-white/50 hidden sm:inline">•</span>
             <button 
               onClick={() => window.location.href = '/gallery'}
-              className="px-3 py-2 text-foreground hover:text-elite-gold transition-colors duration-300 border-b-2 border-transparent hover:border-elite-gold font-medium"
+              className="px-3 py-2 text-white hover:text-elite-goldLight transition-colors duration-300 border-b-2 border-transparent hover:border-elite-goldLight font-medium"
             >
               Gallery
             </button>
-            <span className="text-elite-gold/50 hidden sm:inline">•</span>
+            <span className="text-white/50 hidden sm:inline">•</span>
             <button 
               onClick={() => window.location.href = '/contatti'}
-              className="px-3 py-2 text-foreground hover:text-elite-gold transition-colors duration-300 border-b-2 border-transparent hover:border-elite-gold font-medium"
+              className="px-3 py-2 text-white hover:text-elite-goldLight transition-colors duration-300 border-b-2 border-transparent hover:border-elite-goldLight font-medium"
             >
               Contatti
             </button>
@@ -106,7 +106,7 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
         {/* Scroll Hint */}
         <button 
           onClick={scrollToNextSection}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-elite-gold hover:text-elite-goldLight transition-colors duration-300 animate-gentle-fade-in delay-500 group"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-elite-goldLight transition-colors duration-300 animate-gentle-fade-in delay-500 group"
           aria-label="Scroll down"
         >
           <div className="flex flex-col items-center space-y-1">
