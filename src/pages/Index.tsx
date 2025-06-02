@@ -107,6 +107,7 @@ const Index = () => {
                 src="/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png" 
                 alt="Evento al Baglio" 
                 className="w-full h-48 object-cover"
+                loading="lazy"
               />
               <div className="p-6">
                 <div className="text-sm text-elite-gold font-semibold mb-2">28 Maggio 2025</div>
@@ -126,6 +127,7 @@ const Index = () => {
                 src="/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png" 
                 alt="Matrimonio al Baglio" 
                 className="w-full h-48 object-cover"
+                loading="lazy"
               />
               <div className="p-6">
                 <div className="text-sm text-elite-gold font-semibold mb-2">10 Giugno 2025</div>
@@ -145,6 +147,7 @@ const Index = () => {
                 src="/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png" 
                 alt="Workshop al Baglio" 
                 className="w-full h-48 object-cover"
+                loading="lazy"
               />
               <div className="p-6">
                 <div className="text-sm text-elite-gold font-semibold mb-2">15 Giugno 2025</div>
@@ -182,6 +185,7 @@ const Index = () => {
                 src="/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png" 
                 alt="Spazi interni" 
                 className="w-full h-64 object-cover"
+                loading="lazy"
               />
             </div>
             
@@ -200,6 +204,64 @@ const Index = () => {
                 Esplora la Gallery
               </CTAButton>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Come raggiungerci Section */}
+      <section className="py-16 bg-elite-dark border-t border-elite-goldLight/30">
+        <div className="baglio-container">
+          <SectionTitle 
+            title="Come raggiungerci" 
+            subtitle="Siamo a pochi minuti dal centro di Balestrate, facilmente raggiungibili dalla costa occidentale della Sicilia"
+            center
+            light
+          />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-10">
+            <div className="space-y-6">
+              <div className="bg-elite-darker p-6 rounded-lg border border-elite-goldLight/20">
+                <h3 className="text-xl font-semibold mb-3 text-elite-gold font-playfair">📍 Indirizzo</h3>
+                <p className="text-foreground mb-2">Via Palermo 2, 90041 Balestrate (PA)</p>
+                <p className="text-muted-foreground">Sicilia, Italia</p>
+              </div>
+              
+              <div className="bg-elite-darker p-6 rounded-lg border border-elite-goldLight/20">
+                <h3 className="text-xl font-semibold mb-3 text-elite-gold font-playfair">🚗 In Auto</h3>
+                <p className="text-muted-foreground">
+                  Dall'autostrada A29 (Palermo-Mazara del Vallo), prendi l'uscita Balestrate. 
+                  Segui le indicazioni per il centro di Balestrate, poi per Via Palermo.
+                </p>
+              </div>
+              
+              <div className="bg-elite-darker p-6 rounded-lg border border-elite-goldLight/20">
+                <h3 className="text-xl font-semibold mb-3 text-elite-gold font-playfair">✈️ Dall'Aeroporto</h3>
+                <p className="text-muted-foreground">
+                  Aeroporto di Palermo "Falcone Borsellino" a 30 km. 
+                  Servizio taxi disponibile o noleggio auto in loco.
+                </p>
+              </div>
+            </div>
+            
+            <div className="h-[400px] rounded-lg overflow-hidden shadow-lg border border-elite-goldLight/20">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25693.09767224354!2d13.00252508697102!3d38.04952056842693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1319a5f7e09e5681%3A0x5667b56b1021075!2s90041%20Balestrate%2C%20Provincia%20di%20Palermo!5e0!3m2!1sit!2sit!4v1650234567890!5m2!1sit!2sit" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mappa di Baglio Abbate - Via Palermo 2, Balestrate"
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+          
+          <div className="text-center mt-10">
+            <CTAButton to="/contatti" className="bg-elite-gold hover:bg-elite-goldLight text-elite-darker">
+              Contattaci per Indicazioni
+            </CTAButton>
           </div>
         </div>
       </section>

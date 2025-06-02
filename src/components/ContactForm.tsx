@@ -45,7 +45,7 @@ const ContactForm = () => {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
             Nome e Cognome *
           </label>
           <input
@@ -55,12 +55,14 @@ const ContactForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-baglio-terracotta focus:border-baglio-terracotta"
+            placeholder="Il tuo nome completo"
+            className="w-full px-4 py-3 bg-elite-darker border border-elite-goldLight/30 rounded-md text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-elite-gold focus:border-elite-gold transition-all duration-200"
+            aria-describedby="name-help"
           />
         </div>
         
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
             Email *
           </label>
           <input
@@ -70,14 +72,16 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-baglio-terracotta focus:border-baglio-terracotta"
+            placeholder="la-tua-email@esempio.it"
+            className="w-full px-4 py-3 bg-elite-darker border border-elite-goldLight/30 rounded-md text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-elite-gold focus:border-elite-gold transition-all duration-200"
+            aria-describedby="email-help"
           />
         </div>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
             Telefono
           </label>
           <input
@@ -86,12 +90,13 @@ const ContactForm = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-baglio-terracotta focus:border-baglio-terracotta"
+            placeholder="+39 333 123 4567"
+            className="w-full px-4 py-3 bg-elite-darker border border-elite-goldLight/30 rounded-md text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-elite-gold focus:border-elite-gold transition-all duration-200"
           />
         </div>
         
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
             Oggetto *
           </label>
           <select
@@ -100,19 +105,21 @@ const ContactForm = () => {
             value={formData.subject}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-baglio-terracotta focus:border-baglio-terracotta"
+            className="w-full px-4 py-3 bg-elite-darker border border-elite-goldLight/30 rounded-md text-foreground focus:ring-2 focus:ring-elite-gold focus:border-elite-gold transition-all duration-200"
+            aria-describedby="subject-help"
           >
-            <option value="">Seleziona...</option>
-            <option value="Prenotazione Tavolo">Prenotazione Tavolo</option>
-            <option value="Informazioni Eventi">Informazioni Eventi</option>
-            <option value="Collaborazioni">Collaborazioni</option>
+            <option value="">Seleziona l'argomento...</option>
+            <option value="Matrimonio">Matrimonio</option>
+            <option value="Eventi Aziendali">Eventi Aziendali</option>
+            <option value="Feste Private">Feste Private</option>
+            <option value="Informazioni Generali">Informazioni Generali</option>
             <option value="Altro">Altro</option>
           </select>
         </div>
       </div>
       
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
           Messaggio *
         </label>
         <textarea
@@ -122,35 +129,42 @@ const ContactForm = () => {
           onChange={handleChange}
           required
           rows={5}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-baglio-terracotta focus:border-baglio-terracotta"
+          placeholder="Descrivici il tuo evento da sogno..."
+          className="w-full px-4 py-3 bg-elite-darker border border-elite-goldLight/30 rounded-md text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-elite-gold focus:border-elite-gold transition-all duration-200 resize-none"
+          aria-describedby="message-help"
         ></textarea>
       </div>
       
-      <div className="flex items-center">
+      <div className="flex items-center space-x-4">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="cta-button disabled:opacity-70 disabled:cursor-not-allowed flex items-center"
+          className="bg-elite-gold hover:bg-elite-goldLight disabled:opacity-70 disabled:cursor-not-allowed text-elite-darker font-bold py-3 px-8 rounded-md transition-all duration-200 focus:ring-2 focus:ring-elite-gold focus:ring-offset-2 focus:ring-offset-background flex items-center"
+          aria-describedby="submit-help"
         >
           {isSubmitting ? (
             <>
-              <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-elite-darker" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
               Invio in corso...
             </>
           ) : (
-            'Invia Messaggio'
+            'Invia Richiesta'
           )}
         </button>
         
         {submitSuccess && (
-          <div className="ml-4 text-green-600">
-            Messaggio inviato con successo!
+          <div className="text-green-400 font-medium" role="alert">
+            ✓ Messaggio inviato con successo!
           </div>
         )}
       </div>
+      
+      <p className="text-xs text-muted-foreground">
+        * Campi obbligatori. I tuoi dati saranno trattati nel rispetto della privacy.
+      </p>
     </form>
   );
 };
