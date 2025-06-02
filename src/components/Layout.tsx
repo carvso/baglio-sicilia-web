@@ -42,7 +42,7 @@ const Layout = ({
   }, [isMobile]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-background transition-colors duration-300" style={{ margin: 0, padding: 0 }}>
+    <div className="flex flex-col min-h-screen bg-background transition-colors duration-300">
       {!hideNavbar && <Navbar />}
       {!hideBreadcrumb && <BreadcrumbNavigation />}
       <main 
@@ -54,8 +54,6 @@ const Layout = ({
           overflowX: 'hidden',
           // iOS momentum scrolling
           WebkitOverflowScrolling: 'touch',
-          margin: 0,
-          padding: 0,
         }}
       >
         {children}
