@@ -29,7 +29,7 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
   };
 
   return (
-    <div className={cn("hero-section-enhanced relative overflow-hidden", className)}>
+    <div className={cn("hero-section-enhanced relative overflow-hidden min-h-screen", className)}>
       {/* Background Image with Enhanced Overlay */}
       <div className="absolute inset-0">
         <img 
@@ -47,7 +47,7 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
       <div className="absolute inset-0 heritage-pattern opacity-10"></div>
       
       {/* Main Content */}
-      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
+      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto min-h-screen">
         
         {/* Main Title */}
         <div className="mb-8 animate-gentle-fade-in">
@@ -70,7 +70,7 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
         <div className="mb-8 animate-gentle-fade-in delay-200">
           <button 
             onClick={() => scrollToSection('eventi-section')}
-            className="group bg-elite-gold hover:bg-elite-goldLight text-elite-darker font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center space-x-2 text-lg"
+            className="group bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center space-x-2 text-lg"
           >
             <MapPin size={20} className="group-hover:scale-110 transition-transform duration-300" />
             <span>Scopri la location</span>
@@ -82,21 +82,21 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
           <nav className="flex flex-wrap justify-center items-center space-x-1 sm:space-x-6 text-sm sm:text-base">
             <button 
               onClick={() => scrollToSection('eventi-section')}
-              className="px-3 py-2 text-white hover:text-elite-goldLight transition-colors duration-300 border-b-2 border-transparent hover:border-elite-goldLight font-medium"
+              className="px-3 py-2 text-white hover:text-baglio-oro transition-colors duration-300 border-b-2 border-transparent hover:border-baglio-oro font-medium"
             >
               Eventi
             </button>
             <span className="text-white/50 hidden sm:inline">•</span>
             <button 
               onClick={() => window.location.href = '/gallery'}
-              className="px-3 py-2 text-white hover:text-elite-goldLight transition-colors duration-300 border-b-2 border-transparent hover:border-elite-goldLight font-medium"
+              className="px-3 py-2 text-white hover:text-baglio-oro transition-colors duration-300 border-b-2 border-transparent hover:border-baglio-oro font-medium"
             >
               Gallery
             </button>
             <span className="text-white/50 hidden sm:inline">•</span>
             <button 
               onClick={() => window.location.href = '/contatti'}
-              className="px-3 py-2 text-white hover:text-elite-goldLight transition-colors duration-300 border-b-2 border-transparent hover:border-elite-goldLight font-medium"
+              className="px-3 py-2 text-white hover:text-baglio-oro transition-colors duration-300 border-b-2 border-transparent hover:border-baglio-oro font-medium"
             >
               Contatti
             </button>
@@ -106,7 +106,7 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
         {/* Scroll Hint */}
         <button 
           onClick={scrollToNextSection}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-elite-goldLight transition-colors duration-300 animate-gentle-fade-in delay-500 group"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-baglio-oro transition-colors duration-300 animate-gentle-fade-in delay-500 group"
           aria-label="Scroll down"
         >
           <div className="flex flex-col items-center space-y-1">

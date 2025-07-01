@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -14,7 +13,7 @@ const Index = () => {
   const isMobile = useIsMobile();
   
   return (
-    <Layout hideNavbar={false} hideFooter={false}>
+    <Layout hideNavbar={false} hideFooter={false} heroLayout={true}>
       <Helmet>
         <title>Baglio Abbate | Location per Eventi e Matrimoni in Sicilia</title>
         <meta name="description" content="Scopri Baglio Abbate, una location esclusiva per eventi e matrimoni nel cuore della Sicilia. Una cornice unica per i tuoi momenti speciali con vista sul mare." />
