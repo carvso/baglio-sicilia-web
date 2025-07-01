@@ -14,6 +14,7 @@ type LayoutProps = {
   hideSecondaryNav?: boolean;
   hideBreadcrumb?: boolean;
   whatsAppMessage?: string;
+  heroLayout?: boolean; // New prop for hero pages
 };
 
 const Layout = ({ 
@@ -22,7 +23,8 @@ const Layout = ({
   hideFooter = false,
   hideSecondaryNav = false,
   hideBreadcrumb = false,
-  whatsAppMessage = "Ciao! Sono interessato a maggiori informazioni su Baglio Abbate." 
+  whatsAppMessage = "Ciao! Sono interessato a maggiori informazioni su Baglio Abbate.",
+  heroLayout = false 
 }: LayoutProps) => {
   const isMobile = useIsMobile();
   
@@ -30,6 +32,9 @@ const Layout = ({
   useScrollToTop();
 
   useEffect(() => {
+    // Set CSS custom property for navbar height
+    document.documentElement.style.setProperty('--navbar-height', '64px');
+    
     // Additional mobile optimizations
     if (isMobile) {
       // Prevent rubber band scrolling on iOS
@@ -53,7 +58,7 @@ const Layout = ({
       {!hideNavbar && <Navbar />}
       {!hideBreadcrumb && <BreadcrumbNavigation />}
       <main 
-        className="flex-grow"
+        className={`flex-grow ${!hideNavbar && !heroLayout ? 'pt-16' : ''}`}
         style={{
           // Mobile optimizations
           minHeight: '100vh',

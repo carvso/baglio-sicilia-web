@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Heart, Users, Building, Camera, CheckCircle, Star, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -95,14 +94,12 @@ const TestimonialCard = ({ name, event, image, text }: { name: string; event: st
 
 const Eventi = () => {
   return (
-    <Layout>
+    <Layout heroLayout={true}>
       <ImageWithOverlay 
-        src="/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png"
-        alt="Eventi al Baglio Abbate - Location per matrimoni e cerimonie in Sicilia"
+        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
+        alt="Eventi al Baglio Abbate"
         className="h-[70vh]"
-        priority={true}
-        sizes="100vw"
-        overlayOpacity={40}
+        heroSection={true}
       >
         <div className="baglio-container text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 font-playfair text-white drop-shadow-lg">

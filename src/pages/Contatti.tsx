@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Phone, Mail, Clock, MapPin, Instagram, Facebook, Send, MessageCircle, Calendar, Users } from 'lucide-react';
 import Layout from '@/components/Layout';
@@ -70,15 +69,12 @@ const InstagramCTA = ({ variant = "default" }: { variant?: "default" | "compact"
 
 const Contatti = () => {
   return (
-    <Layout>
-      {/* Hero Section migliorata con testo leggibile */}
+    <Layout heroLayout={true}>
       <ImageWithOverlay 
-        src="/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png"
-        alt="Contatta Baglio Abbate - Location eventi Sicilia"
-        className="h-[50vh] md:h-[70vh]"
-        priority={true}
-        sizes="100vw"
-        overlayOpacity={70}
+        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
+        alt="Contatti Baglio Abbate"
+        className="h-[60vh]"
+        heroSection={true}
       >
         <div className="baglio-container text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 font-playfair text-white drop-shadow-lg">

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Instagram, Camera, Eye, Heart, Share2 } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -205,12 +204,13 @@ const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('all');
 
   return (
-    <Layout>
+    <Layout heroLayout={true}>
       {/* Hero Section con testo leggibile */}
       <ImageWithOverlay 
-        src="/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png"
-        alt="Galleria del Baglio Abbate - Foto della location eventi in Sicilia"
-        className="h-[50vh] md:h-[70vh]"
+        src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
+        alt="Gallery Baglio Abbate"
+        className="h-[60vh]"
+        heroSection={true}
         priority={true}
         sizes="100vw"
         overlayOpacity={70}

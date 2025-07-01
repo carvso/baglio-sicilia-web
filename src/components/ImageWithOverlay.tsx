@@ -14,6 +14,7 @@ type ImageWithOverlayProps = {
   priority?: boolean;
   sizes?: string;
   webpSrc?: string;
+  heroSection?: boolean; // New prop for hero sections
 };
 
 const ImageWithOverlay = ({ 
@@ -27,12 +28,16 @@ const ImageWithOverlay = ({
   lazyLoad = true,
   priority = false,
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
-  webpSrc
+  webpSrc,
+  heroSection = false
 }: ImageWithOverlayProps) => {
   const isMobile = useIsMobile();
   
+  // For hero sections, we need to account for the navbar
+  const heroClasses = heroSection ? 'min-h-screen -mt-16 pt-16' : '';
+  
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={`relative overflow-hidden ${heroClasses} ${className}`}>
       <picture>
         {webpSrc && (
           <source srcSet={webpSrc} type="image/webp" sizes={sizes} />
