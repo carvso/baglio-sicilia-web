@@ -18,7 +18,14 @@ import Gallery from "./pages/Gallery";
 import Contatti from "./pages/Contatti";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      retry: 1,
+    },
+  },
+});
 
 const App = () => (
   <React.StrictMode>
@@ -29,17 +36,19 @@ const App = () => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/chi-siamo" element={<ChiSiamo />} />
-                <Route path="/eventi" element={<Eventi />} />
-                <Route path="/eventi-privati" element={<EventiPrivati />} />
-                <Route path="/matrimoni" element={<Matrimoni />} />
-                <Route path="/eventi-aziendali" element={<EventiAziendali />} />
-                <Route path="/gallery" element={<Gallery />} />
-                <Route path="/contatti" element={<Contatti />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <div className="min-h-screen bg-background transition-colors duration-300">
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/chi-siamo" element={<ChiSiamo />} />
+                  <Route path="/eventi" element={<Eventi />} />
+                  <Route path="/eventi-privati" element={<EventiPrivati />} />
+                  <Route path="/matrimoni" element={<Matrimoni />} />
+                  <Route path="/eventi-aziendali" element={<EventiAziendali />} />
+                  <Route path="/gallery" element={<Gallery />} />
+                  <Route path="/contatti" element={<Contatti />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </div>
             </BrowserRouter>
           </TooltipProvider>
         </PaletteProvider>

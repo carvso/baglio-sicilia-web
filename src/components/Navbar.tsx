@@ -8,6 +8,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
   const location = useLocation();
   const isMobile = useIsMobile();
 
@@ -26,6 +27,10 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsMenuOpen(false);
+    // Navigation feedback
+    setIsNavigating(true);
+    const timer = setTimeout(() => setIsNavigating(false), 300);
+    return () => clearTimeout(timer);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -47,6 +52,8 @@ const Navbar = () => {
     if (isMobile) {
       setIsMenuOpen(false);
     }
+    // Add subtle navigation feedback
+    setIsNavigating(true);
   };
 
   return (
@@ -56,9 +63,17 @@ const Navbar = () => {
           "fixed top-0 left-0 w-full z-50 transition-all duration-300",
           isScrolled 
             ? "bg-baglio-cremaIntonacata/98 backdrop-blur-md shadow-lg border-b border-baglio-oro/20" 
-            : "bg-baglio-ebanoIntenso/30 backdrop-blur-sm"
+            : "bg-baglio-ebanoIntenso/30 backdrop-blur-sm",
+          isNavigating && "opacity-95"
         )}
       >
+        {/* Subtle loading bar for navigation feedback */}
+        {isNavigating && (
+          <div className="absolute top-0 left-0 w-full h-0.5 bg-baglio-oro/30">
+            <div className="h-full bg-baglio-oro animate-pulse" />
+          </div>
+        )}
+        
         <div className="baglio-container">
           <nav className="flex justify-between items-center py-4 min-h-[64px]">
             <Link 
@@ -81,7 +96,8 @@ const Navbar = () => {
                     "font-medium transition-colors duration-300 min-h-[44px] flex items-center drop-shadow-sm",
                     isScrolled 
                       ? "text-baglio-ebanoIntenso hover:text-baglio-oro" 
-                      : "text-baglio-cremaIntonacata hover:text-baglio-oro"
+                      : "text-baglio-cremaIntonacata hover:text-baglio-oro",
+                    location.pathname === "/chi-siamo" && "text-baglio-oro font-semibold"
                   )}
                   onClick={handleLinkClick}
                 >
@@ -93,7 +109,8 @@ const Navbar = () => {
                     "font-medium transition-colors duration-300 min-h-[44px] flex items-center drop-shadow-sm",
                     isScrolled 
                       ? "text-baglio-ebanoIntenso hover:text-baglio-oro" 
-                      : "text-baglio-cremaIntonacata hover:text-baglio-oro"
+                      : "text-baglio-cremaIntonacata hover:text-baglio-oro",
+                    location.pathname.startsWith("/eventi") && "text-baglio-oro font-semibold"
                   )}
                   onClick={handleLinkClick}
                 >
@@ -105,7 +122,8 @@ const Navbar = () => {
                     "font-medium transition-colors duration-300 min-h-[44px] flex items-center drop-shadow-sm",
                     isScrolled 
                       ? "text-baglio-ebanoIntenso hover:text-baglio-oro" 
-                      : "text-baglio-cremaIntonacata hover:text-baglio-oro"
+                      : "text-baglio-cremaIntonacata hover:text-baglio-oro",
+                    location.pathname === "/gallery" && "text-baglio-oro font-semibold"
                   )}
                   onClick={handleLinkClick}
                 >
@@ -117,7 +135,8 @@ const Navbar = () => {
                     "font-medium transition-colors duration-300 min-h-[44px] flex items-center drop-shadow-sm",
                     isScrolled 
                       ? "text-baglio-ebanoIntenso hover:text-baglio-oro" 
-                      : "text-baglio-cremaIntonacata hover:text-baglio-oro"
+                      : "text-baglio-cremaIntonacata hover:text-baglio-oro",
+                    location.pathname === "/contatti" && "text-baglio-oro font-semibold"
                   )}
                   onClick={handleLinkClick}
                 >
@@ -128,6 +147,7 @@ const Navbar = () => {
               <Link 
                 to="/contatti" 
                 className="py-3 px-6 bg-baglio-oro text-baglio-ebanoIntenso hover:bg-baglio-oroImperiale rounded-md transition-all duration-300 font-semibold min-h-[44px] flex items-center shadow-lg hover:shadow-xl"
+                onClick={handleLinkClick}
               >
                 Prenota
               </Link>

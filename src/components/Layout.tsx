@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import BreadcrumbNavigation from './BreadcrumbNavigation';
 import Footer from './Footer';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 import WhatsAppButton from './WhatsAppButton';
 
 type LayoutProps = {
@@ -24,21 +25,27 @@ const Layout = ({
   whatsAppMessage = "Ciao! Sono interessato a maggiori informazioni su Baglio Abbate." 
 }: LayoutProps) => {
   const isMobile = useIsMobile();
+  
+  // Use our custom scroll to top hook
+  useScrollToTop();
 
   useEffect(() => {
-    // Smooth scroll to top on page load, optimized for mobile
-    const scrollToTop = () => {
-      if (isMobile) {
-        // Instant scroll on mobile to prevent iOS bounce issues
-        window.scrollTo(0, 0);
-      } else {
-        // Smooth scroll on desktop
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    };
+    // Additional mobile optimizations
+    if (isMobile) {
+      // Prevent rubber band scrolling on iOS
+      document.body.style.overscrollBehavior = 'none';
+      // Ensure smooth scrolling is disabled on mobile for instant navigation
+      document.documentElement.style.scrollBehavior = 'auto';
+    } else {
+      // Enable smooth scrolling for desktop
+      document.documentElement.style.scrollBehavior = 'smooth';
+    }
 
-    // Use requestAnimationFrame for better performance
-    requestAnimationFrame(scrollToTop);
+    return () => {
+      // Cleanup
+      document.body.style.overscrollBehavior = '';
+      document.documentElement.style.scrollBehavior = '';
+    };
   }, [isMobile]);
 
   return (
