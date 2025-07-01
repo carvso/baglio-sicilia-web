@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { PaletteProvider } from "@/components/PaletteContext";
 
 import Index from "./pages/Index";
+import ChiSiamo from "./pages/ChiSiamo";
 import Eventi from "./pages/Eventi";
 import EventiPrivati from "./pages/EventiPrivati";
 import Matrimoni from "./pages/Matrimoni";
@@ -30,6 +31,7 @@ const App = () => (
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/chi-siamo" element={<ChiSiamo />} />
                 <Route path="/eventi" element={<Eventi />} />
                 <Route path="/eventi-privati" element={<EventiPrivati />} />
                 <Route path="/matrimoni" element={<Matrimoni />} />
