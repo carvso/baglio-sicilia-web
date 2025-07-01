@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Instagram, Camera, Eye, Heart, Share2 } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
@@ -9,11 +10,11 @@ import CTAButton from '@/components/CTAButton';
 
 // Gallery categories and images with enhanced data
 const galleryCategories = [
-  { id: 'all', label: 'Tutti' },
-  { id: 'structure', label: 'Struttura' },
-  { id: 'food', label: 'Cucina' },
-  { id: 'events', label: 'Eventi' },
-  { id: 'details', label: 'Dettagli' }
+  { id: 'all', label: 'Tutti', icon: '🎯' },
+  { id: 'structure', label: 'Struttura', icon: '🏛️' },
+  { id: 'food', label: 'Cucina', icon: '🍽️' },
+  { id: 'events', label: 'Eventi', icon: '🎉' },
+  { id: 'details', label: 'Dettagli', icon: '✨' }
 ];
 
 // Enhanced image data with titles and descriptions
@@ -172,135 +173,226 @@ const detailsImages = [
 // Combine all images
 const allImages = [...structureImages, ...foodImages, ...eventsImages, ...detailsImages];
 
+const InstagramCTA = ({ position = "side", size = "normal" }: { position?: "side" | "inline" | "floating"; size?: "normal" | "large" }) => {
+  const baseClasses = "group relative overflow-hidden transition-all duration-300 hover:shadow-xl";
+  const sizeClasses = size === "large" ? "p-6 md:p-8" : "p-4 md:p-6";
+  const positionClasses = position === "floating" ? "fixed bottom-6 right-6 z-50 rounded-full" : "rounded-xl";
+  
+  return (
+    <div className={`${baseClasses} ${sizeClasses} ${positionClasses} bg-gradient-to-br from-baglio-oro to-baglio-oroImperiale text-baglio-ebanoIntenso border-2 border-baglio-oro/30 hover:border-baglio-oro hover:scale-105`}>
+      <div className="flex items-center justify-center gap-3">
+        <Instagram size={position === "floating" ? 20 : 24} className="text-baglio-ebanoIntenso" />
+        {position !== "floating" && (
+          <div className="text-center">
+            <h4 className="font-playfair font-bold text-lg mb-1">Seguici su Instagram</h4>
+            <p className="text-sm opacity-90">@baglioabbate - Scopri le ultime foto!</p>
+          </div>
+        )}
+      </div>
+      <a 
+        href="https://instagram.com/baglioabbate" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="absolute inset-0 z-10"
+        aria-label="Seguici su Instagram"
+      />
+    </div>
+  );
+};
+
 const Gallery = () => {
   const isMobile = useIsMobile();
   const [activeCategory, setActiveCategory] = useState('all');
 
   return (
     <Layout>
+      {/* Hero Section con testo leggibile */}
       <ImageWithOverlay 
         src="/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png"
         alt="Galleria del Baglio Abbate - Foto della location eventi in Sicilia"
-        className="h-[40vh] md:h-[60vh]"
+        className="h-[50vh] md:h-[70vh]"
         priority={true}
         sizes="100vw"
-        overlayOpacity={50}
+        overlayOpacity={70}
       >
-        <div className="baglio-container text-center text-foreground">
-          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-4 font-playfair text-elite-gold">
-            La nostra galleria
+        <div className="baglio-container text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 font-playfair text-white drop-shadow-lg">
+            La nostra <span className="text-baglio-oro">Galleria</span>
           </h1>
-          <p className="text-lg md:text-2xl max-w-3xl mx-auto">
-            Scopri l'essenza del Baglio Abbate attraverso le immagini
+          <p className="text-xl md:text-2xl max-w-4xl mx-auto text-white/95 leading-relaxed drop-shadow-md mb-8">
+            Scopri l'essenza del Baglio Abbate attraverso le immagini che raccontano la nostra storia di eccellenza
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CTAButton to="/eventi" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-lg px-8 py-4">
+              <Camera className="mr-2" size={20} />
+              Organizza il tuo evento
+            </CTAButton>
+            <a 
+              href="https://instagram.com/baglioabbate" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 py-4 px-8 text-lg border-2 border-white text-white hover:bg-white hover:text-baglio-ebanoIntenso"
+            >
+              <Instagram className="mr-2" size={20} />
+              Seguici su Instagram
+            </a>
+          </div>
         </div>
       </ImageWithOverlay>
 
       {/* Divider decorativo */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-elite-gold to-transparent"></div>
+      <div className="h-2 bg-gradient-to-r from-transparent via-baglio-oro to-transparent"></div>
 
-      <section className="section-padding bg-elite-darker">
+      {/* Gallery principale */}
+      <section className="py-16 md:py-24 bg-baglio-cremaIntonacata">
         <div className="baglio-container">
-          <SectionTitle 
-            title="Esplora ogni dettaglio" 
-            subtitle="Un viaggio visivo attraverso i nostri spazi, sapori ed esperienze uniche"
-            center
-            light
-          />
-          
-          {/* Category filters */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12">
-            {galleryCategories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
-                  activeCategory === category.id
-                    ? 'bg-elite-gold text-elite-darker shadow-lg transform scale-105'
-                    : 'bg-card text-muted-foreground hover:bg-elite-gold/20 hover:text-elite-gold border border-elite-gold/20 hover:border-elite-gold/50'
-                }`}
-              >
-                {category.label}
-              </button>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {/* Sidebar con Instagram CTA */}
+            <div className="lg:col-span-1 space-y-6">
+              <InstagramCTA position="side" size="large" />
+              
+              <div className="bg-white p-6 rounded-xl shadow-lg border border-baglio-oro/20">
+                <h3 className="font-playfair font-bold text-xl text-baglio-ebanoIntenso mb-4">
+                  📸 Condividi i tuoi momenti
+                </h3>
+                <p className="text-baglio-ebanoIntenso/80 mb-4">
+                  Usa #BaglioAbbate nei tuoi post e potrai essere featured nella nostra gallery!
+                </p>
+                <a 
+                  href="https://instagram.com/baglioabbate" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-baglio-oro hover:text-baglio-oroImperiale font-semibold"
+                >
+                  <Instagram className="mr-2" size={16} />
+                  Vai al profilo
+                </a>
+              </div>
+            </div>
+
+            {/* Main content */}
+            <div className="lg:col-span-3">
+              <SectionTitle 
+                title="Esplora ogni dettaglio" 
+                subtitle="Un viaggio visivo attraverso i nostri spazi, sapori ed esperienze uniche"
+              />
+              
+              {/* Category filters con design migliorato */}
+              <div className="flex flex-wrap justify-center gap-3 mb-12">
+                {galleryCategories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => setActiveCategory(category.id)}
+                    className={`px-6 py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 shadow-md hover:shadow-lg ${
+                      activeCategory === category.id
+                        ? 'bg-baglio-oro text-baglio-ebanoIntenso shadow-lg transform scale-105'
+                        : 'bg-white text-baglio-ebanoIntenso hover:bg-baglio-oro/20 hover:text-baglio-oro border border-baglio-oro/30 hover:border-baglio-oro'
+                    }`}
+                  >
+                    <span className="mr-2">{category.icon}</span>
+                    {category.label}
+                  </button>
+                ))}
+              </div>
+              
+              <GalleryGrid images={allImages} activeCategory={activeCategory} />
+            </div>
           </div>
-          
-          <GalleryGrid images={allImages} activeCategory={activeCategory} />
 
           {/* CTA inline dopo le prime immagini */}
-          <div className="mt-12 md:mt-16 text-center bg-gradient-to-r from-elite-gold/5 to-elite-gold/10 rounded-2xl p-8 md:p-12 border border-elite-gold/20">
-            <h3 className="text-2xl md:text-3xl font-playfair text-elite-gold mb-4">
-              🎉 Ti è piaciuto quello che hai visto?
-            </h3>
-            <p className="text-foreground text-lg mb-6 max-w-2xl mx-auto">
-              Ogni immagine racconta una storia. Saremo felici di aiutarti a creare la tua.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CTAButton to="/eventi" className="bg-elite-gold hover:bg-elite-goldLight text-elite-darker">
-                Organizza il tuo evento qui
-              </CTAButton>
-              <CTAButton to="/contatti" outline className="border-elite-gold text-elite-gold hover:bg-elite-gold hover:text-elite-darker">
-                Richiedi disponibilità
-              </CTAButton>
+          <div className="mt-16 text-center bg-gradient-to-r from-baglio-oro/10 to-baglio-oroImperiale/10 rounded-2xl p-8 md:p-12 border-2 border-baglio-oro/30">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-playfair font-bold text-baglio-ebanoIntenso mb-4">
+                  🎉 Ti è piaciuto quello che hai visto?
+                </h3>
+                <p className="text-baglio-ebanoIntenso/80 text-lg mb-6">
+                  Ogni immagine racconta una storia. Saremo felici di aiutarti a creare la tua.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <CTAButton to="/eventi" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso">
+                    Organizza il tuo evento qui
+                  </CTAButton>
+                  <CTAButton to="/contatti" outline className="border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-baglio-ebanoIntenso">
+                    Richiedi disponibilità
+                  </CTAButton>
+                </div>
+              </div>
+              <div>
+                <InstagramCTA position="inline" size="large" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Divider decorativo */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-elite-gold to-transparent"></div>
-
-      <section className="section-padding bg-card">
-        <div className="baglio-container text-center">
+      {/* Sezione Instagram Feed */}
+      <section className="py-16 bg-white">
+        <div className="baglio-container">
           <SectionTitle 
             title="Seguici su Instagram" 
             subtitle="Scopri gli ultimi scatti e rimani aggiornato sulle novità del Baglio"
             center
           />
           
-          <div className="mb-8">
+          <div className="text-center mb-8">
             <a 
-              href="https://instagram.com" 
+              href="https://instagram.com/baglioabbate" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center text-elite-gold hover:text-elite-goldLight transition-colors font-medium text-lg"
+              className="inline-flex items-center bg-gradient-to-r from-baglio-oro to-baglio-oroImperiale text-baglio-ebanoIntenso hover:from-baglio-oroImperiale hover:to-baglio-oro transition-all duration-300 font-semibold text-xl px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mr-3">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-              </svg>
+              <Instagram className="mr-3" size={24} />
               @baglioabbate
             </a>
           </div>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 md:gap-4 mb-8">
             {allImages.slice(0, isMobile ? 4 : 6).map((image, index) => (
-              <div key={index} className="group cursor-pointer">
-                <div className="h-32 md:h-40 rounded-lg overflow-hidden shadow-md border border-elite-gold/20 hover:border-elite-goldLight transition-all duration-300 group-hover:shadow-xl">
+              <div key={index} className="group cursor-pointer relative overflow-hidden">
+                <div className="h-32 md:h-40 rounded-lg overflow-hidden shadow-md border-2 border-baglio-oro/20 hover:border-baglio-oro transition-all duration-300 group-hover:shadow-xl">
                   <img
                     src={image.src}
                     alt={image.alt}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-baglio-oro/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <Instagram size={24} className="text-white" />
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Final CTA */}
-          <div className="bg-elite-darker/50 rounded-xl p-6 md:p-8 border border-elite-gold/30">
-            <h3 className="text-xl md:text-2xl font-playfair text-elite-gold mb-3">
+          {/* Final CTA con design migliorato */}
+          <div className="bg-baglio-ebanoIntenso/95 rounded-2xl p-8 md:p-12 border-2 border-baglio-oro/30 text-center">
+            <h3 className="text-2xl md:text-3xl font-playfair font-bold text-baglio-oro mb-4">
               📩 Hai domande o vuoi maggiori informazioni?
             </h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-baglio-cremaIntonacata/90 text-lg mb-6 max-w-2xl mx-auto">
               Il nostro team è a disposizione per aiutarti a pianificare il tuo evento perfetto.
             </p>
-            <CTAButton to="/contatti" className="bg-elite-gold hover:bg-elite-goldLight text-elite-darker">
-              Contattaci subito
-            </CTAButton>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <CTAButton to="/contatti" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso">
+                Contattaci subito
+              </CTAButton>
+              <a 
+                href="https://instagram.com/baglioabbate" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 py-3 px-6 text-base border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-baglio-ebanoIntenso"
+              >
+                <Instagram className="mr-2" size={18} />
+                Seguici su Instagram
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Floating Instagram CTA */}
+      <InstagramCTA position="floating" />
     </Layout>
   );
 };

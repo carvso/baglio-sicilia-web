@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ZoomIn, Eye } from 'lucide-react';
+import { ZoomIn, Eye, Instagram } from 'lucide-react';
 import OptimizedImage from './OptimizedImage';
 import GalleryLightbox from './GalleryLightbox';
 
@@ -52,7 +52,7 @@ const GalleryGrid = ({ images, activeCategory }: GalleryGridProps) => {
         {filteredImages.map((image, index) => (
           <div
             key={index}
-            className="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer border border-elite-gold/20 hover:border-elite-goldLight transition-all duration-300 hover:shadow-2xl"
+            className="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer border-2 border-baglio-oro/20 hover:border-baglio-oro transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
             onClick={() => openLightbox(index)}
           >
             <OptimizedImage
@@ -64,25 +64,30 @@ const GalleryGrid = ({ images, activeCategory }: GalleryGridProps) => {
             />
             
             {/* Overlay with title and category */}
-            <div className="absolute inset-0 bg-gradient-to-t from-elite-darker/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebanoIntenso/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-elite-gold font-playfair font-semibold text-sm md:text-base mb-1">
+                <h3 className="text-baglio-oro font-playfair font-semibold text-sm md:text-base mb-1">
                   {image.title || image.alt}
                 </h3>
-                <p className="text-muted-foreground text-xs md:text-sm">
+                <p className="text-baglio-cremaIntonacata/90 text-xs md:text-sm">
                   {image.category}
                 </p>
               </div>
             </div>
 
             {/* Zoom icon */}
-            <div className="absolute top-3 right-3 bg-black/50 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <ZoomIn size={16} className="text-foreground" />
+            <div className="absolute top-3 right-3 bg-baglio-oro/90 text-baglio-ebanoIntenso rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <ZoomIn size={16} />
             </div>
 
             {/* Hover tooltip */}
-            <div className="absolute top-3 left-3 bg-elite-gold text-elite-darker px-2 py-1 rounded text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute top-3 left-3 bg-baglio-oro text-baglio-ebanoIntenso px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               Clicca per ingrandire
+            </div>
+
+            {/* Instagram hint */}
+            <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <Instagram size={16} className="text-baglio-oro" />
             </div>
           </div>
         ))}
