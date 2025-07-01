@@ -11,6 +11,7 @@ type CTAButtonProps = {
   className?: string;
   onClick?: () => void;
   fullWidth?: boolean;
+  size?: 'sm' | 'md' | 'lg';
 };
 
 const CTAButton = ({ 
@@ -19,15 +20,23 @@ const CTAButton = ({
   outline = false, 
   className = '',
   onClick,
-  fullWidth = false
+  fullWidth = false,
+  size = 'md'
 }: CTAButtonProps) => {
   const isMobile = useIsMobile();
   
+  const sizeClasses = {
+    sm: 'py-2 px-4 text-sm',
+    md: 'py-3 px-6 text-base',
+    lg: 'py-4 px-8 text-lg'
+  };
+  
   const baseClasses = cn(
-    'inline-flex items-center justify-center font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md',
+    'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1',
+    sizeClasses[size],
     {
       'bg-baglio-oro text-baglio-ebanoIntenso hover:bg-baglio-oroImperiale': !outline,
-      'border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-baglio-ebanoIntenso': outline,
+      'border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-baglio-ebanoIntenso bg-transparent': outline,
       'w-full justify-center': isMobile && fullWidth
     },
     className

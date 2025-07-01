@@ -21,15 +21,16 @@ const SectionTitle = ({ title, subtitle, center = false, light = false, classNam
       className
     )}>
       <h2 className={cn(
-        'text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 md:mb-4 font-playfair',
-        light ? 'text-baglio-oro' : 'text-baglio-ebanoIntenso'
+        'text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 font-playfair leading-tight',
+        light ? 'text-white' : 'text-baglio-ebanoIntenso'
       )}>
         {title}
       </h2>
       {subtitle && (
         <p className={cn(
-          'text-base md:text-lg',
-          light ? 'text-baglio-cremaIntonacata' : 'text-baglio-ebanoIntenso/70'
+          'text-lg md:text-xl leading-relaxed max-w-4xl',
+          center ? 'mx-auto' : '',
+          light ? 'text-white/90' : 'text-baglio-ebanoIntenso/80'
         )}>
           {subtitle}
         </p>

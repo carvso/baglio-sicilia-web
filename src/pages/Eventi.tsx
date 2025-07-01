@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { ArrowRight, Heart, Users, Building, Camera } from 'lucide-react';
+import { ArrowRight, Heart, Users, Building, Camera, CheckCircle, Star, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
@@ -11,36 +12,86 @@ type EventCategoryProps = {
   icon: React.ReactNode;
   title: string;
   description: string;
+  features: string[];
   imageSrc: string;
-  webpSrc?: string;
   linkTo: string;
 };
 
-const EventCategory = ({ icon, title, description, imageSrc, webpSrc, linkTo }: EventCategoryProps) => {
+const EventCategory = ({ icon, title, description, features, imageSrc, linkTo }: EventCategoryProps) => {
   return (
-    <Link to={linkTo} className="group bg-card border border-elite-gold/20 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:border-elite-goldLight block">
-      <OptimizedImage
-        src={imageSrc}
-        webpSrc={webpSrc}
-        alt={title}
-        className="h-64"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      />
-      <div className="p-6">
-        <div className="flex items-center mb-4">
-          <div className="text-elite-gold mr-3">
-            {icon}
-          </div>
-          <h3 className="text-xl font-playfair font-semibold text-elite-gold">{title}</h3>
-        </div>
-        <p className="text-muted-foreground mb-4">{description}</p>
-        <div className="inline-flex items-center font-medium text-elite-goldLight hover:text-elite-gold transition-colors">
-          Scopri di più <ArrowRight size={16} className="ml-2" />
+    <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-baglio-oro/20 hover:border-baglio-oro/60 hover:-translate-y-2">
+      <div className="relative">
+        <OptimizedImage
+          src={imageSrc}
+          alt={title}
+          className="h-64 group-hover:scale-105 transition-transform duration-700"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebanoIntenso/60 via-transparent to-transparent"></div>
+        <div className="absolute top-4 left-4 bg-baglio-oro text-baglio-ebanoIntenso px-3 py-1 rounded-full text-sm font-semibold">
+          Premium
         </div>
       </div>
-    </Link>
+      <div className="p-8">
+        <div className="flex items-center mb-4">
+          <div className="text-baglio-oro mr-3 bg-baglio-oro/10 p-2 rounded-lg">
+            {icon}
+          </div>
+          <h3 className="text-2xl font-playfair font-bold text-baglio-ebanoIntenso">{title}</h3>
+        </div>
+        <p className="text-baglio-ebanoIntenso/80 mb-6 text-lg leading-relaxed">{description}</p>
+        
+        <div className="space-y-3 mb-6">
+          {features.map((feature, index) => (
+            <div key={index} className="flex items-center text-baglio-ebanoIntenso/70">
+              <CheckCircle size={16} className="text-baglio-oro mr-3 flex-shrink-0" />
+              <span className="text-sm">{feature}</span>
+            </div>
+          ))}
+        </div>
+        
+        <Link 
+          to={linkTo}
+          className="inline-flex items-center font-semibold text-baglio-oro hover:text-baglio-oroImperiale transition-colors group-hover:translate-x-2 duration-300"
+        >
+          Scopri di più <ArrowRight size={18} className="ml-2" />
+        </Link>
+      </div>
+    </div>
   );
 };
+
+const WhyChooseUsCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
+  <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-baglio-oro/10 hover:border-baglio-oro/30">
+    <div className="text-baglio-oro mb-4 bg-baglio-oro/10 w-12 h-12 rounded-lg flex items-center justify-center">
+      {icon}
+    </div>
+    <h4 className="text-xl font-playfair font-semibold text-baglio-ebanoIntenso mb-3">{title}</h4>
+    <p className="text-baglio-ebanoIntenso/70 leading-relaxed">{description}</p>
+  </div>
+);
+
+const TestimonialCard = ({ name, event, image, text }: { name: string; event: string; image: string; text: string }) => (
+  <div className="bg-white p-8 rounded-xl shadow-lg border border-baglio-oro/20">
+    <div className="flex items-center mb-6">
+      <img 
+        src={image} 
+        alt={name}
+        className="w-16 h-16 rounded-full mr-4 border-2 border-baglio-oro/30"
+      />
+      <div>
+        <h4 className="font-playfair font-semibold text-lg text-baglio-ebanoIntenso">{name}</h4>
+        <p className="text-baglio-oro text-sm font-medium">{event}</p>
+      </div>
+    </div>
+    <div className="flex mb-4">
+      {[...Array(5)].map((_, i) => (
+        <Star key={i} size={16} className="text-baglio-oro fill-current" />
+      ))}
+    </div>
+    <p className="text-baglio-ebanoIntenso/80 italic leading-relaxed">"{text}"</p>
+  </div>
+);
 
 const Eventi = () => {
   return (
@@ -48,49 +99,110 @@ const Eventi = () => {
       <ImageWithOverlay 
         src="/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png"
         alt="Eventi al Baglio Abbate - Location per matrimoni e cerimonie in Sicilia"
-        className="h-[60vh]"
+        className="h-[70vh]"
         priority={true}
         sizes="100vw"
+        overlayOpacity={40}
       >
-        <div className="baglio-container text-center text-foreground">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-playfair text-elite-gold">
-            Eventi Indimenticabili
+        <div className="baglio-container text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 font-playfair text-white drop-shadow-lg">
+            Eventi <span className="text-baglio-oro">Indimenticabili</span>
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            Creiamo esperienze uniche in una cornice d'eccezione
+          <p className="text-xl md:text-2xl max-w-4xl mx-auto text-white/95 leading-relaxed drop-shadow-md mb-8">
+            Trasformiamo i tuoi momenti speciali in ricordi eterni, 
+            in una cornice d'eccellenza che riflette la bellezza della Sicilia
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CTAButton to="#contact-section" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-lg px-8 py-4">
+              Richiedi Preventivo
+            </CTAButton>
+            <CTAButton to="/gallery" outline className="border-2 border-white text-white hover:bg-white hover:text-baglio-ebanoIntenso text-lg px-8 py-4">
+              Guarda la Gallery
+            </CTAButton>
+          </div>
         </div>
       </ImageWithOverlay>
 
-      <section className="section-padding bg-background">
+      <section className="py-16 bg-baglio-cremaIntonacata">
         <div className="baglio-container">
           <SectionTitle 
-            title="I tuoi eventi più speciali" 
-            subtitle="Ogni momento importante merita una location straordinaria"
+            title="I nostri eventi di eccellenza" 
+            subtitle="Ogni celebrazione è unica e merita un'attenzione particolare. Scopri le nostre specialità."
             center
           />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             <EventCategory 
-              icon={<Heart size={24} />}
-              title="Matrimoni e Cerimonie"
-              description="Dalla cerimonia intima al grande ricevimento, rendiamo il vostro giorno speciale ancora più magico con ambientazioni suggestive e servizi personalizzati."
+              icon={<Heart size={28} />}
+              title="Matrimoni da Sogno"
+              description="Il vostro giorno più bello merita una location che rispecchi l'importanza del momento."
+              features={[
+                "Cerimonia religiosa e civile",
+                "Ricevimento fino a 200 ospiti",
+                "Coordinamento completo evento",
+                "Fotografie incluse"
+              ]}
               imageSrc="/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png"
               linkTo="/matrimoni"
             />
             <EventCategory 
-              icon={<Users size={24} />}
-              title="Eventi Privati"
-              description="Compleanni, anniversari, lauree, battesimi: ogni celebrazione diventa memorabile nei nostri spazi eleganti e versatili."
+              icon={<Users size={28} />}
+              title="Celebrazioni Private"
+              description="Compleanni, anniversari, lauree: ogni traguardo personale diventa speciale."
+              features={[
+                "Spazi personalizzabili",
+                "Menu su misura",
+                "Intrattenimento dedicato",
+                "Servizio fotografico"
+              ]}
               imageSrc="/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png"
               linkTo="/eventi-privati"
             />
             <EventCategory 
-              icon={<Building size={24} />}
-              title="Eventi Aziendali"
-              description="Meeting, team building, cene di gala: offriamo spazi e servizi su misura per le esigenze del vostro business."
+              icon={<Building size={28} />}
+              title="Corporate Events"
+              description="Meeting, convention, team building: il successo aziendale ha bisogno del giusto ambiente."
+              features={[
+                "Sale meeting attrezzate",
+                "Catering business",
+                "Supporto tecnico",
+                "Parcheggio riservato"
+              ]}
               imageSrc="/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png"
               linkTo="/eventi-aziendali"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="baglio-container">
+          <SectionTitle 
+            title="Perché scegliere Baglio Abbate" 
+            subtitle="La differenza che fa la differenza nei vostri eventi"
+            center
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            <WhyChooseUsCard
+              icon={<MapPin size={24} />}
+              title="Location Unica"
+              description="Architettura storica siciliana in posizione panoramica con vista mare"
+            />
+            <WhyChooseUsCard
+              icon={<Star size={24} />}
+              title="Servizio Premium"
+              description="Staff dedicato e coordinamento completo per ogni dettaglio del vostro evento"
+            />
+            <WhyChooseUsCard
+              icon={<Heart size={24} />}
+              title="Cucina d'Eccellenza"
+              description="Chef specializzati in tradizione siciliana con ingredienti locali premium"
+            />
+            <WhyChooseUsCard
+              icon={<Camera size={24} />}
+              title="Foto Incluse"
+              description="Servizio fotografico professionale per immortalare i momenti più belli"
             />
           </div>
         </div>
@@ -100,256 +212,206 @@ const Eventi = () => {
         <ImageWithOverlay 
           src="/lovable-uploads/059acecc-9864-4084-bb89-9644fd4e4a41.png"
           alt="Catering di qualità - Cucina siciliana autentica" 
-          className="h-[500px]"
+          className="h-[600px]"
           sizes="100vw"
+          overlayOpacity={50}
         >
-          <div className="baglio-container text-center text-foreground">
-            <h2 className="text-3xl md:text-4xl font-playfair font-semibold mb-4 text-elite-gold">
-              Un'esperienza culinaria d'eccellenza
+          <div className="baglio-container text-center">
+            <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-6 text-white">
+              Esperienza <span className="text-baglio-oro">Culinaria</span> d'Eccellenza
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Il nostro catering personalizzato porta i sapori autentici della Sicilia al vostro evento, 
-              con menù creati su misura per soddisfare ogni esigenza e preferenza.
+            <p className="text-xl mb-8 max-w-3xl mx-auto text-white/95 leading-relaxed">
+              I nostri chef creano menu personalizzati che celebrano i sapori autentici della Sicilia, 
+              utilizzando solo ingredienti freschi e di prima qualità selezionati dai migliori produttori locali.
             </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
+                <h4 className="text-baglio-oro font-playfair text-xl font-semibold mb-2">Ingredienti Locali</h4>
+                <p className="text-white/90">Selezioniamo i migliori prodotti del territorio siciliano</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
+                <h4 className="text-baglio-oro font-playfair text-xl font-semibold mb-2">Menu Personalizzati</h4>
+                <p className="text-white/90">Ogni menu è studiato su misura per le vostre esigenze</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
+                <h4 className="text-baglio-oro font-playfair text-xl font-semibold mb-2">Tradizione & Innovazione</h4>
+                <p className="text-white/90">Ricette tradizionali reinterpretate con tecniche moderne</p>
+              </div>
+            </div>
           </div>
         </ImageWithOverlay>
       </section>
 
-      <section className="section-padding bg-card">
-        <div className="baglio-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <SectionTitle 
-                title="I nostri spazi" 
-                subtitle="Ambienti versatili per eventi di ogni dimensione"
-              />
-              <p className="text-muted-foreground mb-6">
-                Il Baglio Abbate offre diversi ambienti, ognuno con il suo carattere distintivo, adattabili 
-                a eventi di varia natura e dimensione. Dal suggestivo cortile interno alla sala principale 
-                con volte in pietra, dalla terrazza panoramica al giardino, ogni spazio è curato nei minimi 
-                dettagli per creare l'atmosfera perfetta.
-              </p>
-              <p className="text-muted-foreground mb-6">
-                La nostra location può ospitare fino a 200 persone per eventi con posti a sedere e fino a 
-                350 per cocktail party e ricevimenti in piedi. Il nostro team di professionisti vi guiderà 
-                nella scelta degli spazi più adatti alle vostre esigenze.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <OptimizedImage
-                src="/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png"
-                alt="Cortile interno con archi storici"
-                className="rounded-lg shadow-md"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-              <OptimizedImage
-                src="/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png"
-                alt="Sala principale con volte in pietra"
-                className="rounded-lg shadow-md mt-6 md:mt-12"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-              <OptimizedImage
-                src="/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png"
-                alt="Terrazza panoramica con vista mare"
-                className="rounded-lg shadow-md"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-              <OptimizedImage
-                src="/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png"
-                alt="Giardino per cerimonie all'aperto"
-                className="rounded-lg shadow-md mt-6 md:mt-12"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding">
+      <section className="py-16 bg-baglio-cremaIntonacata">
         <div className="baglio-container">
           <SectionTitle 
-            title="Testimonianze" 
+            title="Testimonial dei nostri clienti" 
             subtitle="Le parole di chi ha vissuto l'esperienza Baglio Abbate"
             center
           />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                <img 
-                  src="https://randomuser.me/api/portraits/women/23.jpg" 
-                  alt="Maria C." 
-                  className="w-12 h-12 rounded-full mr-4"
-                />
-                <div>
-                  <h4 className="font-medium">Maria C.</h4>
-                  <p className="text-sm text-gray-500">Matrimonio, Giugno 2023</p>
-                </div>
-              </div>
-              <p className="text-gray-600 italic">
-                "Il nostro matrimonio al Baglio Abbate è stato semplicemente perfetto. L'atmosfera magica, il cibo delizioso 
-                e il servizio impeccabile hanno reso il nostro giorno speciale davvero indimenticabile. Tutto il team è stato 
-                attento ad ogni dettaglio, prendendosi cura di noi e dei nostri ospiti in modo straordinario."
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                <img 
-                  src="https://randomuser.me/api/portraits/men/52.jpg" 
-                  alt="Roberto F." 
-                  className="w-12 h-12 rounded-full mr-4"
-                />
-                <div>
-                  <h4 className="font-medium">Roberto F.</h4>
-                  <p className="text-sm text-gray-500">Evento aziendale, Settembre 2023</p>
-                </div>
-              </div>
-              <p className="text-gray-600 italic">
-                "Abbiamo scelto il Baglio Abbate per il nostro evento aziendale annuale e non potevamo essere più soddisfatti. 
-                Gli spazi versatili, la tecnologia all'avanguardia e la posizione strategica hanno fatto la differenza. 
-                Il catering eccellente ha lasciato a bocca aperta tutti i nostri ospiti internazionali."
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                <img 
-                  src="https://randomuser.me/api/portraits/women/65.jpg" 
-                  alt="Giulia M." 
-                  className="w-12 h-12 rounded-full mr-4"
-                />
-                <div>
-                  <h4 className="font-medium">Giulia M.</h4>
-                  <p className="text-sm text-gray-500">Compleanno, Agosto 2023</p>
-                </div>
-              </div>
-              <p className="text-gray-600 italic">
-                "Ho festeggiato il mio 40° compleanno al Baglio Abbate e posso dire che è stata una celebrazione memorabile. 
-                La location mozzafiato, l'atmosfera rilassata ma elegante e la qualità del cibo hanno creato la combinazione 
-                perfetta. Il team è stato flessibile e creativo nell'aiutarmi a realizzare la mia visione."
-              </p>
-            </div>
+            <TestimonialCard
+              name="Maria & Giuseppe"
+              event="Matrimonio, Giugno 2023"
+              image="https://randomuser.me/api/portraits/women/23.jpg"
+              text="Il nostro matrimonio al Baglio Abbate è stato semplicemente perfetto. Ogni dettaglio curato con passione, dal servizio impeccabile alla location mozzafiato. I nostri ospiti sono rimasti incantati dalla bellezza del posto e dalla qualità del cibo. Grazie per aver reso il nostro sogno realtà!"
+            />
+            <TestimonialCard
+              name="Roberto Fontana"
+              event="Evento Aziendale, Settembre 2023"
+              image="https://randomuser.me/api/portraits/men/52.jpg"
+              text="Abbiamo organizzato il nostro meeting annuale al Baglio e siamo rimasti stupiti dalla professionalità del team. La location è elegante, il servizio impeccabile e la tecnologia all'avanguardia. I nostri partner internazionali sono rimasti colpiti dall'atmosfera unica del posto."
+            />
+            <TestimonialCard
+              name="Giulia Marchetti"
+              event="Festa di Compleanno, Agosto 2023"
+              image="https://randomuser.me/api/portraits/women/65.jpg"
+              text="Per i miei 40 anni ho voluto qualcosa di speciale e il Baglio Abbate ha superato ogni aspettativa. L'atmosfera magica, l'attenzione ai dettagli e la gentilezza dello staff hanno reso questa giornata indimenticabile. Lo consiglio vivamente a chiunque cerchi l'eccellenza!"
+            />
           </div>
         </div>
       </section>
 
-      <section id="contact-section" className="section-padding bg-elite-darker text-foreground">
+      <section id="contact-section" className="py-16 bg-baglio-ebanoIntenso text-white">
         <div className="baglio-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <SectionTitle 
-                title="Parliamo del tuo evento" 
-                subtitle="Contattaci per un preventivo personalizzato"
+                title="Organizziamo insieme il tuo evento" 
+                subtitle="Contattaci per un preventivo personalizzato e senza impegno"
                 light
               />
-              <p className="text-muted-foreground mb-6">
-                Il nostro team di esperti è a disposizione per aiutarti a pianificare ogni dettaglio del tuo 
-                evento speciale. Compila il modulo o contattaci direttamente per discutere delle tue esigenze 
-                e ricevere un preventivo personalizzato.
+              <p className="text-baglio-cremaIntonacata/90 mb-8 text-lg leading-relaxed">
+                Il nostro team di esperti è a disposizione per trasformare la tua visione in realtà. 
+                Ogni evento è unico e meritiamo un'attenzione particolare ai dettagli che fanno la differenza.
               </p>
-              <div className="flex items-center mb-4">
-                <Camera size={20} className="text-elite-gold mr-3" />
-                <p className="text-muted-foreground">
-                  Possiamo organizzare sopralluoghi su appuntamento
-                </p>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <CheckCircle size={20} className="text-baglio-oro mr-3" />
+                  <p className="text-baglio-cremaIntonacata">Sopralluogo gratuito su appuntamento</p>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle size={20} className="text-baglio-oro mr-3" />
+                  <p className="text-baglio-cremaIntonacata">Preventivo dettagliato entro 24h</p>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle size={20} className="text-baglio-oro mr-3" />
+                  <p className="text-baglio-cremaIntonacata">Coordinamento completo incluso</p>
+                </div>
               </div>
             </div>
-            <div className="bg-card p-8 rounded-lg border border-elite-gold/20">
-              <form className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Nome e Cognome *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-baglio-terracotta focus:border-baglio-terracotta"
-                    required
-                  />
+            <div className="bg-white p-8 rounded-2xl shadow-2xl">
+              <h3 className="text-2xl font-playfair font-bold text-baglio-ebanoIntenso mb-6">
+                Richiedi Informazioni
+              </h3>
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
+                      Nome *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="surname" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
+                      Cognome *
+                    </label>
+                    <input
+                      type="text"
+                      id="surname"
+                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
+                      required
+                    />
+                  </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="email" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
                       Email *
                     </label>
                     <input
                       type="email"
                       id="email"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-baglio-terracotta focus:border-baglio-terracotta"
+                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
                       required
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="phone" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
                       Telefono *
                     </label>
                     <input
                       type="tel"
                       id="phone"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-baglio-terracotta focus:border-baglio-terracotta"
+                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
                       required
                     />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="event-type" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="event-type" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
                       Tipo di Evento *
                     </label>
                     <select
                       id="event-type"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-baglio-terracotta focus:border-baglio-terracotta"
+                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
                       required
                     >
                       <option value="">Seleziona...</option>
                       <option value="wedding">Matrimonio</option>
                       <option value="birthday">Compleanno</option>
                       <option value="corporate">Evento Aziendale</option>
+                      <option value="anniversary">Anniversario</option>
                       <option value="other">Altro</option>
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
-                      Data Indicativa
+                    <label htmlFor="guests" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
+                      Numero Ospiti
                     </label>
                     <input
-                      type="date"
-                      id="date"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-baglio-terracotta focus:border-baglio-terracotta"
+                      type="number"
+                      id="guests"
+                      min="1"
+                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
                     />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="guests" className="block text-sm font-medium text-gray-700 mb-1">
-                    Numero Indicativo di Ospiti
+                  <label htmlFor="date" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
+                    Data Preferita
                   </label>
                   <input
-                    type="number"
-                    id="guests"
-                    min="1"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-baglio-terracotta focus:border-baglio-terracotta"
+                    type="date"
+                    id="date"
+                    className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="message" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
                     Messaggio *
                   </label>
                   <textarea
                     id="message"
                     rows={4}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-baglio-terracotta focus:border-baglio-terracotta"
+                    className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
+                    placeholder="Raccontaci la tua idea per l'evento..."
                     required
                   ></textarea>
                 </div>
-                <div>
-                  <button
-                    type="submit"
-                    className="cta-button w-full"
-                  >
-                    Invia Richiesta
-                  </button>
-                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-semibold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
+                >
+                  Invia Richiesta
+                </button>
               </form>
             </div>
           </div>
