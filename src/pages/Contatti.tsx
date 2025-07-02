@@ -72,8 +72,8 @@ const Contatti = () => {
     <Layout heroLayout={true}>
       <div className="relative h-[60vh] overflow-hidden">
         <ImageWithOverlay 
-          src="/lovable-uploads/15213861-a34c-4025-9442-06628ceb0a20.png"
-          alt="Contatti Baglio Abbate - Smartphone"
+          src="/lovable-uploads/a64af1b5-6d30-4760-80df-66af10202399.png"
+          alt="Contatti Baglio Abbate - Comunicazione"
           className="h-full"
           overlayOpacity={50}
           heroSection={true}
