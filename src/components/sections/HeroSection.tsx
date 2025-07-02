@@ -102,18 +102,27 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
             </button>
           </nav>
         </div>
+      </div>
 
-        {/* Scroll Hint */}
+      {/* Enhanced Scroll Hint - Now Perfectly Centered */}
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center z-30">
         <button 
           onClick={scrollToNextSection}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-baglio-oro transition-colors duration-300 animate-gentle-fade-in delay-500 group"
+          className="text-white hover:text-baglio-oro transition-all duration-300 animate-gentle-fade-in delay-500 group p-4 rounded-full hover:bg-white/10 backdrop-blur-sm"
           aria-label="Scroll down"
         >
-          <div className="flex flex-col items-center space-y-1">
-            <span className="text-xs font-medium tracking-wider opacity-80 group-hover:opacity-100 transition-opacity font-inter">
+          <div className="flex flex-col items-center space-y-2">
+            <span className="text-sm font-medium tracking-wider opacity-80 group-hover:opacity-100 transition-opacity font-inter">
               Scopri di più
             </span>
-            <ChevronDown size={24} className="animate-bounce group-hover:scale-110 transition-transform duration-300" />
+            <div className="relative">
+              <ChevronDown 
+                size={32} 
+                className="animate-bounce group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" 
+              />
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 bg-baglio-oro/20 rounded-full blur-md scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
           </div>
         </button>
       </div>
