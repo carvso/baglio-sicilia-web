@@ -168,7 +168,7 @@ const Eventi = () => {
                 "Supporto tecnico",
                 "Parcheggio riservato"
               ]}
-              imageSrc="/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png"
+              imageSrc="/lovable-uploads/97ade15d-9a2b-4fa8-89b8-847a2ea33c4c.png"
               linkTo="/eventi-aziendali"
             />
           </div>
