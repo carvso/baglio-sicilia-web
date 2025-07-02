@@ -239,36 +239,54 @@ const Eventi = () => {
         </div>
       </section>
 
-      {/* UPDATED: Esperienza Culinaria with Sicilian dish background */}
+      {/* UPDATED: Sapori Autentici with Caponata background and Amuni CTA */}
       <section className="relative py-20">
         <ImageWithOverlay 
-          src="/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png"
-          alt="Caponata siciliana - Piatti tipici della tradizione" 
-          className="h-[600px]"
+          src="https://www.themediterraneandish.com/wp-content/uploads/2020/07/caponata-recipe-11.jpg"
+          alt="Caponata siciliana tradizionale - Sapori autentici della Sicilia" 
+          className="h-[700px]"
           sizes="100vw"
-          overlayOpacity={50}
+          overlayOpacity={75}
         >
           <div className="baglio-container text-center">
-            <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-6 text-white">
+            <div className="mb-4">
+              <span className="bg-baglio-oro text-baglio-ebanoIntenso px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wide">
+                Prossimamente
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-playfair font-bold mb-6 text-white drop-shadow-2xl">
               Sapori Autentici della <span className="text-baglio-oro">Sicilia</span>
             </h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto text-white/95 leading-relaxed">
-              Dai nostri arancini alla caponata, dalla pasta alla norma ai cannoli siciliani: 
-              i nostri chef celebrano la tradizione culinaria dell'isola con ingredienti freschi 
-              selezionati dai migliori produttori locali.
+            <h3 className="text-2xl md:text-3xl font-playfair font-semibold mb-6 text-baglio-oro drop-shadow-xl">
+              Presentazione linea "Amuni"
+            </h3>
+            <p className="text-xl mb-8 max-w-4xl mx-auto text-white leading-relaxed drop-shadow-lg">
+              Presto potrai portare a casa i veri sapori della Sicilia con la nostra nuova linea di prodotti surgelati "Amuni". 
+              Dalle ricette tradizionali del Baglio Abbate, ora anche nella tua cucina: caponata, arancini, pasta alla norma 
+              e tutte le specialità che ami, pronte in pochi minuti senza rinunciare all'autenticità.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
-                <h4 className="text-baglio-oro font-playfair text-xl font-semibold mb-2">Ricette Tradizionali</h4>
-                <p className="text-white/90">Caponata, arancini, pasta alla norma e specialità siciliane</p>
+            
+            <div className="mb-12">
+              <CTAButton 
+                to="/contatti" 
+                className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-xl px-10 py-5 shadow-2xl"
+              >
+                Scopri "Amuni" - Resta aggiornato
+              </CTAButton>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-5xl mx-auto">
+              <div className="bg-baglio-ebano/80 backdrop-blur-md p-8 rounded-xl border-2 border-baglio-oro/40 shadow-2xl">
+                <h4 className="text-baglio-oro font-playfair text-xl font-bold mb-3 drop-shadow-lg">Ricette Autentiche</h4>
+                <p className="text-white leading-relaxed">Le stesse ricette del nostro chef, ora surgelate per mantenere intatti sapori e tradizione siciliana</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
-                <h4 className="text-baglio-oro font-playfair text-xl font-semibold mb-2">Ingredienti Siciliani</h4>
-                <p className="text-white/90">Pomodori pachino, melanzane, ricotta di pecora e olio EVO</p>
+              <div className="bg-baglio-ebano/80 backdrop-blur-md p-8 rounded-xl border-2 border-baglio-oro/40 shadow-2xl">
+                <h4 className="text-baglio-oro font-playfair text-xl font-bold mb-3 drop-shadow-lg">Comodità Premium</h4>
+                <p className="text-white leading-relaxed">Pronti in pochi minuti, perfetti per chi vuole gustare la vera cucina siciliana senza tempo di preparazione</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
-                <h4 className="text-baglio-oro font-playfair text-xl font-semibold mb-2">Dolci Artigianali</h4>
-                <p className="text-white/90">Cannoli, cassata e granite preparati secondo tradizione</p>
+              <div className="bg-baglio-ebano/80 backdrop-blur-md p-8 rounded-xl border-2 border-baglio-oro/40 shadow-2xl">
+                <h4 className="text-baglio-oro font-playfair text-xl font-bold mb-3 drop-shadow-lg">Ingredienti Selezionati</h4>
+                <p className="text-white leading-relaxed">Solo i migliori prodotti siciliani: pomodori pachino, melanzane locali, olio EVO e ricotta di pecora</p>
               </div>
             </div>
           </div>
