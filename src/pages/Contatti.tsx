@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Phone, Mail, Clock, MapPin, Instagram, Facebook, Send, MessageCircle, Calendar, Users } from 'lucide-react';
 import Layout from '@/components/Layout';
@@ -71,36 +70,48 @@ const InstagramCTA = ({ variant = "default" }: { variant?: "default" | "compact"
 const Contatti = () => {
   return (
     <Layout heroLayout={true}>
-      <ImageWithOverlay 
-        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
-        alt="Contatti Baglio Abbate"
-        className="h-[60vh]"
-        heroSection={true}
-      >
-        <div className="baglio-container text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 font-playfair text-white drop-shadow-lg">
-            <span className="text-baglio-oro">Contattaci</span>
-          </h1>
-          <p className="text-xl md:text-2xl max-w-4xl mx-auto text-white/95 leading-relaxed drop-shadow-md mb-8">
-            Siamo qui per rispondere alle tue domande e accoglierti presto nel nostro Baglio
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton to="#contact-form" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-lg px-8 py-4">
-              <Send className="mr-2" size={20} />
-              Scrivi subito
-            </CTAButton>
-            <a 
-              href="https://instagram.com/baglioabbate" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 py-4 px-8 text-lg border-2 border-white text-white hover:bg-white hover:text-baglio-ebanoIntenso"
-            >
-              <Instagram className="mr-2" size={20} />
-              Seguici su Instagram
-            </a>
+      <div className="relative h-[60vh] overflow-hidden">
+        <ImageWithOverlay 
+          src="/lovable-uploads/15213861-a34c-4025-9442-06628ceb0a20.png"
+          alt="Contatti Baglio Abbate - Smartphone"
+          className="h-full"
+          overlayOpacity={50}
+          heroSection={true}
+        >
+          <div className="baglio-container text-center relative z-20">
+            {/* Logo Baglio Abbate posizionato elegantemente */}
+            <div className="absolute top-8 right-8 md:top-12 md:right-12">
+              <img 
+                src="/lovable-uploads/a3aa06d7-0a44-4dd9-9f0a-e66bb732fac9.png" 
+                alt="Baglio Abbate Logo" 
+                className="w-16 h-16 md:w-20 md:h-20 opacity-90 hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+            
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 font-playfair text-white drop-shadow-lg">
+              <span className="text-baglio-oro">Contattaci</span>
+            </h1>
+            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-white/95 leading-relaxed drop-shadow-md mb-8">
+              Siamo qui per rispondere alle tue domande e accoglierti presto nel nostro Baglio
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <CTAButton to="#contact-form" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-lg px-8 py-4">
+                <Send className="mr-2" size={20} />
+                Scrivi subito
+              </CTAButton>
+              <a 
+                href="https://instagram.com/baglioabbate" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 py-4 px-8 text-lg border-2 border-white text-white hover:bg-white hover:text-baglio-ebanoIntenso"
+              >
+                <Instagram className="mr-2" size={20} />
+                Seguici su Instagram
+              </a>
+            </div>
           </div>
-        </div>
-      </ImageWithOverlay>
+        </ImageWithOverlay>
+      </div>
 
       {/* Sezione Quick Actions */}
       <section className="py-16 bg-baglio-ebano">
