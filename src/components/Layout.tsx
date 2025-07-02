@@ -58,7 +58,9 @@ const Layout = ({
       {!hideNavbar && <Navbar />}
       {!hideBreadcrumb && <BreadcrumbNavigation />}
       <main 
-        className={`flex-grow ${!hideNavbar && !heroLayout ? 'pt-16' : ''}`}
+        className={`flex-grow ${
+          !hideNavbar && !heroLayout && hideBreadcrumb ? 'pt-16' : ''
+        }`}
         style={{
           // Mobile optimizations
           minHeight: '100vh',

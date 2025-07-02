@@ -61,7 +61,6 @@ const BreadcrumbNavigation = () => {
       role="navigation" 
       aria-label="breadcrumb"
       className="bg-elite-darker/95 backdrop-blur-sm border-b border-elite-gold/10 sticky top-[64px] z-30"
-      style={{ marginTop: '64px' }}
     >
       <div className="baglio-container">
         <div className="flex items-center py-3 px-4 md:px-0 overflow-x-auto">
