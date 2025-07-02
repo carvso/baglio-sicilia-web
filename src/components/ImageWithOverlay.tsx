@@ -33,8 +33,8 @@ const ImageWithOverlay = ({
 }: ImageWithOverlayProps) => {
   const isMobile = useIsMobile();
   
-  // For hero sections, we need to account for the navbar
-  const heroClasses = heroSection ? 'min-h-screen -mt-16 pt-16' : '';
+  // For hero sections, we use min-h-screen without conflicting margins/padding
+  const heroClasses = heroSection ? 'min-h-screen' : '';
   
   return (
     <div className={`relative overflow-hidden ${heroClasses} ${className}`}>
