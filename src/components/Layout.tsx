@@ -63,7 +63,7 @@ const Layout = ({
         }`}
         style={{
           // Mobile optimizations
-          minHeight: '100vh',
+          minHeight: heroLayout ? 'auto' : '100vh',
           // Prevent horizontal scroll on mobile
           overflowX: 'hidden',
           // iOS momentum scrolling
