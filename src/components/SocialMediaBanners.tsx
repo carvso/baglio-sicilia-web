@@ -10,7 +10,7 @@ const SocialMediaBanners = () => {
       description: '@baglioabbate - Le foto più belle del nostro Baglio',
       icon: Instagram,
       link: 'https://instagram.com/baglioabbate',
-      color: 'from-pink-500 to-purple-600',
+      color: 'from-baglio-oro to-baglio-oroImperiale',
       bgImage: '/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png'
     },
     {
@@ -25,7 +25,7 @@ const SocialMediaBanners = () => {
   ];
 
   return (
-    <section className="py-16 bg-baglio-ebanoIntenso">
+    <section className="py-16 bg-baglio-ebano">
       <div className="baglio-container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6 text-baglio-cremaIntonacata">
@@ -50,13 +50,13 @@ const SocialMediaBanners = () => {
                     alt=""
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-baglio-ebano/90 to-baglio-ebano/70"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-baglio-ebanoIntenso/90 to-baglio-ebano/70"></div>
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10 h-full flex items-center p-6">
                   <div className={`p-3 rounded-full bg-gradient-to-r ${item.color} mr-4 flex-shrink-0`}>
-                    <IconComponent size={24} className="text-white" />
+                    <IconComponent size={24} className="text-baglio-ebano" />
                   </div>
                   <div>
                     <h3 className="text-white font-playfair font-bold text-xl mb-1">

@@ -329,12 +329,13 @@ const Gallery = () => {
       </section>
 
       {/* Sezione Instagram Feed */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
           <SectionTitle 
             title="Seguici su Instagram" 
             subtitle="Scopri gli ultimi scatti e rimani aggiornato sulle novità del Baglio"
             center
+            className="text-baglio-cremaIntonacata"
           />
           
           <div className="text-center mb-8">

@@ -30,7 +30,7 @@ const TacticalCTAGrid = () => {
       image: '/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png',
       link: '/matrimoni',
       icon: Heart,
-      color: 'from-rose-400 to-rose-600'
+      color: 'from-baglio-oro to-baglio-oroImperiale'
     },
     {
       id: 'ristorante',
@@ -39,7 +39,7 @@ const TacticalCTAGrid = () => {
       image: '/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png',
       link: '/ristorante',
       icon: Utensils,
-      color: 'from-green-400 to-green-600'
+      color: 'from-baglio-ebano to-baglio-ebanoIntenso'
     }
   ];
 
@@ -72,7 +72,7 @@ const TacticalCTAGrid = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebano/90 via-baglio-ebano/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebanoIntenso/90 via-baglio-ebano/50 to-transparent"></div>
                 </div>
 
                 {/* Content */}
