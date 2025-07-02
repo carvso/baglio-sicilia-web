@@ -59,7 +59,7 @@ const EventiPrivati = () => {
 
   return (
     <Layout>
-      <div className="bg-background min-h-screen">
+      <div className="bg-baglio-crema min-h-screen">
         {/* Hero Section */}
         <ImageWithOverlay 
           src="/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png"
@@ -70,7 +70,7 @@ const EventiPrivati = () => {
           sizes="100vw"
         >
           <div className="baglio-container text-center text-foreground">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 font-playfair text-elite-gold">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 font-playfair text-baglio-oro">
               Eventi Privati
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto">
@@ -80,7 +80,7 @@ const EventiPrivati = () => {
         </ImageWithOverlay>
 
         {/* Introduction */}
-        <section className="section-padding bg-elite-dark">
+        <section className="section-padding bg-baglio-ebano">
           <div className="baglio-container">
             <div className="max-w-4xl mx-auto text-center">
               <p className="text-lg md:text-xl text-foreground leading-relaxed">
@@ -94,7 +94,7 @@ const EventiPrivati = () => {
         </section>
 
         {/* Packages */}
-        <section className="section-padding bg-background">
+        <section className="section-padding bg-baglio-crema">
           <div className="baglio-container">
             <SectionTitle 
               title="I nostri pacchetti" 
@@ -104,12 +104,12 @@ const EventiPrivati = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               {packages.map((pkg, index) => (
-                <Card key={index} className="bg-elite-dark border-elite-gold/30 hover:border-elite-goldLight transition-all duration-300 group">
+                <Card key={index} className="bg-baglio-ebano border-baglio-oro/30 hover:border-baglio-oroImperiale transition-all duration-300 group">
                   <CardHeader className="text-center pb-4">
-                    <CardTitle className="text-2xl font-playfair text-elite-gold mb-2">
+                    <CardTitle className="text-2xl font-playfair text-baglio-oro mb-2">
                       {pkg.name}
                     </CardTitle>
-                    <p className="text-elite-goldLight font-semibold text-lg">
+                    <p className="text-baglio-oro font-semibold text-lg">
                       {pkg.price}
                     </p>
                   </CardHeader>
@@ -117,7 +117,7 @@ const EventiPrivati = () => {
                     <ul className="space-y-3">
                       {pkg.benefits.map((benefit, idx) => (
                         <li key={idx} className="flex items-start text-foreground">
-                          <span className="text-elite-gold mr-2 mt-1">✓</span>
+                          <span className="text-baglio-oro mr-2 mt-1">✓</span>
                           <span className="text-sm md:text-base">{benefit}</span>
                         </li>
                       ))}
@@ -130,7 +130,7 @@ const EventiPrivati = () => {
         </section>
 
         {/* Services */}
-        <section className="section-padding bg-elite-dark">
+        <section className="section-padding bg-baglio-ebano">
           <div className="baglio-container">
             <SectionTitle 
               title="Servizi inclusi" 
@@ -140,8 +140,8 @@ const EventiPrivati = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
               {services.map((service, index) => (
-                <div key={index} className="flex items-center p-4 bg-background rounded-lg border border-elite-gold/20">
-                  <div className="text-elite-gold mr-4">
+                <div key={index} className="flex items-center p-4 bg-baglio-crema rounded-lg border border-baglio-oro/20">
+                  <div className="text-baglio-oro mr-4">
                     {service.icon}
                   </div>
                   <span className="text-foreground">{service.text}</span>
@@ -152,7 +152,7 @@ const EventiPrivati = () => {
         </section>
 
         {/* CTA */}
-        <section className="section-padding bg-background">
+        <section className="section-padding bg-baglio-crema">
           <div className="baglio-container text-center">
             <SectionTitle 
               title="Pronto a celebrare?" 
@@ -162,7 +162,7 @@ const EventiPrivati = () => {
             
             <div className="mt-8">
               <Link to="/contatti">
-                <Button className="bg-elite-gold hover:bg-elite-goldLight text-elite-darker font-bold py-3 px-8 text-lg">
+                <Button className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-bold py-3 px-8 text-lg">
                   Richiedi un preventivo
                 </Button>
               </Link>
