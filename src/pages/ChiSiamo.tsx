@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Layout from '@/components/Layout';
 import SectionTitle from '@/components/SectionTitle';
@@ -24,25 +23,71 @@ const ChiSiamo = () => {
         </div>
       </ImageWithOverlay>
 
-      <section className="section-padding bg-baglio-cremaIntonacata">
+      <section className="section-padding bg-baglio-ebano">
         <div className="baglio-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <SectionTitle 
                 title="Le origini del Baglio Abbate" 
-                subtitle="Una struttura con oltre 200 anni di storia"
+                subtitle="Dove tutto ha avuto inizio, nei primi anni dell'800"
+                light
               />
-              <p className="text-baglio-ebano/80 mb-6">
-                Il Baglio Abbate risale ai primi anni dell'800, quando venne costruito come residenza nobiliare 
-                della famiglia Abbate, proprietari terrieri della zona di Balestrate. La struttura, con la sua 
-                caratteristica corte interna, era originariamente utilizzata come masseria per la produzione 
-                di olio e vino, elementi fondamentali dell'economia siciliana del tempo.
-              </p>
-              <p className="text-baglio-ebano/80 mb-6">
-                Nei decenni successivi, il baglio ha attraversato diverse trasformazioni rimanendo però sempre 
-                un simbolo della cultura e delle tradizioni siciliane. Le sue possenti mura in pietra viva hanno 
-                resistito al tempo, custodendo storie e segreti di generazioni.
-              </p>
+              
+              <div className="mb-8">
+                <p className="text-baglio-cremaIntonacata text-lg mb-6 italic">
+                  "Ogni pietra di questo baglio custodisce oltre 200 anni di storia siciliana, 
+                  dove nobiltà e tradizione si fondono in un patrimonio senza tempo."
+                </p>
+              </div>
+
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-xl font-bold text-baglio-oro mb-3 font-playfair">
+                    La Famiglia Abbate e il suo territorio
+                  </h3>
+                  <p className="text-baglio-cremaIntonacata/90 leading-relaxed">
+                    Nel cuore di Balestrate, agli inizi del XIX secolo, la famiglia Abbate costruì 
+                    questa magnifica residenza nobiliare. Proprietari terrieri di grande prestigio, 
+                    gli Abbate erano custodi di una visione che univa **eleganza architettonica** 
+                    e **produttività agricola**.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-baglio-oro mb-3 font-playfair">
+                    Una masseria tra olio e vino
+                  </h3>
+                  <p className="text-baglio-cremaIntonacata/90 leading-relaxed mb-4">
+                    La struttura, con la sua **caratteristica corte interna**, era il cuore pulsante 
+                    di un'economia basata sui tesori della terra siciliana:
+                  </p>
+                  <ul className="text-baglio-cremaIntonacata/90 space-y-2 ml-6">
+                    <li className="flex items-start">
+                      <span className="text-baglio-oro mr-2">•</span>
+                      Produzione di **olio d'oliva extravergine** dai secolari uliveti circostanti
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-baglio-oro mr-2">•</span>
+                      Vinificazione di **uve autoctone** nelle antiche cantine sotterranee
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-baglio-oro mr-2">•</span>
+                      **Mura in pietra viva** che definivano spazi funzionali e residenziali
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-baglio-oro mb-3 font-playfair">
+                    Custodi di tradizioni secolari
+                  </h3>
+                  <p className="text-baglio-cremaIntonacata/90 leading-relaxed">
+                    Per generazioni, il Baglio Abbate ha attraversato le trasformazioni della Sicilia, 
+                    rimanendo sempre un **simbolo di cultura e tradizione**. Le sue possenti mura 
+                    hanno resistito al tempo, custodendo storie, segreti e l'autenticità di un'epoca irripetibile.
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg border border-baglio-oro/20">
               <img 
@@ -55,7 +100,7 @@ const ChiSiamo = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-baglio-ebano">
+      <section className="section-padding bg-baglio-cremaIntonacata">
         <div className="baglio-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg border border-baglio-oro/20">
@@ -67,22 +112,53 @@ const ChiSiamo = () => {
             </div>
             <div className="order-1 md:order-2">
               <SectionTitle 
-                title="La rinascita" 
-                subtitle="Tradizione e innovazione si incontrano"
-                light
+                title="La rinascita del Baglio" 
+                subtitle="Quando l'heritage incontra l'innovazione contemporanea"
               />
-              <p className="text-baglio-cremaIntonacata/80 mb-6">
-                Nel 2019, dopo un attento restauro che ha preservato l'autenticità e il carattere storico 
-                della struttura, il Baglio Abbate ha riaperto le sue porte come raffinato ristorante, lounge bar 
-                e location per eventi. La nostra filosofia è quella di creare un ponte tra passato e presente, 
-                valorizzando l'heritage siciliano con un tocco contemporaneo.
-              </p>
-              <p className="text-baglio-cremaIntonacata/80 mb-6">
-                Oggi, il Baglio Abbate è un luogo dove gli ospiti possono immergersi nella cultura siciliana, 
-                attraverso sapori autentici, atmosfere suggestive e un servizio che incarna la calda ospitalità 
-                dell'isola. Ogni angolo del baglio racconta una storia, ogni piatto celebra la ricchezza 
-                gastronomica della nostra terra.
-              </p>
+              
+              <div className="mb-8">
+                <p className="text-baglio-ebano/80 text-lg mb-6 italic border-l-4 border-baglio-oro pl-4">
+                  "Abbiamo scelto di non restaurare semplicemente un edificio, ma di riportare 
+                  in vita l'anima di un luogo che ha sempre celebrato l'ospitalità siciliana."
+                </p>
+              </div>
+
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-xl font-bold text-baglio-oro mb-3 font-playfair">
+                    Il restauro conservativo del 2019
+                  </h3>
+                  <p className="text-baglio-ebano/80 leading-relaxed">
+                    Dopo un **attento restauro durato oltre due anni**, il Baglio Abbate ha riaperto 
+                    le sue porte nel 2019. Ogni intervento è stato guidato dal rispetto per 
+                    l'**autenticità architettonica**, preservando elementi originali come le volte a botte, 
+                    i pavimenti in cotto antico e i dettagli decorativi ottocenteschi.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-baglio-oro mb-3 font-playfair">
+                    Filosofia: tra passato e presente
+                  </h3>
+                  <p className="text-baglio-ebano/80 leading-relaxed">
+                    La nostra filosofia è quella di **creare un ponte tra epoche**, valorizzando 
+                    l'heritage siciliano con un tocco contemporaneo. Ogni spazio racconta una storia, 
+                    ogni dettaglio celebra la continuità tra tradizione e innovazione.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-baglio-oro mb-3 font-playfair">
+                    Un'esperienza autentica oggi
+                  </h3>
+                  <p className="text-baglio-ebano/80 leading-relaxed">
+                    Oggi, il Baglio Abbate è molto più di una location: è un **viaggio sensoriale** 
+                    dove gli ospiti si immergono nella cultura siciliana attraverso sapori autentici, 
+                    atmosfere suggestive e un servizio che incarna la **calda ospitalità dell'isola**. 
+                    Ogni piatto celebra la ricchezza gastronomica della nostra terra.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

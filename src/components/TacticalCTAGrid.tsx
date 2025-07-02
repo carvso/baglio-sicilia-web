@@ -35,11 +35,13 @@ const TacticalCTAGrid = () => {
     {
       id: 'ristorante',
       title: 'Prenota un Tavolo',
-      description: 'Gusta la cucina siciliana nella nostra terrazza',
+      description: 'Gusta la cucina siciliana nella nostra terrazza vista mare',
       image: '/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png',
+      backgroundImage: '/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png', // Terrazza vista mare
       link: '/ristorante',
       icon: Utensils,
-      color: 'from-baglio-oro to-baglio-oroImperiale'
+      color: 'from-baglio-oro to-baglio-oroImperiale',
+      special: true // Flag per il trattamento speciale
     }
   ];
 
@@ -58,25 +60,44 @@ const TacticalCTAGrid = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {ctaItems.map((item) => {
             const IconComponent = item.icon;
+            const isSpecialCTA = item.special;
+            
             return (
               <Link
                 key={item.id}
                 to={item.link}
                 className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 border-baglio-oro/30 hover:border-baglio-oro"
               >
-                {/* Image */}
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebano/90 via-baglio-ebano/50 to-transparent"></div>
-                </div>
+                {/* Background Image for special CTA (Prenota un Tavolo) */}
+                {isSpecialCTA && (
+                  <div className="absolute inset-0 z-0">
+                    <img
+                      src={item.backgroundImage}
+                      alt="Terrazza del ristorante"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebano/95 via-baglio-ebano/70 to-baglio-ebano/50"></div>
+                  </div>
+                )}
+
+                {/* Regular Image for other CTAs */}
+                {!isSpecialCTA && (
+                  <>
+                    <div className="h-48 overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebano/90 via-baglio-ebano/50 to-transparent"></div>
+                    </div>
+                  </>
+                )}
 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className={`absolute ${isSpecialCTA ? 'inset-0 flex flex-col justify-center' : 'bottom-0 left-0 right-0'} p-4 z-10`}>
                   <div className="flex items-center gap-3 mb-2">
                     <div className={`p-2 rounded-full bg-gradient-to-r ${item.color}`}>
                       <IconComponent size={16} className="text-baglio-ebano" />
@@ -85,9 +106,18 @@ const TacticalCTAGrid = () => {
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-baglio-cremaIntonacata text-sm">
+                  <p className={`text-baglio-cremaIntonacata text-sm ${isSpecialCTA ? 'text-center' : ''}`}>
                     {item.description}
                   </p>
+                  
+                  {/* Special CTA button for restaurant */}
+                  {isSpecialCTA && (
+                    <div className="mt-4 text-center">
+                      <span className="inline-flex items-center px-4 py-2 bg-baglio-oro text-baglio-ebano font-semibold rounded-full text-sm group-hover:bg-baglio-oroImperiale transition-colors duration-300">
+                        🍽️ Prenota Ora
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Hover overlay */}
