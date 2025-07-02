@@ -6,6 +6,7 @@ import ImageWithOverlay from '@/components/ImageWithOverlay';
 import OptimizedImage from '@/components/OptimizedImage';
 import SectionTitle from '@/components/SectionTitle';
 import CTAButton from '@/components/CTAButton';
+import SocialMediaBanners from '@/components/SocialMediaBanners';
 
 type EventCategoryProps = {
   icon: React.ReactNode;
@@ -207,34 +208,67 @@ const Eventi = () => {
         </div>
       </section>
 
+      {/* NEW: Social Media Banners - Resta sempre aggiornato */}
+      <SocialMediaBanners />
+
+      {/* NEW: CTA Section - Pronto a vivere la tua esperienza al Baglio */}
+      <section className="py-16 bg-baglio-oro">
+        <div className="baglio-container text-center">
+          <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-6 text-baglio-ebano">
+            Pronto a vivere la tua esperienza al <span className="text-baglio-ebanoIntenso">Baglio Abbate</span>?
+          </h2>
+          <p className="text-xl mb-8 max-w-3xl mx-auto text-baglio-ebano/80 leading-relaxed">
+            Non aspettare oltre. Contattaci oggi stesso per organizzare il tuo evento da sogno 
+            o prenota un tavolo per gustare la vera cucina siciliana nella nostra terrazza vista mare.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <CTAButton 
+              to="/contatti" 
+              className="bg-baglio-ebano hover:bg-baglio-ebanoIntenso text-baglio-oro text-lg px-8 py-4 border-2 border-baglio-ebano"
+            >
+              Contattaci per il tuo evento
+            </CTAButton>
+            <CTAButton 
+              to="/ristorante" 
+              outline 
+              className="border-2 border-baglio-ebano text-baglio-ebano hover:bg-baglio-ebano hover:text-baglio-oro text-lg px-8 py-4"
+            >
+              Prenota un tavolo
+            </CTAButton>
+          </div>
+        </div>
+      </section>
+
+      {/* UPDATED: Esperienza Culinaria with Sicilian dish background */}
       <section className="relative py-20">
         <ImageWithOverlay 
-          src="/lovable-uploads/059acecc-9864-4084-bb89-9644fd4e4a41.png"
-          alt="Catering di qualità - Cucina siciliana autentica" 
+          src="/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png"
+          alt="Caponata siciliana - Piatti tipici della tradizione" 
           className="h-[600px]"
           sizes="100vw"
           overlayOpacity={50}
         >
           <div className="baglio-container text-center">
             <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-6 text-white">
-              Esperienza <span className="text-baglio-oro">Culinaria</span> d'Eccellenza
+              Sapori Autentici della <span className="text-baglio-oro">Sicilia</span>
             </h2>
             <p className="text-xl mb-8 max-w-3xl mx-auto text-white/95 leading-relaxed">
-              I nostri chef creano menu personalizzati che celebrano i sapori autentici della Sicilia, 
-              utilizzando solo ingredienti freschi e di prima qualità selezionati dai migliori produttori locali.
+              Dai nostri arancini alla caponata, dalla pasta alla norma ai cannoli siciliani: 
+              i nostri chef celebrano la tradizione culinaria dell'isola con ingredienti freschi 
+              selezionati dai migliori produttori locali.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
-                <h4 className="text-baglio-oro font-playfair text-xl font-semibold mb-2">Ingredienti Locali</h4>
-                <p className="text-white/90">Selezioniamo i migliori prodotti del territorio siciliano</p>
+                <h4 className="text-baglio-oro font-playfair text-xl font-semibold mb-2">Ricette Tradizionali</h4>
+                <p className="text-white/90">Caponata, arancini, pasta alla norma e specialità siciliane</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
-                <h4 className="text-baglio-oro font-playfair text-xl font-semibold mb-2">Menu Personalizzati</h4>
-                <p className="text-white/90">Ogni menu è studiato su misura per le vostre esigenze</p>
+                <h4 className="text-baglio-oro font-playfair text-xl font-semibold mb-2">Ingredienti Siciliani</h4>
+                <p className="text-white/90">Pomodori pachino, melanzane, ricotta di pecora e olio EVO</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
-                <h4 className="text-baglio-oro font-playfair text-xl font-semibold mb-2">Tradizione & Innovazione</h4>
-                <p className="text-white/90">Ricette tradizionali reinterpretate con tecniche moderne</p>
+                <h4 className="text-baglio-oro font-playfair text-xl font-semibold mb-2">Dolci Artigianali</h4>
+                <p className="text-white/90">Cannoli, cassata e granite preparati secondo tradizione</p>
               </div>
             </div>
           </div>
