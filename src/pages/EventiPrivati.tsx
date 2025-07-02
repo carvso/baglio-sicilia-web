@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Users, Music, Camera, Gift, MapPin, Clock } from 'lucide-react';
+import { Users, Music, Camera, Gift, MapPin, Clock, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
@@ -59,13 +59,13 @@ const EventiPrivati = () => {
 
   return (
     <Layout>
-      <div className="bg-baglio-crema min-h-screen">
+      <div className="bg-baglio-ebano min-h-screen">
         {/* Hero Section */}
         <ImageWithOverlay 
           src="/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png"
           alt="Eventi Privati al Baglio Abbate"
           className="h-[70vh]"
-          overlayOpacity={50}
+          overlayOpacity={60}
           priority={true}
           sizes="100vw"
         >
@@ -73,16 +73,16 @@ const EventiPrivati = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-4 font-playfair text-baglio-oro drop-shadow-2xl">
               Eventi Privati
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto drop-shadow-lg">
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto drop-shadow-lg text-baglio-crema">
               Ogni ricorrenza ha la sua cornice perfetta
             </p>
           </div>
         </ImageWithOverlay>
 
         {/* Introduction */}
-        <section className="section-padding bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso shadow-2xl shadow-baglio-oro/5">
+        <section className="section-padding bg-gradient-to-br from-baglio-ebano via-baglio-ebanoIntenso to-baglio-ebano shadow-2xl shadow-baglio-oro/10">
           <div className="baglio-container">
-            <div className="max-w-4xl mx-auto text-center backdrop-blur-sm bg-baglio-ebano/20 rounded-2xl p-8 border border-baglio-oro/10 shadow-xl shadow-baglio-oro/10">
+            <div className="max-w-4xl mx-auto text-center backdrop-blur-sm bg-baglio-ebano/30 rounded-2xl p-8 border border-baglio-oro/20 shadow-xl shadow-baglio-oro/15">
               <p className="text-lg md:text-xl text-baglio-crema leading-relaxed">
                 Dal compleanno importante all'anniversario speciale, ogni momento della vita merita di essere celebrato 
                 in grande stile. Il Baglio Abbate trasforma i vostri eventi privati in esperienze indimenticabili, 
@@ -94,19 +94,20 @@ const EventiPrivati = () => {
         </section>
 
         {/* Packages */}
-        <section className="section-padding bg-baglio-crema">
+        <section className="section-padding bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso">
           <div className="baglio-container">
             <SectionTitle 
               title="I nostri pacchetti" 
               subtitle="Soluzioni pensate per ogni esigenza e budget"
               center
+              light={true}
             />
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               {packages.map((pkg, index) => (
-                <Card key={index} className="bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso border border-baglio-oro/30 hover:border-baglio-oro/60 transition-all duration-500 group shadow-lg shadow-baglio-oro/20 hover:shadow-xl hover:shadow-baglio-oro/30 hover:-translate-y-1 rounded-xl backdrop-blur-sm">
+                <Card key={index} className="bg-gradient-to-br from-baglio-ebano via-baglio-ebanoIntenso to-baglio-ebano border border-baglio-oro/40 hover:border-baglio-oro/70 transition-all duration-500 group shadow-xl shadow-baglio-oro/25 hover:shadow-2xl hover:shadow-baglio-oro/35 hover:-translate-y-1 rounded-xl backdrop-blur-sm">
                   <CardHeader className="text-center pb-4 relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-baglio-oro/5 to-transparent rounded-t-xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-baglio-oro/10 to-baglio-oro/5 rounded-t-xl"></div>
                     <CardTitle className="text-2xl font-playfair text-baglio-oro mb-2 relative z-10 drop-shadow-sm">
                       {pkg.name}
                     </CardTitle>
@@ -131,7 +132,7 @@ const EventiPrivati = () => {
         </section>
 
         {/* Services */}
-        <section className="section-padding bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso shadow-2xl shadow-baglio-oro/5">
+        <section className="section-padding bg-gradient-to-br from-baglio-ebanoIntenso via-baglio-ebano to-baglio-ebanoIntenso shadow-2xl shadow-baglio-oro/10">
           <div className="baglio-container">
             <SectionTitle 
               title="Servizi inclusi" 
@@ -142,26 +143,57 @@ const EventiPrivati = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
               {services.map((service, index) => (
-                <div key={index} className="flex items-center p-6 bg-baglio-crema rounded-xl border border-baglio-oro/30 shadow-md shadow-baglio-oro/10 hover:shadow-lg hover:shadow-baglio-oro/20 transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-sm">
-                  <div className="text-baglio-oro mr-4 p-2 bg-gradient-to-br from-baglio-oro/10 to-baglio-oro/5 rounded-lg">
+                <div key={index} className="flex items-center p-6 bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso rounded-xl border border-baglio-oro/40 shadow-lg shadow-baglio-oro/15 hover:shadow-xl hover:shadow-baglio-oro/25 transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-sm">
+                  <div className="text-baglio-oro mr-4 p-2 bg-gradient-to-br from-baglio-oro/15 to-baglio-oro/10 rounded-lg border border-baglio-oro/20">
                     {service.icon}
                   </div>
-                  <span className="text-baglio-ebanoIntenso font-medium">{service.text}</span>
+                  <span className="text-baglio-crema font-medium">{service.text}</span>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
+        {/* Instagram CTA */}
+        <section className="py-12 bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso">
+          <div className="baglio-container">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="bg-gradient-to-r from-baglio-ebano/80 to-baglio-ebanoIntenso/80 backdrop-blur-sm rounded-2xl p-8 border border-baglio-oro/30 shadow-xl shadow-baglio-oro/20">
+                <div className="flex items-center justify-center mb-4">
+                  <div className="p-3 rounded-full bg-gradient-to-r from-baglio-oro to-baglio-oroImperiale mr-4">
+                    <Instagram size={24} className="text-baglio-ebano" />
+                  </div>
+                  <h3 className="text-2xl font-playfair font-bold text-baglio-oro">
+                    Seguici su Instagram
+                  </h3>
+                </div>
+                <p className="text-baglio-crema mb-6">
+                  Scopri le foto più belle dei nostri eventi privati e lasciati ispirare per il tuo prossimo evento speciale
+                </p>
+                <a
+                  href="https://instagram.com/baglioabbate"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-baglio-oro to-baglio-oroImperiale text-baglio-ebano font-semibold rounded-lg hover:shadow-lg hover:shadow-baglio-oro/30 transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  <Instagram size={20} className="mr-2" />
+                  @baglioabbate
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
-        <section className="section-padding bg-baglio-crema relative overflow-hidden">
+        <section className="section-padding bg-gradient-to-br from-baglio-ebanoIntenso to-baglio-ebano relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-baglio-oro/5 to-transparent"></div>
           <div className="baglio-container text-center relative z-10">
-            <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl shadow-baglio-oro/10 border border-baglio-oro/20">
+            <div className="max-w-4xl mx-auto bg-gradient-to-br from-baglio-ebano/90 to-baglio-ebanoIntenso/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl shadow-baglio-oro/20 border border-baglio-oro/30">
               <SectionTitle 
                 title="Pronto a celebrare?" 
                 subtitle="Contattaci per un preventivo personalizzato del tuo evento privato"
                 center
+                light={true}
               />
               
               <div className="mt-8">
