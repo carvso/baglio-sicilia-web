@@ -160,7 +160,7 @@ const Eventi = () => {
             />
             <EventCategory 
               icon={<Building size={28} />}
-              title="Corporate Events"
+              title="Eventi Aziendali"
               description="Meeting, convention, team building: il successo aziendale ha bisogno del giusto ambiente."
               features={[
                 "Sale meeting attrezzate",
