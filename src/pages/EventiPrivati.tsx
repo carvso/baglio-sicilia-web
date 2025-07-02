@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Users, Music, Camera, Gift, MapPin, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -69,7 +68,7 @@ const EventiPrivati = () => {
           priority={true}
           sizes="100vw"
         >
-          <div className="baglio-container text-center text-foreground">
+          <div className="baglio-container text-center text-white">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 font-playfair text-baglio-oro">
               Eventi Privati
             </h1>
@@ -83,7 +82,7 @@ const EventiPrivati = () => {
         <section className="section-padding bg-baglio-ebano">
           <div className="baglio-container">
             <div className="max-w-4xl mx-auto text-center">
-              <p className="text-lg md:text-xl text-foreground leading-relaxed">
+              <p className="text-lg md:text-xl text-baglio-crema leading-relaxed">
                 Dal compleanno importante all'anniversario speciale, ogni momento della vita merita di essere celebrato 
                 in grande stile. Il Baglio Abbate trasforma i vostri eventi privati in esperienze indimenticabili, 
                 dove l'eleganza della location si fonde con la calorosa ospitalità siciliana per creare ricordi che 
@@ -116,7 +115,7 @@ const EventiPrivati = () => {
                   <CardContent>
                     <ul className="space-y-3">
                       {pkg.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-start text-foreground">
+                        <li key={idx} className="flex items-start text-baglio-crema">
                           <span className="text-baglio-oro mr-2 mt-1">✓</span>
                           <span className="text-sm md:text-base">{benefit}</span>
                         </li>
@@ -136,6 +135,7 @@ const EventiPrivati = () => {
               title="Servizi inclusi" 
               subtitle="Tutto quello di cui avete bisogno per un evento perfetto"
               center
+              light={true}
             />
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
@@ -144,7 +144,7 @@ const EventiPrivati = () => {
                   <div className="text-baglio-oro mr-4">
                     {service.icon}
                   </div>
-                  <span className="text-foreground">{service.text}</span>
+                  <span className="text-baglio-ebanoIntenso">{service.text}</span>
                 </div>
               ))}
             </div>

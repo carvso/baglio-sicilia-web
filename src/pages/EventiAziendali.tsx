@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Briefcase, Presentation, Coffee, Video, Users, Wifi } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -69,7 +68,7 @@ const EventiAziendali = () => {
           priority={true}
           sizes="100vw"
         >
-          <div className="baglio-container text-center text-foreground">
+          <div className="baglio-container text-center text-white">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 font-playfair text-baglio-oro">
               Eventi Aziendali
             </h1>
@@ -83,7 +82,7 @@ const EventiAziendali = () => {
         <section className="section-padding bg-baglio-ebano">
           <div className="baglio-container">
             <div className="max-w-4xl mx-auto text-center">
-              <p className="text-lg md:text-xl text-foreground leading-relaxed">
+              <p className="text-lg md:text-xl text-baglio-crema leading-relaxed">
                 Lontani dal caos della città ma connessi al mondo, il Baglio Abbate offre l'ambiente ideale per i vostri 
                 eventi aziendali. Meeting strategici, presentazioni importanti, team building o cene di gala: la nostra 
                 location unisce la professionalità dei servizi business con il fascino autentico della Sicilia, 
@@ -116,7 +115,7 @@ const EventiAziendali = () => {
                   <CardContent>
                     <ul className="space-y-3">
                       {pkg.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-start text-foreground">
+                        <li key={idx} className="flex items-start text-baglio-crema">
                           <span className="text-baglio-oro mr-2 mt-1">✓</span>
                           <span className="text-sm md:text-base">{benefit}</span>
                         </li>
@@ -136,6 +135,7 @@ const EventiAziendali = () => {
               title="Servizi business" 
               subtitle="Tecnologia e ospitalità per il successo del vostro evento"
               center
+              light={true}
             />
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
@@ -144,7 +144,7 @@ const EventiAziendali = () => {
                   <div className="text-baglio-oro mr-4">
                     {service.icon}
                   </div>
-                  <span className="text-foreground">{service.text}</span>
+                  <span className="text-baglio-ebanoIntenso">{service.text}</span>
                 </div>
               ))}
             </div>
