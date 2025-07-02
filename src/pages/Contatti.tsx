@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Phone, Mail, Clock, MapPin, Instagram, Facebook, Send, MessageCircle, Calendar, Users } from 'lucide-react';
 import Layout from '@/components/Layout';
@@ -70,12 +71,12 @@ const InstagramCTA = ({ variant = "default" }: { variant?: "default" | "compact"
 const Contatti = () => {
   return (
     <Layout heroLayout={true}>
-      <div className="relative h-[60vh] overflow-hidden">
+      <div className="relative h-[70vh] overflow-hidden">
         <ImageWithOverlay 
           src="/lovable-uploads/a64af1b5-6d30-4760-80df-66af10202399.png"
           alt="Contatti Baglio Abbate - Comunicazione"
           className="h-full"
-          overlayOpacity={50}
+          overlayOpacity={30}
           heroSection={true}
         >
           <div className="baglio-container text-center relative z-20">
@@ -84,28 +85,28 @@ const Contatti = () => {
               <img 
                 src="/lovable-uploads/a3aa06d7-0a44-4dd9-9f0a-e66bb732fac9.png" 
                 alt="Baglio Abbate Logo" 
-                className="w-16 h-16 md:w-20 md:h-20 opacity-90 hover:opacity-100 transition-opacity duration-300"
+                className="w-20 h-20 md:w-24 md:h-24 opacity-95 hover:opacity-100 transition-opacity duration-300 drop-shadow-lg"
               />
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 font-playfair text-white drop-shadow-lg">
-              <span className="text-baglio-oro">Contattaci</span>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 md:mb-8 font-playfair text-white drop-shadow-2xl">
+              <span className="text-baglio-oro drop-shadow-lg">Contattaci</span>
             </h1>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-white/95 leading-relaxed drop-shadow-md mb-8">
+            <p className="text-xl md:text-3xl max-w-4xl mx-auto text-white leading-relaxed drop-shadow-lg mb-10 font-medium">
               Siamo qui per rispondere alle tue domande e accoglierti presto nel nostro Baglio
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CTAButton to="#contact-form" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-lg px-8 py-4">
-                <Send className="mr-2" size={20} />
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <CTAButton to="#contact-form" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-xl px-10 py-5 shadow-2xl hover:shadow-3xl transform hover:scale-105">
+                <Send className="mr-3" size={24} />
                 Scrivi subito
               </CTAButton>
               <a 
                 href="https://instagram.com/baglioabbate" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 py-4 px-8 text-lg border-2 border-white text-white hover:bg-white hover:text-baglio-ebanoIntenso"
+                className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 py-5 px-10 text-xl border-3 border-white text-white hover:bg-white hover:text-baglio-ebanoIntenso backdrop-blur-sm"
               >
-                <Instagram className="mr-2" size={20} />
+                <Instagram className="mr-3" size={24} />
                 Seguici su Instagram
               </a>
             </div>
