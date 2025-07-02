@@ -60,52 +60,55 @@ const BreadcrumbNavigation = () => {
     <nav 
       role="navigation" 
       aria-label="breadcrumb"
-      className="bg-elite-darker/95 backdrop-blur-sm border-b border-elite-gold/10 sticky top-[64px] z-30"
+      className="bg-transparent border-b border-baglio-oro/10 sticky top-[64px] z-30 py-4"
     >
       <div className="baglio-container">
-        <div className="flex items-center py-3 px-4 md:px-0 overflow-x-auto">
-          <ol className="flex items-center space-x-2 text-sm md:text-base min-w-0">
-            {breadcrumbs.map((crumb, index) => {
-              const isLast = index === breadcrumbs.length - 1;
-              
-              return (
-                <li key={index} className="flex items-center space-x-2 min-w-0">
-                  {index === 0 && (
-                    <Home size={16} className="text-foreground flex-shrink-0" />
-                  )}
-                  
-                  {crumb.path && !isLast ? (
-                    <Link 
-                      to={crumb.path}
-                      className={cn(
-                        "text-foreground hover:text-elite-goldLight transition-colors duration-200",
-                        "focus:outline-none focus:ring-2 focus:ring-elite-gold focus:ring-offset-2 focus:ring-offset-elite-darker",
-                        "rounded px-1 py-0.5 truncate"
-                      )}
-                    >
-                      {crumb.label}
-                    </Link>
-                  ) : (
-                    <span 
-                      className={cn(
-                        isLast 
-                          ? "text-elite-gold font-medium" 
-                          : "text-foreground",
-                        "truncate"
-                      )}
-                      aria-current={isLast ? "page" : undefined}
-                    >
-                      {crumb.label}
-                    </span>
-                  )}
-                  
-                  {!isLast && (
-                    <ChevronRight size={14} className="text-foreground/60 flex-shrink-0" />
-                  )}
-                </li>
-              );
-            })}
-          </ol>
+        <div className="flex justify-center md:justify-start px-4 md:px-0">
+          {/* Professional Navy Container */}
+          <div className="bg-baglio-ebano rounded-full px-6 py-3 shadow-sm">
+            <ol className="flex items-center space-x-3 text-sm md:text-base min-w-0">
+              {breadcrumbs.map((crumb, index) => {
+                const isLast = index === breadcrumbs.length - 1;
+                
+                return (
+                  <li key={index} className="flex items-center space-x-3 min-w-0">
+                    {index === 0 && (
+                      <Home size={16} className="text-baglio-crema flex-shrink-0" />
+                    )}
+                    
+                    {crumb.path && !isLast ? (
+                      <Link 
+                        to={crumb.path}
+                        className={cn(
+                          "text-baglio-crema hover:text-baglio-oro transition-colors duration-200",
+                          "focus:outline-none focus:ring-2 focus:ring-baglio-oro focus:ring-offset-2 focus:ring-offset-baglio-ebano",
+                          "rounded px-2 py-1 truncate font-medium"
+                        )}
+                      >
+                        {crumb.label}
+                      </Link>
+                    ) : (
+                      <span 
+                        className={cn(
+                          isLast 
+                            ? "text-baglio-oro font-semibold" 
+                            : "text-baglio-crema font-medium",
+                          "truncate px-2 py-1"
+                        )}
+                        aria-current={isLast ? "page" : undefined}
+                      >
+                        {crumb.label}
+                      </span>
+                    )}
+                    
+                    {!isLast && (
+                      <ChevronRight size={14} className="text-baglio-crema/70 flex-shrink-0" />
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
         </div>
       </div>
     </nav>
