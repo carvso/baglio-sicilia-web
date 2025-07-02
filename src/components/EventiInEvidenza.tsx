@@ -12,7 +12,7 @@ const EventiInEvidenza = () => {
       date: "28 Maggio 2025",
       time: "19:00",
       image: "/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png",
-      description: "Un viaggio sensoriale attraverso i migliori vini della tradizione enologica siciliana",
+      description: "Un viaggio sensoriale attraverso i migliori vini della tradizione enologica siciliana negli eleganti interni del Baglio",
       participants: "25 posti disponibili",
       isHighlight: true,
       price: "€45 a persona"
@@ -22,8 +22,8 @@ const EventiInEvidenza = () => {
       title: "Open Day Matrimoni",
       date: "10 Giugno 2025",
       time: "16:00",
-      image: "/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png",
-      description: "Visita il Baglio Abbate e scopri come organizzare il matrimonio dei tuoi sogni",
+      image: "/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png",
+      description: "Visita il Baglio Abbate e scopri la sala allestita per matrimoni con tovaglie color pesca, perfetta per il tuo giorno speciale",
       participants: "Evento gratuito",
       isHighlight: false,
       price: "Ingresso libero"
@@ -33,8 +33,8 @@ const EventiInEvidenza = () => {
       title: "Workshop di Ceramica",
       date: "15 Giugno 2025",
       time: "10:00",
-      image: "/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png",
-      description: "Scopri l'arte della ceramica siciliana in un'esperienza unica presso il nostro Baglio",
+      image: "/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png",
+      description: "Scopri l'arte della ceramica siciliana nella nostra elegante sala con allestimento professionale",
       participants: "15 posti disponibili",
       isHighlight: false,
       price: "€35 a persona"
@@ -57,7 +57,7 @@ const EventiInEvidenza = () => {
             Prossimi Eventi al Baglio
           </h2>
           <p className="text-lg text-baglio-cremaIntonacata/80 max-w-2xl mx-auto">
-            Scopri le esperienze uniche che ti aspettano nella nostra dimora storica
+            Scopri le esperienze uniche che ti aspettano nella nostra dimora storica con i suoi eleganti interni
           </p>
         </div>
 

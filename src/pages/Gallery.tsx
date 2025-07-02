@@ -16,7 +16,7 @@ const galleryCategories = [
   { id: 'details', label: 'Dettagli', icon: '✨' }
 ];
 
-// Enhanced image data with titles and descriptions
+// Enhanced image data with the new interior images
 const structureImages = [
   { 
     src: '/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png', 
@@ -96,73 +96,73 @@ const foodImages = [
 const eventsImages = [
   { 
     src: '/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png', 
-    alt: 'Allestimento elegante per cerimonia nuziale', 
+    alt: 'Sala allestita con eleganti tovaglie blu navy per eventi aziendali', 
     category: 'events',
-    title: 'Cerimonia Nuziale',
-    description: 'Allestimento romantico per matrimoni con vista panoramica sul mare siciliano.'
+    title: 'Eventi Aziendali',
+    description: 'Allestimento professionale con tovaglie blu navy per meeting e conferenze di alta qualità.'
   },
   { 
     src: '/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png', 
-    alt: 'Vista mare per eventi e matrimoni', 
+    alt: 'Terrazza vista mare per ricevimenti e matrimoni', 
     category: 'events',
     title: 'Ricevimento Vista Mare',
-    description: 'Tavoli allestiti con vista mozzafiato sulla costa di Balestrate.'
+    description: 'La nostra terrazza panoramica con vista mozzafiato sulla costa di Balestrate.'
   },
   { 
     src: '/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png', 
-    alt: 'Tavolo decorato per cena all\'esterno', 
+    alt: 'Allestimento romantico con tovaglie color pesca per matrimoni', 
     category: 'events',
-    title: 'Cena sotto le Stelle',
-    description: 'Allestimento intimo per cene private sotto il cielo stellato della Sicilia.'
+    title: 'Matrimoni da Sogno',
+    description: 'Allestimento romantico con tovaglie color pesca per celebrare l\'amore eterno.'
   },
   { 
     src: '/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png', 
-    alt: 'Sala interna apparecchiata per eventi', 
+    alt: 'Sala interna elegante per eventi privati', 
     category: 'events',
-    title: 'Sala Interna',
-    description: 'Elegante allestimento per eventi aziendali e celebrazioni private.'
+    title: 'Eventi Privati',
+    description: 'Spazio intimo e raffinato per celebrazioni private e cene esclusive.'
   },
   { 
     src: '/lovable-uploads/059acecc-9864-4084-bb89-9644fd4e4a41.png', 
-    alt: 'Reception elegante del Baglio', 
+    alt: 'Area reception elegante del Baglio', 
     category: 'events',
     title: 'Reception Elegante',
-    description: 'Spazio di accoglienza raffinato per i vostri ospiti.'
+    description: 'Spazio di accoglienza raffinato per i vostri ospiti più importanti.'
   },
 ];
 
 const detailsImages = [
   { 
     src: '/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png', 
-    alt: 'Interni eleganti con archi in pietra', 
+    alt: 'Interni eleganti con archi in pietra e atmosfera calda', 
     category: 'details',
-    title: 'Dettagli Architettonici',
-    description: 'I preziosi dettagli in pietra che caratterizzano l\'architettura storica del Baglio.'
+    title: 'Atmosfera Intima',
+    description: 'Gli interni del Baglio creano un\'atmosfera calda e accogliente per ogni occasione.'
   },
   { 
     src: '/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png', 
-    alt: 'Dettagli architettonici storici', 
+    alt: 'Dettagli architettonici delle volte storiche', 
     category: 'details',
-    title: 'Volte a Crociera',
+    title: 'Volte Storiche',
     description: 'Le antiche volte a crociera testimoniano la maestria artigianale del passato.'
   },
   { 
     src: '/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png', 
-    alt: 'Arco di ingresso con decorazioni', 
+    alt: 'Portale d\'ingresso con elementi decorativi originali', 
     category: 'details',
     title: 'Portale d\'Ingresso',
     description: 'L\'elegante portale d\'ingresso adornato con elementi decorativi originali.'
   },
   { 
     src: '/lovable-uploads/7c87682b-32e2-45e6-b99b-3b4bce99f00f.png', 
-    alt: 'Ciminiera storica del Baglio', 
+    alt: 'Ciminiera storica simbolo della tradizione siciliana', 
     category: 'details',
     title: 'Ciminiera Storica',
     description: 'La caratteristica ciminiera, simbolo della tradizione produttiva siciliana.'
   },
   { 
     src: '/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png', 
-    alt: 'Dettagli decorativi e artistici', 
+    alt: 'Dettagli decorativi che impreziosiscono il Baglio', 
     category: 'details',
     title: 'Elementi Decorativi',
     description: 'Dettagli artistici che impreziosiscono ogni angolo del Baglio.'
@@ -172,6 +172,7 @@ const detailsImages = [
 // Combine all images
 const allImages = [...structureImages, ...foodImages, ...eventsImages, ...detailsImages];
 
+// Instagram CTA component
 const InstagramCTA = ({ position = "side", size = "normal" }: { position?: "side" | "inline" | "floating"; size?: "normal" | "large" }) => {
   const baseClasses = "group relative overflow-hidden transition-all duration-300 hover:shadow-xl";
   const sizeClasses = size === "large" ? "p-6 md:p-8" : "p-4 md:p-6";
@@ -199,16 +200,17 @@ const InstagramCTA = ({ position = "side", size = "normal" }: { position?: "side
   );
 };
 
+// Gallery component
 const Gallery = () => {
   const isMobile = useIsMobile();
   const [activeCategory, setActiveCategory] = useState('all');
 
   return (
     <Layout heroLayout={true}>
-      {/* Hero Section con testo leggibile */}
+      {/* Hero Section with new interior image */}
       <ImageWithOverlay 
-        src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
-        alt="Gallery Baglio Abbate"
+        src="/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png"
+        alt="Interni eleganti del Baglio Abbate - Sala allestita per eventi"
         className="h-[60vh]"
         heroSection={true}
         priority={true}

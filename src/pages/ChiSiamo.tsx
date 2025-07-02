@@ -3,13 +3,15 @@ import React from 'react';
 import Layout from '@/components/Layout';
 import SectionTitle from '@/components/SectionTitle';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
+import TacticalCTAGrid from '@/components/TacticalCTAGrid';
+import SocialMediaBanners from '@/components/SocialMediaBanners';
 
 const ChiSiamo = () => {
   return (
     <Layout>
       <ImageWithOverlay 
-        src="https://images.unsplash.com/photo-1605133793478-61139a9bdcce?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
-        alt="Storia di Baglio Abbate"
+        src="/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png"
+        alt="Interni eleganti del Baglio Abbate"
         className="h-[60vh]"
       >
         <div className="baglio-container text-center text-baglio-cremaIntonacata">
@@ -44,8 +46,8 @@ const ChiSiamo = () => {
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg border border-baglio-oro/20">
               <img 
-                src="https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" 
-                alt="Baglio storico" 
+                src="/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png" 
+                alt="Sala del Baglio allestita per eventi con tovaglie blu navy" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -58,8 +60,8 @@ const ChiSiamo = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg border border-baglio-oro/20">
               <img 
-                src="https://images.unsplash.com/photo-1595114242646-063f2a990da7?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" 
-                alt="Nuova gestione del Baglio" 
+                src="/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png" 
+                alt="Terrazza vista mare del Baglio Abbate" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -132,6 +134,38 @@ const ChiSiamo = () => {
                 culturale e naturale della Sicilia.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* New Tactical CTA Section */}
+      <TacticalCTAGrid />
+
+      {/* New Social Media Banners Section */}
+      <SocialMediaBanners />
+
+      {/* Final CTA Section */}
+      <section className="py-16 bg-baglio-oro">
+        <div className="baglio-container text-center">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6 text-baglio-ebanoIntenso">
+            Pronto a vivere la tua esperienza al Baglio?
+          </h2>
+          <p className="text-lg text-baglio-ebanoIntenso/80 mb-8 max-w-2xl mx-auto">
+            Contattaci per organizzare il tuo evento speciale o per prenotare una cena indimenticabile
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="/contatti"
+              className="inline-flex items-center justify-center font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 bg-baglio-ebanoIntenso text-baglio-cremaIntonacata hover:bg-baglio-ebano"
+            >
+              📞 Contattaci Subito
+            </a>
+            <a 
+              href="/eventi"
+              className="inline-flex items-center justify-center font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 border-2 border-baglio-ebanoIntenso text-baglio-ebanoIntenso hover:bg-baglio-ebanoIntenso hover:text-baglio-cremaIntonacata"
+            >
+              🎉 Scopri gli Eventi
+            </a>
           </div>
         </div>
       </section>
