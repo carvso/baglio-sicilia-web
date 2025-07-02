@@ -123,8 +123,11 @@ export default {
 				}
 			},
 			fontFamily: {
-				'playfair': ['"Playfair Display"', 'serif'],
-				'montserrat': ['Montserrat', 'sans-serif'],
+				'crimson': ['Crimson Pro', 'Times New Roman', 'serif'],
+				'playfair': ['Playfair Display', 'serif'],
+				'inter': ['Inter', 'system-ui', 'sans-serif'],
+				'sans': ['Inter', 'system-ui', 'sans-serif'],
+				'serif': ['Crimson Pro', 'Times New Roman', 'serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

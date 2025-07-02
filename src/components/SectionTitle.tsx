@@ -28,7 +28,7 @@ const SectionTitle = ({ title, subtitle, center = false, light = false, classNam
       </h2>
       {subtitle && (
         <p className={cn(
-          'text-lg md:text-xl leading-relaxed max-w-4xl',
+          'text-lg md:text-xl leading-relaxed max-w-4xl font-crimson',
           center ? 'mx-auto' : '',
           light ? 'text-white/90' : 'text-baglio-ebanoIntenso/80'
         )}>
