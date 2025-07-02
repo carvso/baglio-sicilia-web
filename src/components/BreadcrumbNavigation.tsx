@@ -62,8 +62,8 @@ const BreadcrumbNavigation = () => {
       aria-label="breadcrumb"
       className="bg-transparent border-b border-baglio-oro/10 sticky top-[64px] z-30 py-4"
     >
-      <div className="baglio-container">
-        <div className="flex justify-start px-0">
+      <div className="w-full">
+        <div className="flex justify-start">
           {/* Professional Navy Container */}
           <div className="bg-baglio-ebano rounded-r-lg px-6 py-3 shadow-sm">
             <ol className="flex items-center space-x-3 text-sm md:text-base min-w-0">
