@@ -18,7 +18,7 @@ type EventCategoryProps = {
 
 const EventCategory = ({ icon, title, description, features, imageSrc, linkTo }: EventCategoryProps) => {
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-baglio-oro/20 hover:border-baglio-oro/60 hover:-translate-y-2">
+    <div className="group bg-baglio-ebano rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-baglio-oro/20 hover:border-baglio-oro/60 hover:-translate-y-2">
       <div className="relative">
         <OptimizedImage
           src={imageSrc}
@@ -36,13 +36,13 @@ const EventCategory = ({ icon, title, description, features, imageSrc, linkTo }:
           <div className="text-baglio-oro mr-3 bg-baglio-oro/10 p-2 rounded-lg">
             {icon}
           </div>
-          <h3 className="text-2xl font-playfair font-bold text-baglio-ebanoIntenso">{title}</h3>
+          <h3 className="text-2xl font-playfair font-bold text-baglio-oro">{title}</h3>
         </div>
-        <p className="text-baglio-ebanoIntenso/80 mb-6 text-lg leading-relaxed">{description}</p>
+        <p className="text-baglio-cremaIntonacata mb-6 text-lg leading-relaxed">{description}</p>
         
         <div className="space-y-3 mb-6">
           {features.map((feature, index) => (
-            <div key={index} className="flex items-center text-baglio-ebanoIntenso/70">
+            <div key={index} className="flex items-center text-baglio-cremaIntonacata/80">
               <CheckCircle size={16} className="text-baglio-oro mr-3 flex-shrink-0" />
               <span className="text-sm">{feature}</span>
             </div>
@@ -61,17 +61,17 @@ const EventCategory = ({ icon, title, description, features, imageSrc, linkTo }:
 };
 
 const WhyChooseUsCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
-  <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-baglio-oro/10 hover:border-baglio-oro/30">
+  <div className="bg-baglio-ebano p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-baglio-oro/20 hover:border-baglio-oro/40">
     <div className="text-baglio-oro mb-4 bg-baglio-oro/10 w-12 h-12 rounded-lg flex items-center justify-center">
       {icon}
     </div>
-    <h4 className="text-xl font-playfair font-semibold text-baglio-ebanoIntenso mb-3">{title}</h4>
-    <p className="text-baglio-ebanoIntenso/70 leading-relaxed">{description}</p>
+    <h4 className="text-xl font-playfair font-semibold text-baglio-oro mb-3">{title}</h4>
+    <p className="text-baglio-cremaIntonacata leading-relaxed">{description}</p>
   </div>
 );
 
 const TestimonialCard = ({ name, event, image, text }: { name: string; event: string; image: string; text: string }) => (
-  <div className="bg-white p-8 rounded-xl shadow-lg border border-baglio-oro/20">
+  <div className="bg-baglio-ebano p-8 rounded-xl shadow-lg border border-baglio-oro/20">
     <div className="flex items-center mb-6">
       <img 
         src={image} 
@@ -79,8 +79,8 @@ const TestimonialCard = ({ name, event, image, text }: { name: string; event: st
         className="w-16 h-16 rounded-full mr-4 border-2 border-baglio-oro/30"
       />
       <div>
-        <h4 className="font-playfair font-semibold text-lg text-baglio-ebanoIntenso">{name}</h4>
-        <p className="text-baglio-oro text-sm font-medium">{event}</p>
+        <h4 className="font-playfair font-semibold text-lg text-baglio-oro">{name}</h4>
+        <p className="text-baglio-oro/80 text-sm font-medium">{event}</p>
       </div>
     </div>
     <div className="flex mb-4">
@@ -88,7 +88,7 @@ const TestimonialCard = ({ name, event, image, text }: { name: string; event: st
         <Star key={i} size={16} className="text-baglio-oro fill-current" />
       ))}
     </div>
-    <p className="text-baglio-ebanoIntenso/80 italic leading-relaxed">"{text}"</p>
+    <p className="text-baglio-cremaIntonacata italic leading-relaxed">"{text}"</p>
   </div>
 );
 
@@ -120,12 +120,13 @@ const Eventi = () => {
         </div>
       </ImageWithOverlay>
 
-      <section className="py-16 bg-baglio-cremaIntonacata">
+      <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
           <SectionTitle 
             title="I nostri eventi di eccellenza" 
             subtitle="Ogni celebrazione è unica e merita un'attenzione particolare. Scopri le nostre specialità."
             center
+            light
           />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
@@ -172,12 +173,13 @@ const Eventi = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
           <SectionTitle 
             title="Perché scegliere Baglio Abbate" 
             subtitle="La differenza che fa la differenza nei vostri eventi"
             center
+            light
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
@@ -239,12 +241,13 @@ const Eventi = () => {
         </ImageWithOverlay>
       </section>
 
-      <section className="py-16 bg-baglio-cremaIntonacata">
+      <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
           <SectionTitle 
             title="Testimonial dei nostri clienti" 
             subtitle="Le parole di chi ha vissuto l'esperienza Baglio Abbate"
             center
+            light
           />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
@@ -298,8 +301,8 @@ const Eventi = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-2xl">
-              <h3 className="text-2xl font-playfair font-bold text-baglio-ebanoIntenso mb-6">
+            <div className="bg-baglio-ebano p-8 rounded-2xl shadow-2xl border border-baglio-oro/20">
+              <h3 className="text-2xl font-playfair font-bold text-baglio-oro mb-6">
                 Richiedi Informazioni
               </h3>
               <form className="space-y-6">

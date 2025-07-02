@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Phone, Mail, Clock, MapPin, Instagram, Facebook, Send, MessageCircle, Calendar, Users } from 'lucide-react';
 import Layout from '@/components/Layout';
@@ -8,13 +9,13 @@ import CTAButton from '@/components/CTAButton';
 
 const ContactInfo = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => {
   return (
-    <div className="flex items-start mb-8 p-4 bg-white rounded-lg shadow-md border border-baglio-oro/20 hover:border-baglio-oro/50 transition-all duration-300 hover:shadow-lg">
+    <div className="flex items-start mb-8 p-4 bg-baglio-ebano rounded-lg shadow-md border border-baglio-oro/20 hover:border-baglio-oro/50 transition-all duration-300 hover:shadow-lg">
       <div className="text-baglio-oro mt-1 mr-4 bg-baglio-oro/10 p-3 rounded-lg">
         {icon}
       </div>
       <div className="flex-1">
         <h3 className="text-xl font-semibold mb-2 text-baglio-oro font-playfair">{title}</h3>
-        <div className="text-baglio-ebanoIntenso/80">
+        <div className="text-baglio-cremaIntonacata">
           {children}
         </div>
       </div>
@@ -28,12 +29,12 @@ const QuickActionCard = ({ icon, title, description, action }: {
   description: string; 
   action: string;
 }) => (
-  <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-baglio-oro/20 hover:border-baglio-oro hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+  <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border-2 border-baglio-oro/20 hover:border-baglio-oro hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
     <div className="text-baglio-oro mb-4 bg-baglio-oro/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
       {icon}
     </div>
-    <h4 className="text-xl font-playfair font-bold text-baglio-ebanoIntenso mb-3 text-center">{title}</h4>
-    <p className="text-baglio-ebanoIntenso/70 text-center leading-relaxed mb-4">{description}</p>
+    <h4 className="text-xl font-playfair font-bold text-baglio-oro mb-3 text-center">{title}</h4>
+    <p className="text-baglio-cremaIntonacata text-center leading-relaxed mb-4">{description}</p>
     <div className="text-center">
       <span className="text-baglio-oro font-semibold text-sm">{action}</span>
     </div>
@@ -44,14 +45,14 @@ const InstagramCTA = ({ variant = "default" }: { variant?: "default" | "compact"
   const variants = {
     default: "p-6 rounded-xl bg-gradient-to-br from-baglio-oro to-baglio-oroImperiale",
     compact: "p-4 rounded-lg bg-baglio-oro/10 border-2 border-baglio-oro/30",
-    hero: "p-8 rounded-2xl bg-gradient-to-r from-baglio-oro/20 to-baglio-oroImperiale/20 border-2 border-baglio-oro/50"
+    hero: "p-8 rounded-2xl bg-gradient-to-r from-baglio-oro/20 to-baglio-oroImperiale/20 border-2 border-baglio-oro/50 bg-baglio-ebano"
   };
 
   return (
     <div className={`${variants[variant]} text-center hover:shadow-xl transition-all duration-300 hover:scale-105`}>
       <Instagram size={variant === "hero" ? 32 : 24} className="mx-auto mb-3 text-baglio-oro" />
-      <h4 className="font-playfair font-bold text-lg mb-2 text-baglio-ebanoIntenso">Seguici su Instagram</h4>
-      <p className="text-baglio-ebanoIntenso/80 text-sm mb-4">
+      <h4 className="font-playfair font-bold text-lg mb-2 text-baglio-oro">Seguici su Instagram</h4>
+      <p className="text-baglio-cremaIntonacata text-sm mb-4">
         @baglioabbate - Scopri le ultime foto e novità!
       </p>
       <a 
@@ -102,12 +103,13 @@ const Contatti = () => {
       </ImageWithOverlay>
 
       {/* Sezione Quick Actions */}
-      <section className="py-16 bg-baglio-cremaIntonacata">
+      <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
           <SectionTitle 
             title="Come possiamo aiutarti?" 
             subtitle="Scegli il modo più veloce per entrare in contatto con noi"
             center
+            light
           />
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
@@ -140,7 +142,7 @@ const Contatti = () => {
       </section>
 
       {/* Sezione principale con layout a due colonne */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Informazioni contatto */}
@@ -148,6 +150,7 @@ const Contatti = () => {
               <SectionTitle 
                 title="Informazioni di contatto" 
                 subtitle="Ecco come raggiungerci e contattarci"
+                light
               />
               
               <ContactInfo icon={<MapPin size={24} />} title="Indirizzo">
@@ -176,17 +179,17 @@ const Contatti = () => {
               <div className="bg-baglio-oro/10 p-6 rounded-xl border border-baglio-oro/30">
                 <h3 className="text-lg font-semibold mb-4 text-baglio-oro font-playfair">Social Media</h3>
                 <div className="flex space-x-4 mb-4">
-                  <a href="https://instagram.com/baglioabbate" target="_blank" rel="noopener noreferrer" className="text-baglio-ebanoIntenso hover:text-baglio-oro transition-colors bg-white p-3 rounded-lg shadow-md hover:shadow-lg">
+                  <a href="https://instagram.com/baglioabbate" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
                     <Instagram size={24} />
                   </a>
-                  <a href="https://facebook.com/baglioabbate" target="_blank" rel="noopener noreferrer" className="text-baglio-ebanoIntenso hover:text-baglio-oro transition-colors bg-white p-3 rounded-lg shadow-md hover:shadow-lg">
+                  <a href="https://facebook.com/baglioabbate" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
                     <Facebook size={24} />
                   </a>
-                  <a href="https://wa.me/393339876543" target="_blank" rel="noopener noreferrer" className="text-baglio-ebanoIntenso hover:text-baglio-oro transition-colors bg-white p-3 rounded-lg shadow-md hover:shadow-lg">
+                  <a href="https://wa.me/393339876543" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
                     <MessageCircle size={24} />
                   </a>
                 </div>
-                <p className="text-baglio-ebanoIntenso/80 text-sm">
+                <p className="text-baglio-cremaIntonacata text-sm">
                   Seguici per foto esclusive e aggiornamenti sui nostri eventi!
                 </p>
               </div>
@@ -196,10 +199,11 @@ const Contatti = () => {
             
             {/* Form di contatto */}
             <div className="lg:col-span-2">
-              <div id="contact-form" className="bg-baglio-cremaIntonacata p-8 rounded-2xl shadow-lg border border-baglio-oro/20">
+              <div id="contact-form" className="bg-baglio-ebano p-8 rounded-2xl shadow-lg border border-baglio-oro/20">
                 <SectionTitle 
                   title="Mandaci un messaggio" 
                   subtitle="Compila il modulo e ti risponderemo al più presto. È gratuito e senza impegno!"
+                  light
                 />
                 <ContactForm />
               </div>
@@ -246,47 +250,48 @@ const Contatti = () => {
       </section>
 
       {/* Come raggiungerci */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
           <SectionTitle 
             title="Come raggiungerci" 
             subtitle="Indicazioni dettagliate per arrivare al Baglio Abbate"
             center
+            light
           />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-baglio-cremaIntonacata p-8 rounded-xl shadow-lg border-2 border-baglio-oro/20 hover:border-baglio-oro hover:shadow-xl transition-all duration-300">
+            <div className="bg-baglio-ebano p-8 rounded-xl shadow-lg border-2 border-baglio-oro/20 hover:border-baglio-oro hover:shadow-xl transition-all duration-300">
               <div className="bg-baglio-oro/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-baglio-oro" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-4 font-playfair text-baglio-oro text-center">🚗 In auto</h3>
-              <p className="text-baglio-ebanoIntenso/80 leading-relaxed text-center">
+              <p className="text-baglio-cremaIntonacata leading-relaxed text-center">
                 Dall'autostrada A29 (Palermo-Mazara del Vallo), prendi l'uscita Balestrate. Segui le indicazioni per il centro di Balestrate, poi per Via Palermo. Il Baglio Abbate si trova al civico 2.
               </p>
             </div>
             
-            <div className="bg-baglio-cremaIntonacata p-8 rounded-xl shadow-lg border-2 border-baglio-oro/20 hover:border-baglio-oro hover:shadow-xl transition-all duration-300">
+            <div className="bg-baglio-ebano p-8 rounded-xl shadow-lg border-2 border-baglio-oro/20 hover:border-baglio-oro hover:shadow-xl transition-all duration-300">
               <div className="bg-baglio-oro/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-baglio-oro" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-4 font-playfair text-baglio-oro text-center">🚂 In treno</h3>
-              <p className="text-baglio-ebanoIntenso/80 leading-relaxed text-center">
+              <p className="text-baglio-cremaIntonacata leading-relaxed text-center">
                 La stazione ferroviaria di Balestrate è collegata con Palermo e Trapani. Dalla stazione, il Baglio Abbate dista circa 1,5 km ed è raggiungibile in taxi o con una piacevole passeggiata.
               </p>
             </div>
             
-            <div className="bg-baglio-cremaIntonacata p-8 rounded-xl shadow-lg border-2 border-baglio-oro/20 hover:border-baglio-oro hover:shadow-xl transition-all duration-300">
+            <div className="bg-baglio-ebano p-8 rounded-xl shadow-lg border-2 border-baglio-oro/20 hover:border-baglio-oro hover:shadow-xl transition-all duration-300">
               <div className="bg-baglio-oro/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-baglio-oro" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-4 font-playfair text-baglio-oro text-center">✈️ In aereo</h3>
-              <p className="text-baglio-ebanoIntenso/80 leading-relaxed text-center">
+              <p className="text-baglio-cremaIntonacata leading-relaxed text-center">
                 L'aeroporto più vicino è quello di Palermo "Falcone Borsellino", a circa 30 km dal Baglio Abbate. Dall'aeroporto, è possibile noleggiare un'auto o prendere un taxi per raggiungere la struttura.
               </p>
             </div>
