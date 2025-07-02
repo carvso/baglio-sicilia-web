@@ -1,51 +1,52 @@
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* CSS Variables for consistent colors - Updated with baglio palette */
+/* CSS Variables - Palette ottimizzata con Blu Navy del Logo */
 :root {
   --background: 0 0% 100%;
-  --foreground: 0 0% 11%; /* Darker for better contrast */
+  --foreground: 216 49% 18%; /* Blu navy scuro per testo */
   --card: 0 0% 100%;
-  --card-foreground: 0 0% 11%;
+  --card-foreground: 216 49% 18%;
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 11%;
-  --primary: 27 84% 47%; /* baglio-oro equivalent */
-  --primary-foreground: 0 0% 11%;
-  --secondary: 37 20% 85%; /* baglio-crema equivalent */
-  --secondary-foreground: 0 0% 11%;
-  --muted: 37 20% 85%;
-  --muted-foreground: 0 0% 45%;
-  --accent: 37 20% 85%;
-  --accent-foreground: 0 0% 11%;
+  --popover-foreground: 216 49% 18%;
+  --primary: 216 49% 18%; /* Blu Navy del Logo come primario */
+  --primary-foreground: 45 50% 85%; /* Crema per contrasto */
+  --secondary: 45 50% 90%; /* Crema più chiara */
+  --secondary-foreground: 216 49% 18%;
+  --muted: 45 50% 90%;
+  --muted-foreground: 220 15% 55%;
+  --accent: 45 50% 90%;
+  --accent-foreground: 216 49% 18%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
-  --border: 37 20% 75%;
-  --input: 37 20% 75%;
-  --ring: 27 84% 47%;
+  --border: 45 25% 80%;
+  --input: 45 25% 80%;
+  --ring: 43 74% 49%; /* Oro del logo per focus */
   --radius: 0.5rem;
 }
 
 .dark {
-  --background: 0 0% 11%; /* baglio-ebano equivalent */
-  --foreground: 37 20% 85%;
-  --card: 0 0% 11%;
-  --card-foreground: 37 20% 85%;
-  --popover: 0 0% 11%;
-  --popover-foreground: 37 20% 85%;
-  --primary: 27 84% 47%;
-  --primary-foreground: 0 0% 11%;
-  --secondary: 0 0% 15%;
-  --secondary-foreground: 37 20% 85%;
-  --muted: 0 0% 15%;
-  --muted-foreground: 0 0% 65%;
-  --accent: 0 0% 15%;
-  --accent-foreground: 37 20% 85%;
+  --background: 216 49% 6%; /* Blu navy molto scuro per sfondo */
+  --foreground: 45 50% 85%;
+  --card: 216 49% 8%;
+  --card-foreground: 45 50% 85%;
+  --popover: 216 49% 8%;
+  --popover-foreground: 45 50% 85%;
+  --primary: 43 74% 49%; /* Oro come primario in dark mode */
+  --primary-foreground: 216 49% 6%;
+  --secondary: 216 49% 12%;
+  --secondary-foreground: 45 50% 85%;
+  --muted: 216 49% 12%;
+  --muted-foreground: 220 15% 65%;
+  --accent: 216 49% 12%;
+  --accent-foreground: 45 50% 85%;
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 37 20% 85%;
-  --border: 0 0% 15%;
-  --input: 0 0% 15%;
-  --ring: 27 84% 47%;
+  --destructive-foreground: 45 50% 85%;
+  --border: 216 49% 15%;
+  --input: 216 49% 15%;
+  --ring: 43 74% 49%;
 }
 
 /* Basic reset */
@@ -97,10 +98,10 @@ body {
     @apply border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-baglio-ebano;
   }
 
-  /* Enhanced Hero Section */
+  /* Enhanced Hero Section - con Blu Navy del Logo */
   .hero-section-enhanced {
     @apply relative h-screen flex items-center justify-center overflow-hidden;
-    background: linear-gradient(135deg, #1b1b1b 0%, #2a2a4d 100%);
+    background: linear-gradient(135deg, #1a2040 0%, #2a2a4d 100%); /* Blu Navy del Logo */
     min-height: 100vh;
     min-height: 100dvh;
   }
@@ -111,7 +112,7 @@ body {
   }
 
   .navbar-scrolled {
-    @apply bg-baglio-cremaIntonacata/95 backdrop-blur-md shadow-lg;
+    @apply bg-baglio-crema/95 backdrop-blur-md shadow-lg;
   }
 
   .navbar-transparent {
@@ -123,15 +124,15 @@ body {
     @apply rounded-lg overflow-hidden shadow-md bg-white border border-baglio-oro/20 transition-all duration-300 hover:shadow-xl hover:border-baglio-oro/40;
   }
 
-  /* Eventi in evidenza styles */
+  /* Eventi in evidenza styles - con Blu Navy */
   .eventi-banner {
     @apply relative overflow-hidden rounded-xl shadow-2xl;
-    background: linear-gradient(135deg, #0f0f0f 0%, #1b1b1b 50%, #2a2a4d 100%);
+    background: linear-gradient(135deg, #0f1319 0%, #1a2040 50%, #2a2a4d 100%); /* Gradiente Blu Navy */
   }
 
   .eventi-card-premium {
     @apply relative overflow-hidden rounded-xl shadow-xl border border-baglio-oro/30 transition-all duration-500 hover:shadow-2xl hover:border-baglio-oro/60 hover:scale-105;
-    background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(27, 27, 27, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(15, 19, 25, 0.95) 0%, rgba(26, 32, 64, 0.9) 100%); /* Blu Navy con trasparenza */
   }
 
   /* Mobile improvements */
@@ -154,7 +155,7 @@ body {
 
   /* Premium callout */
   .premium-callout {
-    @apply bg-baglio-cremaIntonacata border border-baglio-oro/30 rounded-lg shadow-md p-6;
+    @apply bg-baglio-crema border border-baglio-oro/30 rounded-lg shadow-md p-6;
   }
 }
 
@@ -266,7 +267,7 @@ body {
   animation-delay: 0.5s;
 }
 
-/* Heritage decorative pattern */
+/* Heritage decorative pattern - con Oro del Logo */
 .heritage-pattern {
   background-image: 
     radial-gradient(circle at 1px 1px, rgba(212, 175, 55, 0.15) 1px, transparent 0),

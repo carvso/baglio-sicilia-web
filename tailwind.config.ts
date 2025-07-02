@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,64 +53,61 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Elite Dark Color Palette
-				elite: {
-					dark: '#1A1F2C',        // Blu scuro principale
-					darker: '#0F1319',      // Blu molto scuro per sfondi
-					gold: '#D4AF37',        // Oro principale
-					goldLight: '#E5C76B',   // Oro chiaro per hover
-					sunset: '#F97316',      // Arancione tramonto
-					sunsetLight: '#FDBA74', // Arancione tramonto chiaro
-				},
-				// Nuova palette di colori per Baglio Abbate
+				// Palette Baglio Abbate - Ottimizzata con Blu Navy del Logo
 				baglio: {
-					ebano: '#1b1b1b',       // Ebano Notte – sfondo scuro
-					oro: '#c9a227',         // Oro Antico – accenti e titoli
-					rosa: '#e8a0bd',        // Rosa Cipria – dettagli romantici
-					salvia: '#4e6437',      // Salvia Profonda – connessione naturale
-					crema: '#e7d9c0',       // Crema Sabbia – sfondo chiaro alternativo
-					vino: '#8c3743',        // Vino Terroso – elementi emozionali
-					blu: '#2a2a4d',         // Blu Notte – alternativa elegante al nero
-					grigio: '#b0b0b0',      // Grigio Fumo – testi secondari
-					rame: '#a2703d',        // Rame Antico – dettagli rustici caldi
-					cream: '#DCC9A3',       // Beige/Crema (mantenuto dalla palette precedente)
-					dark: '#1A1A40',        // Blu scuro (mantenuto dalla palette precedente)
-					pink: '#F55EEBDD',      // Rosa (mantenuto dalla palette precedente)
-					lightpink: '#F55EBDD',  // Rosa più chiaro/sfondo principale (mantenuto dalla palette precedente)
-					gray: '#A9A9A9',        // Grigio (mantenuto dalla palette precedente)
-					burgundy: '#722F37',     // Bordeaux (mantenuto dalla palette precedente)
+					// Colori principali basati sul logo
+					ebano: '#1a2040',           // Blu Navy del Logo - colore dominante
+					oro: '#d4af37',             // Oro del Logo - accenti principali
+					ebanoIntenso: '#0f1319',    // Blu Navy più scuro per sfondi
+					oroImperiale: '#b8941f',    // Oro più scuro per hover
 					
-					// Nuova palette Blu Notte
-					bluNotte: '#2a2a4d',    // Blu Notte – accento principale
-					indaco: '#4c537d',      // Indaco Polveroso – dettagli interattivi
-					verdeScuro: '#4e6437',  // Salvia Profonda – elemento naturale 
-					cremaSabbia: '#e7d9c0', // Crema Sabbia – sfondo alternativo chiaro
-					rameAntico: '#a2703d',  // Rame Antico – caldo e rustico
-					vinoTerre: '#7b2e3a',   // Vino Terre Bruciate – profondità emozionale
-					lavagna: '#8a8fa3',     // Grigio Lavagna – testi secondari
-					perla: '#cfcfd6',       // Perla Fredda – contrasto delicato
+					// Colori complementari
+					crema: '#f3eada',           // Avorio elegante per sfondi chiari
+					cremaIntonacata: '#f2e7d2', // Crema alternativa
+					grigio: '#8a8fa3',          // Grigio per testi secondari
+					grigioMarmoreo: '#cccccc',  // Grigio più chiaro
 					
-					// Rustico Elegante con Accenti Oro/Rosa
-					ebanoIntenso: '#0f0f0f',  // Ebano Intenso - sfondo principale (dark mode)
-					oroImperiale: '#d4a017',  // Oro Imperiale - accenti, pulsanti, titoli
-					rosaBouganvillea: '#f76fa8', // Rosa Bouganvillea - dettagli femminili e delicati
-					verdeUlivo: '#3f5228',    // Verde Ulivo - naturale ma contrastante
-					cremaIntonacata: '#f2e7d2', // Crema Intonacata - sfondo chiaro elegante
-					vinoSiciliano: '#6a1b2a', // Vino Siciliano - emozione, inviti/eventi speciali
-					bluLavagna: '#1a1f3c',    // Blu Lavagna - alternativa elegante al nero
-					grigioMarmoreo: '#cccccc', // Grigio Marmoreo - testo secondario
-					bronzoAntico: '#8b5e3c',  // Bronzo Antico - decorazioni, bordi
+					// Colori di accento
+					rosa: '#e8a0bd',            // Rosa cipria per dettagli romantici
+					rosaBouganvillea: '#f76fa8', // Rosa più vivace
+					vino: '#6a1b2a',            // Vino siciliano per emozioni
+					vinoSiciliano: '#6a1b2a',   // Alias per consistenza
 					
-					// Eleganza Notturna con Accenti Blu
-					neroFumo: '#121218',      // Nero Fumo - sfondo base, potente e pulito
-					bluNottaReale: '#2f3a8f', // Blu Notte Reale - accenti forti (CTA, link)
-					indacoVibrante: '#5b6cae', // Indaco Vibrante - hover, effetti interattivi
-					verdeBosco: '#3a4727',    // Verde Bosco - contrasto naturale
-					avorioCalcareo: '#f3eada', // Avorio Calcareo - sfondo chiaro elegante
-					rameBruciato: '#a05a2c',  // Rame Bruciato - dettagli rustici
-					rossoBruciato: '#6a2a2f', // Rosso Bruciato - elementi emozionali
-					grigioGrafite: '#999ca8', // Grigio Grafite - testi, cornici
-					perlaPura: '#f5f5f7',     // Perla Pura - contrasto delicato su scuro
+					// Colori naturali
+					salvia: '#4e6437',          // Verde salvia
+					verdeUlivo: '#3f5228',      // Verde ulivo
+					verdeScuro: '#4e6437',      // Alias verde scuro
+					rame: '#a2703d',            // Rame antico
+					rameAntico: '#a2703d',      // Alias rame
+					bronzoAntico: '#8b5e3c',    // Bronzo per decorazioni
+					
+					// Variazioni blu (mantenendo coerenza con il logo)
+					blu: '#2a2a4d',             // Blu notte alternativo
+					bluNotte: '#2a2a4d',        // Alias blu notte
+					bluNottaReale: '#1a2040',   // Stesso del logo
+					bluLavagna: '#1a1f3c',      // Blu lavagna
+					indaco: '#4c537d',          // Indaco polveroso
+					indacoVibrante: '#5b6cae',  // Indaco più vivace
+					
+					// Colori legacy (per compatibilità)
+					cream: '#DCC9A3',
+					dark: '#1a2040',            // Ora uguale al blu del logo
+					pink: '#e8a0bd',
+					lightpink: '#f3eada',
+					gray: '#8a8fa3',
+					burgundy: '#6a1b2a',
+					
+					// Colori neutri
+					neroFumo: '#121218',
+					perlaPura: '#f5f5f7',
+					perla: '#cfcfd6',
+					rossoBruciato: '#6a2a2f',
+					rameBruciato: '#a05a2c',
+					grigioGrafite: '#999ca8',
+					lavagna: '#8a8fa3',
+					avorioCalcareo: '#f3eada',
+					cremaSabbia: '#e7d9c0',
+					vinoTerre: '#7b2e3a',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
