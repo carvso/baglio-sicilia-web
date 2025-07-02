@@ -21,7 +21,7 @@ const TacticalCTAGrid = () => {
       image: '/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png',
       link: '/gallery',
       icon: Camera,
-      color: 'from-baglio-ebano to-baglio-ebanoIntenso'
+      color: 'from-baglio-oro to-baglio-oroImperiale'
     },
     {
       id: 'matrimoni',
@@ -39,18 +39,18 @@ const TacticalCTAGrid = () => {
       image: '/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png',
       link: '/ristorante',
       icon: Utensils,
-      color: 'from-baglio-ebano to-baglio-ebanoIntenso'
+      color: 'from-baglio-oro to-baglio-oroImperiale'
     }
   ];
 
   return (
-    <section className="py-16 bg-baglio-cremaIntonacata">
+    <section className="py-16 bg-baglio-ebano">
       <div className="baglio-container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6 text-baglio-ebanoIntenso">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6 text-baglio-oro">
             Scopri tutto quello che possiamo offrirti
           </h2>
-          <p className="text-lg text-baglio-ebanoIntenso/80 max-w-2xl mx-auto">
+          <p className="text-lg text-baglio-cremaIntonacata max-w-2xl mx-auto">
             Dal matrimonio dei tuoi sogni alla cena romantica, ogni momento diventa speciale al Baglio Abbate
           </p>
         </div>
@@ -72,20 +72,20 @@ const TacticalCTAGrid = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebanoIntenso/90 via-baglio-ebano/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebano/90 via-baglio-ebano/50 to-transparent"></div>
                 </div>
 
                 {/* Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <div className="flex items-center gap-3 mb-2">
                     <div className={`p-2 rounded-full bg-gradient-to-r ${item.color}`}>
-                      <IconComponent size={16} className="text-white" />
+                      <IconComponent size={16} className="text-baglio-ebano" />
                     </div>
-                    <h3 className="text-white font-playfair font-bold text-lg">
+                    <h3 className="text-baglio-oro font-playfair font-bold text-lg">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-baglio-cremaIntonacata/90 text-sm">
+                  <p className="text-baglio-cremaIntonacata text-sm">
                     {item.description}
                   </p>
                 </div>

@@ -32,13 +32,13 @@ const ChiSiamo = () => {
                 title="Le origini del Baglio Abbate" 
                 subtitle="Una struttura con oltre 200 anni di storia"
               />
-              <p className="text-baglio-ebanoIntenso/80 mb-6">
+              <p className="text-baglio-ebano/80 mb-6">
                 Il Baglio Abbate risale ai primi anni dell'800, quando venne costruito come residenza nobiliare 
                 della famiglia Abbate, proprietari terrieri della zona di Balestrate. La struttura, con la sua 
                 caratteristica corte interna, era originariamente utilizzata come masseria per la produzione 
                 di olio e vino, elementi fondamentali dell'economia siciliana del tempo.
               </p>
-              <p className="text-baglio-ebanoIntenso/80 mb-6">
+              <p className="text-baglio-ebano/80 mb-6">
                 Nei decenni successivi, il baglio ha attraversato diverse trasformazioni rimanendo però sempre 
                 un simbolo della cultura e delle tradizioni siciliane. Le sue possenti mura in pietra viva hanno 
                 resistito al tempo, custodendo storie e segreti di generazioni.
@@ -55,7 +55,7 @@ const ChiSiamo = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-baglio-ebanoIntenso">
+      <section className="section-padding bg-baglio-ebano">
         <div className="baglio-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg border border-baglio-oro/20">
@@ -102,8 +102,8 @@ const ChiSiamo = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-4 font-playfair text-baglio-ebanoIntenso">Qualità e Autenticità</h3>
-              <p className="text-baglio-ebanoIntenso/70">
+              <h3 className="text-xl font-semibold mb-4 font-playfair text-baglio-ebano">Qualità e Autenticità</h3>
+              <p className="text-baglio-ebano/70">
                 Selezioniamo con cura ingredienti locali e di stagione, valorizzando i produttori del territorio 
                 e le ricette della tradizione siciliana.
               </p>
@@ -115,8 +115,8 @@ const ChiSiamo = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m-9 9a9 9 0 019-9" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-4 font-playfair text-baglio-ebanoIntenso">Ospitalità e Accoglienza</h3>
-              <p className="text-baglio-ebanoIntenso/70">
+              <h3 className="text-xl font-semibold mb-4 font-playfair text-baglio-ebano">Ospitalità e Accoglienza</h3>
+              <p className="text-baglio-ebano/70">
                 Mettiamo il cuore in ogni dettaglio per garantire un'esperienza indimenticabile ai nostri ospiti, 
                 nel rispetto della calorosa tradizione siciliana.
               </p>
@@ -128,8 +128,8 @@ const ChiSiamo = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-4 font-playfair text-baglio-ebanoIntenso">Innovazione e Rispetto</h3>
-              <p className="text-baglio-ebanoIntenso/70">
+              <h3 className="text-xl font-semibold mb-4 font-playfair text-baglio-ebano">Innovazione e Rispetto</h3>
+              <p className="text-baglio-ebano/70">
                 Innoviamo nel rispetto della tradizione, con un approccio sostenibile che valorizza il patrimonio 
                 culturale e naturale della Sicilia.
               </p>
@@ -147,22 +147,22 @@ const ChiSiamo = () => {
       {/* Final CTA Section */}
       <section className="py-16 bg-baglio-oro">
         <div className="baglio-container text-center">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6 text-baglio-ebanoIntenso">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6 text-baglio-ebano">
             Pronto a vivere la tua esperienza al Baglio?
           </h2>
-          <p className="text-lg text-baglio-ebanoIntenso/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-baglio-ebano/80 mb-8 max-w-2xl mx-auto">
             Contattaci per organizzare il tuo evento speciale o per prenotare una cena indimenticabile
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="/contatti"
-              className="inline-flex items-center justify-center font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 bg-baglio-ebanoIntenso text-baglio-cremaIntonacata hover:bg-baglio-ebano"
+              className="inline-flex items-center justify-center font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 bg-baglio-ebano text-baglio-oro hover:bg-baglio-ebanoIntenso"
             >
               📞 Contattaci Subito
             </a>
             <a 
               href="/eventi"
-              className="inline-flex items-center justify-center font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 border-2 border-baglio-ebanoIntenso text-baglio-ebanoIntenso hover:bg-baglio-ebanoIntenso hover:text-baglio-cremaIntonacata"
+              className="inline-flex items-center justify-center font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 border-2 border-baglio-ebano text-baglio-ebano hover:bg-baglio-ebano hover:text-baglio-oro"
             >
               🎉 Scopri gli Eventi
             </a>

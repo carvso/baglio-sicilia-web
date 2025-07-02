@@ -28,10 +28,10 @@ const SocialMediaBanners = () => {
     <section className="py-16 bg-baglio-ebano">
       <div className="baglio-container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6 text-baglio-cremaIntonacata">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6 text-baglio-oro">
             Resta sempre aggiornato
           </h2>
-          <p className="text-lg text-baglio-cremaIntonacata/80 max-w-2xl mx-auto">
+          <p className="text-lg text-baglio-cremaIntonacata max-w-2xl mx-auto">
             Seguici sui social e non perdere le novità del Baglio Abbate
           </p>
         </div>
@@ -50,7 +50,7 @@ const SocialMediaBanners = () => {
                     alt=""
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-baglio-ebanoIntenso/90 to-baglio-ebano/70"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-baglio-ebano/90 to-baglio-ebano/70"></div>
                 </div>
 
                 {/* Content */}
@@ -59,10 +59,10 @@ const SocialMediaBanners = () => {
                     <IconComponent size={24} className="text-baglio-ebano" />
                   </div>
                   <div>
-                    <h3 className="text-white font-playfair font-bold text-xl mb-1">
+                    <h3 className="text-baglio-oro font-playfair font-bold text-xl mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-baglio-cremaIntonacata/90 text-sm">
+                    <p className="text-baglio-cremaIntonacata text-sm">
                       {item.description}
                     </p>
                   </div>
