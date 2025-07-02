@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight, Heart, Users, Building, Camera, CheckCircle, Star, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -95,11 +96,11 @@ const TestimonialCard = ({ name, event, image, text }: { name: string; event: st
 
 const Eventi = () => {
   return (
-    <Layout heroLayout={true}>
+    <Layout heroLayout={true} hideBreadcrumb={false}>
       <ImageWithOverlay 
         src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
         alt="Eventi al Baglio Abbate"
-        className="h-[70vh]"
+        className="h-screen -mt-16 pt-16"
         heroSection={true}
       >
         <div className="baglio-container text-center">
