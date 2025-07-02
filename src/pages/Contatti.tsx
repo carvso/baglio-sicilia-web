@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Phone, Mail, Clock, MapPin, Instagram, Facebook, Send, MessageCircle, Calendar, Users } from 'lucide-react';
 import Layout from '@/components/Layout';
@@ -80,15 +79,6 @@ const Contatti = () => {
           heroSection={true}
         >
           <div className="baglio-container text-center relative z-20">
-            {/* Logo Baglio Abbate posizionato elegantemente */}
-            <div className="absolute top-8 right-8 md:top-12 md:right-12">
-              <img 
-                src="/lovable-uploads/a3aa06d7-0a44-4dd9-9f0a-e66bb732fac9.png" 
-                alt="Baglio Abbate Logo" 
-                className="w-20 h-20 md:w-24 md:h-24 opacity-95 hover:opacity-100 transition-opacity duration-300 drop-shadow-lg"
-              />
-            </div>
-            
             <h1 className="text-5xl md:text-7xl font-bold mb-6 md:mb-8 font-playfair text-white drop-shadow-2xl">
               <span className="text-baglio-oro drop-shadow-lg">Contattaci</span>
             </h1>
