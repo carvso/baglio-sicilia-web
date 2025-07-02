@@ -60,7 +60,7 @@ const Layout = ({
       <main 
         className={`flex-grow ${
           !hideNavbar && !heroLayout && hideBreadcrumb ? 'pt-16' : ''
-        }`}
+        } ${heroLayout ? '' : ''}`}
         style={{
           // Mobile optimizations
           minHeight: heroLayout ? 'auto' : '100vh',

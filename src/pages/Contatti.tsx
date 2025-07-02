@@ -70,7 +70,7 @@ const InstagramCTA = ({ variant = "default" }: { variant?: "default" | "compact"
 const Contatti = () => {
   return (
     <Layout heroLayout={true}>
-      <div className="relative h-[70vh] overflow-hidden">
+      <div className="relative h-[75vh] overflow-hidden">
         <ImageWithOverlay 
           src="/lovable-uploads/a64af1b5-6d30-4760-80df-66af10202399.png"
           alt="Contatti Baglio Abbate - Comunicazione"
@@ -82,11 +82,11 @@ const Contatti = () => {
             <h1 className="text-5xl md:text-7xl font-bold mb-6 md:mb-8 font-playfair text-white drop-shadow-2xl">
               <span className="text-baglio-oro drop-shadow-lg">Contattaci</span>
             </h1>
-            <p className="text-xl md:text-3xl max-w-4xl mx-auto text-white leading-relaxed drop-shadow-lg mb-10 font-medium">
+            <p className="text-xl md:text-3xl max-w-4xl mx-auto text-white leading-relaxed drop-shadow-lg mb-8 font-medium">
               Siamo qui per rispondere alle tue domande e accoglierti presto nel nostro Baglio
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <CTAButton to="#contact-form" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-xl px-10 py-5 shadow-2xl hover:shadow-3xl transform hover:scale-105">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <CTAButton to="#contact-form" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-xl px-8 py-4 shadow-2xl hover:shadow-3xl transform hover:scale-105">
                 <Send className="mr-3" size={24} />
                 Scrivi subito
               </CTAButton>
@@ -94,7 +94,7 @@ const Contatti = () => {
                 href="https://instagram.com/baglioabbate" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 py-5 px-10 text-xl border-3 border-white text-white hover:bg-white hover:text-baglio-ebanoIntenso backdrop-blur-sm"
+                className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 py-4 px-8 text-xl border-3 border-white text-white hover:bg-white hover:text-baglio-ebanoIntenso backdrop-blur-sm"
               >
                 <Instagram className="mr-3" size={24} />
                 Seguici su Instagram
@@ -104,8 +104,8 @@ const Contatti = () => {
         </ImageWithOverlay>
       </div>
 
-      {/* Sezione Quick Actions */}
-      <section className="py-16 bg-baglio-ebano">
+      {/* Sezione Quick Actions - ridotto padding */}
+      <section className="py-12 bg-baglio-ebano">
         <div className="baglio-container">
           <SectionTitle 
             title="Come possiamo aiutarti?" 
@@ -114,7 +114,7 @@ const Contatti = () => {
             light
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <QuickActionCard
               icon={<Phone size={28} />}
               title="Chiama ora"
@@ -143,8 +143,8 @@ const Contatti = () => {
         </div>
       </section>
 
-      {/* Sezione principale con layout a due colonne */}
-      <section className="py-16 bg-baglio-ebano">
+      {/* Sezione principale con layout a due colonne - ridotto padding */}
+      <section className="py-12 bg-baglio-ebano">
         <div className="baglio-container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Informazioni contatto */}
@@ -251,8 +251,8 @@ const Contatti = () => {
         </div>
       </section>
 
-      {/* Come raggiungerci */}
-      <section className="py-16 bg-baglio-ebano">
+      {/* Come raggiungerci - ridotto padding */}
+      <section className="py-12 bg-baglio-ebano">
         <div className="baglio-container">
           <SectionTitle 
             title="Come raggiungerci" 

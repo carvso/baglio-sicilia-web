@@ -60,20 +60,20 @@ const BreadcrumbNavigation = () => {
     <nav 
       role="navigation" 
       aria-label="breadcrumb"
-      className="bg-transparent sticky top-[64px] z-30 py-4"
+      className="bg-transparent sticky top-[64px] z-30 py-1"
     >
       <div className="w-full">
         <div className="flex justify-start">
-          {/* Professional Navy Container */}
-          <div className="bg-baglio-ebano rounded-r-lg px-6 py-3 shadow-sm">
-            <ol className="flex items-center space-x-3 text-sm md:text-base min-w-0">
+          {/* Professional Navy Container - ridotto padding */}
+          <div className="bg-baglio-ebano rounded-r-lg px-4 py-2 shadow-sm">
+            <ol className="flex items-center space-x-2 text-sm min-w-0">
               {breadcrumbs.map((crumb, index) => {
                 const isLast = index === breadcrumbs.length - 1;
                 
                 return (
-                  <li key={index} className="flex items-center space-x-3 min-w-0">
+                  <li key={index} className="flex items-center space-x-2 min-w-0">
                     {index === 0 && (
-                      <Home size={16} className="text-baglio-crema flex-shrink-0" />
+                      <Home size={14} className="text-baglio-crema flex-shrink-0" />
                     )}
                     
                     {crumb.path && !isLast ? (
@@ -82,7 +82,7 @@ const BreadcrumbNavigation = () => {
                         className={cn(
                           "text-baglio-crema hover:text-baglio-oro transition-colors duration-200",
                           "focus:outline-none focus:ring-2 focus:ring-baglio-oro focus:ring-offset-2 focus:ring-offset-baglio-ebano",
-                          "rounded px-2 py-1 truncate font-medium"
+                          "rounded px-1 py-1 truncate font-medium"
                         )}
                       >
                         {crumb.label}
@@ -93,7 +93,7 @@ const BreadcrumbNavigation = () => {
                           isLast 
                             ? "text-baglio-oro font-semibold" 
                             : "text-baglio-crema font-medium",
-                          "truncate px-2 py-1"
+                          "truncate px-1 py-1"
                         )}
                         aria-current={isLast ? "page" : undefined}
                       >
@@ -102,7 +102,7 @@ const BreadcrumbNavigation = () => {
                     )}
                     
                     {!isLast && (
-                      <ChevronRight size={14} className="text-baglio-crema/70 flex-shrink-0" />
+                      <ChevronRight size={12} className="text-baglio-crema/70 flex-shrink-0" />
                     )}
                   </li>
                 );
