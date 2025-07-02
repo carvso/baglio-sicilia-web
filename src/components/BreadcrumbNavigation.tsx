@@ -60,7 +60,7 @@ const BreadcrumbNavigation = () => {
     <nav 
       role="navigation" 
       aria-label="breadcrumb"
-      className="bg-transparent border-b border-baglio-oro/10 sticky top-[64px] z-30 py-4"
+      className="bg-transparent sticky top-[64px] z-30 py-4"
     >
       <div className="w-full">
         <div className="flex justify-start">
