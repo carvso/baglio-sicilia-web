@@ -42,7 +42,7 @@ const EventiInEvidenza = () => {
   ];
 
   return (
-    <section className="py-16 bg-baglio-ebanoIntenso relative overflow-hidden">
+    <section className="py-16 bg-baglio-ebano relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 heritage-pattern opacity-10"></div>
       
@@ -82,17 +82,17 @@ const EventiInEvidenza = () => {
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                   loading="lazy"
                 />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebanoIntenso/80 via-transparent to-transparent"></div>
+                {/* Overlay gradient usando il blu navy */}
+                <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebano/80 via-transparent to-transparent"></div>
                 
                 {/* Badge prezzo */}
-                <div className="absolute top-4 right-4 bg-baglio-oro text-baglio-ebanoIntenso px-3 py-1 rounded-full text-sm font-semibold">
+                <div className="absolute top-4 right-4 bg-baglio-oro text-baglio-ebano px-3 py-1 rounded-full text-sm font-semibold">
                   {evento.price}
                 </div>
 
                 {/* Highlight badge */}
                 {evento.isHighlight && (
-                  <div className="absolute top-4 left-4 bg-baglio-oro text-baglio-ebanoIntenso px-3 py-1 rounded-full text-sm font-bold animate-shimmer">
+                  <div className="absolute top-4 left-4 bg-baglio-oro text-baglio-ebano px-3 py-1 rounded-full text-sm font-bold animate-shimmer">
                     ⭐ In Evidenza
                   </div>
                 )}
@@ -127,7 +127,7 @@ const EventiInEvidenza = () => {
                   
                   <Link 
                     to="/eventi"
-                    className="inline-flex items-center gap-2 bg-baglio-oro text-baglio-ebanoIntenso px-4 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-baglio-oroImperiale hover:shadow-lg transform hover:scale-105"
+                    className="inline-flex items-center gap-2 bg-baglio-oro text-baglio-ebano px-4 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-baglio-oroImperiale hover:shadow-lg transform hover:scale-105"
                   >
                     Scopri di più
                     <MapPin className="w-4 h-4" />
@@ -142,7 +142,7 @@ const EventiInEvidenza = () => {
         <div className="text-center mt-12">
           <Link 
             to="/eventi"
-            className="inline-flex items-center gap-2 bg-transparent border-2 border-baglio-oro text-baglio-oro px-8 py-4 rounded-md font-semibold transition-all duration-300 hover:bg-baglio-oro hover:text-baglio-ebanoIntenso hover:shadow-xl transform hover:scale-105"
+            className="inline-flex items-center gap-2 bg-transparent border-2 border-baglio-oro text-baglio-oro px-8 py-4 rounded-md font-semibold transition-all duration-300 hover:bg-baglio-oro hover:text-baglio-ebano hover:shadow-xl transform hover:scale-105"
           >
             <Calendar className="w-5 h-5" />
             Vedi Tutti gli Eventi

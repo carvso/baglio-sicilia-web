@@ -30,7 +30,7 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
 
   return (
     <div className={cn("hero-section-enhanced relative overflow-hidden min-h-screen", className)}>
-      {/* Background Image with Enhanced Overlay */}
+      {/* Background Image with Enhanced Navy Blue Overlay */}
       <div className="absolute inset-0">
         <img 
           src={imageSrc} 
@@ -38,9 +38,9 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
           className="w-full h-full object-cover"
           loading="eager"
         />
-        {/* Strong dark overlay for better text contrast */}
-        <div className="absolute inset-0 bg-black/60"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
+        {/* Navy blue overlays instead of black */}
+        <div className="absolute inset-0 bg-baglio-ebano/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-baglio-ebano/40 via-baglio-ebano/60 to-baglio-ebano/80"></div>
       </div>
       
       {/* Heritage Pattern Overlay */}
@@ -70,7 +70,7 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
         <div className="mb-8 animate-gentle-fade-in delay-200">
           <button 
             onClick={() => scrollToSection('eventi-section')}
-            className="group bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center space-x-2 text-lg font-inter"
+            className="group bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebano font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center space-x-2 text-lg font-inter"
           >
             <MapPin size={20} className="group-hover:scale-110 transition-transform duration-300" />
             <span>Scopri la location</span>

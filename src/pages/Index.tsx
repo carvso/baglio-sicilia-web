@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -36,8 +37,8 @@ const Index = () => {
       {/* Eventi in Evidenza Section */}
       <EventiInEvidenza />
       
-      {/* Emotional WhatsApp Invitation */}
-      <section className="section-padding bg-baglio-ebanoIntenso relative overflow-hidden">
+      {/* Emotional WhatsApp Invitation - Aggiornato con Blu Navy */}
+      <section className="section-padding bg-baglio-ebano relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-10">
           <MessageCircle size={200} className="absolute top-10 right-10 text-baglio-oro rotate-12" />
@@ -161,8 +162,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Come raggiungerci Section */}
-      <section className="py-16 bg-baglio-ebanoIntenso border-t border-baglio-oro/30">
+      {/* Come raggiungerci Section - Aggiornato con Blu Navy */}
+      <section className="py-16 bg-baglio-ebano border-t border-baglio-oro/30">
         <div className="baglio-container">
           <SectionTitle 
             title="Come raggiungerci" 
@@ -173,13 +174,13 @@ const Index = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-10">
             <div className="space-y-6">
-              <div className="bg-baglio-ebanoIntenso/50 p-6 rounded-lg border border-baglio-oro/20">
+              <div className="bg-baglio-ebano/50 p-6 rounded-lg border border-baglio-oro/20">
                 <h3 className="text-xl font-semibold mb-3 text-baglio-oro font-playfair">📍 Indirizzo</h3>
                 <p className="text-baglio-cremaIntonacata mb-2">Via Palermo 2, 90041 Balestrate (PA)</p>
                 <p className="text-baglio-cremaIntonacata/70">Sicilia, Italia</p>
               </div>
               
-              <div className="bg-baglio-ebanoIntenso/50 p-6 rounded-lg border border-baglio-oro/20">
+              <div className="bg-baglio-ebano/50 p-6 rounded-lg border border-baglio-oro/20">
                 <h3 className="text-xl font-semibold mb-3 text-baglio-oro font-playfair">🚗 In Auto</h3>
                 <p className="text-baglio-cremaIntonacata/70">
                   Dall'autostrada A29 (Palermo-Mazara del Vallo), prendi l'uscita Balestrate. 
@@ -187,7 +188,7 @@ const Index = () => {
                 </p>
               </div>
               
-              <div className="bg-baglio-ebanoIntenso/50 p-6 rounded-lg border border-baglio-oro/20">
+              <div className="bg-baglio-ebano/50 p-6 rounded-lg border border-baglio-oro/20">
                 <h3 className="text-xl font-semibold mb-3 text-baglio-oro font-playfair">✈️ Dall'Aeroporto</h3>
                 <p className="text-baglio-cremaIntonacata/70">
                   Aeroporto di Palermo "Falcone Borsellino" a 30 km. 
@@ -212,7 +213,7 @@ const Index = () => {
           </div>
           
           <div className="text-center mt-10">
-            <CTAButton to="/contatti" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso">
+            <CTAButton to="/contatti" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebano">
               Contattaci per Indicazioni
             </CTAButton>
           </div>

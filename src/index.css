@@ -127,12 +127,12 @@ body {
   /* Eventi in evidenza styles - con Blu Navy */
   .eventi-banner {
     @apply relative overflow-hidden rounded-xl shadow-2xl;
-    background: linear-gradient(135deg, #0f1319 0%, #1a2040 50%, #2a2a4d 100%); /* Gradiente Blu Navy */
+    background: linear-gradient(135deg, #1a2040 0%, #2a2a4d 50%, #4c537d 100%); /* Gradiente Blu Navy */
   }
 
   .eventi-card-premium {
     @apply relative overflow-hidden rounded-xl shadow-xl border border-baglio-oro/30 transition-all duration-500 hover:shadow-2xl hover:border-baglio-oro/60 hover:scale-105;
-    background: linear-gradient(135deg, rgba(15, 19, 25, 0.95) 0%, rgba(26, 32, 64, 0.9) 100%); /* Blu Navy con trasparenza */
+    background: linear-gradient(135deg, rgba(26, 32, 64, 0.95) 0%, rgba(42, 42, 77, 0.9) 100%); /* Blu Navy con trasparenza */
   }
 
   /* Mobile improvements */
