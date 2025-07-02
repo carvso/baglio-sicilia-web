@@ -65,7 +65,7 @@ const BreadcrumbNavigation = () => {
       <div className="baglio-container">
         <div className="flex justify-center md:justify-start px-4 md:px-0">
           {/* Professional Navy Container */}
-          <div className="bg-baglio-ebano rounded-full px-6 py-3 shadow-sm">
+          <div className="bg-baglio-ebano rounded-r-lg px-6 py-3 shadow-sm">
             <ol className="flex items-center space-x-3 text-sm md:text-base min-w-0">
               {breadcrumbs.map((crumb, index) => {
                 const isLast = index === breadcrumbs.length - 1;
