@@ -1,10 +1,18 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Camera, Heart, Utensils } from 'lucide-react';
+import { Calendar, Camera, Heart, Utensils, Briefcase } from 'lucide-react';
 
 const TacticalCTAGrid = () => {
   const ctaItems = [
+    {
+      id: 'eventi-aziendali',
+      title: 'Eventi Aziendali',
+      description: 'Meeting, conferenze e team building in location esclusiva',
+      image: '/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png',
+      link: '/eventi-aziendali',
+      icon: Briefcase,
+      color: 'from-baglio-oro to-baglio-oroImperiale'
+    },
     {
       id: 'eventi',
       title: 'Scopri i Nostri Eventi',
@@ -37,11 +45,11 @@ const TacticalCTAGrid = () => {
       title: 'Prenota un Tavolo',
       description: 'Gusta la cucina siciliana nella nostra terrazza vista mare',
       image: '/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png',
-      backgroundImage: '/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png', // Terrazza vista mare
+      backgroundImage: '/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png',
       link: '/ristorante',
       icon: Utensils,
       color: 'from-baglio-oro to-baglio-oroImperiale',
-      special: true // Flag per il trattamento speciale
+      special: true
     }
   ];
 
