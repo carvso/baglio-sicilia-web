@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Camera, Heart, Utensils, Briefcase } from 'lucide-react';
+import { getLovableUploadPath } from '@/lib/paths';
 
 const TacticalCTAGrid = () => {
   const ctaItems = [
@@ -8,7 +10,7 @@ const TacticalCTAGrid = () => {
       id: 'eventi-aziendali',
       title: 'Eventi Aziendali',
       description: 'Meeting, conferenze e team building in location esclusiva',
-      image: '/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png',
+      image: getLovableUploadPath('1a152ccf-f53d-47a9-8d2f-f43edceba327.png'),
       link: '/eventi-aziendali',
       icon: Briefcase,
       color: 'from-baglio-oro to-baglio-oroImperiale'
@@ -17,7 +19,7 @@ const TacticalCTAGrid = () => {
       id: 'eventi',
       title: 'Scopri i Nostri Eventi',
       description: 'Degustazioni, workshop e serate speciali nel nostro Baglio',
-      image: '/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png',
+      image: getLovableUploadPath('82698643-0369-4ee1-9b14-cf38c7d570df.png'),
       link: '/eventi',
       icon: Calendar,
       color: 'from-baglio-oro to-baglio-oroImperiale'
@@ -26,7 +28,7 @@ const TacticalCTAGrid = () => {
       id: 'gallery',
       title: 'Esplora la Gallery',
       description: 'Scopri tutti gli spazi e i dettagli del nostro Baglio',
-      image: '/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png',
+      image: getLovableUploadPath('ac14664b-cf42-46ec-90e4-d0461e9f18a2.png'),
       link: '/gallery',
       icon: Camera,
       color: 'from-baglio-oro to-baglio-oroImperiale'
@@ -35,7 +37,7 @@ const TacticalCTAGrid = () => {
       id: 'matrimoni',
       title: 'Il Tuo Matrimonio',
       description: 'Una location da sogno per il giorno più importante',
-      image: '/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png',
+      image: getLovableUploadPath('abd0f4fc-88b2-4370-b75c-a060e0f81d76.png'),
       link: '/matrimoni',
       icon: Heart,
       color: 'from-baglio-oro to-baglio-oroImperiale'
@@ -44,8 +46,8 @@ const TacticalCTAGrid = () => {
       id: 'ristorante',
       title: 'Prenota un Tavolo',
       description: 'Gusta la cucina siciliana nella nostra terrazza vista mare',
-      image: '/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png',
-      backgroundImage: '/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png',
+      image: getLovableUploadPath('1a152ccf-f53d-47a9-8d2f-f43edceba327.png'),
+      backgroundImage: getLovableUploadPath('ac14664b-cf42-46ec-90e4-d0461e9f18a2.png'),
       link: '/ristorante',
       icon: Utensils,
       color: 'from-baglio-oro to-baglio-oroImperiale',

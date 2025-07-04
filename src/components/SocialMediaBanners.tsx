@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Instagram, Facebook, Phone, Mail } from 'lucide-react';
+import { getLovableUploadPath } from '@/lib/paths';
 
 const SocialMediaBanners = () => {
   const socialItems = [
@@ -11,7 +12,7 @@ const SocialMediaBanners = () => {
       icon: Instagram,
       link: 'https://instagram.com/baglioabbate',
       color: 'from-baglio-oro to-baglio-oroImperiale',
-      bgImage: '/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png'
+      bgImage: getLovableUploadPath('47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png')
     },
     {
       id: 'contact',
@@ -20,7 +21,7 @@ const SocialMediaBanners = () => {
       icon: Phone,
       link: '/contatti',
       color: 'from-baglio-oro to-baglio-oroImperiale',
-      bgImage: '/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png'
+      bgImage: getLovableUploadPath('75cf2578-451c-46db-8c39-c3dcc02f7157.png')
     }
   ];
 

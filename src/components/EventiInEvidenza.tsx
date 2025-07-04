@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Users, MapPin, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { getLovableUploadPath } from '@/lib/paths';
 
 const EventiInEvidenza = () => {
   const eventiInEvidenza = [
@@ -11,7 +12,7 @@ const EventiInEvidenza = () => {
       title: "Degustazione Vini Siciliani",
       date: "28 Maggio 2025",
       time: "19:00",
-      image: "/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png",
+      image: getLovableUploadPath("47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png"),
       description: "Un viaggio sensoriale attraverso i migliori vini della tradizione enologica siciliana negli eleganti interni del Baglio",
       participants: "25 posti disponibili",
       isHighlight: true,
@@ -22,7 +23,7 @@ const EventiInEvidenza = () => {
       title: "Open Day Matrimoni",
       date: "10 Giugno 2025",
       time: "16:00",
-      image: "/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png",
+      image: getLovableUploadPath("abd0f4fc-88b2-4370-b75c-a060e0f81d76.png"),
       description: "Visita il Baglio Abbate e scopri la sala allestita per matrimoni con tovaglie color pesca, perfetta per il tuo giorno speciale",
       participants: "Evento gratuito",
       isHighlight: false,
@@ -33,7 +34,7 @@ const EventiInEvidenza = () => {
       title: "Workshop di Ceramica",
       date: "15 Giugno 2025",
       time: "10:00",
-      image: "/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png",
+      image: getLovableUploadPath("82698643-0369-4ee1-9b14-cf38c7d570df.png"),
       description: "Scopri l'arte della ceramica siciliana nella nostra elegante sala con allestimento professionale",
       participants: "15 posti disponibili",
       isHighlight: false,

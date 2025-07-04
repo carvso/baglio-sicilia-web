@@ -9,6 +9,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import SectionTitle from '@/components/SectionTitle';
 import CTAButton from '@/components/CTAButton';
 import { MessageCircle } from 'lucide-react';
+import { getLovableUploadPath } from '@/lib/paths';
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -24,14 +25,14 @@ const Index = () => {
         <meta property="og:description" content="Una location esclusiva per eventi indimenticabili nel cuore della Sicilia, con vista sul mare." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.baglioabbate.it" />
-        <meta property="og:image" content="/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png" />
+        <meta property="og:image" content={getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png")} />
       </Helmet>
       
       {/* Enhanced Hero Section */}
       <HeroSection 
         title="Baglio Abbate"
         subtitle="Location esclusiva per eventi indimenticabili nel cuore della Sicilia"
-        imageSrc="/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png"
+        imageSrc={getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png")}
       />
       
       {/* Eventi in Evidenza Section */}
@@ -49,7 +50,7 @@ const Index = () => {
         <div 
           className="absolute inset-0 opacity-15 bg-cover bg-center"
           style={{
-            backgroundImage: `url('/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png')`,
+            backgroundImage: `url('${getLovableUploadPath("75cf2578-451c-46db-8c39-c3dcc02f7157.png")}')`,
           }}
         ></div>
         
@@ -136,7 +137,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-10">
             <div className="rounded-lg overflow-hidden shadow-lg border border-baglio-oro/20">
               <img 
-                src="/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png" 
+                src={getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png")} 
                 alt="Spazi interni" 
                 className="w-full h-64 object-cover"
                 loading="lazy"
