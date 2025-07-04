@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baglio Abbate - Redirecting...</title>
+    <script>
+      // Redirect to index.html with the path as a query parameter for client-side routing
+      const path = window.location.pathname.substring(1);
+      const query = window.location.search;
+      window.location.replace('/baglio-abbate/?p=/' + path + query);
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>

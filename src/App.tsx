@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -26,33 +26,44 @@ const queryClient = new QueryClient({
   },
 });
 
-const App = () => (
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="light">
-        <PaletteProvider defaultPalette="default">
-          <TooltipProvider>
-            <Sonner />
-            <BrowserRouter>
-              <div className="min-h-screen bg-background transition-colors duration-300">
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/chi-siamo" element={<ChiSiamo />} />
-                  <Route path="/eventi" element={<Eventi />} />
-                  <Route path="/eventi-privati" element={<EventiPrivati />} />
-                  <Route path="/matrimoni" element={<Matrimoni />} />
-                  <Route path="/eventi-aziendali" element={<EventiAziendali />} />
-                  <Route path="/gallery" element={<Gallery />} />
-                  <Route path="/contatti" element={<Contatti />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </div>
-            </BrowserRouter>
-          </TooltipProvider>
-        </PaletteProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
-  </React.StrictMode>
-);
+const App = () => {
+  useEffect(() => {
+    // Handle GitHub Pages SPA routing
+    const urlParams = new URLSearchParams(window.location.search);
+    const path = urlParams.get('p');
+    if (path) {
+      window.history.replaceState(null, '', path);
+    }
+  }, []);
+
+  return (
+    <React.StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider defaultTheme="light">
+          <PaletteProvider defaultPalette="default">
+            <TooltipProvider>
+              <Sonner />
+              <BrowserRouter basename={import.meta.env.BASE_URL}>
+                <div className="min-h-screen bg-background transition-colors duration-300">
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route path="/chi-siamo" element={<ChiSiamo />} />
+                    <Route path="/eventi" element={<Eventi />} />
+                    <Route path="/eventi-privati" element={<EventiPrivati />} />
+                    <Route path="/matrimoni" element={<Matrimoni />} />
+                    <Route path="/eventi-aziendali" element={<EventiAziendali />} />
+                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/contatti" element={<Contatti />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </div>
+              </BrowserRouter>
+            </TooltipProvider>
+          </PaletteProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </React.StrictMode>
+  );
+};
 
 export default App;

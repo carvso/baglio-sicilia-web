@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { getLovableUploadPath } from '@/lib/paths';
 
 type ImageWithOverlayProps = {
   src: string;
@@ -14,7 +15,7 @@ type ImageWithOverlayProps = {
   priority?: boolean;
   sizes?: string;
   webpSrc?: string;
-  heroSection?: boolean; // New prop for hero sections
+  heroSection?: boolean;
 };
 
 const ImageWithOverlay = ({ 
@@ -33,17 +34,28 @@ const ImageWithOverlay = ({
 }: ImageWithOverlayProps) => {
   const isMobile = useIsMobile();
   
-  // For hero sections, we use min-h-screen without conflicting margins/padding
+  // Handle lovable-uploads paths for GitHub Pages
+  const getImageSrc = (imageSrc: string) => {
+    if (imageSrc.startsWith('/lovable-uploads/')) {
+      const filename = imageSrc.replace('/lovable-uploads/', '');
+      return getLovableUploadPath(filename);
+    }
+    return imageSrc;
+  };
+
+  const finalSrc = getImageSrc(src);
+  const finalWebpSrc = webpSrc ? getImageSrc(webpSrc) : undefined;
+  
   const heroClasses = heroSection ? 'min-h-screen' : '';
   
   return (
     <div className={`relative overflow-hidden ${heroClasses} ${className}`}>
       <picture>
-        {webpSrc && (
-          <source srcSet={webpSrc} type="image/webp" sizes={sizes} />
+        {finalWebpSrc && (
+          <source srcSet={finalWebpSrc} type="image/webp" sizes={sizes} />
         )}
         <img 
-          src={src} 
+          src={finalSrc} 
           alt={alt} 
           className={`w-full h-full object-cover transition-transform duration-300 hover:scale-105 ${imgClassName}`} 
           loading={priority ? "eager" : (lazyLoad ? "lazy" : "eager")}
