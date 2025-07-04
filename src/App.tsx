@@ -32,9 +32,14 @@ const App = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const path = urlParams.get('p');
     if (path) {
+      console.log('GitHub Pages routing: redirecting to', path);
       window.history.replaceState(null, '', path);
     }
   }, []);
+
+  // Log base URL for debugging
+  console.log('Base URL:', import.meta.env.BASE_URL);
+  console.log('Mode:', import.meta.env.MODE);
 
   return (
     <React.StrictMode>

@@ -7,9 +7,19 @@
     <title>Baglio Abbate - Redirecting...</title>
     <script>
       // Redirect to index.html with the path as a query parameter for client-side routing
-      const path = window.location.pathname.substring(1);
+      const path = window.location.pathname;
       const query = window.location.search;
-      window.location.replace('/baglio-abbate/?p=/' + path + query);
+      
+      // Get the repository name from the current URL
+      const pathSegments = path.split('/').filter(segment => segment);
+      const repoName = pathSegments[0] || '';
+      
+      // Extract the actual route (everything after the repo name)
+      const actualRoute = pathSegments.length > 1 ? '/' + pathSegments.slice(1).join('/') : '/';
+      
+      // Redirect to the index with the route as a parameter
+      const redirectUrl = `/${repoName}/?p=${actualRoute}${query}`;
+      window.location.replace(redirectUrl);
     </script>
   </head>
   <body>

@@ -9,7 +9,7 @@ export default defineConfig(({ mode, command }) => {
   const isGitHubPages = process.env.GITHUB_PAGES === 'true';
   
   return {
-    base: isGitHubPages ? '/baglio-abbate/' : '/',
+    base: isGitHubPages ? '/baglio-sicilia-web/' : '/',
     server: {
       host: "::",
       port: 8080,
