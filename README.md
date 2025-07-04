@@ -19,12 +19,12 @@ npm run build
 
 ### Build per GitHub Pages
 ```bash
-npm run build:github
+GITHUB_PAGES=true npm run build
 ```
 
-### Preview Locale con Base Path GitHub Pages
+### Preview Locale
 ```bash
-npm run preview:github
+npm run preview
 ```
 
 ## Deploy su GitHub Pages
@@ -58,3 +58,10 @@ Se hai un dominio personalizzato, aggiungi il file `CNAME` nella root del proget
 - Tailwind CSS  
 - React Router DOM
 - Shadcn/ui Components
+
+## Note per GitHub Pages
+
+Il progetto è configurato per funzionare correttamente su GitHub Pages:
+- I percorsi delle immagini sono gestiti automaticamente
+- Il routing SPA è supportato tramite `404.html`
+- Il build process configura automaticamente il base path
