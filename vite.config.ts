@@ -4,40 +4,33 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-export default defineConfig(({ mode }) => {
-  const isGitHubPages = process.env.GITHUB_PAGES === 'true';
-  const base = isGitHubPages ? '/baglio-sicilia-web/' : '/';
-  
-  console.log('🔧 Vite config:', { mode, isGitHubPages, base });
-  
-  return {
-    base,
-    server: {
-      host: "::",
-      port: 8080,
-      cors: true,
+export default defineConfig({
+  base: '/baglio-sicilia-web/',
+  server: {
+    host: "::",
+    port: 8080,
+    cors: true,
+  },
+  plugins: [
+    react(),
+    componentTagger(),
+  ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
     },
-    plugins: [
-      react(),
-      mode === 'development' && componentTagger(),
-    ].filter(Boolean),
-    resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "./src"),
+  },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
       },
     },
-    build: {
-      outDir: 'dist',
-      assetsDir: 'assets',
-      sourcemap: mode === 'development',
-      rollupOptions: {
-        output: {
-          manualChunks: undefined,
-        },
-      },
-    },
-    optimizeDeps: {
-      include: ['react', 'react-dom'],
-    },
-  }
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom'],
+  },
 });
