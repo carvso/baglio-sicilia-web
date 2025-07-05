@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=./" />
+  </head>
+  <body>
+    <p>Redirecting...</p>
+    <script>
+      // Per supporto SPA su GitHub Pages
+      var l = window.location;
+      var path = l.pathname.replace(/\/+/, '/').replace(/^\/baglio-sicilia-web/, '');
+      var search = l.search || '';
+      var hash = l.hash || '';
+      var redirect = '/baglio-sicilia-web/?p=' + encodeURIComponent(path + search + hash);
+      window.location.replace(redirect);
+    </script>
+  </body>
+</html>
