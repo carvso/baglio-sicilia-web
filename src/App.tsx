@@ -29,25 +29,17 @@ const queryClient = new QueryClient({
 
 const App = () => {
   useEffect(() => {
-    console.log('🎯 App component mounted successfully!');
-    console.log('🌍 Current location:', window.location.href);
-    console.log('⚙️ Base URL:', import.meta.env.BASE_URL);
-    console.log('🔧 Mode:', import.meta.env.MODE);
+    console.log('🎯 App component mounted');
+    console.log('📍 Current URL:', window.location.href);
     
-    // Handle GitHub Pages SPA routing
-    try {
-      const urlParams = new URLSearchParams(window.location.search);
-      const path = urlParams.get('p');
-      if (path) {
-        console.log('🔀 GitHub Pages routing: redirecting to', path);
-        window.history.replaceState(null, '', path);
-      }
-    } catch (error) {
-      console.error('❌ Error in GitHub Pages routing:', error);
+    // Simple GitHub Pages SPA routing handle
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirectPath = urlParams.get('p');
+    if (redirectPath) {
+      console.log('🔀 Redirecting to:', redirectPath);
+      window.history.replaceState(null, '', redirectPath);
     }
   }, []);
-
-  console.log('🏗️ App component rendering...');
 
   return (
     <QueryClientProvider client={queryClient}>
