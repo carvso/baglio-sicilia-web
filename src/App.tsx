@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { PaletteProvider } from "@/components/PaletteContext";
 
+// Import pages
 import Index from "./pages/Index";
 import ChiSiamo from "./pages/ChiSiamo";
 import Eventi from "./pages/Eventi";
@@ -20,7 +21,7 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
+      staleTime: 1000 * 60 * 5,
       retry: 1,
     },
   },
@@ -28,19 +29,25 @@ const queryClient = new QueryClient({
 
 const App = () => {
   useEffect(() => {
-    console.log('App component mounted');
-    console.log('Current location:', window.location.href);
-    console.log('Base URL:', import.meta.env.BASE_URL);
-    console.log('Mode:', import.meta.env.MODE);
+    console.log('🎯 App component mounted successfully!');
+    console.log('🌍 Current location:', window.location.href);
+    console.log('⚙️ Base URL:', import.meta.env.BASE_URL);
+    console.log('🔧 Mode:', import.meta.env.MODE);
     
     // Handle GitHub Pages SPA routing
-    const urlParams = new URLSearchParams(window.location.search);
-    const path = urlParams.get('p');
-    if (path) {
-      console.log('GitHub Pages routing: redirecting to', path);
-      window.history.replaceState(null, '', path);
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const path = urlParams.get('p');
+      if (path) {
+        console.log('🔀 GitHub Pages routing: redirecting to', path);
+        window.history.replaceState(null, '', path);
+      }
+    } catch (error) {
+      console.error('❌ Error in GitHub Pages routing:', error);
     }
   }, []);
+
+  console.log('🏗️ App component rendering...');
 
   return (
     <QueryClientProvider client={queryClient}>
