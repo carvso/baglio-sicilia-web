@@ -1,54 +1,19 @@
 
 <!DOCTYPE html>
-<html lang="it">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Baglio Abbate - Redirecting...</title>
-    <script>
-      console.log('404.html - Starting redirect logic');
-      console.log('Current URL:', window.location.href);
-      console.log('Pathname:', window.location.pathname);
-      
-      // Get the full path after the domain
-      const fullPath = window.location.pathname;
-      const search = window.location.search;
-      const hash = window.location.hash;
-      
-      console.log('Full path:', fullPath);
-      console.log('Search params:', search);
-      console.log('Hash:', hash);
-      
-      // For GitHub Pages, we need to handle the repository name in the path
-      // The URL structure is: username.github.io/repository-name/actual-route
-      const pathSegments = fullPath.split('/').filter(segment => segment);
-      console.log('Path segments:', pathSegments);
-      
-      // If we have segments, the first one should be the repo name
-      if (pathSegments.length > 0) {
-        const repoName = pathSegments[0];
-        const actualRoute = pathSegments.length > 1 ? '/' + pathSegments.slice(1).join('/') : '/';
-        
-        console.log('Repo name:', repoName);
-        console.log('Actual route:', actualRoute);
-        
-        // Redirect to index with the route as a parameter
-        const redirectUrl = `/${repoName}/?p=${encodeURIComponent(actualRoute)}${search}${hash}`;
-        console.log('Redirecting to:', redirectUrl);
-        
-        window.location.replace(redirectUrl);
-      } else {
-        // Fallback: redirect to root
-        console.log('No path segments, redirecting to root');
-        window.location.replace('/');
-      }
-    </script>
+    <meta http-equiv="refresh" content="0; url=./" />
   </head>
   <body>
-    <div style="font-family: Arial, sans-serif; text-align: center; margin-top: 50px;">
-      <h2>Baglio Abbate</h2>
-      <p>Redirecting...</p>
-      <p><small>Se questa pagina non si reindirizza automaticamente, <a href="/">clicca qui</a>.</small></p>
-    </div>
+    <p>Redirecting...</p>
+    <script>
+      // Per supporto SPA su GitHub Pages
+      var l = window.location;
+      var path = l.pathname.replace(/\/+/, '/').replace(/^\/baglio-sicilia-web/, '');
+      var search = l.search || '';
+      var hash = l.hash || '';
+      var redirect = '/baglio-sicilia-web/?p=' + encodeURIComponent(path + search + hash);
+      window.location.replace(redirect);
+    </script>
   </body>
 </html>
