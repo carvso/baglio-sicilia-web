@@ -5,7 +5,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig({
-  base: '/baglio-sicilia-web/',
+  base: '/',
   server: {
     host: "::",
     port: 8080,
