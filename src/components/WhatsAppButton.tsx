@@ -9,7 +9,7 @@ type WhatsAppButtonProps = {
 
 const WhatsAppButton = ({ 
   message = "Ciao! Sono interessato a maggiori informazioni su Baglio Abbate.", 
-  phone = "+393399876543" 
+  phone = "+393318286888" 
 }: WhatsAppButtonProps) => {
   const encodedMessage = encodeURIComponent(message);
   const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
