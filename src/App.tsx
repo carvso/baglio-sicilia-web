@@ -28,6 +28,11 @@ const queryClient = new QueryClient({
 
 const App = () => {
   useEffect(() => {
+    console.log('App component mounted');
+    console.log('Current location:', window.location.href);
+    console.log('Base URL:', import.meta.env.BASE_URL);
+    console.log('Mode:', import.meta.env.MODE);
+    
     // Handle GitHub Pages SPA routing
     const urlParams = new URLSearchParams(window.location.search);
     const path = urlParams.get('p');
@@ -37,37 +42,31 @@ const App = () => {
     }
   }, []);
 
-  // Log base URL for debugging
-  console.log('Base URL:', import.meta.env.BASE_URL);
-  console.log('Mode:', import.meta.env.MODE);
-
   return (
-    <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider defaultTheme="light">
-          <PaletteProvider defaultPalette="default">
-            <TooltipProvider>
-              <Sonner />
-              <BrowserRouter basename={import.meta.env.BASE_URL}>
-                <div className="min-h-screen bg-background transition-colors duration-300">
-                  <Routes>
-                    <Route path="/" element={<Index />} />
-                    <Route path="/chi-siamo" element={<ChiSiamo />} />
-                    <Route path="/eventi" element={<Eventi />} />
-                    <Route path="/eventi-privati" element={<EventiPrivati />} />
-                    <Route path="/matrimoni" element={<Matrimoni />} />
-                    <Route path="/eventi-aziendali" element={<EventiAziendali />} />
-                    <Route path="/gallery" element={<Gallery />} />
-                    <Route path="/contatti" element={<Contatti />} />
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </div>
-              </BrowserRouter>
-            </TooltipProvider>
-          </PaletteProvider>
-        </ThemeProvider>
-      </QueryClientProvider>
-    </React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="light">
+        <PaletteProvider defaultPalette="default">
+          <TooltipProvider>
+            <Sonner />
+            <BrowserRouter basename={import.meta.env.BASE_URL}>
+              <div className="min-h-screen bg-background transition-colors duration-300">
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/chi-siamo" element={<ChiSiamo />} />
+                  <Route path="/eventi" element={<Eventi />} />
+                  <Route path="/eventi-privati" element={<EventiPrivati />} />
+                  <Route path="/matrimoni" element={<Matrimoni />} />
+                  <Route path="/eventi-aziendali" element={<EventiAziendali />} />
+                  <Route path="/gallery" element={<Gallery />} />
+                  <Route path="/contatti" element={<Contatti />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </div>
+            </BrowserRouter>
+          </TooltipProvider>
+        </PaletteProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 };
 
