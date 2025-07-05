@@ -12,8 +12,6 @@ export default defineConfig(({ mode }) => {
   
   return {
     base,
-    root: process.cwd(),
-    publicDir: 'public',
     server: {
       host: "::",
       port: 8080,
@@ -33,9 +31,6 @@ export default defineConfig(({ mode }) => {
       assetsDir: 'assets',
       sourcemap: mode === 'development',
       rollupOptions: {
-        input: {
-          main: path.resolve(__dirname, 'index.html')
-        },
         output: {
           manualChunks: undefined,
         },
