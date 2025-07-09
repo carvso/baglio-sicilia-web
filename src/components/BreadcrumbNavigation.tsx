@@ -1,10 +1,17 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronRight, Home } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Home } from 'lucide-react';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator
+} from './ui/breadcrumb';
 
-interface BreadcrumbItem {
+interface BreadcrumbItemType {
   label: string;
   path?: string;
 }
@@ -12,11 +19,9 @@ interface BreadcrumbItem {
 const BreadcrumbNavigation = () => {
   const location = useLocation();
 
-  const getBreadcrumbs = (): BreadcrumbItem[] => {
+  const getBreadcrumbs = (): BreadcrumbItemType[] => {
     const path = location.pathname;
-    
-    // Define breadcrumb mappings
-    const breadcrumbMap: Record<string, BreadcrumbItem[]> = {
+    const breadcrumbMap: Record<string, BreadcrumbItemType[]> = {
       '/eventi': [
         { label: 'Home', path: '/' },
         { label: 'Eventi' }
@@ -45,73 +50,43 @@ const BreadcrumbNavigation = () => {
         { label: 'Contatti' }
       ]
     };
-
     return breadcrumbMap[path] || [];
   };
 
   const breadcrumbs = getBreadcrumbs();
-
-  // Don't show breadcrumbs on homepage
   if (location.pathname === '/' || breadcrumbs.length === 0) {
     return null;
   }
 
   return (
-    <nav 
-      role="navigation" 
-      aria-label="breadcrumb"
-      className="bg-transparent sticky top-[64px] z-30 py-1"
-    >
-      <div className="w-full">
-        <div className="flex justify-start">
-          {/* Professional Navy Container - ridotto padding */}
-          <div className="bg-baglio-ebano rounded-r-lg px-4 py-2 shadow-sm">
-            <ol className="flex items-center space-x-2 text-sm min-w-0">
-              {breadcrumbs.map((crumb, index) => {
-                const isLast = index === breadcrumbs.length - 1;
-                
-                return (
-                  <li key={index} className="flex items-center space-x-2 min-w-0">
-                    {index === 0 && (
-                      <Home size={14} className="text-baglio-crema flex-shrink-0" />
-                    )}
-                    
-                    {crumb.path && !isLast ? (
-                      <Link 
-                        to={crumb.path}
-                        className={cn(
-                          "text-baglio-crema hover:text-baglio-oro transition-colors duration-200",
-                          "focus:outline-none focus:ring-2 focus:ring-baglio-oro focus:ring-offset-2 focus:ring-offset-baglio-ebano",
-                          "rounded px-1 py-1 truncate font-medium"
-                        )}
-                      >
-                        {crumb.label}
-                      </Link>
-                    ) : (
-                      <span 
-                        className={cn(
-                          isLast 
-                            ? "text-baglio-oro font-semibold" 
-                            : "text-baglio-crema font-medium",
-                          "truncate px-1 py-1"
-                        )}
-                        aria-current={isLast ? "page" : undefined}
-                      >
-                        {crumb.label}
-                      </span>
-                    )}
-                    
-                    {!isLast && (
-                      <ChevronRight size={12} className="text-baglio-crema/70 flex-shrink-0" />
-                    )}
-                  </li>
-                );
-              })}
-            </ol>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <Breadcrumb className="sticky top-[64px] z-30 bg-transparent py-0.5 border-b border-muted-foreground/10">
+      <BreadcrumbList>
+        {breadcrumbs.map((crumb, index) => {
+          const isLast = index === breadcrumbs.length - 1;
+          return (
+            <React.Fragment key={index}>
+              <BreadcrumbItem>
+                {index === 0 && (
+                  <Home size={14} className="text-muted-foreground mr-1" />
+                )}
+                {crumb.path && !isLast ? (
+                  <BreadcrumbLink asChild>
+                    <Link to={crumb.path} className="text-muted-foreground hover:text-primary font-normal px-1 py-0.5 rounded transition-colors">
+                      {crumb.label}
+                    </Link>
+                  </BreadcrumbLink>
+                ) : (
+                  <BreadcrumbPage className="text-primary font-semibold px-1 py-0.5">
+                    {crumb.label}
+                  </BreadcrumbPage>
+                )}
+              </BreadcrumbItem>
+              {!isLast && <BreadcrumbSeparator />}
+            </React.Fragment>
+          );
+        })}
+      </BreadcrumbList>
+    </Breadcrumb>
   );
 };
 
