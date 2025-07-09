@@ -60,32 +60,38 @@ const BreadcrumbNavigation = () => {
     <nav 
       role="navigation" 
       aria-label="breadcrumb"
-      className="bg-transparent sticky top-[64px] z-30 py-1"
+      className="bg-transparent sticky top-[64px] z-30 py-0.5"
     >
-      <div className="w-full">
-        <div className="flex justify-start">
-          {/* Professional Navy Container - ridotto padding */}
-          <div className="bg-baglio-ebano rounded-r-lg px-4 py-2 shadow-sm">
-            <ol className="flex items-center space-x-2 text-sm min-w-0">
+      <div className="w-full overflow-x-auto scrollbar-hide">
+        <div className="flex justify-start min-w-max">
+          {/* Compact elegant container */}
+          <div className="bg-baglio-ebano/95 backdrop-blur-sm rounded-r-xl px-3 py-1.5 shadow-lg border border-baglio-oro/20">
+            <ol className="flex items-center space-x-1.5 text-xs sm:text-sm min-w-0">
               {breadcrumbs.map((crumb, index) => {
                 const isLast = index === breadcrumbs.length - 1;
                 
                 return (
-                  <li key={index} className="flex items-center space-x-2 min-w-0">
+                  <li key={index} className="flex items-center space-x-1.5 min-w-0">
                     {index === 0 && (
-                      <Home size={14} className="text-baglio-crema flex-shrink-0" />
+                      <Home size={12} className="text-baglio-crema flex-shrink-0 sm:size-3" />
                     )}
                     
                     {crumb.path && !isLast ? (
                       <Link 
                         to={crumb.path}
                         className={cn(
-                          "text-baglio-crema hover:text-baglio-oro transition-colors duration-200",
-                          "focus:outline-none focus:ring-2 focus:ring-baglio-oro focus:ring-offset-2 focus:ring-offset-baglio-ebano",
-                          "rounded px-1 py-1 truncate font-medium"
+                          "text-baglio-crema hover:text-baglio-oro transition-all duration-300",
+                          "focus:outline-none focus:ring-1 focus:ring-baglio-oro/50 focus:ring-offset-1 focus:ring-offset-baglio-ebano",
+                          "rounded-md px-1.5 py-0.5 truncate font-medium hover:bg-baglio-oro/10",
+                          "touch-target-44 min-h-[44px] sm:min-h-auto flex items-center",
+                          "max-w-[120px] sm:max-w-none"
                         )}
                       >
-                        {crumb.label}
+                        <span className="truncate">
+                          {crumb.label.length > 12 && window.innerWidth < 640 
+                            ? `${crumb.label.substring(0, 12)}...` 
+                            : crumb.label}
+                        </span>
                       </Link>
                     ) : (
                       <span 
@@ -93,16 +99,23 @@ const BreadcrumbNavigation = () => {
                           isLast 
                             ? "text-baglio-oro font-semibold" 
                             : "text-baglio-crema font-medium",
-                          "truncate px-1 py-1"
+                          "truncate px-1.5 py-0.5 rounded-md",
+                          "max-w-[120px] sm:max-w-none block"
                         )}
                         aria-current={isLast ? "page" : undefined}
+                        title={crumb.label}
                       >
-                        {crumb.label}
+                        {crumb.label.length > 15 && window.innerWidth < 640 
+                          ? `${crumb.label.substring(0, 15)}...` 
+                          : crumb.label}
                       </span>
                     )}
                     
                     {!isLast && (
-                      <ChevronRight size={12} className="text-baglio-crema/70 flex-shrink-0" />
+                      <ChevronRight 
+                        size={10} 
+                        className="text-baglio-crema/60 flex-shrink-0 sm:size-3 transition-opacity duration-300" 
+                      />
                     )}
                   </li>
                 );
