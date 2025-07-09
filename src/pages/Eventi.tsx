@@ -9,6 +9,7 @@ import SectionTitle from '@/components/SectionTitle';
 import CTAButton from '@/components/CTAButton';
 import SocialMediaBanners from '@/components/SocialMediaBanners';
 import { EventCalendar } from '@/components/EventCalendar';
+import DividerEventi from '@/components/DividerEventi';
 
 type EventCategoryProps = {
   icon: React.ReactNode;
@@ -97,7 +98,7 @@ const TestimonialCard = ({ name, event, image, text }: { name: string; event: st
 
 const Eventi = () => {
   return (
-    <Layout heroLayout={true} hideBreadcrumb={false}>
+    <Layout heroLayout={true} hideBreadcrumb={true}>
       <ImageWithOverlay 
         src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
         alt="Eventi al Baglio Abbate"
@@ -122,6 +123,7 @@ const Eventi = () => {
           </div>
         </div>
       </ImageWithOverlay>
+      <DividerEventi />
 
       <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
@@ -175,13 +177,15 @@ const Eventi = () => {
           </div>
         </div>
       </section>
+      <DividerEventi />
 
       {/* Calendario Eventi Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
           <EventCalendar compact={false} />
         </div>
       </section>
+      <DividerEventi />
 
       <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
@@ -216,6 +220,7 @@ const Eventi = () => {
           </div>
         </div>
       </section>
+      <DividerEventi />
 
       {/* NEW: Social Media Banners - Resta sempre aggiornato */}
       <SocialMediaBanners />
@@ -247,60 +252,10 @@ const Eventi = () => {
           </div>
         </div>
       </section>
+      <DividerEventi />
 
       {/* UPDATED: Sapori Autentici with Caponata background and Amuni CTA */}
-      <section className="relative py-20">
-        <ImageWithOverlay 
-          src="https://www.themediterraneandish.com/wp-content/uploads/2020/07/caponata-recipe-11.jpg"
-          alt="Caponata siciliana tradizionale - Sapori autentici della Sicilia" 
-          className="h-[700px]"
-          sizes="100vw"
-          overlayOpacity={75}
-        >
-          <div className="baglio-container text-center">
-            <div className="mb-4">
-              <span className="bg-baglio-oro text-baglio-ebanoIntenso px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wide">
-                Prossimamente
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-playfair font-bold mb-6 text-white drop-shadow-2xl">
-              Sapori Autentici della <span className="text-baglio-oro">Sicilia</span>
-            </h2>
-            <h3 className="text-2xl md:text-3xl font-playfair font-semibold mb-6 text-baglio-oro drop-shadow-xl">
-              Presentazione linea "Amuni"
-            </h3>
-            <p className="text-xl mb-8 max-w-4xl mx-auto text-white leading-relaxed drop-shadow-lg">
-              Presto potrai portare a casa i veri sapori della Sicilia con la nostra nuova linea di prodotti surgelati "Amuni". 
-              Dalle ricette tradizionali del Baglio Abbate, ora anche nella tua cucina: caponata, arancini, pasta alla norma 
-              e tutte le specialità che ami, pronte in pochi minuti senza rinunciare all'autenticità.
-            </p>
-            
-            <div className="mb-12">
-              <CTAButton 
-                to="/contatti" 
-                className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-xl px-10 py-5 shadow-2xl"
-              >
-                Scopri "Amuni" - Resta aggiornato
-              </CTAButton>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-5xl mx-auto">
-              <div className="bg-baglio-ebano/80 backdrop-blur-md p-8 rounded-xl border-2 border-baglio-oro/40 shadow-2xl">
-                <h4 className="text-baglio-oro font-playfair text-xl font-bold mb-3 drop-shadow-lg">Ricette Autentiche</h4>
-                <p className="text-white leading-relaxed">Le stesse ricette del nostro chef, ora surgelate per mantenere intatti sapori e tradizione siciliana</p>
-              </div>
-              <div className="bg-baglio-ebano/80 backdrop-blur-md p-8 rounded-xl border-2 border-baglio-oro/40 shadow-2xl">
-                <h4 className="text-baglio-oro font-playfair text-xl font-bold mb-3 drop-shadow-lg">Comodità Premium</h4>
-                <p className="text-white leading-relaxed">Pronti in pochi minuti, perfetti per chi vuole gustare la vera cucina siciliana senza tempo di preparazione</p>
-              </div>
-              <div className="bg-baglio-ebano/80 backdrop-blur-md p-8 rounded-xl border-2 border-baglio-oro/40 shadow-2xl">
-                <h4 className="text-baglio-oro font-playfair text-xl font-bold mb-3 drop-shadow-lg">Ingredienti Selezionati</h4>
-                <p className="text-white leading-relaxed">Solo i migliori prodotti siciliani: pomodori pachino, melanzane locali, olio EVO e ricotta di pecora</p>
-              </div>
-            </div>
-          </div>
-        </ImageWithOverlay>
-      </section>
+      {/* --- SEZIONE RIMOSSA --- */}
 
       <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
@@ -333,6 +288,7 @@ const Eventi = () => {
           </div>
         </div>
       </section>
+      <DividerEventi />
 
       <section id="contact-section" className="py-16 bg-baglio-ebanoIntenso text-white">
         <div className="baglio-container">

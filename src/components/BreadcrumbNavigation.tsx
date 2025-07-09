@@ -68,7 +68,7 @@ const BreadcrumbNavigation = () => {
       <div className="w-full overflow-x-auto scrollbar-hide">
         <div className="flex justify-start">
           {/* Modern chip-style breadcrumb - full width strip */}
-          <div className="flex items-center gap-0.5 sm:gap-1 px-3 sm:px-4 py-0.5 sm:py-0.5 w-full bg-background/80 backdrop-blur-md border-b border-border/30 shadow-sm">
+          <div className="flex items-center gap-0.5 sm:gap-1 px-3 sm:px-4 py-0.5 sm:py-0.5 w-full bg-baglio-oro/90 backdrop-blur-md border-b border-border/30 shadow-baglio-soft">
             <ol className="flex items-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs font-light">
               {breadcrumbs.map((crumb, index) => {
                 const isLast = index === breadcrumbs.length - 1;
@@ -78,7 +78,7 @@ const BreadcrumbNavigation = () => {
                     {index === 0 && (
                       <Home 
                         size={10} 
-                        className="text-muted-foreground opacity-70 flex-shrink-0 sm:w-3 sm:h-3 self-center" 
+                        className="text-baglio-ebano opacity-80 flex-shrink-0 sm:w-3 sm:h-3 self-center" 
                       />
                     )}
                     
@@ -86,9 +86,9 @@ const BreadcrumbNavigation = () => {
                       <Link 
                         to={crumb.path}
                         className={cn(
-                          "text-muted-foreground hover:text-foreground transition-all duration-200",
+                          "text-baglio-ebano hover:text-baglio-oroIntenso transition-all duration-200",
                           "focus:outline-none focus:ring-1 focus:ring-ring rounded-sm",
-                          "px-1 sm:px-1.5 py-0.5 hover:bg-accent/50 font-light hover:font-normal",
+                          "px-1 sm:px-1.5 py-0.5 hover:bg-baglio-oro/20 font-light hover:font-normal",
                           "text-[10px] sm:text-xs whitespace-nowrap flex-shrink-0 flex items-center h-fit"
                         )}
                         title={crumb.label}
@@ -103,8 +103,8 @@ const BreadcrumbNavigation = () => {
                       <span 
                         className={cn(
                           isLast 
-                            ? "text-foreground font-normal bg-accent/30 px-1 sm:px-1.5 py-0.5 rounded-sm" 
-                            : "text-muted-foreground font-light px-1 sm:px-1.5 py-0.5",
+                            ? "text-baglio-ebano font-bold bg-baglio-oro/40 px-1 sm:px-1.5 py-0.5 rounded-sm" 
+                            : "text-baglio-ebano font-light px-1 sm:px-1.5 py-0.5",
                           "text-[10px] sm:text-xs whitespace-nowrap flex-shrink-0 flex items-center h-fit"
                         )}
                         aria-current={isLast ? "page" : undefined}
@@ -119,7 +119,7 @@ const BreadcrumbNavigation = () => {
                     )}
                     
                     {!isLast && (
-                      <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-muted-foreground/40 flex-shrink-0 self-center" />
+                      <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-baglio-ebano/40 flex-shrink-0 self-center" />
                     )}
                   </li>
                 );

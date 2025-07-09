@@ -14,7 +14,7 @@ const Footer = () => {
               Dove la Sicilia si fa esperienza: tradizione, sapori autentici e momenti indimenticabili.
             </p>
             <div className="flex space-x-4 mt-6">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-elite-goldLight transition-colors">
+              <a href="https://instagram.com/baglioabbateevents" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-elite-goldLight transition-colors">
                 <Instagram size={20} />
               </a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-elite-goldLight transition-colors">
@@ -40,11 +40,11 @@ const Footer = () => {
             <ul className="text-muted-foreground space-y-3">
               <li className="flex items-center">
                 <MapPin size={18} className="mr-2 text-elite-gold" />
-                Via Palermo 2, Balestrate (PA)
+                Medusa S.r.l. Via Palermo 4 - 90041 Balestrate p.iva 07167250823 Info@baglioabbate.it tel 3318286888 codice univoco 2LCMINU
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-2 text-elite-gold" />
-                +39 091 123 4567
+                +39 331 828 6888
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-2 text-elite-gold" />

@@ -190,10 +190,10 @@ const GalleryLightbox = ({
               <span className="text-baglio-oro font-semibold">Seguici su Instagram</span>
             </div>
             <p className="text-baglio-cremaIntonacata/80 text-sm mb-3">
-              @baglioabbate - Scopri altre foto esclusive!
+              @baglioabbateevents - Scopri altre foto esclusive!
             </p>
             <a 
-              href="https://instagram.com/baglioabbate" 
+              href="https://instagram.com/baglioabbateevents" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105"

@@ -3,6 +3,8 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
+import LoadingBar from './components/LoadingBar';
+import LoadingText from './components/LoadingText';
 
 console.log('🚀 main.tsx - Application starting...');
 console.log('📊 Environment details:', {
@@ -30,7 +32,7 @@ if (!rootElement) {
     const root = createRoot(rootElement);
     
     console.log('🎨 Rendering App component...');
-    root.render(<App />);
+    root.render(<RootLoader />);
     console.log('✅ App component rendered successfully!');
   } catch (error) {
     console.error('❌ Error during React initialization:', error);
@@ -49,3 +51,22 @@ window.addEventListener('error', (event) => {
 window.addEventListener('unhandledrejection', (event) => {
   console.error('🚨 Unhandled promise rejection:', event.reason);
 });
+
+function RootLoader() {
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1200); // Simula caricamento
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <>
+        <LoadingBar />
+        <LoadingText />
+      </>
+    );
+  }
+  return <App />;
+}

@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { PaletteProvider } from "@/components/PaletteContext";
+import { useScrollToTop } from './hooks/useScrollToTop';
 
 // Import pages
 import Index from "./pages/Index";
@@ -26,6 +27,8 @@ const queryClient = new QueryClient({
     },
   },
 });
+
+const ScrollToTopHandler = () => { useScrollToTop(); return null; };
 
 const App = () => {
   useEffect(() => {
@@ -56,6 +59,7 @@ const App = () => {
           <TooltipProvider>
             <Sonner />
             <BrowserRouter basename={import.meta.env.BASE_URL}>
+              <ScrollToTopHandler />
               <div className="min-h-screen bg-background transition-colors duration-300">
                 <Routes>
                   <Route path="/" element={<Index />} />

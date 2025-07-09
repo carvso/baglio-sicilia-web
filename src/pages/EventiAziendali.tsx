@@ -8,6 +8,7 @@ import SectionTitle from '@/components/SectionTitle';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EventCalendar } from '@/components/EventCalendar';
+import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
 
 const EventiAziendali = () => {
   const packages = [
@@ -60,6 +61,7 @@ const EventiAziendali = () => {
 
   return (
     <Layout>
+      <BreadcrumbNavigation />
       <div className="bg-baglio-ebano min-h-screen">
         {/* Hero Section */}
         <ImageWithOverlay 
@@ -179,13 +181,13 @@ const EventiAziendali = () => {
                   Guarda i nostri eventi aziendali di successo e scopri come possiamo rendere speciale anche il tuo
                 </p>
                 <a
-                  href="https://instagram.com/baglioabbate"
+                  href="https://instagram.com/baglioabbateevents"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-baglio-oro to-baglio-oroImperiale text-baglio-ebano font-semibold rounded-lg hover:shadow-lg hover:shadow-baglio-oro/30 transition-all duration-300 hover:-translate-y-0.5"
                 >
                   <Instagram size={20} className="mr-2" />
-                  @baglioabbate
+                  @baglioabbateevents
                 </a>
               </div>
             </div>

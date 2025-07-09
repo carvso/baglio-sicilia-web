@@ -29,7 +29,7 @@ const Layout = ({
   const isMobile = useIsMobile();
   
   // Use our custom scroll to top hook
-  useScrollToTop();
+  // RIMOSSO: useScrollToTop();
 
   useEffect(() => {
     // Set CSS custom property for navbar height

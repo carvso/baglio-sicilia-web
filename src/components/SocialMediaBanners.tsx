@@ -8,9 +8,9 @@ const SocialMediaBanners = () => {
     {
       id: 'instagram',
       title: 'Seguici su Instagram',
-      description: '@baglioabbate - Le foto più belle del nostro Baglio',
+      description: '@baglioabbateevents - Le foto più belle del nostro Baglio',
       icon: Instagram,
-      link: 'https://instagram.com/baglioabbate',
+      link: 'https://instagram.com/baglioabbateevents',
       color: 'from-baglio-oro to-baglio-oroImperiale',
       bgImage: getLovableUploadPath('47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png')
     },

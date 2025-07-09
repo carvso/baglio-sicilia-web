@@ -638,7 +638,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
         {/* Vista Calendario */}
         <div className={cn("xl:col-span-2", compact && "xl:col-span-1")}>
           {viewMode === 'week' ? renderWeekView() : (
-            <Card className="overflow-hidden border-baglio-gold/20 shadow-lg bg-[#0a2342] backdrop-blur-sm">
+            <Card className="overflow-hidden border-baglio-gold/20 shadow-lg bg-white/95 backdrop-blur-sm">
               <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20 pb-4">
                 <CardTitle className="text-xl font-serif text-baglio-navy">
                   {format(currentMonth, 'MMMM yyyy', { locale: it })}

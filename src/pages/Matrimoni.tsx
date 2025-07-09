@@ -8,6 +8,7 @@ import SectionTitle from '@/components/SectionTitle';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EventCalendar } from '@/components/EventCalendar';
+import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
 
 const Matrimoni = () => {
   const packages = [
@@ -60,6 +61,7 @@ const Matrimoni = () => {
 
   return (
     <Layout>
+      <BreadcrumbNavigation />
       <div className="bg-baglio-crema min-h-screen">
         {/* Hero Section */}
         <ImageWithOverlay 

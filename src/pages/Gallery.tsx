@@ -7,6 +7,7 @@ import SectionTitle from '@/components/SectionTitle';
 import GalleryGrid from '@/components/GalleryGrid';
 import CTAButton from '@/components/CTAButton';
 import { EventCalendar } from '@/components/EventCalendar';
+import DividerGallery from '@/components/DividerGallery';
 
 // Gallery categories and images with enhanced data
 const galleryCategories = [
@@ -54,6 +55,62 @@ const structureImages = [
     title: 'Cortile Centrale',
     description: 'Lo spazio principale per cerimonie e ricevimenti all\'aperto.'
   },
+  {
+    src: '/lovable-uploads/97ade15d-9a2b-4fa8-89b8-847a2ea33c4c.png',
+    alt: 'Sala ricevimenti con tovaglie rosa cipria',
+    category: 'structure',
+    title: 'Sala Ricevimenti Rosa',
+    description: 'Un ambiente raffinato con tavoli rotondi e tovaglie rosa cipria, perfetto per matrimoni ed eventi eleganti.'
+  },
+  {
+    src: '/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png',
+    alt: 'Sala ricevimenti con tovaglie bianche e dettagli oro',
+    category: 'structure',
+    title: 'Sala Ricevimenti Oro',
+    description: 'Tavoli rotondi con tovaglie bianche e runner oro, ideali per eventi luminosi e raffinati.'
+  },
+  {
+    src: '/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png',
+    alt: 'Sala ricevimenti con tovaglie blu navy',
+    category: 'structure',
+    title: 'Sala Ricevimenti Blu Navy',
+    description: 'Atmosfera elegante con tovaglie blu navy e dettagli dorati, per eventi esclusivi.'
+  },
+  {
+    src: '/lovable-uploads/a64af1b5-6d30-4760-80df-66af10202399.png',
+    alt: 'Sala ricevimenti con illuminazione calda e pianoforte',
+    category: 'details',
+    title: 'Lounge & Piano Bar',
+    description: 'Un angolo lounge con pianoforte e bar, illuminazione calda per momenti di relax e musica.'
+  },
+  {
+    src: '/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png',
+    alt: 'Sala ricevimenti con tovaglie gialle e atmosfera accogliente',
+    category: 'structure',
+    title: 'Sala Ricevimenti Gialla',
+    description: 'Tavoli rotondi con tovaglie gialle, ambiente solare e accogliente per ogni occasione.'
+  },
+  {
+    src: '/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png',
+    alt: 'Sala ricevimenti con tovaglie rosa cipria e sedie chiare',
+    category: 'structure',
+    title: 'Sala Ricevimenti Rosa Pastello',
+    description: 'Un tocco di romanticismo con tovaglie rosa pastello e sedie chiare, ideale per eventi intimi.'
+  },
+  {
+    src: '/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png',
+    alt: 'Sala ricevimenti con tovaglie blu navy e atmosfera serale',
+    category: 'structure',
+    title: 'Sala Ricevimenti Notturna',
+    description: 'Un allestimento serale con tovaglie blu navy, luci soffuse e atmosfera elegante.'
+  },
+  {
+    src: '/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png',
+    alt: 'Arco interno con soffitto in legno',
+    category: 'details',
+    title: 'Archi e Soffitti',
+    description: 'Dettagli architettonici con archi in pietra e soffitti in legno, simbolo della tradizione siciliana.'
+  }
 ];
 
 const foodImages = [
@@ -186,12 +243,12 @@ const InstagramCTA = ({ position = "side", size = "normal" }: { position?: "side
         {position !== "floating" && (
           <div className="text-center">
             <h4 className="font-playfair font-bold text-lg mb-1">Seguici su Instagram</h4>
-            <p className="text-sm opacity-90">@baglioabbate - Scopri le ultime foto!</p>
+            <p className="text-sm opacity-90">@baglioabbateevents - Scopri le ultime foto!</p>
           </div>
         )}
       </div>
       <a 
-        href="https://instagram.com/baglioabbate" 
+        href="https://instagram.com/baglioabbateevents" 
         target="_blank" 
         rel="noopener noreferrer"
         className="absolute inset-0 z-10"
@@ -207,7 +264,7 @@ const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('all');
 
   return (
-    <Layout heroLayout={true}>
+    <Layout hideBreadcrumb={true}>
       {/* Hero Section with new interior image */}
       <ImageWithOverlay 
         src="/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png"
@@ -231,10 +288,10 @@ const Gallery = () => {
               Organizza il tuo evento
             </CTAButton>
             <a 
-              href="https://instagram.com/baglioabbate" 
+              href="https://instagram.com/baglioabbateevents" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 py-4 px-8 text-lg border-2 border-white text-white hover:bg-white hover:text-baglio-ebanoIntenso"
+              className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 py-4 px-8 text-lg border-2 border-white text-white hover:bg-white hover:text-baglio-ebanoIntonacata"
             >
               <Instagram className="mr-2" size={20} />
               Seguici su Instagram
@@ -242,9 +299,7 @@ const Gallery = () => {
           </div>
         </div>
       </ImageWithOverlay>
-
-      {/* Divider decorativo */}
-      <div className="h-2 bg-gradient-to-r from-transparent via-baglio-oro to-transparent"></div>
+      <DividerGallery />
 
       {/* Gallery principale */}
       <section className="py-16 md:py-24 bg-baglio-cremaIntonacata">
@@ -262,7 +317,7 @@ const Gallery = () => {
                   Usa #BaglioAbbate nei tuoi post e potrai essere featured nella nostra gallery!
                 </p>
                 <a 
-                  href="https://instagram.com/baglioabbate" 
+                  href="https://instagram.com/baglioabbateevents" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-baglio-oro hover:text-baglio-oroImperiale font-semibold"
@@ -328,6 +383,7 @@ const Gallery = () => {
           </div>
         </div>
       </section>
+      <DividerGallery />
 
       {/* Sezione Instagram Feed */}
       <section className="py-16 bg-baglio-ebano">
@@ -336,18 +392,18 @@ const Gallery = () => {
             title="Seguici su Instagram" 
             subtitle="Scopri gli ultimi scatti e rimani aggiornato sulle novità del Baglio"
             center
-            className="text-baglio-cremaIntonacata"
+            className="text-white"
           />
           
           <div className="text-center mb-8">
             <a 
-              href="https://instagram.com/baglioabbate" 
+              href="https://instagram.com/baglioabbateevents" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-gradient-to-r from-baglio-oro to-baglio-oroImperiale text-baglio-ebanoIntenso hover:from-baglio-oroImperiale hover:to-baglio-oro transition-all duration-300 font-semibold text-xl px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="inline-flex items-center bg-gradient-to-r from-baglio-oro to-baglio-oroImperiale text-white hover:text-baglio-ebanoIntenso hover:from-baglio-oroImperiale hover:to-baglio-oro transition-all duration-300 font-semibold text-xl px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <Instagram className="mr-3" size={24} />
-              @baglioabbate
+              @baglioabbateevents
             </a>
           </div>
           
@@ -382,7 +438,7 @@ const Gallery = () => {
                 Contattaci subito
               </CTAButton>
               <a 
-                href="https://instagram.com/baglioabbate" 
+                href="https://instagram.com/baglioabbateevents" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 py-3 px-6 text-base border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-baglio-ebanoIntenso"
@@ -396,11 +452,12 @@ const Gallery = () => {
       </section>
 
       {/* Calendario Eventi Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
           <EventCalendar compact={false} />
         </div>
       </section>
+      <DividerGallery />
 
       {/* Floating Instagram CTA */}
       <InstagramCTA position="floating" />

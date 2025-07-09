@@ -11,6 +11,7 @@ import CTAButton from '@/components/CTAButton';
 import { MessageCircle } from 'lucide-react';
 import { getLovableUploadPath } from '@/lib/paths';
 import { EventCalendar } from '@/components/EventCalendar';
+import DividerDecorativo from '@/components/DividerDecorativo';
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -35,16 +36,21 @@ const Index = () => {
         subtitle="Location esclusiva per eventi indimenticabili nel cuore della Sicilia"
         imageSrc={getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png")}
       />
+      <DividerDecorativo />
       
       {/* Eventi in Evidenza Section */}
-      <EventiInEvidenza />
+      <div id="eventi-in-evidenza">
+        <EventiInEvidenza />
+      </div>
+      <DividerDecorativo />
       
       {/* Calendario Eventi Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
           <EventCalendar compact={false} />
         </div>
       </section>
+      <DividerDecorativo />
       
       {/* Emotional WhatsApp Invitation - Aggiornato con Blu Navy */}
       <section className="section-padding bg-baglio-ebano relative overflow-hidden">
@@ -78,6 +84,15 @@ const Index = () => {
             
             {/* Visual hint pointing to WhatsApp button */}
             <div className="mt-8 flex flex-col items-center space-y-2">
+              <a
+                href="https://wa.me/393318286888?text=Ciao!%20Sono%20interessato%20a%20maggiori%20informazioni%20su%20Baglio%20Abbate."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-baglio-oro text-baglio-ebanoIntenso font-semibold rounded-lg shadow-lg hover:bg-baglio-oroImperiale transition-all duration-300 mt-4"
+              >
+                <MessageCircle size={20} className="mr-2" />
+                Inizia la conversazione
+              </a>
               <div className="text-baglio-oro/70 text-sm font-medium tracking-wide">
                 👆 Inizia la conversazione
               </div>
@@ -86,6 +101,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      <DividerDecorativo />
       
       {/* Brand Values Section */}
       <section className="py-16 bg-baglio-cremaIntonacata">
@@ -132,6 +148,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      <DividerDecorativo />
       
       {/* Venue Showcase Section */}
       <section className="py-16 bg-white">
@@ -170,6 +187,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      <DividerDecorativo />
 
       {/* Come raggiungerci Section - Aggiornato con Blu Navy */}
       <section className="py-16 bg-baglio-ebano border-t border-baglio-oro/30">

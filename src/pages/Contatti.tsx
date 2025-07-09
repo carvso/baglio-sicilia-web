@@ -5,6 +5,7 @@ import ImageWithOverlay from '@/components/ImageWithOverlay';
 import SectionTitle from '@/components/SectionTitle';
 import ContactForm from '@/components/ContactForm';
 import CTAButton from '@/components/CTAButton';
+import DividerContatti from '@/components/DividerContatti';
 
 const ContactInfo = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => {
   return (
@@ -52,10 +53,10 @@ const InstagramCTA = ({ variant = "default" }: { variant?: "default" | "compact"
       <Instagram size={variant === "hero" ? 32 : 24} className="mx-auto mb-3 text-baglio-oro" />
       <h4 className="font-playfair font-bold text-lg mb-2 text-baglio-oro">Seguici su Instagram</h4>
       <p className="text-baglio-cremaIntonacata text-sm mb-4">
-        @baglioabbate - Scopri le ultime foto e novità!
+        @baglioabbateevents - Scopri le ultime foto e novità!
       </p>
       <a 
-        href="https://instagram.com/baglioabbate" 
+        href="https://instagram.com/baglioabbateevents" 
         target="_blank" 
         rel="noopener noreferrer"
         className="inline-flex items-center bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-semibold px-4 py-2 rounded-lg transition-colors"
@@ -69,7 +70,7 @@ const InstagramCTA = ({ variant = "default" }: { variant?: "default" | "compact"
 
 const Contatti = () => {
   return (
-    <Layout heroLayout={true}>
+    <Layout heroLayout={true} hideBreadcrumb={true}>
       <div className="relative h-[75vh] overflow-hidden">
         <ImageWithOverlay 
           src="/lovable-uploads/a64af1b5-6d30-4760-80df-66af10202399.png"
@@ -91,7 +92,7 @@ const Contatti = () => {
                 Scrivi subito
               </CTAButton>
               <a 
-                href="https://instagram.com/baglioabbate" 
+                href="https://instagram.com/baglioabbateevents" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 py-4 px-8 text-xl border-3 border-white text-white hover:bg-white hover:text-baglio-ebanoIntenso backdrop-blur-sm"
@@ -103,6 +104,7 @@ const Contatti = () => {
           </div>
         </ImageWithOverlay>
       </div>
+      <DividerContatti />
 
       {/* Sezione Quick Actions - ridotto padding */}
       <section className="py-12 bg-baglio-ebano">
@@ -137,11 +139,12 @@ const Contatti = () => {
               icon={<Instagram size={28} />}
               title="Instagram"
               description="Segui i nostri aggiornamenti quotidiani e le foto degli eventi"
-              action="📸 @baglioabbate"
+              action="📸 @baglioabbateevents"
             />
           </div>
         </div>
       </section>
+      <DividerContatti />
 
       {/* Sezione principale con layout a due colonne - ridotto padding */}
       <section className="py-12 bg-baglio-ebano">
@@ -181,7 +184,7 @@ const Contatti = () => {
               <div className="bg-baglio-oro/10 p-6 rounded-xl border border-baglio-oro/30">
                 <h3 className="text-lg font-semibold mb-4 text-baglio-oro font-playfair">Social Media</h3>
                 <div className="flex space-x-4 mb-4">
-                  <a href="https://instagram.com/baglioabbate" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
+                  <a href="https://instagram.com/baglioabbateevents" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
                     <Instagram size={24} />
                   </a>
                   <a href="https://facebook.com/baglioabbate" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
@@ -213,6 +216,7 @@ const Contatti = () => {
           </div>
         </div>
       </section>
+      <DividerContatti />
 
       {/* Mappa con overlay informativo */}
       <section className="relative">
@@ -238,7 +242,7 @@ const Contatti = () => {
                 Prenota evento
               </CTAButton>
               <a 
-                href="https://instagram.com/baglioabbate" 
+                href="https://instagram.com/baglioabbateevents" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-baglio-oro hover:text-baglio-oroImperiale text-sm font-semibold"
@@ -318,7 +322,7 @@ const Contatti = () => {
           <MessageCircle size={20} />
         </a>
         <a 
-          href="https://instagram.com/baglioabbate" 
+          href="https://instagram.com/baglioabbateevents" 
           target="_blank" 
           rel="noopener noreferrer"
           className="bg-gradient-to-br from-baglio-oro to-baglio-oroImperiale text-baglio-ebanoIntenso p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"

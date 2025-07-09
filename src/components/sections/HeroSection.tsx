@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ChevronDown, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
 
@@ -15,16 +16,11 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
   const isMobile = useIsMobile();
   
   const scrollToNextSection = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    const target = document.getElementById('eventi-in-evidenza');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
     }
   };
 
@@ -68,38 +64,38 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
 
         {/* Primary CTA Button */}
         <div className="mb-8 animate-gentle-fade-in delay-200">
-          <button 
-            onClick={() => scrollToSection('eventi-section')}
+          <Link 
+            to="/eventi"
             className="group bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebano font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center space-x-2 text-lg font-inter"
           >
             <MapPin size={20} className="group-hover:scale-110 transition-transform duration-300" />
             <span>Scopri la location</span>
-          </button>
+          </Link>
         </div>
 
         {/* Secondary Navigation Menu */}
         <div className="animate-gentle-fade-in delay-300">
           <nav className="flex flex-wrap justify-center items-center space-x-1 sm:space-x-6 text-sm sm:text-base">
-            <button 
-              onClick={() => scrollToSection('eventi-section')}
+            <Link 
+              to="/eventi"
               className="px-3 py-2 text-white hover:text-baglio-oro transition-colors duration-300 border-b-2 border-transparent hover:border-baglio-oro font-medium font-inter"
             >
               Eventi
-            </button>
+            </Link>
             <span className="text-white/50 hidden sm:inline">•</span>
-            <button 
-              onClick={() => window.location.href = '/gallery'}
+            <Link 
+              to="/gallery"
               className="px-3 py-2 text-white hover:text-baglio-oro transition-colors duration-300 border-b-2 border-transparent hover:border-baglio-oro font-medium font-inter"
             >
               Gallery
-            </button>
+            </Link>
             <span className="text-white/50 hidden sm:inline">•</span>
-            <button 
-              onClick={() => window.location.href = '/contatti'}
+            <Link 
+              to="/contatti"
               className="px-3 py-2 text-white hover:text-baglio-oro transition-colors duration-300 border-b-2 border-transparent hover:border-baglio-oro font-medium font-inter"
             >
               Contatti
-            </button>
+            </Link>
           </nav>
         </div>
       </div>
