@@ -65,18 +65,18 @@ const BreadcrumbNavigation = () => {
       aria-label="breadcrumb"
       className="fixed top-[88px] sm:top-[84px] left-0 right-0 z-40 animate-fade-in"
     >
-      <div className="w-full overflow-x-auto scrollbar-hide">
+      <div className="w-full overflow-x-auto scrollbar-hide px-2 sm:px-4">
         <div className="flex justify-start">
           {/* Modern chip-style breadcrumb */}
-          <div className="flex items-center gap-1 px-2 py-1 mx-2 rounded-full bg-background/80 backdrop-blur-md border border-border/50 shadow-sm">
+          <div className="flex items-center gap-1 px-3 py-1.5 mx-1 rounded-full bg-background/80 backdrop-blur-md border border-border/50 shadow-sm min-w-fit">
             <ol className="flex items-center gap-1 text-xs font-light">
               {breadcrumbs.map((crumb, index) => {
                 const isLast = index === breadcrumbs.length - 1;
                 
                 return (
-                  <li key={index} className="flex items-center gap-1">
+                  <li key={index} className="flex items-center gap-1 flex-shrink-0">
                     {index === 0 && (
-                      <Home size={12} className="text-muted-foreground opacity-70" />
+                      <Home size={12} className="text-muted-foreground opacity-70 flex-shrink-0" />
                     )}
                     
                     {crumb.path && !isLast ? (
@@ -86,12 +86,14 @@ const BreadcrumbNavigation = () => {
                           "text-muted-foreground hover:text-foreground transition-all duration-200",
                           "focus:outline-none focus:ring-1 focus:ring-ring rounded-sm",
                           "px-1.5 py-0.5 hover:bg-accent/50 font-light hover:font-normal",
-                          "max-w-[100px] sm:max-w-none truncate text-xs"
+                          "text-xs whitespace-nowrap flex-shrink-0"
                         )}
                         title={crumb.label}
                       >
-                        {crumb.label.length > 10 && typeof window !== 'undefined' && window.innerWidth < 640 
-                          ? `${crumb.label.substring(0, 10)}...` 
+                        {crumb.label.length > 8 && typeof window !== 'undefined' && window.innerWidth < 360 
+                          ? `${crumb.label.substring(0, 6)}...` 
+                          : crumb.label.length > 12 && typeof window !== 'undefined' && window.innerWidth < 480
+                          ? `${crumb.label.substring(0, 10)}...`
                           : crumb.label}
                       </Link>
                     ) : (
@@ -100,13 +102,15 @@ const BreadcrumbNavigation = () => {
                           isLast 
                             ? "text-foreground font-normal bg-accent/30 px-1.5 py-0.5 rounded-sm" 
                             : "text-muted-foreground font-light px-1.5 py-0.5",
-                          "truncate max-w-[100px] sm:max-w-none text-xs"
+                          "text-xs whitespace-nowrap flex-shrink-0"
                         )}
                         aria-current={isLast ? "page" : undefined}
                         title={crumb.label}
                       >
-                        {crumb.label.length > 12 && typeof window !== 'undefined' && window.innerWidth < 640 
-                          ? `${crumb.label.substring(0, 12)}...` 
+                        {crumb.label.length > 10 && typeof window !== 'undefined' && window.innerWidth < 360 
+                          ? `${crumb.label.substring(0, 8)}...` 
+                          : crumb.label.length > 15 && typeof window !== 'undefined' && window.innerWidth < 480
+                          ? `${crumb.label.substring(0, 12)}...`
                           : crumb.label}
                       </span>
                     )}
