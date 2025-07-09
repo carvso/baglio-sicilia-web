@@ -4,17 +4,38 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { ChevronLeft, ChevronRight, MapPin, Clock, Users, Lock, ExternalLink } from 'lucide-react';
-import { format, isSameDay, startOfMonth, endOfMonth, eachDayOfInterval } from 'date-fns';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { ChevronLeft, ChevronRight, MapPin, Clock, Users, Lock, ExternalLink, Heart, Building2, PartyPopper, Eye, Calendar as CalendarIcon, Filter } from 'lucide-react';
+import { format, isSameDay, startOfMonth, endOfMonth, eachDayOfInterval, startOfWeek, endOfWeek, addDays } from 'date-fns';
 import { it } from 'date-fns/locale';
 import { cn } from '@/lib/utils';
 
-// Tipi di eventi con colori
+// Tipi di eventi con colori navy/oro eleganti e icone
 const eventTypes = {
-  matrimonio: { color: 'bg-pink-100 text-pink-800 border-pink-200', label: 'Matrimonio' },
-  aziendale: { color: 'bg-blue-100 text-blue-800 border-blue-200', label: 'Evento Aziendale' },
-  pubblico: { color: 'bg-green-100 text-green-800 border-green-200', label: 'Evento Pubblico' },
-  privato: { color: 'bg-gray-100 text-gray-600 border-gray-200', label: 'Evento Privato' }
+  matrimonio: { 
+    color: 'bg-gradient-to-r from-rose-50 to-pink-50 text-rose-700 border-rose-200/60', 
+    label: 'Matrimonio',
+    icon: Heart,
+    dotColor: 'bg-rose-400'
+  },
+  aziendale: { 
+    color: 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 border-blue-200/60', 
+    label: 'Evento Aziendale',
+    icon: Building2,
+    dotColor: 'bg-blue-400'
+  },
+  pubblico: { 
+    color: 'bg-gradient-to-r from-emerald-50 to-green-50 text-emerald-700 border-emerald-200/60', 
+    label: 'Evento Pubblico',
+    icon: PartyPopper,
+    dotColor: 'bg-emerald-400'
+  },
+  privato: { 
+    color: 'bg-gradient-to-r from-slate-50 to-gray-50 text-slate-600 border-slate-200/60', 
+    label: 'Evento Privato',
+    icon: Eye,
+    dotColor: 'bg-slate-400'
+  }
 };
 
 // Eventi fittizi per il mese corrente e prossimo
@@ -94,16 +115,24 @@ interface EventCalendarProps {
   compact?: boolean;
 }
 
+type ViewMode = 'month' | 'week';
+type FilterType = 'all' | keyof typeof eventTypes;
+
 export function EventCalendar({ className, showHeader = true, compact = false }: EventCalendarProps) {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [currentMonth, setCurrentMonth] = useState<Date>(new Date());
+  const [viewMode, setViewMode] = useState<ViewMode>('month');
+  const [filter, setFilter] = useState<FilterType>('all');
 
-  // Filtra eventi per il mese corrente
-  const monthStart = startOfMonth(currentMonth);
-  const monthEnd = endOfMonth(currentMonth);
-  const monthEvents = mockEvents.filter(event => 
-    event.date >= monthStart && event.date <= monthEnd
-  );
+  // Filtra eventi per il periodo corrente e per categoria
+  const periodStart = viewMode === 'month' ? startOfMonth(currentMonth) : startOfWeek(currentMonth, { weekStartsOn: 1 });
+  const periodEnd = viewMode === 'month' ? endOfMonth(currentMonth) : endOfWeek(currentMonth, { weekStartsOn: 1 });
+  
+  const filteredEvents = mockEvents.filter(event => {
+    const inPeriod = event.date >= periodStart && event.date <= periodEnd;
+    const matchesFilter = filter === 'all' || event.type === filter;
+    return inPeriod && matchesFilter;
+  });
 
   // Ottieni eventi per una data specifica
   const getEventsForDate = (date: Date) => {
@@ -113,44 +142,61 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
   // Ottieni eventi per la data selezionata
   const selectedDateEvents = getEventsForDate(selectedDate);
 
-  // Naviga tra i mesi
-  const goToPreviousMonth = () => {
-    setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() - 1, 1));
+
+  // Navigazione periodo
+  const goToPreviousPeriod = () => {
+    if (viewMode === 'month') {
+      setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() - 1, 1));
+    } else {
+      setCurrentMonth(prev => new Date(prev.getTime() - 7 * 24 * 60 * 60 * 1000));
+    }
   };
 
-  const goToNextMonth = () => {
-    setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() + 1, 1));
+  const goToNextPeriod = () => {
+    if (viewMode === 'month') {
+      setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() + 1, 1));
+    } else {
+      setCurrentMonth(prev => new Date(prev.getTime() + 7 * 24 * 60 * 60 * 1000));
+    }
   };
 
-  // Custom day renderer per mostrare eventi
+  // Custom day renderer elegante con bordi oro
   const renderDay = (date: Date) => {
-    const dayEvents = getEventsForDate(date);
+    const dayEvents = getEventsForDate(date).filter(event => filter === 'all' || event.type === filter);
     const hasEvents = dayEvents.length > 0;
+    const isToday = isSameDay(date, new Date());
+    const isSelected = isSameDay(date, selectedDate);
 
     return (
-      <div className="relative w-full h-full">
+      <div className={cn(
+        "relative w-full h-12 flex flex-col items-center justify-center rounded-lg transition-all duration-200",
+        "hover:bg-gradient-to-br hover:from-baglio-gold/10 hover:to-baglio-gold/5 hover:shadow-sm",
+        isSelected && "bg-gradient-to-br from-baglio-navy/10 to-baglio-navy/5 border border-baglio-gold/30 shadow-md",
+        isToday && !isSelected && "bg-baglio-gold/10 border border-baglio-gold/50"
+      )}>
         <span className={cn(
-          "text-sm",
-          isSameDay(date, selectedDate) && "font-semibold"
+          "text-sm font-medium transition-colors",
+          isSelected && "text-baglio-navy font-semibold",
+          isToday && !isSelected && "text-baglio-gold font-semibold"
         )}>
           {date.getDate()}
         </span>
         {hasEvents && (
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex gap-0.5">
-            {dayEvents.slice(0, 3).map((event, index) => (
-              <div
-                key={event.id}
-                className={cn(
-                  "w-1.5 h-1.5 rounded-full",
-                  event.type === 'matrimonio' && "bg-pink-500",
-                  event.type === 'aziendale' && "bg-blue-500",
-                  event.type === 'pubblico' && "bg-green-500",
-                  event.type === 'privato' && "bg-gray-400"
-                )}
-              />
-            ))}
+          <div className="absolute bottom-1 flex gap-0.5">
+            {dayEvents.slice(0, 3).map((event) => {
+              const IconComponent = eventTypes[event.type].icon;
+              return (
+                <div
+                  key={event.id}
+                  className={cn(
+                    "w-1.5 h-1.5 rounded-full shadow-sm border border-white/50",
+                    eventTypes[event.type].dotColor
+                  )}
+                />
+              );
+            })}
             {dayEvents.length > 3 && (
-              <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+              <div className="w-1.5 h-1.5 rounded-full bg-baglio-gold border border-white/50 shadow-sm" />
             )}
           </div>
         )}
@@ -158,139 +204,346 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
     );
   };
 
-  const EventCard = ({ event }: { event: typeof mockEvents[0] }) => (
-    <Card className="mb-3 hover:shadow-md transition-shadow">
-      <CardContent className="p-4">
-        <div className="flex items-start justify-between mb-2">
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-1">
-              <h4 className="font-medium text-sm">{event.title}</h4>
-              {event.isPrivate && <Lock className="w-3 h-3 text-muted-foreground" />}
+  // Renderizza vista settimanale
+  const renderWeekView = () => {
+    const weekStart = startOfWeek(currentMonth, { weekStartsOn: 1 });
+    const days = Array.from({ length: 7 }, (_, i) => addDays(weekStart, i));
+    
+    return (
+      <div className="bg-gradient-to-br from-white to-slate-50/30 rounded-xl border border-baglio-gold/20 shadow-lg overflow-hidden">
+        <div className="grid grid-cols-7 border-b border-baglio-gold/20">
+          {['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'].map((day) => (
+            <div key={day} className="p-3 text-center text-sm font-medium text-baglio-navy bg-gradient-to-r from-baglio-gold/5 to-baglio-gold/10">
+              {day}
             </div>
-            <Badge variant="outline" className={cn("text-xs", eventTypes[event.type].color)}>
-              {eventTypes[event.type].label}
-            </Badge>
-          </div>
-          {event.thumbnail && (
-            <img 
-              src={event.thumbnail} 
-              alt={event.title}
-              className="w-12 h-12 rounded-lg object-cover ml-3"
-            />
-          )}
+          ))}
         </div>
-        
-        <div className="space-y-1 text-xs text-muted-foreground">
-          <div className="flex items-center gap-1">
-            <Clock className="w-3 h-3" />
-            <span>{event.time}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <MapPin className="w-3 h-3" />
-            <span>{event.location}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Users className="w-3 h-3" />
-            <span>{event.guests} ospiti</span>
-          </div>
+        <div className="grid grid-cols-7">
+          {days.map((day) => {
+            const dayEvents = getEventsForDate(day).filter(event => filter === 'all' || event.type === filter);
+            return (
+              <div 
+                key={day.toISOString()} 
+                className="min-h-[120px] p-2 border-r border-baglio-gold/10 last:border-r-0 cursor-pointer hover:bg-baglio-gold/5 transition-colors"
+                onClick={() => setSelectedDate(day)}
+              >
+                <div className={cn(
+                  "text-sm font-medium mb-2 text-center",
+                  isSameDay(day, new Date()) && "text-baglio-gold font-semibold",
+                  isSameDay(day, selectedDate) && "text-baglio-navy font-bold"
+                )}>
+                  {day.getDate()}
+                </div>
+                <div className="space-y-1">
+                  {dayEvents.slice(0, 2).map((event) => {
+                    const IconComponent = eventTypes[event.type].icon;
+                    return (
+                      <div 
+                        key={event.id}
+                        className={cn(
+                          "text-xs p-1.5 rounded-md border shadow-sm transition-all hover:shadow-md",
+                          eventTypes[event.type].color
+                        )}
+                      >
+                        <div className="flex items-center gap-1">
+                          <IconComponent className="w-3 h-3 flex-shrink-0" />
+                          <span className="truncate font-medium">{event.title}</span>
+                        </div>
+                        <div className="text-xs opacity-75 mt-0.5">{event.time}</div>
+                      </div>
+                    );
+                  })}
+                  {dayEvents.length > 2 && (
+                    <div className="text-xs text-baglio-navy/60 font-medium text-center">
+                      +{dayEvents.length - 2} altri
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
+      </div>
+    );
+  };
 
-        {event.description && (
-          <p className="text-xs text-muted-foreground mt-2 line-clamp-2">
-            {event.description}
-          </p>
-        )}
+  const EventCard = ({ event }: { event: typeof mockEvents[0] }) => {
+    const IconComponent = eventTypes[event.type].icon;
+    
+    return (
+      <Card className="group overflow-hidden border-baglio-gold/20 shadow-sm hover:shadow-xl hover:border-baglio-gold/40 transition-all duration-300 hover:-translate-y-1">
+        <CardContent className="p-0">
+          {/* Header con thumbnail */}
+          <div className="relative">
+            {event.thumbnail && (
+              <div className="aspect-[16/9] overflow-hidden">
+                <img 
+                  src={event.thumbnail} 
+                  alt={event.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-baglio-navy/20 to-transparent" />
+              </div>
+            )}
+            
+            {/* Badge categoria con icona */}
+            <div className="absolute top-3 left-3">
+              <Badge className={cn(
+                "text-xs font-medium shadow-md border-white/20 backdrop-blur-sm",
+                eventTypes[event.type].color
+              )}>
+                <IconComponent className="w-3 h-3 mr-1" />
+                {eventTypes[event.type].label}
+              </Badge>
+            </div>
 
-        {event.bookable && !event.isPrivate && (
-          <Button size="sm" className="w-full mt-3" variant="outline">
-            <ExternalLink className="w-3 h-3 mr-1" />
-            Prenota ora
-          </Button>
-        )}
-
-        {event.isPrivate && (
-          <div className="mt-3 p-2 bg-muted/50 rounded text-xs text-center text-muted-foreground">
-            Evento Privato - Non Prenotabile
+            {event.isPrivate && (
+              <div className="absolute top-3 right-3">
+                <div className="bg-slate-800/80 text-white p-1.5 rounded-full backdrop-blur-sm">
+                  <Lock className="w-3 h-3" />
+                </div>
+              </div>
+            )}
           </div>
-        )}
-      </CardContent>
-    </Card>
-  );
+
+          {/* Contenuto */}
+          <div className="p-4">
+            <div className="mb-3">
+              <h4 className="font-serif text-lg text-baglio-navy font-semibold leading-tight mb-1">
+                {event.title}
+              </h4>
+              <p className="text-sm text-baglio-navy/60">
+                {format(event.date, 'EEEE dd MMMM yyyy', { locale: it })}
+              </p>
+            </div>
+            
+            <div className="space-y-2 text-sm text-baglio-navy/70">
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-baglio-gold" />
+                <span>{event.time}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-baglio-gold" />
+                <span>{event.location}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Users className="w-4 h-4 text-baglio-gold" />
+                <span>{event.guests} ospiti</span>
+              </div>
+            </div>
+
+            {event.description && (
+              <p className="text-sm text-baglio-navy/60 mt-3 line-clamp-2 font-sans leading-relaxed">
+                {event.description}
+              </p>
+            )}
+
+            {/* CTA Buttons */}
+            <div className="mt-4 space-y-2">
+              {event.bookable && !event.isPrivate && (
+                <Button 
+                  className="w-full bg-baglio-gold text-baglio-navy hover:bg-baglio-gold/90 font-semibold shadow-md hover:shadow-lg transition-all duration-200"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Prenota ora
+                </Button>
+              )}
+              
+              {!event.isPrivate && (
+                <Button 
+                  variant="outline" 
+                  className="w-full border-baglio-navy/20 text-baglio-navy hover:bg-baglio-navy/5 hover:border-baglio-navy/40"
+                >
+                  <Eye className="w-4 h-4 mr-2" />
+                  Scopri di più
+                </Button>
+              )}
+
+              {event.isPrivate && (
+                <div className="bg-gradient-to-r from-slate-50 to-gray-50 border border-slate-200/60 rounded-lg p-3 text-center">
+                  <div className="flex items-center justify-center gap-2 text-slate-600">
+                    <Lock className="w-4 h-4" />
+                    <span className="text-sm font-medium">Evento Privato</span>
+                  </div>
+                  <p className="text-xs text-slate-500 mt-1">Non disponibile per prenotazioni</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  };
 
   return (
-    <div className={cn("space-y-4", className)}>
+    <div className={cn("space-y-6", className)}>
       {showHeader && (
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-xl font-semibold">Calendario Eventi</h3>
-            <p className="text-sm text-muted-foreground">Scopri i nostri prossimi eventi</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" onClick={goToPreviousMonth}>
-              <ChevronLeft className="w-4 h-4" />
-            </Button>
-            <span className="text-sm font-medium min-w-[120px] text-center">
-              {format(currentMonth, 'MMMM yyyy', { locale: it })}
-            </span>
-            <Button variant="outline" size="sm" onClick={goToNextMonth}>
-              <ChevronRight className="w-4 h-4" />
-            </Button>
+        <div className="text-center lg:text-left">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            <div>
+              <h2 className="text-3xl font-serif text-baglio-navy font-bold mb-2">
+                Calendario Eventi
+              </h2>
+              <p className="text-baglio-navy/70 font-sans max-w-2xl">
+                Scopri i nostri eventi esclusivi immersi nella bellezza della Sicilia. 
+                Dalla magia dei matrimoni agli eventi aziendali di prestigio.
+              </p>
+            </div>
+            
+            {/* Controlli di navigazione e visualizzazione */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              {/* Filtri categoria */}
+              <Select value={filter} onValueChange={(value) => setFilter(value as FilterType)}>
+                <SelectTrigger className="w-48 border-baglio-gold/30 bg-white/80 backdrop-blur-sm">
+                  <Filter className="w-4 h-4 mr-2 text-baglio-gold" />
+                  <SelectValue placeholder="Filtra eventi" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Tutti gli eventi</SelectItem>
+                  {Object.entries(eventTypes).map(([type, config]) => {
+                    const IconComponent = config.icon;
+                    return (
+                      <SelectItem key={type} value={type}>
+                        <div className="flex items-center gap-2">
+                          <IconComponent className="w-4 h-4" />
+                          {config.label}
+                        </div>
+                      </SelectItem>
+                    );
+                  })}
+                </SelectContent>
+              </Select>
+
+              {/* Toggle vista mensile/settimanale */}
+              <div className="flex bg-baglio-gold/10 rounded-lg p-1 border border-baglio-gold/30">
+                <Button
+                  variant={viewMode === 'month' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => setViewMode('month')}
+                  className={cn(
+                    "px-4 font-medium transition-all",
+                    viewMode === 'month' 
+                      ? "bg-baglio-gold text-baglio-navy shadow-sm" 
+                      : "text-baglio-navy/70 hover:text-baglio-navy hover:bg-baglio-gold/20"
+                  )}
+                >
+                  <CalendarIcon className="w-4 h-4 mr-2" />
+                  Mese
+                </Button>
+                <Button
+                  variant={viewMode === 'week' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => setViewMode('week')}
+                  className={cn(
+                    "px-4 font-medium transition-all",
+                    viewMode === 'week' 
+                      ? "bg-baglio-gold text-baglio-navy shadow-sm" 
+                      : "text-baglio-navy/70 hover:text-baglio-navy hover:bg-baglio-gold/20"
+                  )}
+                >
+                  <Eye className="w-4 h-4 mr-2" />
+                  Settimana
+                </Button>
+              </div>
+
+              {/* Navigazione periodo */}
+              <div className="flex items-center gap-2">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={goToPreviousPeriod}
+                  className="border-baglio-gold/30 text-baglio-navy hover:bg-baglio-gold/10 hover:border-baglio-gold/50"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </Button>
+                <div className="min-w-[140px] text-center">
+                  <span className="text-sm font-serif font-semibold text-baglio-navy">
+                    {viewMode === 'month' 
+                      ? format(currentMonth, 'MMMM yyyy', { locale: it })
+                      : `${format(startOfWeek(currentMonth, { weekStartsOn: 1 }), 'dd MMM', { locale: it })} - ${format(endOfWeek(currentMonth, { weekStartsOn: 1 }), 'dd MMM yyyy', { locale: it })}`
+                    }
+                  </span>
+                </div>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={goToNextPeriod}
+                  className="border-baglio-gold/30 text-baglio-navy hover:bg-baglio-gold/10 hover:border-baglio-gold/50"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       )}
 
       <div className={cn(
-        "grid gap-4",
-        compact ? "grid-cols-1" : "grid-cols-1 lg:grid-cols-3"
+        "grid gap-6",
+        compact ? "grid-cols-1" : "grid-cols-1 xl:grid-cols-3"
       )}>
-        {/* Calendario */}
-        <div className={cn("lg:col-span-2", compact && "lg:col-span-1")}>
-          <Card>
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg">
-                {format(currentMonth, 'MMMM yyyy', { locale: it })}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Calendar
-                mode="single"
-                selected={selectedDate}
-                onSelect={(date) => date && setSelectedDate(date)}
-                month={currentMonth}
-                onMonthChange={setCurrentMonth}
-                className="w-full pointer-events-auto"
-                components={{
-                  Day: ({ date }) => (
-                    <button className="relative w-full h-10 text-sm rounded-md hover:bg-accent hover:text-accent-foreground">
-                      {renderDay(date)}
-                    </button>
-                  )
-                }}
-              />
-            </CardContent>
-          </Card>
+        {/* Vista Calendario */}
+        <div className={cn("xl:col-span-2", compact && "xl:col-span-1")}>
+          {viewMode === 'week' ? renderWeekView() : (
+            <Card className="overflow-hidden border-baglio-gold/20 shadow-lg bg-gradient-to-br from-white to-slate-50/30">
+              <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20 pb-4">
+                <CardTitle className="text-xl font-serif text-baglio-navy">
+                  {format(currentMonth, 'MMMM yyyy', { locale: it })}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
+                <Calendar
+                  mode="single"
+                  selected={selectedDate}
+                  onSelect={(date) => date && setSelectedDate(date)}
+                  month={currentMonth}
+                  onMonthChange={setCurrentMonth}
+                  className="w-full pointer-events-auto"
+                  classNames={{
+                    day: "relative h-12 w-12 p-0 font-normal aria-selected:opacity-100 hover:bg-baglio-gold/10 hover:text-baglio-navy transition-colors rounded-lg",
+                    day_selected: "bg-baglio-navy text-white hover:bg-baglio-navy/90 hover:text-white",
+                    day_today: "bg-baglio-gold/20 text-baglio-navy font-semibold",
+                    day_outside: "text-baglio-navy/30 opacity-50",
+                  }}
+                  components={{
+                    Day: ({ date }) => (
+                      <button className="relative w-full h-12 text-sm rounded-lg transition-colors hover:bg-baglio-gold/10">
+                        {renderDay(date)}
+                      </button>
+                    )
+                  }}
+                />
+              </CardContent>
+            </Card>
+          )}
         </div>
 
-        {/* Eventi della data selezionata */}
+        {/* Eventi della data selezionata o filtrati */}
         {!compact && (
-          <div>
-            <Card>
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg">
+          <div className="space-y-4">
+            <Card className="border-baglio-gold/20 shadow-lg bg-gradient-to-br from-white to-slate-50/30">
+              <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20">
+                <CardTitle className="text-lg font-serif text-baglio-navy flex items-center gap-2">
+                  <CalendarIcon className="w-5 h-5 text-baglio-gold" />
                   {format(selectedDate, 'dd MMMM yyyy', { locale: it })}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4">
                 {selectedDateEvents.length > 0 ? (
-                  <div className="space-y-3">
-                    {selectedDateEvents.map(event => (
+                  <div className="space-y-4">
+                    {selectedDateEvents.filter(event => filter === 'all' || event.type === filter).map(event => (
                       <EventCard key={event.id} event={event} />
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-8 text-muted-foreground">
-                    <Calendar className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                    <p className="text-sm">Nessun evento in questa data</p>
+                  <div className="text-center py-12">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-baglio-gold/10 flex items-center justify-center">
+                      <CalendarIcon className="w-8 h-8 text-baglio-gold/60" />
+                    </div>
+                    <h4 className="font-serif text-baglio-navy mb-2">Nessun evento</h4>
+                    <p className="text-sm text-baglio-navy/60 font-sans">
+                      Non ci sono eventi in questa data
+                    </p>
                   </div>
                 )}
               </CardContent>
@@ -299,53 +552,62 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
         )}
       </div>
 
-      {/* Legenda colori */}
-      <Card>
-        <CardContent className="p-4">
-          <div className="flex flex-wrap gap-4 justify-center">
-            {Object.entries(eventTypes).map(([type, config]) => (
-              <div key={type} className="flex items-center gap-2">
-                <div className={cn(
-                  "w-3 h-3 rounded-full",
-                  type === 'matrimonio' && "bg-pink-500",
-                  type === 'aziendale' && "bg-blue-500", 
-                  type === 'pubblico' && "bg-green-500",
-                  type === 'privato' && "bg-gray-400"
-                )} />
-                <span className="text-xs text-muted-foreground">{config.label}</span>
-              </div>
-            ))}
+      {/* Legenda elegante */}
+      <Card className="border-baglio-gold/20 shadow-md bg-gradient-to-r from-white to-baglio-gold/5">
+        <CardContent className="p-6">
+          <h4 className="font-serif text-baglio-navy font-semibold mb-4 text-center">Tipologie Eventi</h4>
+          <div className="flex flex-wrap gap-6 justify-center">
+            {Object.entries(eventTypes).map(([type, config]) => {
+              const IconComponent = config.icon;
+              return (
+                <div key={type} className="flex items-center gap-3 group cursor-pointer" onClick={() => setFilter(type as FilterType)}>
+                  <div className={cn(
+                    "w-4 h-4 rounded-full shadow-sm border border-white/50 transition-transform group-hover:scale-110",
+                    config.dotColor
+                  )} />
+                  <IconComponent className="w-4 h-4 text-baglio-gold" />
+                  <span className="text-sm font-medium text-baglio-navy group-hover:text-baglio-navy/80 transition-colors">
+                    {config.label}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </CardContent>
       </Card>
 
-      {/* Lista eventi del mese (per mobile) */}
-      {compact && monthEvents.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Eventi del mese</CardTitle>
+      {/* Lista eventi per mobile/compact */}
+      {compact && filteredEvents.length > 0 && (
+        <Card className="border-baglio-gold/20 shadow-lg">
+          <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20">
+            <CardTitle className="text-lg font-serif text-baglio-navy">
+              Eventi di {format(currentMonth, 'MMMM yyyy', { locale: it })}
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              {monthEvents.slice(0, 3).map(event => (
+          <CardContent className="p-4">
+            <div className="space-y-4">
+              {filteredEvents.slice(0, 3).map(event => (
                 <EventCard key={event.id} event={event} />
               ))}
-              {monthEvents.length > 3 && (
-                <div className="text-center pt-2">
+              {filteredEvents.length > 3 && (
+                <div className="text-center pt-4">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button variant="outline" size="sm">
-                        Vedi tutti gli eventi ({monthEvents.length})
+                      <Button 
+                        variant="outline" 
+                        className="border-baglio-gold/30 text-baglio-navy hover:bg-baglio-gold/10"
+                      >
+                        Vedi tutti gli eventi ({filteredEvents.length})
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-md">
+                    <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
                       <DialogHeader>
-                        <DialogTitle>
+                        <DialogTitle className="font-serif text-baglio-navy">
                           Eventi di {format(currentMonth, 'MMMM yyyy', { locale: it })}
                         </DialogTitle>
                       </DialogHeader>
-                      <div className="space-y-3 max-h-96 overflow-y-auto">
-                        {monthEvents.map(event => (
+                      <div className="space-y-4">
+                        {filteredEvents.map(event => (
                           <EventCard key={event.id} event={event} />
                         ))}
                       </div>
