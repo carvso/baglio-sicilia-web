@@ -13,32 +13,28 @@ import { cn } from '@/lib/utils';
 // Tipi di eventi con colori navy/oro eleganti e icone
 const eventTypes = {
   matrimonio: { 
-    color: 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-900 border-blue-200', 
+    color: 'bg-gradient-to-r from-rose-50 to-pink-50 text-rose-700 border-rose-200/60', 
     label: 'Matrimonio',
     icon: Heart,
-    dotColor: 'bg-blue-600',
-    bgColor: 'from-blue-50 to-blue-100 border-blue-200/60'
+    dotColor: 'bg-rose-400'
   },
   aziendale: { 
-    color: 'bg-gradient-to-r from-slate-50 to-gray-50 text-slate-800 border-slate-200', 
+    color: 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 border-blue-200/60', 
     label: 'Evento Aziendale',
     icon: Building2,
-    dotColor: 'bg-slate-600',
-    bgColor: 'from-slate-50 to-slate-100 border-slate-200/60'
+    dotColor: 'bg-blue-400'
   },
   pubblico: { 
-    color: 'bg-gradient-to-r from-amber-50 to-yellow-50 text-amber-900 border-amber-200', 
+    color: 'bg-gradient-to-r from-emerald-50 to-green-50 text-emerald-700 border-emerald-200/60', 
     label: 'Evento Pubblico',
     icon: PartyPopper,
-    dotColor: 'bg-amber-600',
-    bgColor: 'from-amber-50 to-amber-100 border-amber-200/60'
+    dotColor: 'bg-emerald-400'
   },
   privato: { 
-    color: 'bg-gradient-to-r from-gray-50 to-stone-50 text-gray-700 border-gray-200', 
+    color: 'bg-gradient-to-r from-slate-50 to-gray-50 text-slate-600 border-slate-200/60', 
     label: 'Evento Privato',
     icon: Eye,
-    dotColor: 'bg-gray-500',
-    bgColor: 'from-gray-50 to-gray-100 border-gray-200/60'
+    dotColor: 'bg-slate-400'
   }
 };
 
@@ -279,28 +275,28 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
         "relative w-full h-12 flex flex-col items-center justify-center rounded-lg transition-all duration-200",
         "hover:shadow-sm border border-transparent",
         
-        // Colori di sfondo per eventi con contrasto migliorato
-        hasEvents && primaryEventType === 'matrimonio' && "bg-gradient-to-br from-blue-50 to-blue-100 border-blue-300/60 hover:from-blue-100 hover:to-blue-150 text-blue-900",
-        hasEvents && primaryEventType === 'aziendale' && "bg-gradient-to-br from-slate-50 to-slate-100 border-slate-300/60 hover:from-slate-100 hover:to-slate-150 text-slate-800",
-        hasEvents && primaryEventType === 'pubblico' && "bg-gradient-to-br from-amber-50 to-amber-100 border-amber-300/60 hover:from-amber-100 hover:to-amber-150 text-amber-900",
-        hasEvents && primaryEventType === 'privato' && "bg-gradient-to-br from-gray-50 to-gray-100 border-gray-300/60 hover:from-gray-100 hover:to-gray-150 text-gray-700",
+        // Colori di sfondo per eventi
+        hasEvents && primaryEventType === 'matrimonio' && "bg-gradient-to-br from-rose-50 to-pink-100 border-rose-200/50 hover:from-rose-100 hover:to-pink-150",
+        hasEvents && primaryEventType === 'aziendale' && "bg-gradient-to-br from-blue-50 to-indigo-100 border-blue-200/50 hover:from-blue-100 hover:to-indigo-150",
+        hasEvents && primaryEventType === 'pubblico' && "bg-gradient-to-br from-emerald-50 to-green-100 border-emerald-200/50 hover:from-emerald-100 hover:to-green-150",
+        hasEvents && primaryEventType === 'privato' && "bg-gradient-to-br from-slate-50 to-gray-100 border-slate-200/50 hover:from-slate-100 hover:to-gray-150",
         
         // Hover per giorni senza eventi
-        !hasEvents && "hover:bg-gradient-to-br hover:from-primary/5 hover:to-primary/10 hover:border-primary/20",
+        !hasEvents && "hover:bg-gradient-to-br hover:from-baglio-gold/10 hover:to-baglio-gold/5 hover:border-baglio-gold/30",
         
         // Stile per giorno selezionato
-        isSelected && hasEvents && "ring-2 ring-primary/50 ring-offset-1 shadow-lg",
-        isSelected && !hasEvents && "bg-gradient-to-br from-primary/10 to-primary/5 border-primary/30 shadow-lg",
+        isSelected && hasEvents && "ring-2 ring-baglio-gold/50 ring-offset-1 shadow-md",
+        isSelected && !hasEvents && "bg-gradient-to-br from-baglio-navy/10 to-baglio-navy/5 border-baglio-gold/30 shadow-md",
         
         // Stile per oggi
-        isToday && !isSelected && !hasEvents && "bg-primary/10 border-primary/40 text-primary font-semibold",
-        isToday && !isSelected && hasEvents && "ring-1 ring-primary/50"
+        isToday && !isSelected && !hasEvents && "bg-baglio-gold/10 border-baglio-gold/50",
+        isToday && !isSelected && hasEvents && "ring-1 ring-baglio-gold/40"
       )}>
         <span className={cn(
           "text-sm font-medium transition-colors relative z-10",
-          isSelected && "text-primary font-bold",
-          isToday && !isSelected && "text-primary font-bold",
-          hasEvents && !isSelected && !isToday && "font-semibold"
+          isSelected && "text-baglio-navy font-semibold",
+          isToday && !isSelected && "text-baglio-gold font-semibold",
+          hasEvents && !isSelected && !isToday && "text-baglio-navy/90 font-semibold"
         )}>
           {date.getDate()}
         </span>
@@ -320,7 +316,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
               );
             })}
             {dayEvents.length > 3 && (
-              <div className="w-1.5 h-1.5 rounded-full bg-primary border border-white/70 shadow-sm opacity-80" />
+              <div className="w-1.5 h-1.5 rounded-full bg-baglio-gold border border-white/70 shadow-sm opacity-80" />
             )}
           </div>
         )}
@@ -433,11 +429,11 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
           {/* Contenuto */}
           <div className="p-5">
             <div className="mb-4">
-              <h3 className="font-serif text-xl text-primary font-bold leading-tight mb-2 tracking-wide">
+              <h3 className="font-serif text-xl text-baglio-navy font-bold leading-tight mb-2 tracking-wide">
                 {event.title}
               </h3>
-              <div className="flex items-center gap-2 text-foreground/70">
-                <CalendarIcon className="w-4 h-4 text-primary flex-shrink-0" />
+              <div className="flex items-center gap-2 text-baglio-navy/70">
+                <CalendarIcon className="w-4 h-4 text-baglio-gold flex-shrink-0" />
                 <p className="text-sm font-medium">
                   {format(event.date, 'EEEE dd MMMM yyyy', { locale: it })}
                 </p>
@@ -445,41 +441,41 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
             </div>
             
             <div className="space-y-3 mb-4">
-              <div className="flex items-center gap-3 text-foreground/70">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-4 h-4 text-primary" />
+              <div className="flex items-center gap-3 text-baglio-navy/70">
+                <div className="w-8 h-8 rounded-full bg-baglio-gold/10 flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-4 h-4 text-baglio-gold" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground">Orario</p>
-                  <p className="text-sm text-foreground/70">{event.time}</p>
+                  <p className="text-sm font-medium text-baglio-navy">Orario</p>
+                  <p className="text-sm text-baglio-navy/60">{event.time}</p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-3 text-foreground/70">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-4 h-4 text-primary" />
+              <div className="flex items-center gap-3 text-baglio-navy/70">
+                <div className="w-8 h-8 rounded-full bg-baglio-gold/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-4 h-4 text-baglio-gold" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground">Location</p>
-                  <p className="text-sm text-foreground/70">{event.location}</p>
+                  <p className="text-sm font-medium text-baglio-navy">Location</p>
+                  <p className="text-sm text-baglio-navy/60">{event.location}</p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-3 text-foreground/70">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Users className="w-4 h-4 text-primary" />
+              <div className="flex items-center gap-3 text-baglio-navy/70">
+                <div className="w-8 h-8 rounded-full bg-baglio-gold/10 flex items-center justify-center flex-shrink-0">
+                  <Users className="w-4 h-4 text-baglio-gold" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground">Ospiti</p>
-                  <p className="text-sm text-foreground/70">{event.guests} persone</p>
+                  <p className="text-sm font-medium text-baglio-navy">Ospiti</p>
+                  <p className="text-sm text-baglio-navy/60">{event.guests} persone</p>
                 </div>
               </div>
             </div>
 
             {event.description && (
               <div className="mb-5">
-                <h4 className="text-sm font-semibold text-foreground mb-2">Descrizione</h4>
-                <p className="text-sm text-foreground/70 font-sans leading-relaxed">
+                <h4 className="text-sm font-semibold text-baglio-navy mb-2">Descrizione</h4>
+                <p className="text-sm text-baglio-navy/70 font-sans leading-relaxed">
                   {event.description}
                 </p>
               </div>
@@ -489,7 +485,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
             <div className="space-y-3">
               {event.bookable && !event.isPrivate && (
                 <Button 
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-md hover:shadow-lg transition-all duration-200 h-11"
+                  className="w-full bg-baglio-gold text-baglio-navy hover:bg-baglio-gold/90 font-semibold shadow-md hover:shadow-lg transition-all duration-200 h-11"
                 >
                   <ExternalLink className="w-4 h-4 mr-2" />
                   Prenota ora
@@ -499,7 +495,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
               {!event.isPrivate && (
                 <Button 
                   variant="outline" 
-                  className="w-full border-primary/30 text-primary hover:bg-primary/5 hover:border-primary/50 h-11"
+                  className="w-full border-baglio-navy/20 text-baglio-navy hover:bg-baglio-navy/5 hover:border-baglio-navy/40 h-11"
                 >
                   <Eye className="w-4 h-4 mr-2" />
                   Scopri di più
@@ -527,18 +523,36 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
       {showHeader && (
         <div className="text-center lg:text-left">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-            <div className="space-y-3">
-              <h1 className="text-4xl lg:text-5xl font-serif text-primary font-bold tracking-wide">
-                Calendario Eventi
-              </h1>
+            <div className="space-y-4">
+              <div>
+                <h1 className="text-4xl lg:text-5xl font-serif text-baglio-navy font-bold mb-3 tracking-wide">
+                  Calendario Eventi
+                </h1>
+                <p className="text-lg text-baglio-navy/80 font-sans leading-relaxed max-w-3xl">
+                  <span className="font-medium">Scopri la magia di Baglio Abbate</span> attraverso i nostri eventi esclusivi 
+                  immersi nella bellezza autentica della Sicilia. Dalla celebrazione romantica dei matrimoni 
+                  agli eventi aziendali di prestigio internazionale.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-baglio-gold/20 text-baglio-navy border border-baglio-gold/30">
+                  📍 Sicilia Autentica
+                </span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-baglio-navy/10 text-baglio-navy border border-baglio-navy/20">
+                  ✨ Location Esclusiva
+                </span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200">
+                  💕 Eventi da Sogno
+                </span>
+              </div>
             </div>
             
             {/* Controlli di navigazione e visualizzazione */}
             <div className="flex flex-col sm:flex-row gap-3">
               {/* Filtri categoria */}
               <Select value={filter} onValueChange={(value) => setFilter(value as FilterType)}>
-                <SelectTrigger className="w-48 border-primary/30 bg-background">
-                  <Filter className="w-4 h-4 mr-2 text-primary" />
+                <SelectTrigger className="w-48 border-baglio-gold/30 bg-white/80 backdrop-blur-sm">
+                  <Filter className="w-4 h-4 mr-2 text-baglio-gold" />
                   <SelectValue placeholder="Filtra eventi" />
                 </SelectTrigger>
                 <SelectContent>
@@ -558,7 +572,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
               </Select>
 
               {/* Toggle vista mensile/settimanale */}
-              <div className="flex bg-muted rounded-lg p-1 border border-primary/20">
+              <div className="flex bg-baglio-gold/10 rounded-lg p-1 border border-baglio-gold/30">
                 <Button
                   variant={viewMode === 'month' ? 'default' : 'ghost'}
                   size="sm"
@@ -566,8 +580,8 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
                   className={cn(
                     "px-4 font-medium transition-all",
                     viewMode === 'month' 
-                      ? "bg-primary text-primary-foreground shadow-sm" 
-                      : "text-foreground/70 hover:text-foreground hover:bg-muted/80"
+                      ? "bg-baglio-gold text-baglio-navy shadow-sm" 
+                      : "text-baglio-navy/70 hover:text-baglio-navy hover:bg-baglio-gold/20"
                   )}
                 >
                   <CalendarIcon className="w-4 h-4 mr-2" />
@@ -580,8 +594,8 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
                   className={cn(
                     "px-4 font-medium transition-all",
                     viewMode === 'week' 
-                      ? "bg-primary text-primary-foreground shadow-sm" 
-                      : "text-foreground/70 hover:text-foreground hover:bg-muted/80"
+                      ? "bg-baglio-gold text-baglio-navy shadow-sm" 
+                      : "text-baglio-navy/70 hover:text-baglio-navy hover:bg-baglio-gold/20"
                   )}
                 >
                   <Eye className="w-4 h-4 mr-2" />
@@ -595,12 +609,12 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
                   variant="outline" 
                   size="sm" 
                   onClick={goToPreviousPeriod}
-                  className="border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/50"
+                  className="border-baglio-gold/30 text-baglio-navy hover:bg-baglio-gold/10 hover:border-baglio-gold/50"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </Button>
                 <div className="min-w-[140px] text-center">
-                  <span className="text-sm font-serif font-semibold text-primary">
+                  <span className="text-sm font-serif font-semibold text-baglio-navy">
                     {viewMode === 'month' 
                       ? format(currentMonth, 'MMMM yyyy', { locale: it })
                       : `${format(startOfWeek(currentMonth, { weekStartsOn: 1 }), 'dd MMM', { locale: it })} - ${format(endOfWeek(currentMonth, { weekStartsOn: 1 }), 'dd MMM yyyy', { locale: it })}`
@@ -611,7 +625,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
                   variant="outline" 
                   size="sm" 
                   onClick={goToNextPeriod}
-                  className="border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/50"
+                  className="border-baglio-gold/30 text-baglio-navy hover:bg-baglio-gold/10 hover:border-baglio-gold/50"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </Button>
@@ -628,9 +642,9 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
         {/* Vista Calendario */}
         <div className={cn("xl:col-span-2", compact && "xl:col-span-1")}>
           {viewMode === 'week' ? renderWeekView() : (
-            <Card className="overflow-hidden border-primary/20 shadow-lg bg-card">
-              <CardHeader className="bg-gradient-to-r from-primary/5 to-primary/10 border-b border-primary/20 pb-4">
-                <CardTitle className="text-xl font-serif text-primary">
+            <Card className="overflow-hidden border-baglio-gold/20 shadow-lg bg-gradient-to-br from-white to-slate-50/30">
+              <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20 pb-4">
+                <CardTitle className="text-xl font-serif text-baglio-navy">
                   {format(currentMonth, 'MMMM yyyy', { locale: it })}
                 </CardTitle>
               </CardHeader>
@@ -643,14 +657,14 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
                   onMonthChange={setCurrentMonth}
                   className="w-full pointer-events-auto"
                   classNames={{
-                    day: "relative h-12 w-12 p-0 font-normal aria-selected:opacity-100 hover:bg-primary/10 hover:text-foreground transition-colors rounded-lg",
-                    day_selected: "bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground",
-                    day_today: "bg-primary/20 text-primary font-semibold",
-                    day_outside: "text-foreground/30 opacity-50",
+                    day: "relative h-12 w-12 p-0 font-normal aria-selected:opacity-100 hover:bg-baglio-gold/10 hover:text-baglio-navy transition-colors rounded-lg",
+                    day_selected: "bg-baglio-navy text-white hover:bg-baglio-navy/90 hover:text-white",
+                    day_today: "bg-baglio-gold/20 text-baglio-navy font-semibold",
+                    day_outside: "text-baglio-navy/30 opacity-50",
                   }}
                   components={{
                     Day: ({ date }) => (
-                      <button className="relative w-full h-12 text-sm rounded-lg transition-colors hover:bg-primary/10">
+                      <button className="relative w-full h-12 text-sm rounded-lg transition-colors hover:bg-baglio-gold/10">
                         {renderDay(date)}
                       </button>
                     )
@@ -664,10 +678,10 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
         {/* Eventi della data selezionata o filtrati */}
         {!compact && (
           <div className="space-y-4">
-            <Card className="border-primary/20 shadow-lg bg-card">
-              <CardHeader className="bg-gradient-to-r from-primary/5 to-primary/10 border-b border-primary/20 pb-3">
-                <CardTitle className="text-lg font-serif text-primary flex items-center gap-2">
-                  <CalendarIcon className="w-5 h-5 text-primary" />
+            <Card className="border-baglio-gold/20 shadow-lg bg-gradient-to-br from-white to-slate-50/30">
+              <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20 pb-3">
+                <CardTitle className="text-lg font-serif text-baglio-navy flex items-center gap-2">
+                  <CalendarIcon className="w-5 h-5 text-baglio-gold" />
                   {format(selectedDate, 'dd MMMM yyyy', { locale: it })}
                 </CardTitle>
               </CardHeader>
@@ -680,11 +694,11 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                      <CalendarIcon className="w-8 h-8 text-primary/60" />
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-baglio-gold/10 flex items-center justify-center">
+                      <CalendarIcon className="w-8 h-8 text-baglio-gold/60" />
                     </div>
-                    <h4 className="font-serif text-foreground mb-2">Nessun evento</h4>
-                    <p className="text-sm text-foreground/60 font-sans">
+                    <h4 className="font-serif text-baglio-navy mb-2">Nessun evento</h4>
+                    <p className="text-sm text-baglio-navy/60 font-sans">
                       Non ci sono eventi in questa data
                     </p>
                   </div>
@@ -696,9 +710,9 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
       </div>
 
       {/* Legenda colori */}
-      <Card className="border-primary/20 shadow-md bg-card">
+      <Card className="border-baglio-gold/20 shadow-md bg-gradient-to-r from-white to-baglio-gold/5">
         <CardContent className="p-4">
-          <h4 className="font-serif text-foreground font-semibold mb-4 text-center">Tipologie Eventi</h4>
+          <h4 className="font-serif text-baglio-navy font-semibold mb-4 text-center">Tipologie Eventi</h4>
           <div className="flex flex-wrap gap-4 justify-center">
             {Object.entries(eventTypes).map(([type, config]) => {
               const IconComponent = config.icon;
@@ -708,8 +722,8 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
                     "w-3 h-3 rounded-full shadow-sm border border-white/50 transition-transform group-hover:scale-110",
                     config.dotColor
                   )} />
-                  <IconComponent className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-foreground group-hover:text-foreground/80 transition-colors">
+                  <IconComponent className="w-4 h-4 text-baglio-gold" />
+                  <span className="text-sm font-medium text-baglio-navy group-hover:text-baglio-navy/80 transition-colors">
                     {config.label}
                   </span>
                 </div>
