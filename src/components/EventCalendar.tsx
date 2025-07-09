@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Calendar } from '@/components/ui/calendar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -519,7 +520,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
   };
 
   return (
-    <div className={cn("space-y-6 bg-baglio-navy", className)}>
+    <div className={cn("space-y-6 bg-baglio-navy min-h-screen p-6", className)}>
       {showHeader && (
         <div className="text-center lg:text-left">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
@@ -546,16 +547,16 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
             <div className="flex flex-col sm:flex-row gap-3">
               {/* Filtri categoria */}
               <Select value={filter} onValueChange={(value) => setFilter(value as FilterType)}>
-                <SelectTrigger className="w-48 border-baglio-gold/30 bg-white/80 backdrop-blur-sm">
+                <SelectTrigger className="w-48 border-baglio-gold/30 bg-white/10 backdrop-blur-sm text-white">
                   <Filter className="w-4 h-4 mr-2 text-baglio-gold" />
                   <SelectValue placeholder="Filtra eventi" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Tutti gli eventi</SelectItem>
+                <SelectContent className="bg-baglio-navy border-baglio-gold/30">
+                  <SelectItem value="all" className="text-white hover:bg-baglio-gold/20">Tutti gli eventi</SelectItem>
                   {Object.entries(eventTypes).map(([type, config]) => {
                     const IconComponent = config.icon;
                     return (
-                      <SelectItem key={type} value={type}>
+                      <SelectItem key={type} value={type} className="text-white hover:bg-baglio-gold/20">
                         <div className="flex items-center gap-2">
                           <IconComponent className="w-4 h-4" />
                           {config.label}
@@ -576,7 +577,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
                     "px-4 font-medium transition-all",
                     viewMode === 'month' 
                       ? "bg-baglio-gold text-baglio-navy shadow-sm" 
-                      : "text-baglio-navy/70 hover:text-baglio-navy hover:bg-baglio-gold/20"
+                      : "text-white hover:text-baglio-navy hover:bg-baglio-gold/20"
                   )}
                 >
                   <CalendarIcon className="w-4 h-4 mr-2" />
@@ -590,7 +591,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
                     "px-4 font-medium transition-all",
                     viewMode === 'week' 
                       ? "bg-baglio-gold text-baglio-navy shadow-sm" 
-                      : "text-baglio-navy/70 hover:text-baglio-navy hover:bg-baglio-gold/20"
+                      : "text-white hover:text-baglio-navy hover:bg-baglio-gold/20"
                   )}
                 >
                   <Eye className="w-4 h-4 mr-2" />
@@ -604,12 +605,12 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
                   variant="outline" 
                   size="sm" 
                   onClick={goToPreviousPeriod}
-                  className="border-baglio-gold/30 text-baglio-navy hover:bg-baglio-gold/10 hover:border-baglio-gold/50"
+                  className="border-baglio-gold/30 text-white hover:bg-baglio-gold/10 hover:border-baglio-gold/50 bg-transparent"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </Button>
                 <div className="min-w-[140px] text-center">
-                  <span className="text-sm font-serif font-semibold text-baglio-navy">
+                  <span className="text-sm font-serif font-semibold text-white">
                     {viewMode === 'month' 
                       ? format(currentMonth, 'MMMM yyyy', { locale: it })
                       : `${format(startOfWeek(currentMonth, { weekStartsOn: 1 }), 'dd MMM', { locale: it })} - ${format(endOfWeek(currentMonth, { weekStartsOn: 1 }), 'dd MMM yyyy', { locale: it })}`
@@ -620,7 +621,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
                   variant="outline" 
                   size="sm" 
                   onClick={goToNextPeriod}
-                  className="border-baglio-gold/30 text-baglio-navy hover:bg-baglio-gold/10 hover:border-baglio-gold/50"
+                  className="border-baglio-gold/30 text-white hover:bg-baglio-gold/10 hover:border-baglio-gold/50 bg-transparent"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </Button>
@@ -637,7 +638,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
         {/* Vista Calendario */}
         <div className={cn("xl:col-span-2", compact && "xl:col-span-1")}>
           {viewMode === 'week' ? renderWeekView() : (
-            <Card className="overflow-hidden border-baglio-gold/20 shadow-lg bg-gradient-to-br from-white to-slate-50/30">
+            <Card className="overflow-hidden border-baglio-gold/20 shadow-lg bg-white/95 backdrop-blur-sm">
               <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20 pb-4">
                 <CardTitle className="text-xl font-serif text-baglio-navy">
                   {format(currentMonth, 'MMMM yyyy', { locale: it })}
@@ -673,7 +674,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
         {/* Eventi della data selezionata o filtrati */}
         {!compact && (
           <div className="space-y-4">
-            <Card className="border-baglio-gold/20 shadow-lg bg-gradient-to-br from-white to-slate-50/30">
+            <Card className="border-baglio-gold/20 shadow-lg bg-white/95 backdrop-blur-sm">
               <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20 pb-3">
                 <CardTitle className="text-lg font-serif text-baglio-navy flex items-center gap-2">
                   <CalendarIcon className="w-5 h-5 text-baglio-gold" />
@@ -705,7 +706,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
       </div>
 
       {/* Legenda colori */}
-      <Card className="border-baglio-gold/20 shadow-md bg-gradient-to-r from-white to-baglio-gold/5">
+      <Card className="border-baglio-gold/20 shadow-md bg-white/95 backdrop-blur-sm">
         <CardContent className="p-4">
           <h4 className="font-serif text-baglio-navy font-semibold mb-4 text-center">Tipologie Eventi</h4>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -730,7 +731,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
 
       {/* Lista eventi per mobile/compact */}
       {compact && filteredEvents.length > 0 && (
-        <Card className="border-baglio-gold/20 shadow-lg">
+        <Card className="border-baglio-gold/20 shadow-lg bg-white/95 backdrop-blur-sm">
           <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20 pb-4">
             <CardTitle className="text-xl font-serif text-baglio-navy">
               <span className="font-bold">Eventi di {format(currentMonth, 'MMMM yyyy', { locale: it })}</span>
