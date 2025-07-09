@@ -221,43 +221,63 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
     }
   };
 
-  // Custom day renderer elegante con bordi oro
+  // Custom day renderer elegante con bordi oro e colori di sfondo
   const renderDay = (date: Date) => {
     const dayEvents = getEventsForDate(date).filter(event => filter === 'all' || event.type === filter);
     const hasEvents = dayEvents.length > 0;
     const isToday = isSameDay(date, new Date());
     const isSelected = isSameDay(date, selectedDate);
-
+    
+    // Determina il colore di sfondo principale basato sul primo evento
+    const primaryEventType = dayEvents.length > 0 ? dayEvents[0].type : null;
+    
     return (
       <div className={cn(
         "relative w-full h-12 flex flex-col items-center justify-center rounded-lg transition-all duration-200",
-        "hover:bg-gradient-to-br hover:from-baglio-gold/10 hover:to-baglio-gold/5 hover:shadow-sm",
-        isSelected && "bg-gradient-to-br from-baglio-navy/10 to-baglio-navy/5 border border-baglio-gold/30 shadow-md",
-        isToday && !isSelected && "bg-baglio-gold/10 border border-baglio-gold/50"
+        "hover:shadow-sm border border-transparent",
+        
+        // Colori di sfondo per eventi
+        hasEvents && primaryEventType === 'matrimonio' && "bg-gradient-to-br from-rose-50 to-pink-100 border-rose-200/50 hover:from-rose-100 hover:to-pink-150",
+        hasEvents && primaryEventType === 'aziendale' && "bg-gradient-to-br from-blue-50 to-indigo-100 border-blue-200/50 hover:from-blue-100 hover:to-indigo-150",
+        hasEvents && primaryEventType === 'pubblico' && "bg-gradient-to-br from-emerald-50 to-green-100 border-emerald-200/50 hover:from-emerald-100 hover:to-green-150",
+        hasEvents && primaryEventType === 'privato' && "bg-gradient-to-br from-slate-50 to-gray-100 border-slate-200/50 hover:from-slate-100 hover:to-gray-150",
+        
+        // Hover per giorni senza eventi
+        !hasEvents && "hover:bg-gradient-to-br hover:from-baglio-gold/10 hover:to-baglio-gold/5 hover:border-baglio-gold/30",
+        
+        // Stile per giorno selezionato
+        isSelected && hasEvents && "ring-2 ring-baglio-gold/50 ring-offset-1 shadow-md",
+        isSelected && !hasEvents && "bg-gradient-to-br from-baglio-navy/10 to-baglio-navy/5 border-baglio-gold/30 shadow-md",
+        
+        // Stile per oggi
+        isToday && !isSelected && !hasEvents && "bg-baglio-gold/10 border-baglio-gold/50",
+        isToday && !isSelected && hasEvents && "ring-1 ring-baglio-gold/40"
       )}>
         <span className={cn(
-          "text-sm font-medium transition-colors",
+          "text-sm font-medium transition-colors relative z-10",
           isSelected && "text-baglio-navy font-semibold",
-          isToday && !isSelected && "text-baglio-gold font-semibold"
+          isToday && !isSelected && "text-baglio-gold font-semibold",
+          hasEvents && !isSelected && !isToday && "text-baglio-navy/90 font-semibold"
         )}>
           {date.getDate()}
         </span>
+        
         {hasEvents && (
           <div className="absolute bottom-1 flex gap-0.5">
             {dayEvents.slice(0, 3).map((event) => {
-              const IconComponent = eventTypes[event.type].icon;
               return (
                 <div
                   key={event.id}
                   className={cn(
-                    "w-1.5 h-1.5 rounded-full shadow-sm border border-white/50",
-                    eventTypes[event.type].dotColor
+                    "w-1.5 h-1.5 rounded-full shadow-sm border border-white/70",
+                    eventTypes[event.type].dotColor,
+                    "opacity-80"
                   )}
                 />
               );
             })}
             {dayEvents.length > 3 && (
-              <div className="w-1.5 h-1.5 rounded-full bg-baglio-gold border border-white/50 shadow-sm" />
+              <div className="w-1.5 h-1.5 rounded-full bg-baglio-gold border border-white/70 shadow-sm opacity-80" />
             )}
           </div>
         )}
