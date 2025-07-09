@@ -519,29 +519,24 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
   };
 
   return (
-    <div className={cn("space-y-6", className)}>
+    <div className={cn("space-y-6 bg-baglio-navy", className)}>
       {showHeader && (
         <div className="text-center lg:text-left">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div className="space-y-4">
               <div>
-                <h1 className="text-4xl lg:text-5xl font-serif text-baglio-navy font-bold mb-3 tracking-wide">
+                <h1 className="text-4xl lg:text-5xl font-serif text-white font-bold mb-3 tracking-wide">
                   Calendario Eventi
                 </h1>
-                <p className="text-lg text-baglio-navy/80 font-sans leading-relaxed max-w-3xl">
-                  <span className="font-medium">Scopri la magia di Baglio Abbate</span> attraverso i nostri eventi esclusivi 
-                  immersi nella bellezza autentica della Sicilia. Dalla celebrazione romantica dei matrimoni 
-                  agli eventi aziendali di prestigio internazionale.
-                </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-baglio-gold/20 text-baglio-navy border border-baglio-gold/30">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-baglio-gold/20 text-white border border-baglio-gold/30">
                   📍 Sicilia Autentica
                 </span>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-baglio-navy/10 text-baglio-navy border border-baglio-navy/20">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-white border border-white/20">
                   ✨ Location Esclusiva
                 </span>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-rose-500/20 text-rose-200 border border-rose-400/30">
                   💕 Eventi da Sogno
                 </span>
               </div>
