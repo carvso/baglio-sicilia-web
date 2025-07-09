@@ -5,6 +5,7 @@ import ImageWithOverlay from '@/components/ImageWithOverlay';
 import CTAButton from '@/components/CTAButton';
 import OpenTableReservation from '@/components/OpenTableReservation';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import { EventCalendar } from '@/components/EventCalendar';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const TerrazzaLounge = () => {
@@ -237,6 +238,13 @@ const TerrazzaLounge = () => {
           <div className="mt-8">
             <OpenTableReservation restaurantId="5678" className="max-w-2xl mx-auto" theme="dark" />
           </div>
+        </div>
+      </section>
+
+      {/* Calendario Eventi Section */}
+      <section className="py-16 bg-white">
+        <div className="baglio-container">
+          <EventCalendar compact={false} />
         </div>
       </section>
       

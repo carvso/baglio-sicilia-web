@@ -7,6 +7,7 @@ import ImageWithOverlay from '@/components/ImageWithOverlay';
 import SectionTitle from '@/components/SectionTitle';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { EventCalendar } from '@/components/EventCalendar';
 
 const Matrimoni = () => {
   const packages = [
@@ -150,6 +151,13 @@ const Matrimoni = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Calendario Eventi Section */}
+        <section className="section-padding bg-white">
+          <div className="baglio-container">
+            <EventCalendar compact={false} />
           </div>
         </section>
 

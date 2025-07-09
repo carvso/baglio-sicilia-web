@@ -8,6 +8,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 import SectionTitle from '@/components/SectionTitle';
 import CTAButton from '@/components/CTAButton';
 import SocialMediaBanners from '@/components/SocialMediaBanners';
+import { EventCalendar } from '@/components/EventCalendar';
 
 type EventCategoryProps = {
   icon: React.ReactNode;
@@ -172,6 +173,13 @@ const Eventi = () => {
               linkTo="/eventi-aziendali"
             />
           </div>
+        </div>
+      </section>
+
+      {/* Calendario Eventi Section */}
+      <section className="py-16 bg-white">
+        <div className="baglio-container">
+          <EventCalendar compact={false} />
         </div>
       </section>
 

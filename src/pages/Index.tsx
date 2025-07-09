@@ -10,6 +10,7 @@ import SectionTitle from '@/components/SectionTitle';
 import CTAButton from '@/components/CTAButton';
 import { MessageCircle } from 'lucide-react';
 import { getLovableUploadPath } from '@/lib/paths';
+import { EventCalendar } from '@/components/EventCalendar';
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -37,6 +38,13 @@ const Index = () => {
       
       {/* Eventi in Evidenza Section */}
       <EventiInEvidenza />
+      
+      {/* Calendario Eventi Section */}
+      <section className="py-16 bg-white">
+        <div className="baglio-container">
+          <EventCalendar compact={false} />
+        </div>
+      </section>
       
       {/* Emotional WhatsApp Invitation - Aggiornato con Blu Navy */}
       <section className="section-padding bg-baglio-ebano relative overflow-hidden">

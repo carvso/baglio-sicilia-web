@@ -5,6 +5,7 @@ import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
 import SectionTitle from '@/components/SectionTitle';
 import CTAButton from '@/components/CTAButton';
+import { EventCalendar } from '@/components/EventCalendar';
 
 const menuCategories = [
   { id: 'antipasti', label: 'Antipasti' },
@@ -214,6 +215,13 @@ const Ristorante = () => {
             </p>
             <CTAButton to="/contatti">Prenota un tavolo</CTAButton>
           </div>
+        </div>
+      </section>
+
+      {/* Calendario Eventi Section */}
+      <section className="py-16 bg-white">
+        <div className="baglio-container">
+          <EventCalendar compact={false} />
         </div>
       </section>
     </Layout>

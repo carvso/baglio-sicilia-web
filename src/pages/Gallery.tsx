@@ -6,6 +6,7 @@ import ImageWithOverlay from '@/components/ImageWithOverlay';
 import SectionTitle from '@/components/SectionTitle';
 import GalleryGrid from '@/components/GalleryGrid';
 import CTAButton from '@/components/CTAButton';
+import { EventCalendar } from '@/components/EventCalendar';
 
 // Gallery categories and images with enhanced data
 const galleryCategories = [
@@ -391,6 +392,13 @@ const Gallery = () => {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Calendario Eventi Section */}
+      <section className="py-16 bg-white">
+        <div className="baglio-container">
+          <EventCalendar compact={false} />
         </div>
       </section>
 
