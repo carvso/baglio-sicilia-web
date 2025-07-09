@@ -121,6 +121,52 @@ const mockEvents = [
     description: 'Serata esclusiva con aperitivo di lusso e spettacolo burlesque. Un mix perfetto di eleganza e sensualità siciliana.',
     bookable: false,
     thumbnail: '/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png'
+  },
+  // Eventi aggiuntivi per gennaio 2025 per colorare il calendario
+  {
+    id: 8,
+    title: 'Cena di Gala',
+    date: new Date(2025, 0, 8), // 8 gennaio 2025
+    type: 'pubblico' as keyof typeof eventTypes,
+    isPrivate: false,
+    time: '20:00',
+    guests: 50,
+    location: 'Ristorante',
+    description: 'Cena di gala con menu degustazione siciliano.',
+    bookable: true
+  },
+  {
+    id: 9,
+    title: 'Meeting Aziendale',
+    date: new Date(2025, 0, 12), // 12 gennaio 2025
+    type: 'aziendale' as keyof typeof eventTypes,
+    isPrivate: false,
+    time: '14:00',
+    guests: 30,
+    location: 'Sala Conferenze',
+    description: 'Riunione aziendale con coffee break.'
+  },
+  {
+    id: 10,
+    title: 'Festa Privata',
+    date: new Date(2025, 0, 18), // 18 gennaio 2025
+    type: 'privato' as keyof typeof eventTypes,
+    isPrivate: true,
+    time: '19:00',
+    guests: 25,
+    location: 'Terrazza Privata'
+  },
+  {
+    id: 11,
+    title: 'Matrimonio Lucia & Andrea',
+    date: new Date(2025, 0, 26), // 26 gennaio 2025
+    type: 'matrimonio' as keyof typeof eventTypes,
+    isPrivate: true,
+    time: '16:30',
+    guests: 100,
+    location: 'Giardino',
+    description: 'Cerimonia intima nel giardino panoramico.',
+    thumbnail: '/lovable-uploads/97ade15d-9a2b-4fa8-89b8-847a2ea33c4c.png'
   }
 ];
 
@@ -574,35 +620,27 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
         {!compact && (
           <div className="space-y-4">
             <Card className="border-baglio-gold/20 shadow-lg bg-gradient-to-br from-white to-slate-50/30">
-              <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20 pb-4">
-                <CardTitle className="text-xl font-serif text-baglio-navy flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-baglio-gold/20 flex items-center justify-center">
-                    <CalendarIcon className="w-5 h-5 text-baglio-gold" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold">Eventi del Giorno</h3>
-                    <p className="text-sm font-normal text-baglio-navy/60 mt-1">
-                      {format(selectedDate, 'EEEE dd MMMM yyyy', { locale: it })}
-                    </p>
-                  </div>
+              <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20 pb-3">
+                <CardTitle className="text-lg font-serif text-baglio-navy flex items-center gap-2">
+                  <CalendarIcon className="w-5 h-5 text-baglio-gold" />
+                  {format(selectedDate, 'dd MMMM yyyy', { locale: it })}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 {selectedDateEvents.length > 0 ? (
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     {selectedDateEvents.filter(event => filter === 'all' || event.type === filter).map(event => (
                       <EventCard key={event.id} event={event} />
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-16">
-                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-baglio-gold/10 flex items-center justify-center">
-                      <CalendarIcon className="w-10 h-10 text-baglio-gold/60" />
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-baglio-gold/10 flex items-center justify-center">
+                      <CalendarIcon className="w-8 h-8 text-baglio-gold/60" />
                     </div>
-                    <h4 className="font-serif text-xl text-baglio-navy mb-3">Nessun evento programmato</h4>
-                    <p className="text-baglio-navy/60 font-sans max-w-sm mx-auto leading-relaxed">
-                      Non ci sono eventi in programma per questa data. Esplora altre date per scoprire 
-                      i nostri eventi esclusivi.
+                    <h4 className="font-serif text-baglio-navy mb-2">Nessun evento</h4>
+                    <p className="text-sm text-baglio-navy/60 font-sans">
+                      Non ci sono eventi in questa data
                     </p>
                   </div>
                 )}
@@ -612,35 +650,23 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
         )}
       </div>
 
-      {/* Legenda elegante */}
+      {/* Legenda colori */}
       <Card className="border-baglio-gold/20 shadow-md bg-gradient-to-r from-white to-baglio-gold/5">
-        <CardContent className="p-8">
-          <div className="text-center mb-6">
-            <h3 className="font-serif text-2xl text-baglio-navy font-bold mb-2">Tipologie Eventi</h3>
-            <p className="text-baglio-navy/60 font-sans">Esplora le diverse categorie dei nostri eventi esclusivi</p>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <CardContent className="p-4">
+          <h4 className="font-serif text-baglio-navy font-semibold mb-4 text-center">Tipologie Eventi</h4>
+          <div className="flex flex-wrap gap-4 justify-center">
             {Object.entries(eventTypes).map(([type, config]) => {
               const IconComponent = config.icon;
               return (
-                <div 
-                  key={type} 
-                  className="flex flex-col items-center gap-3 group cursor-pointer p-4 rounded-xl hover:bg-baglio-gold/10 transition-all duration-200" 
-                  onClick={() => setFilter(type as FilterType)}
-                >
-                  <div className="relative">
-                    <div className={cn(
-                      "w-6 h-6 rounded-full shadow-sm border-2 border-white transition-transform group-hover:scale-110",
-                      config.dotColor
-                    )} />
-                    <IconComponent className="w-5 h-5 text-white absolute inset-0.5" />
-                  </div>
-                  <div className="text-center">
-                    <h4 className="text-sm font-semibold text-baglio-navy group-hover:text-baglio-navy/80 transition-colors">
-                      {config.label}
-                    </h4>
-                    <p className="text-xs text-baglio-navy/50 mt-1">Clicca per filtrare</p>
-                  </div>
+                <div key={type} className="flex items-center gap-2 group cursor-pointer" onClick={() => setFilter(type as FilterType)}>
+                  <div className={cn(
+                    "w-3 h-3 rounded-full shadow-sm border border-white/50 transition-transform group-hover:scale-110",
+                    config.dotColor
+                  )} />
+                  <IconComponent className="w-4 h-4 text-baglio-gold" />
+                  <span className="text-sm font-medium text-baglio-navy group-hover:text-baglio-navy/80 transition-colors">
+                    {config.label}
+                  </span>
                 </div>
               );
             })}
