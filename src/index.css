@@ -3,50 +3,59 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* CSS Variables - Palette ottimizzata con Blu Navy del Logo */
+/* CSS Variables - Palette ottimizzata Blu Navy & Oro */
 :root {
+  /* Colori principali Blu Navy & Oro */
+  --baglio-navy: 216 49% 18%;        /* Blu navy principale */
+  --baglio-navy-dark: 216 55% 12%;   /* Blu navy scuro */
+  --baglio-navy-light: 216 35% 25%;  /* Blu navy chiaro */
+  --baglio-gold: 43 74% 49%;         /* Oro principale */
+  --baglio-gold-dark: 43 74% 35%;    /* Oro scuro */
+  --baglio-gold-light: 43 35% 75%;   /* Oro chiaro */
+  
+  /* Sistema di colori per componenti */
   --background: 0 0% 100%;
-  --foreground: 216 49% 18%; /* Blu navy scuro per testo */
+  --foreground: var(--baglio-navy);
   --card: 0 0% 100%;
-  --card-foreground: 216 49% 18%;
+  --card-foreground: var(--baglio-navy);
   --popover: 0 0% 100%;
-  --popover-foreground: 216 49% 18%;
-  --primary: 216 49% 18%; /* Blu Navy del Logo come primario */
-  --primary-foreground: 45 50% 85%; /* Crema per contrasto */
-  --secondary: 45 50% 90%; /* Crema più chiara */
-  --secondary-foreground: 216 49% 18%;
-  --muted: 45 50% 90%;
-  --muted-foreground: 220 15% 55%;
-  --accent: 45 50% 90%;
-  --accent-foreground: 216 49% 18%;
+  --popover-foreground: var(--baglio-navy);
+  --primary: var(--baglio-navy);
+  --primary-foreground: 0 0% 100%;
+  --secondary: var(--baglio-gold-light);
+  --secondary-foreground: var(--baglio-navy);
+  --muted: 210 20% 95%;
+  --muted-foreground: var(--baglio-navy-light);
+  --accent: var(--baglio-gold-light);
+  --accent-foreground: var(--baglio-navy);
   --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 45 25% 80%;
-  --input: 45 25% 80%;
-  --ring: 43 74% 49%; /* Oro del logo per focus */
+  --destructive-foreground: 0 0% 100%;
+  --border: 210 20% 90%;
+  --input: 210 20% 90%;
+  --ring: var(--baglio-gold);
   --radius: 0.5rem;
 }
 
 .dark {
-  --background: 216 49% 6%; /* Blu navy molto scuro per sfondo */
-  --foreground: 45 50% 85%;
-  --card: 216 49% 8%;
-  --card-foreground: 45 50% 85%;
-  --popover: 216 49% 8%;
-  --popover-foreground: 45 50% 85%;
-  --primary: 43 74% 49%; /* Oro come primario in dark mode */
-  --primary-foreground: 216 49% 6%;
-  --secondary: 216 49% 12%;
-  --secondary-foreground: 45 50% 85%;
-  --muted: 216 49% 12%;
-  --muted-foreground: 220 15% 65%;
-  --accent: 216 49% 12%;
-  --accent-foreground: 45 50% 85%;
+  --background: var(--baglio-navy-dark);
+  --foreground: 0 0% 100%;
+  --card: var(--baglio-navy);
+  --card-foreground: 0 0% 100%;
+  --popover: var(--baglio-navy);
+  --popover-foreground: 0 0% 100%;
+  --primary: var(--baglio-gold);
+  --primary-foreground: var(--baglio-navy-dark);
+  --secondary: var(--baglio-navy-light);
+  --secondary-foreground: 0 0% 100%;
+  --muted: var(--baglio-navy-light);
+  --muted-foreground: 210 20% 70%;
+  --accent: var(--baglio-navy-light);
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 45 50% 85%;
-  --border: 216 49% 15%;
-  --input: 216 49% 15%;
-  --ring: 43 74% 49%;
+  --destructive-foreground: 0 0% 100%;
+  --border: var(--baglio-navy-light);
+  --input: var(--baglio-navy-light);
+  --ring: var(--baglio-gold);
 }
 
 /* Basic reset */
