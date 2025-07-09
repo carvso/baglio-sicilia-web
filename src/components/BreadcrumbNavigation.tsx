@@ -65,10 +65,10 @@ const BreadcrumbNavigation = () => {
       aria-label="breadcrumb"
       className="fixed top-[88px] sm:top-[84px] left-0 right-0 z-40 animate-fade-in"
     >
-      <div className="w-full overflow-x-auto scrollbar-hide px-1 sm:px-4">
+      <div className="w-full overflow-x-auto scrollbar-hide">
         <div className="flex justify-start">
-          {/* Modern chip-style breadcrumb */}
-          <div className="flex items-center gap-0.5 sm:gap-1 px-2 sm:px-3 py-0.5 sm:py-1 mx-0.5 sm:mx-1 rounded-full bg-background/80 backdrop-blur-md border border-border/50 shadow-sm min-w-fit">
+          {/* Modern chip-style breadcrumb - full width strip */}
+          <div className="flex items-center gap-0.5 sm:gap-1 px-3 sm:px-4 py-0.5 sm:py-0.5 w-full bg-background/80 backdrop-blur-md border-b border-border/30 shadow-sm">
             <ol className="flex items-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs font-light">
               {breadcrumbs.map((crumb, index) => {
                 const isLast = index === breadcrumbs.length - 1;
