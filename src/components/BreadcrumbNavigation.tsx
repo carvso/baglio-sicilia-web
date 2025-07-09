@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home } from 'lucide-react';
+import { Home, ChevronRight } from 'lucide-react';
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -10,6 +10,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from './ui/breadcrumb';
+import { cn } from '@/lib/utils';
 
 interface BreadcrumbItemType {
   label: string;
@@ -59,34 +60,74 @@ const BreadcrumbNavigation = () => {
   }
 
   return (
-    <Breadcrumb className="sticky top-[64px] z-30 bg-transparent py-0.5 border-b border-muted-foreground/10">
-      <BreadcrumbList>
-        {breadcrumbs.map((crumb, index) => {
-          const isLast = index === breadcrumbs.length - 1;
-          return (
-            <React.Fragment key={index}>
-              <BreadcrumbItem>
-                {index === 0 && (
-                  <Home size={14} className="text-muted-foreground mr-1" />
-                )}
-                {crumb.path && !isLast ? (
-                  <BreadcrumbLink asChild>
-                    <Link to={crumb.path} className="text-muted-foreground hover:text-primary font-normal px-1 py-0.5 rounded transition-colors">
-                      {crumb.label}
-                    </Link>
-                  </BreadcrumbLink>
-                ) : (
-                  <BreadcrumbPage className="text-primary font-semibold px-1 py-0.5">
-                    {crumb.label}
-                  </BreadcrumbPage>
-                )}
-              </BreadcrumbItem>
-              {!isLast && <BreadcrumbSeparator />}
-            </React.Fragment>
-          );
-        })}
-      </BreadcrumbList>
-    </Breadcrumb>
+    <nav 
+      role="navigation" 
+      aria-label="breadcrumb"
+      className="bg-transparent sticky top-[64px] z-30 py-0.5"
+    >
+      <div className="w-full overflow-x-auto scrollbar-hide">
+        <div className="flex justify-start min-w-max">
+          {/* Compact elegant container */}
+          <div className="bg-baglio-ebano/95 backdrop-blur-sm rounded-r-xl px-3 py-1.5 shadow-lg border border-baglio-oro/20">
+            <ol className="flex items-center space-x-1.5 text-xs sm:text-sm min-w-0">
+              {breadcrumbs.map((crumb, index) => {
+                const isLast = index === breadcrumbs.length - 1;
+                
+                return (
+                  <li key={index} className="flex items-center space-x-1.5 min-w-0">
+                    {index === 0 && (
+                      <Home size={12} className="text-baglio-crema flex-shrink-0 sm:size-3" />
+                    )}
+                    
+                    {crumb.path && !isLast ? (
+                      <Link 
+                        to={crumb.path}
+                        className={cn(
+                          "text-baglio-crema hover:text-baglio-oro transition-all duration-300",
+                          "focus:outline-none focus:ring-1 focus:ring-baglio-oro/50 focus:ring-offset-1 focus:ring-offset-baglio-ebano",
+                          "rounded-md px-1.5 py-0.5 truncate font-medium hover:bg-baglio-oro/10",
+                          "touch-target-44 min-h-[44px] sm:min-h-auto flex items-center",
+                          "max-w-[120px] sm:max-w-none"
+                        )}
+                      >
+                        <span className="truncate">
+                          {crumb.label.length > 12 && typeof window !== 'undefined' && window.innerWidth < 640 
+                            ? `${crumb.label.substring(0, 12)}...` 
+                            : crumb.label}
+                        </span>
+                      </Link>
+                    ) : (
+                      <span 
+                        className={cn(
+                          isLast 
+                            ? "text-baglio-oro font-semibold" 
+                            : "text-baglio-crema font-medium",
+                          "truncate px-1.5 py-0.5 rounded-md",
+                          "max-w-[120px] sm:max-w-none block"
+                        )}
+                        aria-current={isLast ? "page" : undefined}
+                        title={crumb.label}
+                      >
+                        {crumb.label.length > 15 && typeof window !== 'undefined' && window.innerWidth < 640 
+                          ? `${crumb.label.substring(0, 15)}...` 
+                          : crumb.label}
+                      </span>
+                    )}
+                    
+                    {!isLast && (
+                      <ChevronRight 
+                        size={10} 
+                        className="text-baglio-crema/60 flex-shrink-0 sm:size-3 transition-opacity duration-300" 
+                      />
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 };
 
