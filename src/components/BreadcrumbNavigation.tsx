@@ -63,62 +63,56 @@ const BreadcrumbNavigation = () => {
     <nav 
       role="navigation" 
       aria-label="breadcrumb"
-      className="bg-transparent sticky top-[64px] z-30 py-0.5"
+      className="sticky top-[64px] z-30 animate-fade-in"
     >
       <div className="w-full overflow-x-auto scrollbar-hide">
-        <div className="flex justify-start min-w-max">
-          {/* Compact elegant container */}
-          <div className="bg-baglio-ebano/95 backdrop-blur-sm rounded-r-xl px-3 py-1.5 shadow-lg border border-baglio-oro/20">
-            <ol className="flex items-center space-x-1.5 text-xs sm:text-sm min-w-0">
+        <div className="flex justify-start">
+          {/* Modern chip-style breadcrumb */}
+          <div className="flex items-center gap-1 px-2 py-1 mx-2 rounded-full bg-background/80 backdrop-blur-md border border-border/50 shadow-sm">
+            <ol className="flex items-center gap-1 text-xs font-light">
               {breadcrumbs.map((crumb, index) => {
                 const isLast = index === breadcrumbs.length - 1;
                 
                 return (
-                  <li key={index} className="flex items-center space-x-1.5 min-w-0">
+                  <li key={index} className="flex items-center gap-1">
                     {index === 0 && (
-                      <Home size={12} className="text-baglio-crema flex-shrink-0 sm:size-3" />
+                      <Home size={12} className="text-muted-foreground opacity-70" />
                     )}
                     
                     {crumb.path && !isLast ? (
                       <Link 
                         to={crumb.path}
                         className={cn(
-                          "text-baglio-crema hover:text-baglio-oro transition-all duration-300",
-                          "focus:outline-none focus:ring-1 focus:ring-baglio-oro/50 focus:ring-offset-1 focus:ring-offset-baglio-ebano",
-                          "rounded-md px-1.5 py-0.5 truncate font-medium hover:bg-baglio-oro/10",
-                          "touch-target-44 min-h-[44px] sm:min-h-auto flex items-center",
-                          "max-w-[120px] sm:max-w-none"
+                          "text-muted-foreground hover:text-foreground transition-all duration-200",
+                          "focus:outline-none focus:ring-1 focus:ring-ring rounded-sm",
+                          "px-1.5 py-0.5 hover:bg-accent/50 font-light hover:font-normal",
+                          "max-w-[100px] sm:max-w-none truncate text-xs"
                         )}
+                        title={crumb.label}
                       >
-                        <span className="truncate">
-                          {crumb.label.length > 12 && typeof window !== 'undefined' && window.innerWidth < 640 
-                            ? `${crumb.label.substring(0, 12)}...` 
-                            : crumb.label}
-                        </span>
+                        {crumb.label.length > 10 && typeof window !== 'undefined' && window.innerWidth < 640 
+                          ? `${crumb.label.substring(0, 10)}...` 
+                          : crumb.label}
                       </Link>
                     ) : (
                       <span 
                         className={cn(
                           isLast 
-                            ? "text-baglio-oro font-semibold" 
-                            : "text-baglio-crema font-medium",
-                          "truncate px-1.5 py-0.5 rounded-md",
-                          "max-w-[120px] sm:max-w-none block"
+                            ? "text-foreground font-normal bg-accent/30 px-1.5 py-0.5 rounded-sm" 
+                            : "text-muted-foreground font-light px-1.5 py-0.5",
+                          "truncate max-w-[100px] sm:max-w-none text-xs"
                         )}
                         aria-current={isLast ? "page" : undefined}
                         title={crumb.label}
                       >
-                        {crumb.label.length > 15 && typeof window !== 'undefined' && window.innerWidth < 640 
-                          ? `${crumb.label.substring(0, 15)}...` 
+                        {crumb.label.length > 12 && typeof window !== 'undefined' && window.innerWidth < 640 
+                          ? `${crumb.label.substring(0, 12)}...` 
                           : crumb.label}
                       </span>
                     )}
                     
                     {!isLast && (
-                      <ChevronRight 
-                        size={10} 
-                        className="text-baglio-crema/60 flex-shrink-0 sm:size-3 transition-opacity duration-300" 
-                      />
+                      <div className="w-1 h-1 rounded-full bg-muted-foreground/40 flex-shrink-0" />
                     )}
                   </li>
                 );
