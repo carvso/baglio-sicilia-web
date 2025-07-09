@@ -38,135 +38,174 @@ const eventTypes = {
   }
 };
 
-// Eventi fittizi per il mese corrente e prossimo
+// Eventi fittizi per luglio e agosto 2025
 const mockEvents = [
+  // LUGLIO 2025
   {
     id: 1,
     title: 'Matrimonio Elena & Marco',
-    date: new Date(2025, 0, 15), // 15 gennaio 2025
+    date: new Date(2025, 6, 5), // 5 luglio 2025
     type: 'matrimonio' as keyof typeof eventTypes,
     isPrivate: true,
-    time: '15:00',
+    time: '17:00',
     guests: 120,
     location: 'Terrazza Panoramica',
-    description: 'Celebrazione romantica con vista panoramica sulla costa siciliana.',
+    description: 'Celebrazione romantica con vista panoramica sulla costa siciliana al tramonto estivo.',
     thumbnail: '/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png'
   },
   {
     id: 2,
-    title: 'Convention Aziendale Tech Solutions',
-    date: new Date(2025, 0, 22), // 22 gennaio 2025
+    title: 'Summer Corporate Retreat',
+    date: new Date(2025, 6, 10), // 10 luglio 2025
     type: 'aziendale' as keyof typeof eventTypes,
     isPrivate: false,
     time: '09:00',
     guests: 80,
-    location: 'Sala Conferenze',
-    description: 'Evento aziendale con catering incluso e team building activities in location esclusiva.'
+    location: 'Sala Conferenze & Terrazza',
+    description: 'Retreat aziendale estivo con team building, workshop e cena sotto le stelle siciliane.'
   },
   {
     id: 3,
-    title: 'Sunset Jazz Night',
-    date: new Date(2025, 0, 25), // 25 gennaio 2025
+    title: 'Notte di Mezza Estate - Jazz & Aperitivo',
+    date: new Date(2025, 6, 15), // 15 luglio 2025
     type: 'pubblico' as keyof typeof eventTypes,
     isPrivate: false,
-    time: '19:30',
+    time: '20:00',
     guests: 60,
     location: 'Terrazza Lounge',
-    description: 'Serata jazz con aperitivo vista tramonto. Live music e atmosfera magica della Sicilia.',
+    description: 'Serata magica con live jazz, aperitivo gourmet e vista stelle. Atmosfera incantevole della Sicilia estiva.',
     bookable: true
   },
   {
     id: 4,
-    title: 'Evento Privato',
-    date: new Date(2025, 1, 8), // 8 febbraio 2025
+    title: 'Festa Privata di Compleanno',
+    date: new Date(2025, 6, 18), // 18 luglio 2025
     type: 'privato' as keyof typeof eventTypes,
     isPrivate: true,
-    time: '20:00',
+    time: '19:30',
     guests: 40,
-    location: 'Sala Privata'
+    location: 'Giardino Privato',
+    description: 'Celebrazione esclusiva nel giardino con catering personalizzato.'
   },
   {
     id: 5,
     title: 'Matrimonio Sarah & Giuseppe',
-    date: new Date(2025, 1, 14), // 14 febbraio 2025 - San Valentino
+    date: new Date(2025, 6, 22), // 22 luglio 2025
     type: 'matrimonio' as keyof typeof eventTypes,
     isPrivate: true,
-    time: '16:00',
+    time: '18:00',
     guests: 150,
     location: 'Giardino & Terrazza',
-    description: 'Matrimonio da sogno nel giorno di San Valentino, tra giardini fioriti e terrazze panoramiche.',
+    description: 'Matrimonio da sogno in piena estate siciliana, tra giardini fioriti e terrazze panoramiche.',
     thumbnail: '/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png'
   },
   {
     id: 6,
-    title: 'Wine Tasting Experience',
-    date: new Date(2025, 1, 20), // 20 febbraio 2025
+    title: 'Degustazione Vini Estiva sotto le Stelle',
+    date: new Date(2025, 6, 26), // 26 luglio 2025
     type: 'pubblico' as keyof typeof eventTypes,
     isPrivate: false,
-    time: '18:00',
-    guests: 25,
-    location: 'Cantina',
-    description: 'Degustazione vini siciliani con sommelier esperto. Include finger food e tour della cantina.',
+    time: '20:30',
+    guests: 30,
+    location: 'Terrazza Panoramica',
+    description: 'Degustazione vini siciliani con sommelier sotto il cielo stellato. Include cena leggera siciliana.',
     bookable: true
   },
   {
     id: 7,
-    title: 'Aperyluxury con Spettacolo Burlesque',
-    date: new Date(2024, 6, 4), // 4 luglio 2024 (evento passato)
-    type: 'pubblico' as keyof typeof eventTypes,
+    title: 'Convention Internazionale Tech',
+    date: new Date(2025, 6, 28), // 28 luglio 2025
+    type: 'aziendale' as keyof typeof eventTypes,
     isPrivate: false,
-    time: '20:30',
-    guests: 90,
-    location: 'Terrazza Lounge',
-    description: 'Serata esclusiva con aperitivo di lusso e spettacolo burlesque. Un mix perfetto di eleganza e sensualità siciliana.',
-    bookable: false,
-    thumbnail: '/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png'
+    time: '08:30',
+    guests: 100,
+    location: 'Sala Conferenze',
+    description: 'Evento tecnologico internazionale con networking dinner e vista mare.'
   },
-  // Eventi aggiuntivi per gennaio 2025 per colorare il calendario
+  
+  // AGOSTO 2025
   {
     id: 8,
-    title: 'Cena di Gala',
-    date: new Date(2025, 0, 8), // 8 gennaio 2025
+    title: 'Ferragosto Luxury Night',
+    date: new Date(2025, 7, 15), // 15 agosto 2025 - Ferragosto
     type: 'pubblico' as keyof typeof eventTypes,
     isPrivate: false,
-    time: '20:00',
-    guests: 50,
-    location: 'Ristorante',
-    description: 'Cena di gala con menu degustazione siciliano.',
-    bookable: true
+    time: '21:00',
+    guests: 80,
+    location: 'Terrazza Lounge',
+    description: 'Celebrazione esclusiva di Ferragosto con DJ set, cocktail gourmet e spettacolo pirotecnico.',
+    bookable: true,
+    thumbnail: '/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png'
   },
   {
     id: 9,
-    title: 'Meeting Aziendale',
-    date: new Date(2025, 0, 12), // 12 gennaio 2025
-    type: 'aziendale' as keyof typeof eventTypes,
-    isPrivate: false,
-    time: '14:00',
-    guests: 30,
-    location: 'Sala Conferenze',
-    description: 'Riunione aziendale con coffee break.'
+    title: 'Matrimonio Lucia & Andrea',
+    date: new Date(2025, 7, 9), // 9 agosto 2025
+    type: 'matrimonio' as keyof typeof eventTypes,
+    isPrivate: true,
+    time: '17:30',
+    guests: 100,
+    location: 'Giardino Panoramico',
+    description: 'Cerimonia intima nel giardino panoramico con vista mozzafiato sulla costa siciliana.',
+    thumbnail: '/lovable-uploads/97ade15d-9a2b-4fa8-89b8-847a2ea33c4c.png'
   },
   {
     id: 10,
-    title: 'Festa Privata',
-    date: new Date(2025, 0, 18), // 18 gennaio 2025
-    type: 'privato' as keyof typeof eventTypes,
-    isPrivate: true,
-    time: '19:00',
-    guests: 25,
-    location: 'Terrazza Privata'
+    title: 'Summer Business Summit',
+    date: new Date(2025, 7, 3), // 3 agosto 2025
+    type: 'aziendale' as keyof typeof eventTypes,
+    isPrivate: false,
+    time: '09:00',
+    guests: 60,
+    location: 'Sala Meeting',
+    description: 'Summit aziendale estivo con sessioni di brainstorming e lunch vista mare.'
   },
   {
     id: 11,
-    title: 'Matrimonio Lucia & Andrea',
-    date: new Date(2025, 0, 26), // 26 gennaio 2025
+    title: 'Notte delle Stelle Cadenti',
+    date: new Date(2025, 7, 12), // 12 agosto 2025 - San Lorenzo
+    type: 'pubblico' as keyof typeof eventTypes,
+    isPrivate: false,
+    time: '22:00',
+    guests: 50,
+    location: 'Terrazza Panoramica',
+    description: 'Serata magica per osservare le stelle cadenti con aperitivo astronomico e telescopi.',
+    bookable: true
+  },
+  {
+    id: 12,
+    title: 'Evento Privato Famiglia',
+    date: new Date(2025, 7, 20), // 20 agosto 2025
+    type: 'privato' as keyof typeof eventTypes,
+    isPrivate: true,
+    time: '19:00',
+    guests: 35,
+    location: 'Sala Privata',
+    description: 'Riunione familiare esclusiva con catering tradizionale siciliano.'
+  },
+  {
+    id: 13,
+    title: 'Matrimonio Marco & Valentina',
+    date: new Date(2025, 7, 23), // 23 agosto 2025
     type: 'matrimonio' as keyof typeof eventTypes,
     isPrivate: true,
-    time: '16:30',
-    guests: 100,
-    location: 'Giardino',
-    description: 'Cerimonia intima nel giardino panoramico.',
-    thumbnail: '/lovable-uploads/97ade15d-9a2b-4fa8-89b8-847a2ea33c4c.png'
+    time: '18:30',
+    guests: 130,
+    location: 'Terrazza & Giardino',
+    description: 'Matrimonio elegante con cerimonia in terrazza e ricevimento nel giardino illuminato.',
+    thumbnail: '/lovable-uploads/a64af1b5-6d30-4760-80df-66af10202399.png'
+  },
+  {
+    id: 14,
+    title: 'Wine & Dine Experience',
+    date: new Date(2025, 7, 30), // 30 agosto 2025
+    type: 'pubblico' as keyof typeof eventTypes,
+    isPrivate: false,
+    time: '19:30',
+    guests: 40,
+    location: 'Ristorante & Cantina',
+    description: 'Esperienza culinaria con degustazione vini siciliani e menu dello chef.',
+    bookable: true
   }
 ];
 
