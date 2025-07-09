@@ -63,7 +63,7 @@ const BreadcrumbNavigation = () => {
     <nav 
       role="navigation" 
       aria-label="breadcrumb"
-      className="fixed top-16 left-0 right-0 z-40 animate-fade-in"
+      className="fixed top-[72px] sm:top-[68px] left-0 right-0 z-40 animate-fade-in"
     >
       <div className="w-full overflow-x-auto scrollbar-hide">
         <div className="flex justify-start">
