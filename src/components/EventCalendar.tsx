@@ -49,6 +49,7 @@ const mockEvents = [
     time: '15:00',
     guests: 120,
     location: 'Terrazza Panoramica',
+    description: 'Celebrazione romantica con vista panoramica sulla costa siciliana.',
     thumbnail: '/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png'
   },
   {
@@ -60,7 +61,7 @@ const mockEvents = [
     time: '09:00',
     guests: 80,
     location: 'Sala Conferenze',
-    description: 'Evento aziendale con catering incluso e team building activities.'
+    description: 'Evento aziendale con catering incluso e team building activities in location esclusiva.'
   },
   {
     id: 3,
@@ -71,7 +72,7 @@ const mockEvents = [
     time: '19:30',
     guests: 60,
     location: 'Terrazza Lounge',
-    description: 'Serata jazz con aperitivo vista tramonto. Prenotazione consigliata.',
+    description: 'Serata jazz con aperitivo vista tramonto. Live music e atmosfera magica della Sicilia.',
     bookable: true
   },
   {
@@ -93,6 +94,7 @@ const mockEvents = [
     time: '16:00',
     guests: 150,
     location: 'Giardino & Terrazza',
+    description: 'Matrimonio da sogno nel giorno di San Valentino, tra giardini fioriti e terrazze panoramiche.',
     thumbnail: '/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png'
   },
   {
@@ -104,8 +106,21 @@ const mockEvents = [
     time: '18:00',
     guests: 25,
     location: 'Cantina',
-    description: 'Degustazione vini siciliani con sommelier esperto. Include finger food.',
+    description: 'Degustazione vini siciliani con sommelier esperto. Include finger food e tour della cantina.',
     bookable: true
+  },
+  {
+    id: 7,
+    title: 'Aperyluxury con Spettacolo Burlesque',
+    date: new Date(2024, 6, 4), // 4 luglio 2024 (evento passato)
+    type: 'pubblico' as keyof typeof eventTypes,
+    isPrivate: false,
+    time: '20:30',
+    guests: 90,
+    location: 'Terrazza Lounge',
+    description: 'Serata esclusiva con aperitivo di lusso e spettacolo burlesque. Un mix perfetto di eleganza e sensualità siciliana.',
+    bookable: false,
+    thumbnail: '/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png'
   }
 ];
 
@@ -307,42 +322,65 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
           </div>
 
           {/* Contenuto */}
-          <div className="p-4">
-            <div className="mb-3">
-              <h4 className="font-serif text-lg text-baglio-navy font-semibold leading-tight mb-1">
+          <div className="p-5">
+            <div className="mb-4">
+              <h3 className="font-serif text-xl text-baglio-navy font-bold leading-tight mb-2 tracking-wide">
                 {event.title}
-              </h4>
-              <p className="text-sm text-baglio-navy/60">
-                {format(event.date, 'EEEE dd MMMM yyyy', { locale: it })}
-              </p>
+              </h3>
+              <div className="flex items-center gap-2 text-baglio-navy/70">
+                <CalendarIcon className="w-4 h-4 text-baglio-gold flex-shrink-0" />
+                <p className="text-sm font-medium">
+                  {format(event.date, 'EEEE dd MMMM yyyy', { locale: it })}
+                </p>
+              </div>
             </div>
             
-            <div className="space-y-2 text-sm text-baglio-navy/70">
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-baglio-gold" />
-                <span>{event.time}</span>
+            <div className="space-y-3 mb-4">
+              <div className="flex items-center gap-3 text-baglio-navy/70">
+                <div className="w-8 h-8 rounded-full bg-baglio-gold/10 flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-4 h-4 text-baglio-gold" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-baglio-navy">Orario</p>
+                  <p className="text-sm text-baglio-navy/60">{event.time}</p>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-baglio-gold" />
-                <span>{event.location}</span>
+              
+              <div className="flex items-center gap-3 text-baglio-navy/70">
+                <div className="w-8 h-8 rounded-full bg-baglio-gold/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-4 h-4 text-baglio-gold" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-baglio-navy">Location</p>
+                  <p className="text-sm text-baglio-navy/60">{event.location}</p>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-baglio-gold" />
-                <span>{event.guests} ospiti</span>
+              
+              <div className="flex items-center gap-3 text-baglio-navy/70">
+                <div className="w-8 h-8 rounded-full bg-baglio-gold/10 flex items-center justify-center flex-shrink-0">
+                  <Users className="w-4 h-4 text-baglio-gold" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-baglio-navy">Ospiti</p>
+                  <p className="text-sm text-baglio-navy/60">{event.guests} persone</p>
+                </div>
               </div>
             </div>
 
             {event.description && (
-              <p className="text-sm text-baglio-navy/60 mt-3 line-clamp-2 font-sans leading-relaxed">
-                {event.description}
-              </p>
+              <div className="mb-5">
+                <h4 className="text-sm font-semibold text-baglio-navy mb-2">Descrizione</h4>
+                <p className="text-sm text-baglio-navy/70 font-sans leading-relaxed">
+                  {event.description}
+                </p>
+              </div>
             )}
 
             {/* CTA Buttons */}
-            <div className="mt-4 space-y-2">
+            <div className="space-y-3">
               {event.bookable && !event.isPrivate && (
                 <Button 
-                  className="w-full bg-baglio-gold text-baglio-navy hover:bg-baglio-gold/90 font-semibold shadow-md hover:shadow-lg transition-all duration-200"
+                  className="w-full bg-baglio-gold text-baglio-navy hover:bg-baglio-gold/90 font-semibold shadow-md hover:shadow-lg transition-all duration-200 h-11"
                 >
                   <ExternalLink className="w-4 h-4 mr-2" />
                   Prenota ora
@@ -352,7 +390,7 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
               {!event.isPrivate && (
                 <Button 
                   variant="outline" 
-                  className="w-full border-baglio-navy/20 text-baglio-navy hover:bg-baglio-navy/5 hover:border-baglio-navy/40"
+                  className="w-full border-baglio-navy/20 text-baglio-navy hover:bg-baglio-navy/5 hover:border-baglio-navy/40 h-11"
                 >
                   <Eye className="w-4 h-4 mr-2" />
                   Scopri di più
@@ -379,15 +417,29 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
     <div className={cn("space-y-6", className)}>
       {showHeader && (
         <div className="text-center lg:text-left">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-            <div>
-              <h2 className="text-3xl font-serif text-baglio-navy font-bold mb-2">
-                Calendario Eventi
-              </h2>
-              <p className="text-baglio-navy/70 font-sans max-w-2xl">
-                Scopri i nostri eventi esclusivi immersi nella bellezza della Sicilia. 
-                Dalla magia dei matrimoni agli eventi aziendali di prestigio.
-              </p>
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div className="space-y-4">
+              <div>
+                <h1 className="text-4xl lg:text-5xl font-serif text-baglio-navy font-bold mb-3 tracking-wide">
+                  Calendario Eventi
+                </h1>
+                <p className="text-lg text-baglio-navy/80 font-sans leading-relaxed max-w-3xl">
+                  <span className="font-medium">Scopri la magia di Baglio Abbate</span> attraverso i nostri eventi esclusivi 
+                  immersi nella bellezza autentica della Sicilia. Dalla celebrazione romantica dei matrimoni 
+                  agli eventi aziendali di prestigio internazionale.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-baglio-gold/20 text-baglio-navy border border-baglio-gold/30">
+                  📍 Sicilia Autentica
+                </span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-baglio-navy/10 text-baglio-navy border border-baglio-navy/20">
+                  ✨ Location Esclusiva
+                </span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200">
+                  💕 Eventi da Sogno
+                </span>
+              </div>
             </div>
             
             {/* Controlli di navigazione e visualizzazione */}
@@ -522,27 +574,35 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
         {!compact && (
           <div className="space-y-4">
             <Card className="border-baglio-gold/20 shadow-lg bg-gradient-to-br from-white to-slate-50/30">
-              <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20">
-                <CardTitle className="text-lg font-serif text-baglio-navy flex items-center gap-2">
-                  <CalendarIcon className="w-5 h-5 text-baglio-gold" />
-                  {format(selectedDate, 'dd MMMM yyyy', { locale: it })}
+              <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20 pb-4">
+                <CardTitle className="text-xl font-serif text-baglio-navy flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-baglio-gold/20 flex items-center justify-center">
+                    <CalendarIcon className="w-5 h-5 text-baglio-gold" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold">Eventi del Giorno</h3>
+                    <p className="text-sm font-normal text-baglio-navy/60 mt-1">
+                      {format(selectedDate, 'EEEE dd MMMM yyyy', { locale: it })}
+                    </p>
+                  </div>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-4">
+              <CardContent className="p-6">
                 {selectedDateEvents.length > 0 ? (
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     {selectedDateEvents.filter(event => filter === 'all' || event.type === filter).map(event => (
                       <EventCard key={event.id} event={event} />
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-12">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-baglio-gold/10 flex items-center justify-center">
-                      <CalendarIcon className="w-8 h-8 text-baglio-gold/60" />
+                  <div className="text-center py-16">
+                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-baglio-gold/10 flex items-center justify-center">
+                      <CalendarIcon className="w-10 h-10 text-baglio-gold/60" />
                     </div>
-                    <h4 className="font-serif text-baglio-navy mb-2">Nessun evento</h4>
-                    <p className="text-sm text-baglio-navy/60 font-sans">
-                      Non ci sono eventi in questa data
+                    <h4 className="font-serif text-xl text-baglio-navy mb-3">Nessun evento programmato</h4>
+                    <p className="text-baglio-navy/60 font-sans max-w-sm mx-auto leading-relaxed">
+                      Non ci sono eventi in programma per questa data. Esplora altre date per scoprire 
+                      i nostri eventi esclusivi.
                     </p>
                   </div>
                 )}
@@ -554,21 +614,33 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
 
       {/* Legenda elegante */}
       <Card className="border-baglio-gold/20 shadow-md bg-gradient-to-r from-white to-baglio-gold/5">
-        <CardContent className="p-6">
-          <h4 className="font-serif text-baglio-navy font-semibold mb-4 text-center">Tipologie Eventi</h4>
-          <div className="flex flex-wrap gap-6 justify-center">
+        <CardContent className="p-8">
+          <div className="text-center mb-6">
+            <h3 className="font-serif text-2xl text-baglio-navy font-bold mb-2">Tipologie Eventi</h3>
+            <p className="text-baglio-navy/60 font-sans">Esplora le diverse categorie dei nostri eventi esclusivi</p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {Object.entries(eventTypes).map(([type, config]) => {
               const IconComponent = config.icon;
               return (
-                <div key={type} className="flex items-center gap-3 group cursor-pointer" onClick={() => setFilter(type as FilterType)}>
-                  <div className={cn(
-                    "w-4 h-4 rounded-full shadow-sm border border-white/50 transition-transform group-hover:scale-110",
-                    config.dotColor
-                  )} />
-                  <IconComponent className="w-4 h-4 text-baglio-gold" />
-                  <span className="text-sm font-medium text-baglio-navy group-hover:text-baglio-navy/80 transition-colors">
-                    {config.label}
-                  </span>
+                <div 
+                  key={type} 
+                  className="flex flex-col items-center gap-3 group cursor-pointer p-4 rounded-xl hover:bg-baglio-gold/10 transition-all duration-200" 
+                  onClick={() => setFilter(type as FilterType)}
+                >
+                  <div className="relative">
+                    <div className={cn(
+                      "w-6 h-6 rounded-full shadow-sm border-2 border-white transition-transform group-hover:scale-110",
+                      config.dotColor
+                    )} />
+                    <IconComponent className="w-5 h-5 text-white absolute inset-0.5" />
+                  </div>
+                  <div className="text-center">
+                    <h4 className="text-sm font-semibold text-baglio-navy group-hover:text-baglio-navy/80 transition-colors">
+                      {config.label}
+                    </h4>
+                    <p className="text-xs text-baglio-navy/50 mt-1">Clicca per filtrare</p>
+                  </div>
                 </div>
               );
             })}
@@ -579,24 +651,28 @@ export function EventCalendar({ className, showHeader = true, compact = false }:
       {/* Lista eventi per mobile/compact */}
       {compact && filteredEvents.length > 0 && (
         <Card className="border-baglio-gold/20 shadow-lg">
-          <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20">
-            <CardTitle className="text-lg font-serif text-baglio-navy">
-              Eventi di {format(currentMonth, 'MMMM yyyy', { locale: it })}
+          <CardHeader className="bg-gradient-to-r from-baglio-navy/5 to-baglio-gold/5 border-b border-baglio-gold/20 pb-4">
+            <CardTitle className="text-xl font-serif text-baglio-navy">
+              <span className="font-bold">Eventi di {format(currentMonth, 'MMMM yyyy', { locale: it })}</span>
+              <p className="text-sm font-normal text-baglio-navy/60 mt-1">
+                Esplora tutti gli eventi del mese
+              </p>
             </CardTitle>
           </CardHeader>
-          <CardContent className="p-4">
-            <div className="space-y-4">
+          <CardContent className="p-6">
+            <div className="space-y-6">
               {filteredEvents.slice(0, 3).map(event => (
                 <EventCard key={event.id} event={event} />
               ))}
               {filteredEvents.length > 3 && (
-                <div className="text-center pt-4">
+                <div className="text-center pt-6 border-t border-baglio-gold/20">
                   <Dialog>
                     <DialogTrigger asChild>
                       <Button 
                         variant="outline" 
-                        className="border-baglio-gold/30 text-baglio-navy hover:bg-baglio-gold/10"
+                        className="border-baglio-gold/30 text-baglio-navy hover:bg-baglio-gold/10 px-6 h-11"
                       >
+                        <Eye className="w-4 h-4 mr-2" />
                         Vedi tutti gli eventi ({filteredEvents.length})
                       </Button>
                     </DialogTrigger>
