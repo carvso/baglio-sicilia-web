@@ -39,16 +39,16 @@ const Footer = () => {
             <h3 className="text-xl font-playfair font-bold mb-4 text-elite-gold">Contatti</h3>
             <ul className="text-muted-foreground space-y-3">
               <li className="flex items-center">
-                <MapPin size={18} className="mr-2 text-elite-gold" />
-                Medusa S.r.l. Via Palermo 4 - 90041 Balestrate p.iva 07167250823 Info@baglioabbate.it tel 3318286888 codice univoco 2LCMINU
-              </li>
-              <li className="flex items-center">
                 <Phone size={18} className="mr-2 text-elite-gold" />
                 +39 331 828 6888
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-2 text-elite-gold" />
                 info@baglioabbate.it
+              </li>
+              <li className="flex items-center">
+                <Instagram size={18} className="mr-2 text-elite-gold" />
+                <a href="https://instagram.com/baglioabbateevents" target="_blank" rel="noopener noreferrer" className="underline hover:text-elite-goldLight">Instagram</a>
               </li>
             </ul>
           </div>
@@ -73,7 +73,12 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-elite-gold/20 py-6 text-sm text-muted-foreground text-center">
-          <p>© {new Date().getFullYear()} Baglio Abbate. Tutti i diritti riservati.</p>
+          <p>
+            © {new Date().getFullYear()} Medusa S.r.l. - P.IVA 07167250823. Tutti i diritti riservati. |
+            <Link to="/privacy-policy" className="underline hover:text-elite-goldLight mx-1">Privacy Policy</Link>|
+            <Link to="/termini-e-condizioni" className="underline hover:text-elite-goldLight mx-1">Termini e Condizioni</Link>|
+            <Link to="/cookie-policy" className="underline hover:text-elite-goldLight mx-1">Cookie Policy</Link>
+          </p>
         </div>
       </div>
     </footer>

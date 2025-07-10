@@ -43,7 +43,7 @@ const Index = () => {
       
       {/* Eventi in Evidenza Section */}
       <div id="eventi-in-evidenza">
-        <EventiInEvidenza />
+      <EventiInEvidenza />
       </div>
       <DividerDecorativo />
       

@@ -21,6 +21,9 @@ import EventiAziendali from "./pages/EventiAziendali";
 import Gallery from "./pages/Gallery";
 import Contatti from "./pages/Contatti";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsAndConditions from './pages/TermsAndConditions';
+import CookiePolicy from './pages/CookiePolicy';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -101,6 +104,9 @@ const App = () => {
                     <Route path="/eventi-aziendali" element={<EventiAziendali />} />
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/contatti" element={<Contatti />} />
+                    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                    <Route path="/termini-e-condizioni" element={<TermsAndConditions />} />
+                    <Route path="/cookie-policy" element={<CookiePolicy />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </div>
