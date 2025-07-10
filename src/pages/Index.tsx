@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import Layout from '@/components/Layout';
 import HeroSection from '@/components/sections/HeroSection';
 import EventiInEvidenza from '@/components/EventiInEvidenza';
@@ -12,69 +11,28 @@ import { MessageCircle } from 'lucide-react';
 import { getLovableUploadPath } from '@/lib/paths';
 import { EventCalendar } from '@/components/EventCalendar';
 import DividerDecorativo from '@/components/DividerDecorativo';
+import { useStructuredData, useMetaTags } from '@/hooks/useStructuredData';
 
 const Index = () => {
   const isMobile = useIsMobile();
   
+  // Usa il nuovo hook per i dati strutturati
+  useStructuredData('home');
+  
+  // Usa il nuovo hook per i meta tag
+  useMetaTags({
+    title: 'Baglio Abbate | Location per Eventi e Matrimoni a Balestrate, Palermo',
+    description: 'Baglio Abbate è la location esclusiva per eventi e matrimoni a Balestrate, vicino Palermo, nel cuore della Sicilia occidentale. Scopri spazi unici con vista mare per i tuoi momenti speciali.',
+    keywords: 'baglio abbate, location matrimoni sicilia, eventi sicilia, matrimonio sicilia, location eventi, balestrate, palermo, location matrimoni palermo, eventi balestrate',
+    canonical: 'https://baglioabbate.it',
+    ogTitle: 'Baglio Abbate | Location per Eventi e Matrimoni a Balestrate, Palermo',
+    ogDescription: 'Una location esclusiva per eventi indimenticabili a Balestrate, vicino Palermo, nel cuore della Sicilia occidentale, con vista sul mare.',
+    ogUrl: 'https://baglioabbate.it',
+    ogImage: getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png")
+  });
+  
   return (
     <Layout hideNavbar={false} hideFooter={false} heroLayout={true}>
-      <Helmet>
-        <title>Baglio Abbate | Location per Eventi e Matrimoni a Balestrate, Palermo</title>
-        <meta name="description" content="Baglio Abbate è la location esclusiva per eventi e matrimoni a Balestrate, vicino Palermo, nel cuore della Sicilia occidentale. Scopri spazi unici con vista mare per i tuoi momenti speciali." />
-        <meta name="keywords" content="baglio abbate, location matrimoni sicilia, eventi sicilia, matrimonio sicilia, location eventi, balestrate, palermo, location matrimoni palermo, eventi balestrate" />
-        <link rel="canonical" href="https://www.baglioabbate.it" />
-        <meta property="og:title" content="Baglio Abbate | Location per Eventi e Matrimoni a Balestrate, Palermo" />
-        <meta property="og:description" content="Una location esclusiva per eventi indimenticabili a Balestrate, vicino Palermo, nel cuore della Sicilia occidentale, con vista sul mare." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.baglioabbate.it" />
-        <meta property="og:image" content={getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png")} />
-        
-        {/* Dati Strutturati Schema.org per EventVenue */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "EventVenue",
-            "name": "Baglio Abbate",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Via Palermo 4",
-              "addressLocality": "Balestrate",
-              "addressRegion": "PA",
-              "postalCode": "90041",
-              "addressCountry": "IT"
-            },
-            "telephone": "+39 331 8286888",
-            "url": "https://www.baglioabbate.it",
-            "image": "https://www.baglioabbate.it/public/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png",
-            "description": "Location esclusiva per eventi e matrimoni a Balestrate, vicino Palermo, Sicilia occidentale. Spazi unici con vista mare per matrimoni, eventi aziendali e celebrazioni private.",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 38.0495,
-              "longitude": 13.0025
-            },
-            "openingHours": "Mo-Su 09:00-20:00",
-            "priceRange": "€€",
-            "amenityFeature": [
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Vista Mare",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification", 
-                "name": "Parcheggio",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Spazi Esterni",
-                "value": true
-              }
-            ]
-          })}
-        </script>
-      </Helmet>
-      
       {/* Enhanced Hero Section */}
       <HeroSection 
         title="Baglio Abbate"

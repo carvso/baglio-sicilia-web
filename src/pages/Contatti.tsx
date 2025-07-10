@@ -8,6 +8,7 @@ import ContactForm from '@/components/ContactForm';
 import CTAButton from '@/components/CTAButton';
 import DividerContatti from '@/components/DividerContatti';
 import { getLovableUploadPath } from '@/lib/paths';
+import { getStructuredData } from '@/lib/structuredData';
 
 const ContactInfo = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => {
   return (
@@ -77,41 +78,16 @@ const Contatti = () => {
         <title>Contatti Baglio Abbate | Via Palermo 4, Balestrate - Location Eventi Palermo</title>
         <meta name="description" content="Contatta Baglio Abbate a Balestrate, Via Palermo 4. Telefono, email e informazioni per prenotare la tua location eventi vicino Palermo. Sopralluogo gratuito." />
         <meta name="keywords" content="contatti baglio abbate, telefono balestrate, indirizzo via palermo 4, location eventi palermo, prenotazioni baglio abbate" />
-        <link rel="canonical" href="https://www.baglioabbate.it/contatti" />
+        <link rel="canonical" href="https://baglioabbate.it/contatti" />
         <meta property="og:title" content="Contatti Baglio Abbate | Via Palermo 4, Balestrate - Location Eventi Palermo" />
         <meta property="og:description" content="Contatta Baglio Abbate a Balestrate, Via Palermo 4. Telefono, email e informazioni per prenotare la tua location eventi." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.baglioabbate.it/contatti" />
+        <meta property="og:url" content="https://baglioabbate.it/contatti" />
         <meta property="og:image" content={getLovableUploadPath("a64af1b5-6d30-4760-80df-66af10202399.png")} />
         
         {/* Dati Strutturati Schema.org per Contatti */}
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ContactPage",
-            "name": "Contatti Baglio Abbate",
-            "description": "Contatta Baglio Abbate per informazioni su eventi e matrimoni a Balestrate, vicino Palermo.",
-            "url": "https://www.baglioabbate.it/contatti",
-            "mainEntity": {
-              "@type": "Organization",
-              "name": "Baglio Abbate",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Via Palermo 4",
-                "addressLocality": "Balestrate",
-                "addressRegion": "PA",
-                "postalCode": "90041",
-                "addressCountry": "IT"
-              },
-              "telephone": "+39 331 8286888",
-              "email": "info@baglioabbate.it",
-              "url": "https://www.baglioabbate.it",
-              "openingHours": "Mo-Fr 12:00-23:00, Sa 12:00-24:00, Su 12:00-23:00",
-              "sameAs": [
-                "https://instagram.com/baglioabbateevents"
-              ]
-            }
-          })}
+          {JSON.stringify(getStructuredData('contatti'))}
         </script>
       </Helmet>
       

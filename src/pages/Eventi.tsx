@@ -12,6 +12,7 @@ import SocialMediaBanners from '@/components/SocialMediaBanners';
 import { EventCalendar } from '@/components/EventCalendar';
 import DividerEventi from '@/components/DividerEventi';
 import { getLovableUploadPath } from '@/lib/paths';
+import { getStructuredData } from '@/lib/structuredData';
 
 type EventCategoryProps = {
   icon: React.ReactNode;
@@ -105,61 +106,16 @@ const Eventi = () => {
         <title>Eventi e Matrimoni a Balestrate | Baglio Abbate - Location Palermo</title>
         <meta name="description" content="Organizza il tuo evento perfetto a Balestrate, vicino Palermo. Matrimoni, celebrazioni private ed eventi aziendali in una location esclusiva della Sicilia occidentale con vista mare." />
         <meta name="keywords" content="eventi balestrate, matrimoni palermo, location eventi sicilia, celebrazioni private, eventi aziendali, baglio abbate eventi" />
-        <link rel="canonical" href="https://www.baglioabbate.it/eventi" />
+        <link rel="canonical" href="https://baglioabbate.it/eventi" />
         <meta property="og:title" content="Eventi e Matrimoni a Balestrate | Baglio Abbate - Location Palermo" />
         <meta property="og:description" content="Organizza il tuo evento perfetto a Balestrate, vicino Palermo. Matrimoni, celebrazioni private ed eventi aziendali in una location esclusiva." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.baglioabbate.it/eventi" />
+        <meta property="og:url" content="https://baglioabbate.it/eventi" />
         <meta property="og:image" content={getLovableUploadPath("ac14664b-cf42-46ec-90e4-d0461e9f18a2.png")} />
         
         {/* Dati Strutturati Schema.org per Eventi */}
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "EventVenue",
-            "name": "Baglio Abbate - Eventi e Matrimoni",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Via Palermo 4",
-              "addressLocality": "Balestrate",
-              "addressRegion": "PA",
-              "postalCode": "90041",
-              "addressCountry": "IT"
-            },
-            "telephone": "+39 331 8286888",
-            "url": "https://www.baglioabbate.it/eventi",
-            "image": "https://www.baglioabbate.it/public/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png",
-            "description": "Location per eventi e matrimoni a Balestrate, vicino Palermo. Organizziamo matrimoni, celebrazioni private ed eventi aziendali in Sicilia occidentale.",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 38.0495,
-              "longitude": 13.0025
-            },
-            "openingHours": "Mo-Su 09:00-20:00",
-            "priceRange": "€€",
-            "amenityFeature": [
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Matrimoni",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Eventi Privati",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Eventi Aziendali",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Vista Mare",
-                "value": true
-              }
-            ]
-          })}
+          {JSON.stringify(getStructuredData('eventi'))}
         </script>
       </Helmet>
       

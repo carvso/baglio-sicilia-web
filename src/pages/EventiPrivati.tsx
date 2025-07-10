@@ -12,6 +12,7 @@ import { EventCalendar } from '@/components/EventCalendar';
 import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
 import DividerSottoEventi from '@/components/DividerSottoEventi';
 import { getLovableUploadPath } from '@/lib/paths';
+import { getStructuredData } from '@/lib/structuredData';
 
 const EventiPrivati = () => {
   const packages = [
@@ -68,68 +69,16 @@ const EventiPrivati = () => {
         <title>Eventi Privati a Balestrate | Baglio Abbate - Celebrazioni Private Palermo</title>
         <meta name="description" content="Organizza il tuo evento privato a Balestrate: compleanni, anniversari, lauree. Location esclusiva per celebrazioni private vicino Palermo. Pacchetti personalizzati." />
         <meta name="keywords" content="eventi privati balestrate, compleanni palermo, anniversari sicilia, celebrazioni private, baglio abbate eventi privati" />
-        <link rel="canonical" href="https://www.baglioabbate.it/eventi-privati" />
+        <link rel="canonical" href="https://baglioabbate.it/eventi-privati" />
         <meta property="og:title" content="Eventi Privati a Balestrate | Baglio Abbate - Celebrazioni Private Palermo" />
         <meta property="og:description" content="Organizza il tuo evento privato a Balestrate: compleanni, anniversari, lauree. Location esclusiva per celebrazioni private vicino Palermo." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.baglioabbate.it/eventi-privati" />
+        <meta property="og:url" content="https://baglioabbate.it/eventi-privati" />
         <meta property="og:image" content={getLovableUploadPath("abd0f4fc-88b2-4370-b75c-a060e0f81d76.png")} />
         
         {/* Dati Strutturati Schema.org per Eventi Privati */}
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "EventVenue",
-            "name": "Baglio Abbate - Eventi Privati",
-            "description": "Location per eventi privati e celebrazioni a Balestrate, vicino Palermo. Compleanni, anniversari e occasioni speciali.",
-            "url": "https://www.baglioabbate.it/eventi-privati",
-            "image": "https://www.baglioabbate.it/public/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Via Palermo 4",
-              "addressLocality": "Balestrate",
-              "addressRegion": "PA",
-              "postalCode": "90041",
-              "addressCountry": "IT"
-            },
-            "telephone": "+39 331 8286888",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 38.0495,
-              "longitude": 13.0025
-            },
-            "openingHours": "Mo-Su 09:00-20:00",
-            "priceRange": "€€",
-            "amenityFeature": [
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Fino a 150 ospiti",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Parcheggio Riservato",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Impianto Audio",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Servizi Fotografici",
-                "value": true
-              }
-            ],
-            "offers": {
-              "@type": "Offer",
-              "name": "Pacchetto Eventi Privati Base",
-              "price": "800",
-              "priceCurrency": "EUR",
-              "description": "Location esclusiva per 4 ore con drink di benvenuto"
-            }
-          })}
+          {JSON.stringify(getStructuredData('eventi-privati'))}
         </script>
       </Helmet>
       

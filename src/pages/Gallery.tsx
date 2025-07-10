@@ -10,6 +10,7 @@ import CTAButton from '@/components/CTAButton';
 import { EventCalendar } from '@/components/EventCalendar';
 import DividerGallery from '@/components/DividerGallery';
 import { getLovableUploadPath } from '@/lib/paths';
+import { getStructuredData } from '@/lib/structuredData';
 
 // Gallery categories and images with enhanced data
 const galleryCategories = [
@@ -262,93 +263,61 @@ const InstagramCTA = ({ position = "side", size = "normal" }: { position?: "side
 
 // Gallery component
 const Gallery = () => {
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const isMobile = useIsMobile();
-  const [activeCategory, setActiveCategory] = useState('all');
+
+  const allImages = [...structureImages, ...foodImages, ...eventsImages, ...detailsImages];
+  const filteredImages = selectedCategory === 'all' 
+    ? allImages 
+    : allImages.filter(img => img.category === selectedCategory);
 
   return (
-    <Layout hideBreadcrumb={true}>
+    <Layout heroLayout={true} hideBreadcrumb={true}>
       <Helmet>
         <title>Gallery Baglio Abbate | Foto Location Eventi Balestrate, Palermo</title>
         <meta name="description" content="Scopri la Gallery del Baglio Abbate a Balestrate: foto degli spazi interni ed esterni, allestimenti per matrimoni, eventi aziendali e celebrazioni private. Location esclusiva vicino Palermo." />
         <meta name="keywords" content="gallery baglio abbate, foto location balestrate, spazi eventi palermo, allestimenti matrimoni sicilia, sala ricevimenti balestrate" />
-        <link rel="canonical" href="https://www.baglioabbate.it/gallery" />
+        <link rel="canonical" href="https://baglioabbate.it/gallery" />
         <meta property="og:title" content="Gallery Baglio Abbate | Foto Location Eventi Balestrate, Palermo" />
         <meta property="og:description" content="Scopri la Gallery del Baglio Abbate: foto degli spazi interni ed esterni, allestimenti per matrimoni ed eventi a Balestrate, vicino Palermo." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.baglioabbate.it/gallery" />
+        <meta property="og:url" content="https://baglioabbate.it/gallery" />
         <meta property="og:image" content={getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png")} />
         
         {/* Dati Strutturati Schema.org per Gallery */}
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ImageGallery",
-            "name": "Gallery Baglio Abbate - Location Eventi Balestrate",
-            "description": "Foto degli spazi interni ed esterni del Baglio Abbate a Balestrate, location per eventi e matrimoni vicino Palermo.",
-            "url": "https://www.baglioabbate.it/gallery",
-            "image": [
-              "https://www.baglioabbate.it/public/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png",
-              "https://www.baglioabbate.it/public/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png",
-              "https://www.baglioabbate.it/public/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png"
-            ],
-            "location": {
-              "@type": "Place",
-              "name": "Baglio Abbate",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Via Palermo 4",
-                "addressLocality": "Balestrate",
-                "addressRegion": "PA",
-                "postalCode": "90041",
-                "addressCountry": "IT"
-              }
-            },
-            "about": {
-              "@type": "EventVenue",
-              "name": "Baglio Abbate",
-              "description": "Location per eventi e matrimoni a Balestrate, Sicilia occidentale"
-            }
-          })}
+          {JSON.stringify(getStructuredData('gallery'))}
         </script>
       </Helmet>
-      {/* Hero Section with new interior image */}
+      
       <ImageWithOverlay 
-        src="/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png"
-        alt="Interni eleganti del Baglio Abbate - Sala allestita per eventi"
-        className="h-[60vh]"
+        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
+        alt="Gallery Baglio Abbate Balestrate - Foto location eventi e matrimoni in Sicilia"
+        className="h-screen -mt-16 pt-16"
         heroSection={true}
-        priority={true}
-        sizes="100vw"
-        overlayOpacity={70}
       >
         <div className="baglio-container text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 font-playfair text-white drop-shadow-lg">
-            La nostra <span className="text-baglio-oro">Galleria</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 font-playfair text-white drop-shadow-lg">
+            Gallery <span className="text-baglio-oro">Baglio Abbate</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-4xl mx-auto text-white/95 leading-relaxed drop-shadow-md mb-8">
-            Scopri l'essenza del Baglio Abbate attraverso le immagini che raccontano la nostra storia di eccellenza
+            Scopri gli spazi unici della nostra location a Balestrate, 
+            dove ogni dettaglio racconta la bellezza della Sicilia occidentale
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton to="/eventi" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-lg px-8 py-4">
-              <Camera className="mr-2" size={20} />
-              Organizza il tuo evento
+            <CTAButton to="#gallery-section" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-lg px-8 py-4">
+              Esplora la Gallery
             </CTAButton>
-            <a 
-              href="https://instagram.com/baglioabbateevents" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 py-4 px-8 text-lg border-2 border-white text-white hover:bg-white hover:text-baglio-ebanoIntonacata"
-            >
-              <Instagram className="mr-2" size={20} />
-              Seguici su Instagram
-            </a>
+            <CTAButton to="/eventi" outline className="border-2 border-white text-white hover:bg-white hover:text-baglio-ebanoIntenso text-lg px-8 py-4">
+              Scopri gli Eventi
+            </CTAButton>
           </div>
         </div>
       </ImageWithOverlay>
       <DividerGallery />
 
       {/* Gallery principale */}
-      <section className="py-16 md:py-24 bg-baglio-cremaIntonacata">
+      <section id="gallery-section" className="py-16 md:py-24 bg-baglio-cremaIntonacata">
         <div className="baglio-container">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar con Instagram CTA */}
@@ -386,9 +355,9 @@ const Gallery = () => {
                 {galleryCategories.map((category) => (
                   <button
                     key={category.id}
-                    onClick={() => setActiveCategory(category.id)}
+                    onClick={() => setSelectedCategory(category.id)}
                     className={`px-6 py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 shadow-md hover:shadow-lg ${
-                      activeCategory === category.id
+                      selectedCategory === category.id
                         ? 'bg-baglio-oro text-baglio-ebanoIntenso shadow-lg transform scale-105'
                         : 'bg-white text-baglio-ebanoIntenso hover:bg-baglio-oro/20 hover:text-baglio-oro border border-baglio-oro/30 hover:border-baglio-oro'
                     }`}
@@ -399,7 +368,7 @@ const Gallery = () => {
                 ))}
               </div>
               
-              <GalleryGrid images={allImages} activeCategory={activeCategory} />
+              <GalleryGrid images={filteredImages} activeCategory={selectedCategory} />
             </div>
           </div>
 

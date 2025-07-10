@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { PaletteProvider } from "@/components/PaletteContext";
 import { useScrollToTop } from './hooks/useScrollToTop';
 import InstagramFloatingButton from './components/InstagramFloatingButton';
+import { URL_CONFIG } from './lib/urlConfig';
 
 // Import pages
 import Index from "./pages/Index";
@@ -37,6 +38,9 @@ const App = () => {
     console.log('🌍 Current location:', window.location.href);
     console.log('⚙️ Base URL:', import.meta.env.BASE_URL);
     console.log('🔧 Mode:', import.meta.env.MODE);
+    
+    // Gestisci il problema URI Too Long
+    URL_CONFIG.handlePageRefresh();
     
     // Handle GitHub Pages SPA routing
     try {

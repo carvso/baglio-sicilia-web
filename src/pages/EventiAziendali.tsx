@@ -12,6 +12,7 @@ import { EventCalendar } from '@/components/EventCalendar';
 import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
 import DividerSottoEventi from '@/components/DividerSottoEventi';
 import { getLovableUploadPath } from '@/lib/paths';
+import { getStructuredData } from '@/lib/structuredData';
 
 const EventiAziendali = () => {
   const packages = [
@@ -68,73 +69,16 @@ const EventiAziendali = () => {
         <title>Eventi Aziendali a Balestrate | Baglio Abbate - Meeting e Convention Palermo</title>
         <meta name="description" content="Organizza il tuo evento aziendale a Balestrate: meeting, convention, team building. Location business vicino Palermo con tecnologia avanzata e servizi professionali." />
         <meta name="keywords" content="eventi aziendali balestrate, meeting palermo, convention sicilia, team building, baglio abbate business" />
-        <link rel="canonical" href="https://www.baglioabbate.it/eventi-aziendali" />
+        <link rel="canonical" href="https://baglioabbate.it/eventi-aziendali" />
         <meta property="og:title" content="Eventi Aziendali a Balestrate | Baglio Abbate - Meeting e Convention Palermo" />
         <meta property="og:description" content="Organizza il tuo evento aziendale a Balestrate: meeting, convention, team building. Location business vicino Palermo con tecnologia avanzata." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.baglioabbate.it/eventi-aziendali" />
+        <meta property="og:url" content="https://baglioabbate.it/eventi-aziendali" />
         <meta property="og:image" content={getLovableUploadPath("1a152ccf-f53d-47a9-8d2f-f43edceba327.png")} />
         
         {/* Dati Strutturati Schema.org per Eventi Aziendali */}
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "EventVenue",
-            "name": "Baglio Abbate - Eventi Aziendali",
-            "description": "Location per eventi aziendali e business a Balestrate, vicino Palermo. Meeting, convention e team building con tecnologia avanzata.",
-            "url": "https://www.baglioabbate.it/eventi-aziendali",
-            "image": "https://www.baglioabbate.it/public/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Via Palermo 4",
-              "addressLocality": "Balestrate",
-              "addressRegion": "PA",
-              "postalCode": "90041",
-              "addressCountry": "IT"
-            },
-            "telephone": "+39 331 8286888",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 38.0495,
-              "longitude": 13.0025
-            },
-            "openingHours": "Mo-Su 09:00-20:00",
-            "priceRange": "€€",
-            "amenityFeature": [
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Wi-Fi ad alta velocità",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Sale Meeting",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Attrezzature A/V",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Catering Business",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Parcheggio Riservato",
-                "value": true
-              }
-            ],
-            "offers": {
-              "@type": "Offer",
-              "name": "Pacchetto Eventi Aziendali Base",
-              "price": "600",
-              "priceCurrency": "EUR",
-              "description": "Sala meeting fino a 50 persone con Wi-Fi e coffee break"
-            }
-          })}
+          {JSON.stringify(getStructuredData('eventi-aziendali'))}
         </script>
       </Helmet>
       

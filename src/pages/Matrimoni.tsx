@@ -12,6 +12,7 @@ import { EventCalendar } from '@/components/EventCalendar';
 import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
 import DividerSottoEventi from '@/components/DividerSottoEventi';
 import { getLovableUploadPath } from '@/lib/paths';
+import { getStructuredData } from '@/lib/structuredData';
 
 const Matrimoni = () => {
   const packages = [
@@ -68,68 +69,16 @@ const Matrimoni = () => {
         <title>Matrimoni a Balestrate | Baglio Abbate - Location Matrimoni Palermo</title>
         <meta name="description" content="Organizza il tuo matrimonio da sogno a Balestrate, vicino Palermo. Location esclusiva per cerimonie e ricevimenti in Sicilia occidentale. Pacchetti personalizzati." />
         <meta name="keywords" content="matrimoni balestrate, location matrimoni palermo, cerimonie sicilia, ricevimenti matrimonio, baglio abbate matrimoni" />
-        <link rel="canonical" href="https://www.baglioabbate.it/matrimoni" />
+        <link rel="canonical" href="https://baglioabbate.it/matrimoni" />
         <meta property="og:title" content="Matrimoni a Balestrate | Baglio Abbate - Location Matrimoni Palermo" />
         <meta property="og:description" content="Organizza il tuo matrimonio da sogno a Balestrate, vicino Palermo. Location esclusiva per cerimonie e ricevimenti in Sicilia occidentale." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.baglioabbate.it/matrimoni" />
+        <meta property="og:url" content="https://baglioabbate.it/matrimoni" />
         <meta property="og:image" content={getLovableUploadPath("ac14664b-cf42-46ec-90e4-d0461e9f18a2.png")} />
         
         {/* Dati Strutturati Schema.org per Matrimoni */}
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "EventVenue",
-            "name": "Baglio Abbate - Location Matrimoni",
-            "description": "Location esclusiva per matrimoni e cerimonie a Balestrate, vicino Palermo. Pacchetti personalizzati per il giorno più bello.",
-            "url": "https://www.baglioabbate.it/matrimoni",
-            "image": "https://www.baglioabbate.it/public/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Via Palermo 4",
-              "addressLocality": "Balestrate",
-              "addressRegion": "PA",
-              "postalCode": "90041",
-              "addressCountry": "IT"
-            },
-            "telephone": "+39 331 8286888",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 38.0495,
-              "longitude": 13.0025
-            },
-            "openingHours": "Mo-Su 09:00-20:00",
-            "priceRange": "€€€",
-            "amenityFeature": [
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Cerimonia Simbolica",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Allestimenti Floreali",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Servizio Fotografico",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Suite Nuziale",
-                "value": true
-              }
-            ],
-            "offers": {
-              "@type": "Offer",
-              "name": "Pacchetto Matrimonio Base",
-              "price": "2500",
-              "priceCurrency": "EUR",
-              "description": "Location per cerimonia e ricevimento con allestimento base"
-            }
-          })}
+          {JSON.stringify(getStructuredData('matrimoni'))}
         </script>
       </Helmet>
       
