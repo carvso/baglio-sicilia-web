@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { PaletteProvider } from "@/components/PaletteContext";
 import { useScrollToTop } from './hooks/useScrollToTop';
 import InstagramFloatingButton from './components/InstagramFloatingButton';
+import URLProtection from './components/URLProtection';
 import { URL_CONFIG } from './lib/urlConfig';
 
 // Import pages
@@ -39,20 +40,44 @@ const App = () => {
     console.log('⚙️ Base URL:', import.meta.env.BASE_URL);
     console.log('🔧 Mode:', import.meta.env.MODE);
     
-    // Gestisci il problema URI Too Long
+    // Gestisci il problema URI Too Long e pulisci URL problematici
     URL_CONFIG.handlePageRefresh();
     
-    // Handle GitHub Pages SPA routing
-    try {
-      const urlParams = new URLSearchParams(window.location.search);
-      const path = urlParams.get('p');
-      if (path) {
-        console.log('🔀 GitHub Pages routing: redirecting to', path);
-        window.history.replaceState(null, '', path);
+    // Pulisci URL con parametri problematici
+    const cleanURL = () => {
+      try {
+        const currentURL = window.location.href;
+        
+        // Se l'URL contiene parametri p annidati, puliscilo
+        if (currentURL.includes('?p=') || currentURL.includes('%3Fp%3D')) {
+          console.warn('URL problematico rilevato, pulizia in corso...');
+          
+          // Estrai solo il pathname senza parametri
+          const cleanPath = window.location.pathname;
+          const newURL = window.location.origin + cleanPath;
+          
+          // Sostituisci l'URL senza ricaricare la pagina
+          window.history.replaceState(null, '', newURL);
+          console.log('URL pulito:', newURL);
+        }
+      } catch (error) {
+        console.error('Errore nella pulizia URL:', error);
       }
-    } catch (error) {
-      console.error('❌ Error in GitHub Pages routing:', error);
-    }
+    };
+    
+    // Esegui la pulizia all'avvio
+    cleanURL();
+    
+    // Aggiungi listener per intercettare cambiamenti URL
+    const handlePopState = () => {
+      setTimeout(cleanURL, 100);
+    };
+    
+    window.addEventListener('popstate', handlePopState);
+    
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
   }, []);
 
   console.log('🏗️ App component rendering...');
@@ -64,20 +89,22 @@ const App = () => {
           <TooltipProvider>
             <Sonner />
             <BrowserRouter basename={import.meta.env.BASE_URL}>
-              <ScrollToTopHandler />
-              <div className="min-h-screen bg-background transition-colors duration-300">
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/chi-siamo" element={<ChiSiamo />} />
-                  <Route path="/eventi" element={<Eventi />} />
-                  <Route path="/eventi-privati" element={<EventiPrivati />} />
-                  <Route path="/matrimoni" element={<Matrimoni />} />
-                  <Route path="/eventi-aziendali" element={<EventiAziendali />} />
-                  <Route path="/gallery" element={<Gallery />} />
-                  <Route path="/contatti" element={<Contatti />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </div>
+              <URLProtection>
+                <ScrollToTopHandler />
+                <div className="min-h-screen bg-background transition-colors duration-300">
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route path="/chi-siamo" element={<ChiSiamo />} />
+                    <Route path="/eventi" element={<Eventi />} />
+                    <Route path="/eventi-privati" element={<EventiPrivati />} />
+                    <Route path="/matrimoni" element={<Matrimoni />} />
+                    <Route path="/eventi-aziendali" element={<EventiAziendali />} />
+                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/contatti" element={<Contatti />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </div>
+              </URLProtection>
             </BrowserRouter>
           </TooltipProvider>
         </PaletteProvider>

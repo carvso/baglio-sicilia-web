@@ -1,19 +1,51 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="refresh" content="0; url=./" />
-  </head>
-  <body>
-    <p>Redirecting...</p>
-    <script>
-      // Per supporto SPA su GitHub Pages
-      var l = window.location;
-      var path = l.pathname.replace(/\/+/, '/').replace(/^\/baglio-sicilia-web/, '');
-      var search = l.search || '';
-      var hash = l.hash || '';
-      var redirect = '/baglio-sicilia-web/?p=' + encodeURIComponent(path + search + hash);
-      window.location.replace(redirect);
+<head>
+    <meta charset="utf-8">
+    <title>Baglio Abbate - Location Eventi Balestrate</title>
+    <script type="text/javascript">
+        // Gestione routing SPA per GitHub Pages
+        (function() {
+            // Funzione per pulire URL problematici
+            function cleanURL() {
+                const currentURL = window.location.href;
+                
+                // Se l'URL contiene parametri problematici, puliscilo
+                if (currentURL.includes('?p=') || currentURL.includes('%3Fp%3D') || currentURL.includes('%252F%253Fp%253D')) {
+                    console.warn('🚨 URL problematico rilevato, pulizia in corso...');
+                    
+                    // Estrai solo il pathname
+                    const pathname = window.location.pathname;
+                    const cleanURL = window.location.origin + pathname;
+                    
+                    // Reindirizza all'URL pulito
+                    window.location.replace(cleanURL);
+                    return;
+                }
+            }
+            
+            // Esegui pulizia immediata
+            cleanURL();
+            
+            // Gestisci il routing SPA
+            const pathSegmentsToKeep = 0;
+            const l = window.location;
+            l.replace(
+                l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+                l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+                l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+                (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+                l.hash
+            );
+        }());
     </script>
-  </body>
+</head>
+<body>
+    <div id="root">
+        <h1>Baglio Abbate</h1>
+        <p>Caricamento in corso...</p>
+        <p>Se la pagina non si carica automaticamente, <a href="/">clicca qui</a>.</p>
+    </div>
+</body>
 </html>
