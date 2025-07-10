@@ -15,6 +15,7 @@ type LayoutProps = {
   hideBreadcrumb?: boolean;
   whatsAppMessage?: string;
   heroLayout?: boolean; // New prop for hero pages
+  hideWhatsAppButton?: boolean;
 };
 
 const Layout = ({ 
@@ -24,7 +25,8 @@ const Layout = ({
   hideSecondaryNav = false,
   hideBreadcrumb = false,
   whatsAppMessage = "Ciao! Sono interessato a maggiori informazioni su Baglio Abbate.",
-  heroLayout = false 
+  heroLayout = false,
+  hideWhatsAppButton = false
 }: LayoutProps) => {
   const isMobile = useIsMobile();
   
@@ -73,7 +75,7 @@ const Layout = ({
         {children}
       </main>
       {!hideFooter && <Footer />}
-      <WhatsAppButton message={whatsAppMessage} />
+      {!hideWhatsAppButton && <WhatsAppButton message={whatsAppMessage} />}
     </div>
   );
 };

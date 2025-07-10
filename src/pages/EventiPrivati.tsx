@@ -2,6 +2,7 @@
 import React from 'react';
 import { Users, Music, Camera, Gift, MapPin, Clock, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
 import SectionTitle from '@/components/SectionTitle';
@@ -9,6 +10,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EventCalendar } from '@/components/EventCalendar';
 import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
+import DividerSottoEventi from '@/components/DividerSottoEventi';
+import { getLovableUploadPath } from '@/lib/paths';
 
 const EventiPrivati = () => {
   const packages = [
@@ -61,12 +64,81 @@ const EventiPrivati = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Eventi Privati a Balestrate | Baglio Abbate - Celebrazioni Private Palermo</title>
+        <meta name="description" content="Organizza il tuo evento privato a Balestrate: compleanni, anniversari, lauree. Location esclusiva per celebrazioni private vicino Palermo. Pacchetti personalizzati." />
+        <meta name="keywords" content="eventi privati balestrate, compleanni palermo, anniversari sicilia, celebrazioni private, baglio abbate eventi privati" />
+        <link rel="canonical" href="https://www.baglioabbate.it/eventi-privati" />
+        <meta property="og:title" content="Eventi Privati a Balestrate | Baglio Abbate - Celebrazioni Private Palermo" />
+        <meta property="og:description" content="Organizza il tuo evento privato a Balestrate: compleanni, anniversari, lauree. Location esclusiva per celebrazioni private vicino Palermo." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.baglioabbate.it/eventi-privati" />
+        <meta property="og:image" content={getLovableUploadPath("abd0f4fc-88b2-4370-b75c-a060e0f81d76.png")} />
+        
+        {/* Dati Strutturati Schema.org per Eventi Privati */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EventVenue",
+            "name": "Baglio Abbate - Eventi Privati",
+            "description": "Location per eventi privati e celebrazioni a Balestrate, vicino Palermo. Compleanni, anniversari e occasioni speciali.",
+            "url": "https://www.baglioabbate.it/eventi-privati",
+            "image": "https://www.baglioabbate.it/public/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Via Palermo 4",
+              "addressLocality": "Balestrate",
+              "addressRegion": "PA",
+              "postalCode": "90041",
+              "addressCountry": "IT"
+            },
+            "telephone": "+39 331 8286888",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 38.0495,
+              "longitude": 13.0025
+            },
+            "openingHours": "Mo-Su 09:00-20:00",
+            "priceRange": "€€",
+            "amenityFeature": [
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Fino a 150 ospiti",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Parcheggio Riservato",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Impianto Audio",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Servizi Fotografici",
+                "value": true
+              }
+            ],
+            "offers": {
+              "@type": "Offer",
+              "name": "Pacchetto Eventi Privati Base",
+              "price": "800",
+              "priceCurrency": "EUR",
+              "description": "Location esclusiva per 4 ore con drink di benvenuto"
+            }
+          })}
+        </script>
+      </Helmet>
+      
       <BreadcrumbNavigation />
       <div className="bg-baglio-ebano min-h-screen">
         {/* Hero Section */}
         <ImageWithOverlay 
           src="/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png"
-          alt="Eventi Privati al Baglio Abbate"
+          alt="Eventi privati al Baglio Abbate Balestrate - Location per celebrazioni private in Sicilia"
           className="h-[70vh]"
           overlayOpacity={60}
           priority={true}
@@ -77,7 +149,7 @@ const EventiPrivati = () => {
               Eventi Privati
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto drop-shadow-lg text-baglio-crema">
-              Ogni ricorrenza ha la sua cornice perfetta
+              Ogni ricorrenza ha la sua cornice perfetta a Balestrate
             </p>
           </div>
         </ImageWithOverlay>
@@ -88,20 +160,21 @@ const EventiPrivati = () => {
             <div className="max-w-4xl mx-auto text-center backdrop-blur-sm bg-baglio-ebano/30 rounded-2xl p-8 border border-baglio-oro/20 shadow-xl shadow-baglio-oro/15">
               <p className="text-lg md:text-xl text-baglio-crema leading-relaxed">
                 Dal compleanno importante all'anniversario speciale, ogni momento della vita merita di essere celebrato 
-                in grande stile. Il Baglio Abbate trasforma i vostri eventi privati in esperienze indimenticabili, 
-                dove l'eleganza della location si fonde con la calorosa ospitalità siciliana per creare ricordi che 
+                in grande stile. Il Baglio Abbate a Balestrate trasforma i vostri eventi privati in esperienze indimenticabili, 
+                dove l'eleganza della location si fonde con la calorosa ospitalità siciliana occidentale per creare ricordi che 
                 dureranno per sempre.
               </p>
             </div>
           </div>
         </section>
+        <DividerSottoEventi />
 
         {/* Packages */}
         <section className="section-padding bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso">
           <div className="baglio-container">
             <SectionTitle 
               title="I nostri pacchetti" 
-              subtitle="Soluzioni pensate per ogni esigenza e budget"
+              subtitle="Soluzioni pensate per ogni esigenza e budget a Balestrate"
               center
               light={true}
             />
@@ -133,13 +206,14 @@ const EventiPrivati = () => {
             </div>
           </div>
         </section>
+        <DividerSottoEventi />
 
         {/* Services */}
         <section className="section-padding bg-gradient-to-br from-baglio-ebanoIntenso via-baglio-ebano to-baglio-ebanoIntenso shadow-2xl shadow-baglio-oro/10">
           <div className="baglio-container">
             <SectionTitle 
               title="Servizi inclusi" 
-              subtitle="Tutto quello di cui avete bisogno per un evento perfetto"
+              subtitle="Tutto quello di cui avete bisogno per un evento perfetto a Balestrate"
               center
               light={true}
             />
@@ -156,9 +230,10 @@ const EventiPrivati = () => {
             </div>
           </div>
         </section>
+        <DividerSottoEventi />
 
         {/* Calendario Eventi Section */}
-        <section className="section-padding bg-white">
+        <section className="py-16 bg-baglio-ebano">
           <div className="baglio-container">
             <EventCalendar compact={false} />
           </div>
@@ -178,7 +253,7 @@ const EventiPrivati = () => {
                   </h3>
                 </div>
                 <p className="text-baglio-crema mb-6">
-                  Scopri le foto più belle dei nostri eventi privati e lasciati ispirare per il tuo prossimo evento speciale
+                  Scopri le foto più belle dei nostri eventi privati a Balestrate e lasciati ispirare per il tuo prossimo evento speciale
                 </p>
                 <a
                   href="https://instagram.com/baglioabbateevents"
@@ -193,6 +268,7 @@ const EventiPrivati = () => {
             </div>
           </div>
         </section>
+        <DividerSottoEventi />
 
         {/* CTA */}
         <section className="section-padding bg-gradient-to-br from-baglio-ebanoIntenso to-baglio-ebano relative overflow-hidden">

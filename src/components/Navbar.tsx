@@ -144,13 +144,14 @@ const Navbar = () => {
                 </Link>
               </div>
               
-              <Link 
-                to="/contatti" 
+              <a 
+                href="https://wa.me/393318286888"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="py-3 px-6 bg-baglio-oro text-baglio-ebanoIntenso hover:bg-baglio-oroImperiale rounded-md transition-all duration-300 font-semibold min-h-[44px] flex items-center shadow-lg hover:shadow-xl"
-                onClick={handleLinkClick}
               >
                 Prenota
-              </Link>
+              </a>
             </div>
 
             {/* Mobile menu button */}

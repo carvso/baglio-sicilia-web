@@ -2,6 +2,7 @@
 import React from 'react';
 import { ArrowRight, Heart, Users, Building, Camera, CheckCircle, Star, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -10,6 +11,7 @@ import CTAButton from '@/components/CTAButton';
 import SocialMediaBanners from '@/components/SocialMediaBanners';
 import { EventCalendar } from '@/components/EventCalendar';
 import DividerEventi from '@/components/DividerEventi';
+import { getLovableUploadPath } from '@/lib/paths';
 
 type EventCategoryProps = {
   icon: React.ReactNode;
@@ -99,9 +101,71 @@ const TestimonialCard = ({ name, event, image, text }: { name: string; event: st
 const Eventi = () => {
   return (
     <Layout heroLayout={true} hideBreadcrumb={true}>
+      <Helmet>
+        <title>Eventi e Matrimoni a Balestrate | Baglio Abbate - Location Palermo</title>
+        <meta name="description" content="Organizza il tuo evento perfetto a Balestrate, vicino Palermo. Matrimoni, celebrazioni private ed eventi aziendali in una location esclusiva della Sicilia occidentale con vista mare." />
+        <meta name="keywords" content="eventi balestrate, matrimoni palermo, location eventi sicilia, celebrazioni private, eventi aziendali, baglio abbate eventi" />
+        <link rel="canonical" href="https://www.baglioabbate.it/eventi" />
+        <meta property="og:title" content="Eventi e Matrimoni a Balestrate | Baglio Abbate - Location Palermo" />
+        <meta property="og:description" content="Organizza il tuo evento perfetto a Balestrate, vicino Palermo. Matrimoni, celebrazioni private ed eventi aziendali in una location esclusiva." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.baglioabbate.it/eventi" />
+        <meta property="og:image" content={getLovableUploadPath("ac14664b-cf42-46ec-90e4-d0461e9f18a2.png")} />
+        
+        {/* Dati Strutturati Schema.org per Eventi */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EventVenue",
+            "name": "Baglio Abbate - Eventi e Matrimoni",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Via Palermo 4",
+              "addressLocality": "Balestrate",
+              "addressRegion": "PA",
+              "postalCode": "90041",
+              "addressCountry": "IT"
+            },
+            "telephone": "+39 331 8286888",
+            "url": "https://www.baglioabbate.it/eventi",
+            "image": "https://www.baglioabbate.it/public/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png",
+            "description": "Location per eventi e matrimoni a Balestrate, vicino Palermo. Organizziamo matrimoni, celebrazioni private ed eventi aziendali in Sicilia occidentale.",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 38.0495,
+              "longitude": 13.0025
+            },
+            "openingHours": "Mo-Su 09:00-20:00",
+            "priceRange": "€€",
+            "amenityFeature": [
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Matrimoni",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Eventi Privati",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Eventi Aziendali",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Vista Mare",
+                "value": true
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+      
       <ImageWithOverlay 
         src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
-        alt="Eventi al Baglio Abbate"
+        alt="Eventi e matrimoni al Baglio Abbate Balestrate - Location esclusiva per eventi in Sicilia"
         className="h-screen -mt-16 pt-16"
         heroSection={true}
       >
@@ -110,8 +174,8 @@ const Eventi = () => {
             Eventi <span className="text-baglio-oro">Indimenticabili</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-4xl mx-auto text-white/95 leading-relaxed drop-shadow-md mb-8">
-            Trasformiamo i tuoi momenti speciali in ricordi eterni, 
-            in una cornice d'eccellenza che riflette la bellezza della Sicilia
+            Trasformiamo i tuoi momenti speciali in ricordi eterni a Balestrate, 
+            in una cornice d'eccellenza che riflette la bellezza della Sicilia occidentale
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <CTAButton to="#contact-section" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-lg px-8 py-4">
@@ -129,7 +193,7 @@ const Eventi = () => {
         <div className="baglio-container">
           <SectionTitle 
             title="I nostri eventi di eccellenza" 
-            subtitle="Ogni celebrazione è unica e merita un'attenzione particolare. Scopri le nostre specialità."
+            subtitle="Ogni celebrazione è unica e merita un'attenzione particolare. Scopri le nostre specialità a Balestrate, vicino Palermo."
             center
             light
           />
@@ -138,7 +202,7 @@ const Eventi = () => {
             <EventCategory 
               icon={<Heart size={28} />}
               title="Matrimoni da Sogno"
-              description="Il vostro giorno più bello merita una location che rispecchi l'importanza del momento."
+              description="Il vostro giorno più bello merita una location che rispecchi l'importanza del momento. Matrimoni esclusivi a Balestrate."
               features={[
                 "Cerimonia religiosa e civile",
                 "Ricevimento fino a 200 ospiti",
@@ -151,7 +215,7 @@ const Eventi = () => {
             <EventCategory 
               icon={<Users size={28} />}
               title="Celebrazioni Private"
-              description="Compleanni, anniversari, lauree: ogni traguardo personale diventa speciale."
+              description="Compleanni, anniversari, lauree: ogni traguardo personale diventa speciale nella nostra location siciliana."
               features={[
                 "Spazi personalizzabili",
                 "Menu su misura",
@@ -164,7 +228,7 @@ const Eventi = () => {
             <EventCategory 
               icon={<Building size={28} />}
               title="Eventi Aziendali"
-              description="Meeting, convention, team building: il successo aziendale ha bisogno del giusto ambiente."
+              description="Meeting, convention, team building: il successo aziendale ha bisogno del giusto ambiente a Balestrate."
               features={[
                 "Sale meeting attrezzate",
                 "Catering business",

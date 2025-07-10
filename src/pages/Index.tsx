@@ -19,21 +19,66 @@ const Index = () => {
   return (
     <Layout hideNavbar={false} hideFooter={false} heroLayout={true}>
       <Helmet>
-        <title>Baglio Abbate | Location per Eventi e Matrimoni in Sicilia</title>
-        <meta name="description" content="Scopri Baglio Abbate, una location esclusiva per eventi e matrimoni nel cuore della Sicilia. Una cornice unica per i tuoi momenti speciali con vista sul mare." />
-        <meta name="keywords" content="baglio abbate, location matrimoni sicilia, eventi sicilia, matrimonio sicilia, location eventi, balestrate" />
+        <title>Baglio Abbate | Location per Eventi e Matrimoni a Balestrate, Palermo</title>
+        <meta name="description" content="Baglio Abbate è la location esclusiva per eventi e matrimoni a Balestrate, vicino Palermo, nel cuore della Sicilia occidentale. Scopri spazi unici con vista mare per i tuoi momenti speciali." />
+        <meta name="keywords" content="baglio abbate, location matrimoni sicilia, eventi sicilia, matrimonio sicilia, location eventi, balestrate, palermo, location matrimoni palermo, eventi balestrate" />
         <link rel="canonical" href="https://www.baglioabbate.it" />
-        <meta property="og:title" content="Baglio Abbate | Location per Eventi e Matrimoni in Sicilia" />
-        <meta property="og:description" content="Una location esclusiva per eventi indimenticabili nel cuore della Sicilia, con vista sul mare." />
+        <meta property="og:title" content="Baglio Abbate | Location per Eventi e Matrimoni a Balestrate, Palermo" />
+        <meta property="og:description" content="Una location esclusiva per eventi indimenticabili a Balestrate, vicino Palermo, nel cuore della Sicilia occidentale, con vista sul mare." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.baglioabbate.it" />
         <meta property="og:image" content={getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png")} />
+        
+        {/* Dati Strutturati Schema.org per EventVenue */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EventVenue",
+            "name": "Baglio Abbate",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Via Palermo 4",
+              "addressLocality": "Balestrate",
+              "addressRegion": "PA",
+              "postalCode": "90041",
+              "addressCountry": "IT"
+            },
+            "telephone": "+39 331 8286888",
+            "url": "https://www.baglioabbate.it",
+            "image": "https://www.baglioabbate.it/public/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png",
+            "description": "Location esclusiva per eventi e matrimoni a Balestrate, vicino Palermo, Sicilia occidentale. Spazi unici con vista mare per matrimoni, eventi aziendali e celebrazioni private.",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 38.0495,
+              "longitude": 13.0025
+            },
+            "openingHours": "Mo-Su 09:00-20:00",
+            "priceRange": "€€",
+            "amenityFeature": [
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Vista Mare",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification", 
+                "name": "Parcheggio",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Spazi Esterni",
+                "value": true
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       
       {/* Enhanced Hero Section */}
       <HeroSection 
         title="Baglio Abbate"
-        subtitle="Location esclusiva per eventi indimenticabili nel cuore della Sicilia"
+        subtitle="Location esclusiva per eventi indimenticabili nel cuore della Sicilia occidentale"
         imageSrc={getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png")}
       />
       <DividerDecorativo />
@@ -75,7 +120,7 @@ const Index = () => {
             </h2>
             <div className="space-y-4 text-lg md:text-xl text-baglio-cremaIntonacata max-w-2xl mx-auto">
               <p>
-                Parlaci della tua idea. Saremo felici di trasformarla in realtà.
+                Parlaci della tua idea per il tuo evento a Balestrate. Saremo felici di trasformarla in realtà.
               </p>
               <p className="text-base md:text-lg text-baglio-cremaIntonacata/70">
                 Scrivici quando vuoi: ti risponde una persona vera.
@@ -85,7 +130,7 @@ const Index = () => {
             {/* Visual hint pointing to WhatsApp button */}
             <div className="mt-8 flex flex-col items-center space-y-2">
               <a
-                href="https://wa.me/393318286888?text=Ciao!%20Sono%20interessato%20a%20maggiori%20informazioni%20su%20Baglio%20Abbate."
+                href="https://wa.me/393318286888?text=Ciao!%20Sono%20interessato%20a%20maggiori%20informazioni%20su%20Baglio%20Abbate%20a%20Balestrate."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-baglio-oro text-baglio-ebanoIntenso font-semibold rounded-lg shadow-lg hover:bg-baglio-oroImperiale transition-all duration-300 mt-4"
@@ -118,7 +163,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2 font-playfair text-baglio-oro">Posizione Unica</h3>
               <p className="text-baglio-ebanoIntenso/70">
-                Nel cuore di Balestrate, con vista sul mare e sulla costa siciliana, a pochi passi dalla spiaggia.
+                Nel cuore di Balestrate, a pochi chilometri da Palermo, con vista sul mare e sulla costa siciliana occidentale, facilmente raggiungibile dall'autostrada A29.
               </p>
             </div>
             
@@ -130,7 +175,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2 font-playfair text-baglio-oro">Qualità Superiore</h3>
               <p className="text-baglio-ebanoIntenso/70">
-                Dettagli curati con attenzione, materiali di qualità e servizio impeccabile per ogni evento.
+                Dettagli curati con attenzione, materiali di qualità e servizio impeccabile per ogni evento, dalla location matrimoni ai meeting aziendali.
               </p>
             </div>
             
@@ -142,7 +187,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2 font-playfair text-baglio-oro">Esperienza Memorabile</h3>
               <p className="text-baglio-ebanoIntenso/70">
-                Ogni momento trascorso con noi diventa un ricordo indelebile, grazie all'atmosfera unica e all'attenzione personalizzata.
+                Ogni momento trascorso con noi diventa un ricordo indelebile, grazie all'atmosfera unica della Sicilia occidentale e all'attenzione personalizzata.
               </p>
             </div>
           </div>
@@ -155,7 +200,7 @@ const Index = () => {
         <div className="baglio-container">
           <SectionTitle 
             title="Una Location da Sogno" 
-            subtitle="Scopri i nostri spazi versatili per ogni tipo di evento"
+            subtitle="Scopri i nostri spazi versatili per ogni tipo di evento a Balestrate, vicino Palermo"
             center
           />
           
@@ -163,7 +208,7 @@ const Index = () => {
             <div className="rounded-lg overflow-hidden shadow-lg border border-baglio-oro/20">
               <img 
                 src={getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png")} 
-                alt="Spazi interni" 
+                alt="Location eventi Baglio Abbate Balestrate - Spazi interni ed esterni per matrimoni e eventi" 
                 className="w-full h-64 object-cover"
                 loading="lazy"
               />
@@ -173,12 +218,12 @@ const Index = () => {
               <h3 className="text-2xl font-playfair font-semibold mb-4 text-baglio-oro">Spazi versatili per ogni occasione</h3>
               <p className="text-baglio-ebanoIntenso/70 mb-4">
                 Il Baglio Abbate offre diverse aree modulabili per ospitare eventi di ogni dimensione, dai matrimoni 
-                intimi alle grandi celebrazioni aziendali. La nostra struttura storica si adatta perfettamente alle 
+                intimi alle grandi celebrazioni aziendali. La nostra struttura storica a Balestrate si adatta perfettamente alle 
                 tue esigenze, mantenendo sempre quel tocco di eleganza siciliana che ci contraddistingue.
               </p>
               <p className="text-baglio-ebanoIntenso/70 mb-6">
                 Sia che tu stia pianificando un matrimonio da favola, una conferenza aziendale o una festa privata, 
-                i nostri spazi interni ed esterni sapranno accogliere i tuoi ospiti in un'atmosfera unica.
+                i nostri spazi interni ed esterni sapranno accogliere i tuoi ospiti in un'atmosfera unica della Sicilia occidentale.
               </p>
               <CTAButton to="/gallery" className="self-start">
                 Esplora la Gallery
@@ -194,7 +239,7 @@ const Index = () => {
         <div className="baglio-container">
           <SectionTitle 
             title="Come raggiungerci" 
-            subtitle="Siamo a pochi minuti dal centro di Balestrate, facilmente raggiungibili dalla costa occidentale della Sicilia"
+            subtitle="Siamo a pochi minuti dal centro di Balestrate, facilmente raggiungibili da Palermo e dalla costa occidentale della Sicilia"
             center
             light
           />
@@ -203,15 +248,15 @@ const Index = () => {
             <div className="space-y-6">
               <div className="bg-baglio-ebano/50 p-6 rounded-lg border border-baglio-oro/20">
                 <h3 className="text-xl font-semibold mb-3 text-baglio-oro font-playfair">📍 Indirizzo</h3>
-                <p className="text-baglio-cremaIntonacata mb-2">Via Palermo 2, 90041 Balestrate (PA)</p>
-                <p className="text-baglio-cremaIntonacata/70">Sicilia, Italia</p>
+                <p className="text-baglio-cremaIntonacata mb-2">Via Palermo 4, 90041 Balestrate (PA)</p>
+                <p className="text-baglio-cremaIntonacata/70">Sicilia occidentale, Italia</p>
               </div>
               
               <div className="bg-baglio-ebano/50 p-6 rounded-lg border border-baglio-oro/20">
                 <h3 className="text-xl font-semibold mb-3 text-baglio-oro font-playfair">🚗 In Auto</h3>
                 <p className="text-baglio-cremaIntonacata/70">
                   Dall'autostrada A29 (Palermo-Mazara del Vallo), prendi l'uscita Balestrate. 
-                  Segui le indicazioni per il centro di Balestrate, poi per Via Palermo.
+                  Segui le indicazioni per il centro di Balestrate, poi per Via Palermo 4.
                 </p>
               </div>
               
@@ -233,7 +278,7 @@ const Index = () => {
                 allowFullScreen 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Mappa di Baglio Abbate - Via Palermo 2, Balestrate"
+                title="Mappa di Baglio Abbate - Via Palermo 4, Balestrate, Palermo"
                 className="w-full h-full"
               ></iframe>
             </div>
@@ -241,7 +286,7 @@ const Index = () => {
           
           <div className="text-center mt-10">
             <CTAButton to="/contatti" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebano">
-              Contattaci per Indicazioni
+              Contattaci
             </CTAButton>
           </div>
         </div>

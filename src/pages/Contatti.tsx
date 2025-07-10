@@ -1,11 +1,13 @@
 import React from 'react';
 import { Phone, Mail, Clock, MapPin, Instagram, Facebook, Send, MessageCircle, Calendar, Users } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
 import SectionTitle from '@/components/SectionTitle';
 import ContactForm from '@/components/ContactForm';
 import CTAButton from '@/components/CTAButton';
 import DividerContatti from '@/components/DividerContatti';
+import { getLovableUploadPath } from '@/lib/paths';
 
 const ContactInfo = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => {
   return (
@@ -70,11 +72,53 @@ const InstagramCTA = ({ variant = "default" }: { variant?: "default" | "compact"
 
 const Contatti = () => {
   return (
-    <Layout heroLayout={true} hideBreadcrumb={true}>
+    <Layout heroLayout={true} hideBreadcrumb={true} hideWhatsAppButton={true}>
+      <Helmet>
+        <title>Contatti Baglio Abbate | Via Palermo 4, Balestrate - Location Eventi Palermo</title>
+        <meta name="description" content="Contatta Baglio Abbate a Balestrate, Via Palermo 4. Telefono, email e informazioni per prenotare la tua location eventi vicino Palermo. Sopralluogo gratuito." />
+        <meta name="keywords" content="contatti baglio abbate, telefono balestrate, indirizzo via palermo 4, location eventi palermo, prenotazioni baglio abbate" />
+        <link rel="canonical" href="https://www.baglioabbate.it/contatti" />
+        <meta property="og:title" content="Contatti Baglio Abbate | Via Palermo 4, Balestrate - Location Eventi Palermo" />
+        <meta property="og:description" content="Contatta Baglio Abbate a Balestrate, Via Palermo 4. Telefono, email e informazioni per prenotare la tua location eventi." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.baglioabbate.it/contatti" />
+        <meta property="og:image" content={getLovableUploadPath("a64af1b5-6d30-4760-80df-66af10202399.png")} />
+        
+        {/* Dati Strutturati Schema.org per Contatti */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contatti Baglio Abbate",
+            "description": "Contatta Baglio Abbate per informazioni su eventi e matrimoni a Balestrate, vicino Palermo.",
+            "url": "https://www.baglioabbate.it/contatti",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Baglio Abbate",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Via Palermo 4",
+                "addressLocality": "Balestrate",
+                "addressRegion": "PA",
+                "postalCode": "90041",
+                "addressCountry": "IT"
+              },
+              "telephone": "+39 331 8286888",
+              "email": "info@baglioabbate.it",
+              "url": "https://www.baglioabbate.it",
+              "openingHours": "Mo-Fr 12:00-23:00, Sa 12:00-24:00, Su 12:00-23:00",
+              "sameAs": [
+                "https://instagram.com/baglioabbateevents"
+              ]
+            }
+          })}
+        </script>
+      </Helmet>
+      
       <div className="relative h-[75vh] overflow-hidden">
         <ImageWithOverlay 
           src="/lovable-uploads/a64af1b5-6d30-4760-80df-66af10202399.png"
-          alt="Contatti Baglio Abbate - Comunicazione"
+          alt="Contatti Baglio Abbate Balestrate - Comunicazione e informazioni location eventi"
           className="h-full"
           overlayOpacity={30}
           heroSection={true}
@@ -84,7 +128,7 @@ const Contatti = () => {
               <span className="text-baglio-oro drop-shadow-lg">Contattaci</span>
             </h1>
             <p className="text-xl md:text-3xl max-w-4xl mx-auto text-white leading-relaxed drop-shadow-lg mb-8 font-medium">
-              Siamo qui per rispondere alle tue domande e accoglierti presto nel nostro Baglio
+              Siamo qui per rispondere alle tue domande e accoglierti presto nel nostro Baglio a Balestrate
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <CTAButton to="#contact-form" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso text-xl px-8 py-4 shadow-2xl hover:shadow-3xl transform hover:scale-105">
@@ -111,7 +155,7 @@ const Contatti = () => {
         <div className="baglio-container">
           <SectionTitle 
             title="Come possiamo aiutarti?" 
-            subtitle="Scegli il modo più veloce per entrare in contatto con noi"
+            subtitle="Scegli il modo più veloce per entrare in contatto con noi a Balestrate"
             center
             light
           />
@@ -121,7 +165,7 @@ const Contatti = () => {
               icon={<Phone size={28} />}
               title="Chiama ora"
               description="Parla direttamente con il nostro team per informazioni immediate"
-              action="✆ +39 091 123 4567"
+              action="✆ +39 331 8286888"
             />
             <QuickActionCard
               icon={<Mail size={28} />}
@@ -154,18 +198,18 @@ const Contatti = () => {
             <div className="lg:col-span-1 space-y-6">
               <SectionTitle 
                 title="Informazioni di contatto" 
-                subtitle="Ecco come raggiungerci e contattarci"
+                subtitle="Ecco come raggiungerci e contattarci a Balestrate"
                 light
               />
               
               <ContactInfo icon={<MapPin size={24} />} title="Indirizzo">
-                <p className="font-semibold text-baglio-ebanoIntenso">Via Palermo 2, Balestrate (PA)</p>
-                <p>90041 - Sicilia, Italia</p>
+                <p className="font-semibold text-baglio-ebanoIntenso">Via Palermo 4, Balestrate (PA)</p>
+                <p>90041 - Sicilia occidentale, Italia</p>
               </ContactInfo>
               
               <ContactInfo icon={<Phone size={24} />} title="Telefono">
-                <p className="font-semibold text-baglio-ebanoIntenso">+39 091 123 4567</p>
-                <p>+39 333 987 6543 <span className="text-baglio-oro">(Prenotazioni)</span></p>
+                <p className="font-semibold text-baglio-ebanoIntenso">+39 331 8286888</p>
+                <p>+39 331 8286888 <span className="text-baglio-oro">(Prenotazioni)</span></p>
               </ContactInfo>
               
               <ContactInfo icon={<Mail size={24} />} title="Email">
@@ -190,12 +234,12 @@ const Contatti = () => {
                   <a href="https://facebook.com/baglioabbate" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
                     <Facebook size={24} />
                   </a>
-                  <a href="https://wa.me/393339876543" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
+                  <a href="https://wa.me/393318286888" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
                     <MessageCircle size={24} />
                   </a>
                 </div>
                 <p className="text-baglio-cremaIntonacata text-sm">
-                  Seguici per foto esclusive e aggiornamenti sui nostri eventi!
+                  Seguici per foto esclusive e aggiornamenti sui nostri eventi a Balestrate!
                 </p>
               </div>
 
@@ -313,7 +357,7 @@ const Contatti = () => {
       {/* Floating WhatsApp e Instagram */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <a 
-          href="https://wa.me/393339876543" 
+          href="https://wa.me/393318286888" 
           target="_blank" 
           rel="noopener noreferrer"
           className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Briefcase, Presentation, Coffee, Video, Users, Wifi, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
 import SectionTitle from '@/components/SectionTitle';
@@ -9,6 +10,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EventCalendar } from '@/components/EventCalendar';
 import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
+import DividerSottoEventi from '@/components/DividerSottoEventi';
+import { getLovableUploadPath } from '@/lib/paths';
 
 const EventiAziendali = () => {
   const packages = [
@@ -61,12 +64,86 @@ const EventiAziendali = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Eventi Aziendali a Balestrate | Baglio Abbate - Meeting e Convention Palermo</title>
+        <meta name="description" content="Organizza il tuo evento aziendale a Balestrate: meeting, convention, team building. Location business vicino Palermo con tecnologia avanzata e servizi professionali." />
+        <meta name="keywords" content="eventi aziendali balestrate, meeting palermo, convention sicilia, team building, baglio abbate business" />
+        <link rel="canonical" href="https://www.baglioabbate.it/eventi-aziendali" />
+        <meta property="og:title" content="Eventi Aziendali a Balestrate | Baglio Abbate - Meeting e Convention Palermo" />
+        <meta property="og:description" content="Organizza il tuo evento aziendale a Balestrate: meeting, convention, team building. Location business vicino Palermo con tecnologia avanzata." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.baglioabbate.it/eventi-aziendali" />
+        <meta property="og:image" content={getLovableUploadPath("1a152ccf-f53d-47a9-8d2f-f43edceba327.png")} />
+        
+        {/* Dati Strutturati Schema.org per Eventi Aziendali */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EventVenue",
+            "name": "Baglio Abbate - Eventi Aziendali",
+            "description": "Location per eventi aziendali e business a Balestrate, vicino Palermo. Meeting, convention e team building con tecnologia avanzata.",
+            "url": "https://www.baglioabbate.it/eventi-aziendali",
+            "image": "https://www.baglioabbate.it/public/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Via Palermo 4",
+              "addressLocality": "Balestrate",
+              "addressRegion": "PA",
+              "postalCode": "90041",
+              "addressCountry": "IT"
+            },
+            "telephone": "+39 331 8286888",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 38.0495,
+              "longitude": 13.0025
+            },
+            "openingHours": "Mo-Su 09:00-20:00",
+            "priceRange": "€€",
+            "amenityFeature": [
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Wi-Fi ad alta velocità",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Sale Meeting",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Attrezzature A/V",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Catering Business",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Parcheggio Riservato",
+                "value": true
+              }
+            ],
+            "offers": {
+              "@type": "Offer",
+              "name": "Pacchetto Eventi Aziendali Base",
+              "price": "600",
+              "priceCurrency": "EUR",
+              "description": "Sala meeting fino a 50 persone con Wi-Fi e coffee break"
+            }
+          })}
+        </script>
+      </Helmet>
+      
       <BreadcrumbNavigation />
       <div className="bg-baglio-ebano min-h-screen">
         {/* Hero Section */}
         <ImageWithOverlay 
           src="/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png"
-          alt="Eventi Aziendali al Baglio Abbate"
+          alt="Eventi aziendali al Baglio Abbate Balestrate - Location business per meeting e convention in Sicilia"
           className="h-[70vh]"
           overlayOpacity={60}
           priority={true}
@@ -77,7 +154,7 @@ const EventiAziendali = () => {
               Eventi Aziendali
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto drop-shadow-lg text-baglio-crema">
-              Dove business e tradizione si incontrano
+              Dove business e tradizione si incontrano a Balestrate
             </p>
           </div>
         </ImageWithOverlay>
@@ -87,21 +164,22 @@ const EventiAziendali = () => {
           <div className="baglio-container">
             <div className="max-w-4xl mx-auto text-center backdrop-blur-sm bg-baglio-ebano/30 rounded-2xl p-8 border border-baglio-oro/20 shadow-xl shadow-baglio-oro/15">
               <p className="text-lg md:text-xl text-baglio-crema leading-relaxed">
-                Lontani dal caos della città ma connessi al mondo, il Baglio Abbate offre l'ambiente ideale per i vostri 
+                Lontani dal caos della città ma connessi al mondo, il Baglio Abbate a Balestrate offre l'ambiente ideale per i vostri 
                 eventi aziendali. Meeting strategici, presentazioni importanti, team building o cene di gala: la nostra 
-                location unisce la professionalità dei servizi business con il fascino autentico della Sicilia, 
+                location unisce la professionalità dei servizi business con il fascino autentico della Sicilia occidentale, 
                 creando l'atmosfera perfetta per il successo dei vostri progetti.
               </p>
             </div>
           </div>
         </section>
+        <DividerSottoEventi />
 
         {/* Packages */}
         <section className="section-padding bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso">
           <div className="baglio-container">
             <SectionTitle 
               title="Soluzioni business" 
-              subtitle="Pacchetti studiati per ogni esigenza aziendale"
+              subtitle="Pacchetti studiati per ogni esigenza aziendale a Balestrate"
               center
               light={true}
             />
@@ -133,13 +211,14 @@ const EventiAziendali = () => {
             </div>
           </div>
         </section>
+        <DividerSottoEventi />
 
         {/* Services */}
         <section className="section-padding bg-gradient-to-br from-baglio-ebanoIntenso via-baglio-ebano to-baglio-ebanoIntenso shadow-2xl shadow-baglio-oro/10">
           <div className="baglio-container">
             <SectionTitle 
               title="Servizi business" 
-              subtitle="Tecnologia e ospitalità per il successo del vostro evento"
+              subtitle="Tecnologia e ospitalità per il successo del vostro evento a Balestrate"
               center
               light={true}
             />
@@ -156,9 +235,10 @@ const EventiAziendali = () => {
             </div>
           </div>
         </section>
+        <DividerSottoEventi />
 
         {/* Calendario Eventi Section */}
-        <section className="section-padding bg-white">
+        <section className="py-16 bg-baglio-ebano">
           <div className="baglio-container">
             <EventCalendar compact={false} />
           </div>
@@ -178,7 +258,7 @@ const EventiAziendali = () => {
                   </h3>
                 </div>
                 <p className="text-baglio-crema mb-6">
-                  Guarda i nostri eventi aziendali di successo e scopri come possiamo rendere speciale anche il tuo
+                  Guarda i nostri eventi aziendali di successo a Balestrate e scopri come possiamo rendere speciale anche il tuo
                 </p>
                 <a
                   href="https://instagram.com/baglioabbateevents"
@@ -193,6 +273,7 @@ const EventiAziendali = () => {
             </div>
           </div>
         </section>
+        <DividerSottoEventi />
 
         {/* CTA */}
         <section className="section-padding bg-gradient-to-br from-baglio-ebanoIntenso to-baglio-ebano relative overflow-hidden">

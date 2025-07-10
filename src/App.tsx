@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { PaletteProvider } from "@/components/PaletteContext";
 import { useScrollToTop } from './hooks/useScrollToTop';
+import InstagramFloatingButton from './components/InstagramFloatingButton';
 
 // Import pages
 import Index from "./pages/Index";

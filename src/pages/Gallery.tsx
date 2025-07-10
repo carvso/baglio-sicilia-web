@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Instagram, Camera, Eye, Heart, Share2 } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
@@ -8,6 +9,7 @@ import GalleryGrid from '@/components/GalleryGrid';
 import CTAButton from '@/components/CTAButton';
 import { EventCalendar } from '@/components/EventCalendar';
 import DividerGallery from '@/components/DividerGallery';
+import { getLovableUploadPath } from '@/lib/paths';
 
 // Gallery categories and images with enhanced data
 const galleryCategories = [
@@ -265,6 +267,50 @@ const Gallery = () => {
 
   return (
     <Layout hideBreadcrumb={true}>
+      <Helmet>
+        <title>Gallery Baglio Abbate | Foto Location Eventi Balestrate, Palermo</title>
+        <meta name="description" content="Scopri la Gallery del Baglio Abbate a Balestrate: foto degli spazi interni ed esterni, allestimenti per matrimoni, eventi aziendali e celebrazioni private. Location esclusiva vicino Palermo." />
+        <meta name="keywords" content="gallery baglio abbate, foto location balestrate, spazi eventi palermo, allestimenti matrimoni sicilia, sala ricevimenti balestrate" />
+        <link rel="canonical" href="https://www.baglioabbate.it/gallery" />
+        <meta property="og:title" content="Gallery Baglio Abbate | Foto Location Eventi Balestrate, Palermo" />
+        <meta property="og:description" content="Scopri la Gallery del Baglio Abbate: foto degli spazi interni ed esterni, allestimenti per matrimoni ed eventi a Balestrate, vicino Palermo." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.baglioabbate.it/gallery" />
+        <meta property="og:image" content={getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png")} />
+        
+        {/* Dati Strutturati Schema.org per Gallery */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ImageGallery",
+            "name": "Gallery Baglio Abbate - Location Eventi Balestrate",
+            "description": "Foto degli spazi interni ed esterni del Baglio Abbate a Balestrate, location per eventi e matrimoni vicino Palermo.",
+            "url": "https://www.baglioabbate.it/gallery",
+            "image": [
+              "https://www.baglioabbate.it/public/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png",
+              "https://www.baglioabbate.it/public/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png",
+              "https://www.baglioabbate.it/public/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png"
+            ],
+            "location": {
+              "@type": "Place",
+              "name": "Baglio Abbate",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Via Palermo 4",
+                "addressLocality": "Balestrate",
+                "addressRegion": "PA",
+                "postalCode": "90041",
+                "addressCountry": "IT"
+              }
+            },
+            "about": {
+              "@type": "EventVenue",
+              "name": "Baglio Abbate",
+              "description": "Location per eventi e matrimoni a Balestrate, Sicilia occidentale"
+            }
+          })}
+        </script>
+      </Helmet>
       {/* Hero Section with new interior image */}
       <ImageWithOverlay 
         src="/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png"

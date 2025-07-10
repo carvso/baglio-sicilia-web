@@ -2,6 +2,7 @@
 import React from 'react';
 import { Heart, Camera, Music, Flower, Crown, Car } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Layout from '@/components/Layout';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
 import SectionTitle from '@/components/SectionTitle';
@@ -9,6 +10,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EventCalendar } from '@/components/EventCalendar';
 import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
+import DividerSottoEventi from '@/components/DividerSottoEventi';
+import { getLovableUploadPath } from '@/lib/paths';
 
 const Matrimoni = () => {
   const packages = [
@@ -61,12 +64,81 @@ const Matrimoni = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Matrimoni a Balestrate | Baglio Abbate - Location Matrimoni Palermo</title>
+        <meta name="description" content="Organizza il tuo matrimonio da sogno a Balestrate, vicino Palermo. Location esclusiva per cerimonie e ricevimenti in Sicilia occidentale. Pacchetti personalizzati." />
+        <meta name="keywords" content="matrimoni balestrate, location matrimoni palermo, cerimonie sicilia, ricevimenti matrimonio, baglio abbate matrimoni" />
+        <link rel="canonical" href="https://www.baglioabbate.it/matrimoni" />
+        <meta property="og:title" content="Matrimoni a Balestrate | Baglio Abbate - Location Matrimoni Palermo" />
+        <meta property="og:description" content="Organizza il tuo matrimonio da sogno a Balestrate, vicino Palermo. Location esclusiva per cerimonie e ricevimenti in Sicilia occidentale." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.baglioabbate.it/matrimoni" />
+        <meta property="og:image" content={getLovableUploadPath("ac14664b-cf42-46ec-90e4-d0461e9f18a2.png")} />
+        
+        {/* Dati Strutturati Schema.org per Matrimoni */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EventVenue",
+            "name": "Baglio Abbate - Location Matrimoni",
+            "description": "Location esclusiva per matrimoni e cerimonie a Balestrate, vicino Palermo. Pacchetti personalizzati per il giorno più bello.",
+            "url": "https://www.baglioabbate.it/matrimoni",
+            "image": "https://www.baglioabbate.it/public/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Via Palermo 4",
+              "addressLocality": "Balestrate",
+              "addressRegion": "PA",
+              "postalCode": "90041",
+              "addressCountry": "IT"
+            },
+            "telephone": "+39 331 8286888",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 38.0495,
+              "longitude": 13.0025
+            },
+            "openingHours": "Mo-Su 09:00-20:00",
+            "priceRange": "€€€",
+            "amenityFeature": [
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Cerimonia Simbolica",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Allestimenti Floreali",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Servizio Fotografico",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Suite Nuziale",
+                "value": true
+              }
+            ],
+            "offers": {
+              "@type": "Offer",
+              "name": "Pacchetto Matrimonio Base",
+              "price": "2500",
+              "priceCurrency": "EUR",
+              "description": "Location per cerimonia e ricevimento con allestimento base"
+            }
+          })}
+        </script>
+      </Helmet>
+      
       <BreadcrumbNavigation />
       <div className="bg-baglio-crema min-h-screen">
         {/* Hero Section */}
         <ImageWithOverlay 
           src="/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png"
-          alt="Matrimoni e Cerimonie al Baglio Abbate"
+          alt="Matrimoni e cerimonie al Baglio Abbate Balestrate - Location esclusiva per matrimoni in Sicilia"
           className="h-[70vh]"
           overlayOpacity={50}
           priority={true}
@@ -77,7 +149,7 @@ const Matrimoni = () => {
               Matrimoni e Cerimonie
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto drop-shadow-lg">
-              Il vostro "Sì" in una cornice da sogno
+              Il vostro "Sì" in una cornice da sogno a Balestrate
             </p>
           </div>
         </ImageWithOverlay>
@@ -88,7 +160,7 @@ const Matrimoni = () => {
             <div className="max-w-4xl mx-auto text-center backdrop-blur-sm bg-baglio-ebano/20 rounded-2xl p-8 border border-baglio-oro/10 shadow-xl shadow-baglio-oro/10">
               <p className="text-lg md:text-xl text-baglio-crema leading-relaxed">
                 Il vostro matrimonio è l'inizio di una nuova storia d'amore, e ogni storia merita una cornice perfetta. 
-                Al Baglio Abbate, tra le antiche mura in pietra e i profumi della campagna siciliana, il vostro "sì" 
+                Al Baglio Abbate a Balestrate, tra le antiche mura in pietra e i profumi della campagna siciliana occidentale, il vostro "sì" 
                 risuonerà per sempre nel tempo. Dall'intimità della cerimonia alla gioia del ricevimento, ogni momento 
                 sarà curato nei minimi dettagli per renderlo indimenticabile.
               </p>
@@ -96,12 +168,14 @@ const Matrimoni = () => {
           </div>
         </section>
 
+        <DividerSottoEventi />
+
         {/* Packages */}
         <section className="section-padding bg-baglio-crema">
           <div className="baglio-container">
             <SectionTitle 
               title="I nostri pacchetti matrimonio" 
-              subtitle="Dal sogno alla realtà, scegliete l'esperienza che fa per voi"
+              subtitle="Dal sogno alla realtà, scegliete l'esperienza che fa per voi a Balestrate"
               center
             />
             
@@ -133,12 +207,14 @@ const Matrimoni = () => {
           </div>
         </section>
 
+        <DividerSottoEventi />
+
         {/* Services */}
         <section className="section-padding bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso shadow-2xl shadow-baglio-oro/5">
           <div className="baglio-container">
             <SectionTitle 
               title="Servizi dedicati agli sposi" 
-              subtitle="Ogni dettaglio pensato per il vostro giorno più bello"
+              subtitle="Ogni dettaglio pensato per il vostro giorno più bello a Balestrate"
               center
               light={true}
             />
@@ -157,11 +233,13 @@ const Matrimoni = () => {
         </section>
 
         {/* Calendario Eventi Section */}
-        <section className="section-padding bg-white">
+        <section className="py-16 bg-baglio-ebano">
           <div className="baglio-container">
             <EventCalendar compact={false} />
           </div>
         </section>
+
+        <DividerSottoEventi />
 
         {/* CTA */}
         <section className="section-padding bg-baglio-crema relative overflow-hidden">
@@ -170,7 +248,7 @@ const Matrimoni = () => {
             <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl shadow-baglio-oro/10 border border-baglio-oro/20">
               <SectionTitle 
                 title="Il vostro matrimonio da sogno" 
-                subtitle="Iniziamo insieme a pianificare il giorno più bello della vostra vita"
+                subtitle="Iniziamo insieme a pianificare il giorno più bello della vostra vita a Balestrate"
                 center
               />
               
