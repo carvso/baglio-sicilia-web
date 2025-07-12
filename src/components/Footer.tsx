@@ -9,7 +9,12 @@ const Footer = () => {
       <div className="baglio-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-16">
           <div>
-            <h3 className="text-xl font-playfair font-bold mb-4 text-elite-gold">Baglio Abbate</h3>
+            {/* Sostituito il titolo con il logo */}
+            <img
+              src="/logo_baglio.svg"
+              alt="Logo Baglio Abbate Events"
+              style={{ height: "60px", width: "auto", marginBottom: "1rem" }}
+            />
             <p className="mb-4 text-muted-foreground">
               Dove la Sicilia si fa esperienza: tradizione, sapori autentici e momenti indimenticabili.
             </p>

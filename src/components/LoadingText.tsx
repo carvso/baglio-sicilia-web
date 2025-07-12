@@ -2,12 +2,23 @@ import React from "react";
 import LoadingBar from "./LoadingBar";
 
 const LoadingText = () => (
-  <div className="flex flex-col justify-center items-center min-h-screen bg-baglio-ebano">
-    <h1 className="text-4xl md:text-5xl font-playfair font-bold text-baglio-oro mb-8 animate-fade-in">Baglio Abbate</h1>
-    <div className="w-64 mb-8">
+  <div className="flex flex-col justify-center items-center min-h-screen bg-baglio-ebano py-12">
+    {/* Logo molto grande e centrato */}
+    <img
+      src="/logo_baglio.svg"
+      alt="Logo Baglio Abbate Events"
+      style={{ height: "240px", width: "auto", maxWidth: "98vw", marginBottom: "1.2rem", marginTop: "2rem", display: "block", marginLeft: "auto", marginRight: "auto" }}
+      className="animate-fade-in drop-shadow-2xl"
+    />
+    <div className="w-72 mb-6 mx-auto">
       <LoadingBar />
     </div>
-    <span className="text-2xl font-playfair text-baglio-oro animate-shimmer mt-2">Caricamento in corso...</span>
+    <span
+      className="text-3xl md:text-4xl font-greatvibes font-semibold text-baglio-oro animate-shimmer mt-2 drop-shadow-lg text-center"
+      style={{ letterSpacing: "0.04em", textShadow: "0 2px 16px #c09c46cc", display: "block" }}
+    >
+      Caricamento in corso...
+    </span>
     <style>{`
       @keyframes shimmer {
         0% { opacity: 0.5; }
