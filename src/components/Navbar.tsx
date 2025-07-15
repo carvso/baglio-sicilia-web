@@ -86,7 +86,7 @@ const Navbar = () => {
             >
               {/* Logo SVG al posto del testo */}
               <img
-                src="/logo_baglio.svg"
+                src="/logo_baglio.png"
                 alt="Logo Baglio Abbate Events"
                 style={{ height: isMobile ? "60px" : "80px", width: "auto", maxWidth: "340px", transition: "height 0.2s" }}
                 className="block"

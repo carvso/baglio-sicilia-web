@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             {/* Sostituito il titolo con il logo */}
             <img
-              src="/logo_baglio.svg"
+              src="/logo_baglio.png"
               alt="Logo Baglio Abbate Events"
               style={{ height: "60px", width: "auto", marginBottom: "1rem" }}
             />
