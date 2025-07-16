@@ -59,7 +59,7 @@ export default {
 					ebano: '#1a2040',           // Blu Navy del Logo - colore dominante
 					oro: '#d4af37',             // Oro del Logo - accenti principali
 					ebanoIntenso: '#0f1319',    // Blu Navy più scuro per sfondi
-					oroImperiale: '#b8941f',    // Oro più scuro per hover
+					oroImperiale: '#c09b46',    // Oro più scuro per hover
 					
 					// Colori complementari
 					crema: '#f3eada',           // Avorio elegante per sfondi chiari

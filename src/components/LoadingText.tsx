@@ -5,7 +5,7 @@ const LoadingText = () => (
   <div className="flex flex-col justify-center items-center min-h-screen bg-baglio-ebano py-12">
     {/* Logo molto grande e centrato */}
     <img
-      src="/logo_baglio.png"
+      src="/logo_baglio_black.svg"
       alt="Logo Baglio Abbate Events"
       style={{ height: "240px", width: "auto", maxWidth: "98vw", marginBottom: "1.2rem", marginTop: "2rem", display: "block", marginLeft: "auto", marginRight: "auto" }}
       className="animate-fade-in drop-shadow-2xl"
