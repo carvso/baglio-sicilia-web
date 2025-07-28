@@ -54,10 +54,10 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
           {/* Subtitle */}
           <div className="space-y-3 max-w-3xl mx-auto">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-crimson font-light text-white leading-relaxed drop-shadow-md">
-              Il tuo evento tra pietra antica, luce dorata e cielo siciliano.
+              Un giorno da favola, in un luogo senza tempo.
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-white/90 font-crimson font-light italic drop-shadow-md">
-              Una dimora storica per i momenti che contano davvero.
+              La dimora storica per i tuoi eventi di classe
             </p>
           </div>
         </div>

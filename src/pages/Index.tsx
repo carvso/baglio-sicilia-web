@@ -158,7 +158,7 @@ const Index = () => {
         <div className="baglio-container">
           <SectionTitle 
             title="Una Location da Sogno" 
-            subtitle="Scopri i nostri spazi versatili per ogni tipo di evento a Balestrate, vicino Palermo"
+            subtitle="Scopri i nostri spazi versatili per ogni tipo di evento"
             center
           />
           
@@ -173,15 +173,12 @@ const Index = () => {
             </div>
             
             <div className="flex flex-col justify-center">
-              <h3 className="text-2xl font-playfair font-semibold mb-4 text-baglio-oro">Spazi versatili per ogni occasione</h3>
               <p className="text-baglio-ebanoIntenso/70 mb-4">
-                Il Baglio Abbate offre diverse aree modulabili per ospitare eventi di ogni dimensione, dai matrimoni 
-                intimi alle grandi celebrazioni aziendali. La nostra struttura storica a Balestrate si adatta perfettamente alle 
-                tue esigenze, mantenendo sempre quel tocco di eleganza siciliana che ci contraddistingue.
+                L’organizzazione degli eventi al <b>Baglio Abbate</b>, antico baglio a <b>Balestrate</b>, è curata da uno staff di rilievo con oltre 30 anni di esperienza nell’organizzazione di eventi di classe.<br/>
+                L’amore per i prodotti agroalimentari ed enologici della terra siciliana si fonde con la passione per l’arte della cucina, garantendo così esperienze uniche in un <b>baglio antico</b> immerso nella storia.
               </p>
               <p className="text-baglio-ebanoIntenso/70 mb-6">
-                Sia che tu stia pianificando un matrimonio da favola, una conferenza aziendale o una festa privata, 
-                i nostri spazi interni ed esterni sapranno accogliere i tuoi ospiti in un'atmosfera unica della Sicilia occidentale.
+                Ogni singolo aspetto che riguarda la bellezza degli allestimenti e dei temi viene sapientemente curato da una delle wedding planner più preparate della Sicilia, per rendere ogni evento al <b>Baglio Abbate</b> davvero indimenticabile.
               </p>
               <CTAButton to="/gallery" className="self-start">
                 Esplora la Gallery
@@ -197,7 +194,7 @@ const Index = () => {
         <div className="baglio-container">
           <SectionTitle 
             title="Come raggiungerci" 
-            subtitle="Siamo a pochi minuti dal centro di Balestrate, facilmente raggiungibili da Palermo e dalla costa occidentale della Sicilia"
+            subtitle="Siamo a Balestrate, ultima cittadina della provincia di Palermo, lato Trapani."
             center
             light
           />
@@ -213,16 +210,16 @@ const Index = () => {
               <div className="bg-baglio-ebano/50 p-6 rounded-lg border border-baglio-oro/20">
                 <h3 className="text-xl font-semibold mb-3 text-baglio-oro font-playfair">🚗 In Auto</h3>
                 <p className="text-baglio-cremaIntonacata/70">
-                  Dall'autostrada A29 (Palermo-Mazara del Vallo), prendi l'uscita Balestrate. 
-                  Segui le indicazioni per il centro di Balestrate, poi per Via Palermo 4.
+                  Dall’autostrada A29 (Palermo-Mazara del Vallo), prendi l’uscita Balestrate. Segui le indicazioni per la stazione, poi per via Palermo.<br/>
+                  Dalla strada Statale SS113, prendi l’uscita per Balestrate e prosegui fino alla stazione, poi per via Palermo.
                 </p>
               </div>
               
               <div className="bg-baglio-ebano/50 p-6 rounded-lg border border-baglio-oro/20">
-                <h3 className="text-xl font-semibold mb-3 text-baglio-oro font-playfair">✈️ Dall'Aeroporto</h3>
+                <h3 className="text-xl font-semibold mb-3 text-baglio-oro font-playfair">✈️ Dagli Aeroporti</h3>
                 <p className="text-baglio-cremaIntonacata/70">
-                  Aeroporto di Palermo "Falcone Borsellino" a 30 km. 
-                  Servizio taxi disponibile o noleggio auto in loco.
+                  Falcone-Borsellino di Palermo (30 km), prendi l’uscita Balestrate<br/>
+                  Vincenzo Florio di Trapani-Birgi (60 km), prendi l’uscita Balestrate
                 </p>
               </div>
             </div>

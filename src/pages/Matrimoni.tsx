@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Heart, Camera, Music, Flower, Crown, Car } from 'lucide-react';
+import { Heart, Camera, Music, Flower, Crown, Car, Star, Bus, User, Home, ShoppingBag, Smile, Music2, PartyPopper, Wine, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Layout from '@/components/Layout';
@@ -60,7 +60,18 @@ const Matrimoni = () => {
     { icon: <Music size={20} />, text: "Musica e intrattenimento" },
     { icon: <Camera size={20} />, text: "Servizi fotografici e video" },
     { icon: <Crown size={20} />, text: "Suite nuziale" },
-    { icon: <Car size={20} />, text: "Servizi trasporto sposi" }
+    { icon: <Car size={20} />, text: "Servizi trasporto sposi" },
+    // Nuovi servizi
+    { icon: <Star size={20} />, text: "Servizio prova menù Sposi" },
+    { icon: <Bus size={20} />, text: "Servizio trasporto ospiti con pullman g.t." },
+    { icon: <User size={20} />, text: "Make-up artist & hair stylist" },
+    { icon: <Home size={20} />, text: "Camerino sposi o area preparazione" },
+    { icon: <ShoppingBag size={20} />, text: "Noleggio abiti o accessori" },
+    { icon: <Smile size={20} />, text: "Trucco/parrucchiere anche per invitati VIP" },
+    { icon: <Music2 size={20} />, text: "Musica dal vivo (quartetto, jazz band, DJ, folk siciliano)" },
+    { icon: <PartyPopper size={20} />, text: "Spettacoli serali (fuochi d’artificio, fuochi freddi, danza del fuoco)" },
+    { icon: <Wine size={20} />, text: "Corner esperienziali (cigar bar, wine tasting, angolo limoncello o granita)" },
+    { icon: <Users size={20} />, text: "Animazione per bambini" },
   ];
 
   return (
@@ -83,7 +94,7 @@ const Matrimoni = () => {
       </Helmet>
       
       <BreadcrumbNavigation />
-      <div className="bg-baglio-crema min-h-screen">
+      <div className="bg-baglio-ebano min-h-screen">
         {/* Hero Section */}
         <ImageWithOverlay 
           src="/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png"
@@ -104,9 +115,9 @@ const Matrimoni = () => {
         </ImageWithOverlay>
 
         {/* Introduction */}
-        <section className="section-padding bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso shadow-2xl shadow-baglio-oro/5">
+        <section className="section-padding bg-gradient-to-br from-baglio-ebano via-baglio-ebanoIntenso to-baglio-ebano shadow-2xl shadow-baglio-oro/10">
           <div className="baglio-container">
-            <div className="max-w-4xl mx-auto text-center backdrop-blur-sm bg-baglio-ebano/20 rounded-2xl p-8 border border-baglio-oro/10 shadow-xl shadow-baglio-oro/10">
+            <div className="max-w-4xl mx-auto text-center backdrop-blur-sm bg-baglio-ebano/30 rounded-2xl p-8 border border-baglio-oro/20 shadow-xl shadow-baglio-oro/15">
               <p className="text-lg md:text-xl text-baglio-crema leading-relaxed">
                 Il vostro matrimonio è l'inizio di una nuova storia d'amore, e ogni storia merita una cornice perfetta. 
                 Al Baglio Abbate a Balestrate, tra le antiche mura in pietra e i profumi della campagna siciliana occidentale, il vostro "sì" 
@@ -159,7 +170,7 @@ const Matrimoni = () => {
         <DividerSottoEventi />
 
         {/* Services */}
-        <section className="section-padding bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso shadow-2xl shadow-baglio-oro/5">
+        <section className="section-padding bg-gradient-to-br from-baglio-ebano via-baglio-ebanoIntenso to-baglio-ebano shadow-2xl shadow-baglio-oro/10">
           <div className="baglio-container">
             <SectionTitle 
               title="Servizi dedicati agli sposi" 
@@ -170,11 +181,11 @@ const Matrimoni = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
               {services.map((service, index) => (
-                <div key={index} className="flex items-center p-6 bg-baglio-crema rounded-xl border border-baglio-oro/30 shadow-md shadow-baglio-oro/10 hover:shadow-lg hover:shadow-baglio-oro/20 transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-sm">
-                  <div className="text-baglio-oro mr-4 p-2 bg-gradient-to-br from-baglio-oro/10 to-baglio-oro/5 rounded-lg">
+                <div key={index} className="flex items-center p-6 bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso rounded-xl border border-baglio-oro/40 shadow-lg shadow-baglio-oro/15 hover:shadow-xl hover:shadow-baglio-oro/25 transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-sm">
+                  <div className="text-baglio-oro mr-4 p-2 bg-gradient-to-br from-baglio-oro/15 to-baglio-oro/10 rounded-lg border border-baglio-oro/20">
                     {service.icon}
                   </div>
-                  <span className="text-baglio-ebanoIntenso font-medium">{service.text}</span>
+                  <span className="text-baglio-crema font-medium">{service.text}</span>
                 </div>
               ))}
             </div>

@@ -149,7 +149,7 @@ const Eventi = () => {
         <div className="baglio-container">
           <SectionTitle 
             title="I nostri eventi di eccellenza" 
-            subtitle="Ogni celebrazione è unica e merita un'attenzione particolare. Scopri le nostre specialità a Balestrate, vicino Palermo."
+            subtitle="Ogni evento è unico, e merita attenzioni particolari. Scopri i nostri servizi."
             center
             light
           />
@@ -160,10 +160,9 @@ const Eventi = () => {
               title="Matrimoni da Sogno"
               description="Il vostro giorno più bello merita una location che rispecchi l'importanza del momento. Matrimoni esclusivi a Balestrate."
               features={[
-                "Cerimonia religiosa e civile",
-                "Ricevimento fino a 200 ospiti",
-                "Coordinamento completo evento",
-                "Fotografie incluse"
+                "Cerimonia simbolica e civile",
+                "Ricevimento fino a 300 ospiti (sala interna) 350 (corte esterna).",
+                "Coordinamento completo evento"
               ]}
               imageSrc="/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png"
               linkTo="/matrimoni"
@@ -171,7 +170,7 @@ const Eventi = () => {
             <EventCategory 
               icon={<Users size={28} />}
               title="Celebrazioni Private"
-              description="Compleanni, anniversari, lauree: ogni traguardo personale diventa speciale nella nostra location siciliana."
+              description="Battesimi, comunioni, lauree, compleanni, anniversari: ogni traguardo personale diventa speciale nella nostra location siciliana."
               features={[
                 "Spazi personalizzabili",
                 "Menu su misura",
@@ -194,6 +193,125 @@ const Eventi = () => {
               imageSrc="/lovable-uploads/97ade15d-9a2b-4fa8-89b8-847a2ea33c4c.png"
               linkTo="/eventi-aziendali"
             />
+          </div>
+        </div>
+      </section>
+      <DividerEventi />
+
+      {/* NEW: Servizi Completi Section */}
+      <section className="py-16 bg-baglio-cremaIntonacata">
+        <div className="baglio-container">
+          <SectionTitle 
+            title="I nostri servizi completi" 
+            subtitle="Tutto quello che serve per rendere il tuo evento indimenticabile"
+            center
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {/* Organizzazione e Coordinamento */}
+            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300">
+              <div className="text-baglio-oro mb-4 text-center">
+                <span className="text-3xl">💐</span>
+              </div>
+              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Organizzazione e Coordinamento</h3>
+              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
+                <li>• Wedding planner (in-house o partner)</li>
+                <li>• Coordinamento del giorno del matrimonio</li>
+                <li>• Assistenza alla scelta dei fornitori</li>
+                <li>• Servizio di hostess/accoglienza ospiti</li>
+                <li>• Gestione logistica e tempistiche</li>
+              </ul>
+            </div>
+
+            {/* Intrattenimento e Musica */}
+            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300">
+              <div className="text-baglio-oro mb-4 text-center">
+                <span className="text-3xl">🎶</span>
+              </div>
+              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Intrattenimento e Musica</h3>
+              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
+                <li>• Musica dal vivo (quartetto, jazz band, DJ)</li>
+                <li>• Spettacoli serali (fuochi d'artificio, danza del fuoco)</li>
+                <li>• Corner esperienziali (cigar bar, wine tasting)</li>
+                <li>• Animazione per bambini</li>
+                <li>• Photo booth o cabina 360°</li>
+              </ul>
+            </div>
+
+            {/* Catering & Banqueting */}
+            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300">
+              <div className="text-baglio-oro mb-4 text-center">
+                <span className="text-3xl">🍽️</span>
+              </div>
+              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Catering & Banqueting</h3>
+              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
+                <li>• Catering interno</li>
+                <li>• Aperitivo di benvenuto e cocktail bar</li>
+                <li>• Cena o pranzo serviti, a buffet o street food</li>
+                <li>• Torta nuziale personalizzata</li>
+                <li>• Menù per intolleranze e diete speciali</li>
+                <li>• Open bar / Mixology station</li>
+                <li>• Degustazioni pre-matrimonio</li>
+              </ul>
+            </div>
+
+            {/* Ospitalità e Pernottamento */}
+            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300">
+              <div className="text-baglio-oro mb-4 text-center">
+                <span className="text-3xl">🛏️</span>
+              </div>
+              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Ospitalità e Pernottamento</h3>
+              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
+                <li>• Suite nuziale</li>
+                <li>• Camere per ospiti (family & friends)</li>
+                <li>• Convenzioni con hotel vicini</li>
+                <li>• Servizio navetta o transfer privato</li>
+                <li>• Late check-out per gli sposi</li>
+              </ul>
+            </div>
+
+            {/* Foto e Video */}
+            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300">
+              <div className="text-baglio-oro mb-4 text-center">
+                <span className="text-3xl">📸</span>
+              </div>
+              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Foto e Video</h3>
+              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
+                <li>• Fotografi e videomaker professionisti</li>
+                <li>• Servizio drone</li>
+                <li>• Servizio social media live</li>
+                <li>• Album e video editing post-evento</li>
+              </ul>
+            </div>
+
+            {/* Allestimenti e Decorazioni */}
+            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300">
+              <div className="text-baglio-oro mb-4 text-center">
+                <span className="text-3xl">🌿</span>
+              </div>
+              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Allestimenti e Decorazioni</h3>
+              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
+                <li>• Progettazione floreale personalizzata</li>
+                <li>• Illuminazione scenografica</li>
+                <li>• Set up per cerimonia simbolica o civile</li>
+                <li>• Tensostrutture, gazebi o pergolati</li>
+                <li>• Sedute, cuscini, tappeti, arredi vintage</li>
+              </ul>
+            </div>
+
+            {/* Servizi per gli sposi */}
+            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1">
+              <div className="text-baglio-oro mb-4 text-center">
+                <span className="text-3xl">👗</span>
+              </div>
+              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Servizi per gli sposi</h3>
+              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
+                <li>• Make-up artist & hair stylist</li>
+                <li>• Camerino sposi o area preparazione</li>
+                <li>• Noleggio abiti o accessori</li>
+                <li>• Trucco/parrucchiere anche per invitati VIP</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -230,7 +348,7 @@ const Eventi = () => {
             <WhyChooseUsCard
               icon={<Heart size={24} />}
               title="Cucina d'Eccellenza"
-              description="Chef specializzati in tradizione siciliana con ingredienti locali premium"
+              description="Chef specializzati in tradizione siciliana con ingredienti locali premium e laboratorio dedicato alle intolleranze, unico per una location per eventi"
             />
             <WhyChooseUsCard
               icon={<Camera size={24} />}
@@ -345,59 +463,59 @@ const Eventi = () => {
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
+                    <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
                       Nome *
                     </label>
                     <input
                       type="text"
                       id="name"
-                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
+                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-white bg-baglio-ebanoIntenso/60 placeholder:text-baglio-crema"
                       required
                     />
                   </div>
                   <div>
-                    <label htmlFor="surname" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
+                    <label htmlFor="surname" className="block text-sm font-semibold text-white mb-2">
                       Cognome *
                     </label>
                     <input
                       type="text"
                       id="surname"
-                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
+                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-white bg-baglio-ebanoIntenso/60 placeholder:text-baglio-crema"
                       required
                     />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
+                    <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
                       Email *
                     </label>
                     <input
                       type="email"
                       id="email"
-                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
+                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-white bg-baglio-ebanoIntenso/60 placeholder:text-baglio-crema"
                       required
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
+                    <label htmlFor="phone" className="block text-sm font-semibold text-white mb-2">
                       Telefono *
                     </label>
                     <input
                       type="tel"
                       id="phone"
-                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
+                      className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-white bg-baglio-ebanoIntenso/60 placeholder:text-baglio-crema"
                       required
                     />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="event-type" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
+                    <label htmlFor="eventType" className="block text-sm font-semibold text-white mb-2">
                       Tipo di Evento *
                     </label>
                     <select
-                      id="event-type"
+                      id="eventType"
                       className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
                       required
                     >
@@ -410,7 +528,7 @@ const Eventi = () => {
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="guests" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
+                    <label htmlFor="guests" className="block text-sm font-semibold text-white mb-2">
                       Numero Ospiti
                     </label>
                     <input
@@ -422,23 +540,23 @@ const Eventi = () => {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="date" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
+                  <label htmlFor="date" className="block text-sm font-semibold text-white mb-2">
                     Data Preferita
                   </label>
                   <input
                     type="date"
                     id="date"
-                    className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
+                    className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-white bg-baglio-ebanoIntenso/60 placeholder:text-baglio-crema"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-baglio-ebanoIntenso mb-2">
+                  <label htmlFor="message" className="block text-sm font-semibold text-white mb-2">
                     Messaggio *
                   </label>
                   <textarea
                     id="message"
                     rows={4}
-                    className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-baglio-ebanoIntenso"
+                    className="w-full px-4 py-3 border-2 border-baglio-oro/20 rounded-lg focus:ring-2 focus:ring-baglio-oro focus:border-baglio-oro transition-colors text-white bg-baglio-ebanoIntenso/60 placeholder:text-baglio-crema"
                     placeholder="Raccontaci la tua idea per l'evento..."
                     required
                   ></textarea>

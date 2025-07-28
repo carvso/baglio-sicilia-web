@@ -63,80 +63,77 @@ const EventiInEvidenza = () => {
         </div>
 
         {/* Eventi Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {eventiInEvidenza.map((evento, index) => (
-            <div
-              key={evento.id}
-              className={cn(
-                "eventi-card-premium animate-gentle-fade-in",
-                evento.isHighlight && "lg:col-span-2 lg:row-span-1",
-                index === 0 && "delay-100",
-                index === 1 && "delay-200",
-                index === 2 && "delay-300"
-              )}
-            >
-              {/* Image Container */}
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={evento.image} 
-                  alt={evento.title}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                  loading="lazy"
-                />
-                {/* Overlay gradient usando il blu navy */}
-                <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebano/80 via-transparent to-transparent"></div>
-                
-                {/* Badge prezzo */}
-                <div className="absolute top-4 right-4 bg-baglio-oro text-baglio-ebano px-3 py-1 rounded-full text-sm font-semibold">
-                  {evento.price}
-                </div>
-
-                {/* Highlight badge */}
-                {evento.isHighlight && (
-                  <div className="absolute top-4 left-4 bg-baglio-oro text-baglio-ebano px-3 py-1 rounded-full text-sm font-bold animate-shimmer">
-                    ⭐ In Evidenza
-                  </div>
+        <div className="relative">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 filter blur-sm pointer-events-none select-none opacity-60">
+            {eventiInEvidenza.map((evento, index) => (
+              <div
+                key={evento.id}
+                className={cn(
+                  "eventi-card-premium animate-gentle-fade-in",
+                  evento.isHighlight && "lg:col-span-2 lg:row-span-1",
+                  index === 0 && "delay-100",
+                  index === 1 && "delay-200",
+                  index === 2 && "delay-300"
                 )}
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <div className="flex items-center gap-4 mb-4 text-baglio-oro text-sm">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    <span>{evento.date}</span>
+              >
+                {/* Image Container */}
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={evento.image} 
+                    alt={evento.title}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-baglio-ebano/80 via-transparent to-transparent"></div>
+                  <div className="absolute top-4 right-4 bg-baglio-oro text-baglio-ebano px-3 py-1 rounded-full text-sm font-semibold">
+                    {evento.price}
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    <span>{evento.time}</span>
+                  {evento.isHighlight && (
+                    <div className="absolute top-4 left-4 bg-baglio-oro text-baglio-ebano px-3 py-1 rounded-full text-sm font-bold animate-shimmer">
+                      ⭐ In Evidenza
+                    </div>
+                  )}
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-4 mb-4 text-baglio-oro text-sm">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      <span>{evento.date}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      <span>{evento.time}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-playfair font-bold mb-3 text-baglio-cremaIntonacata">
+                    {evento.title}
+                  </h3>
+                  <p className="text-baglio-cremaIntonacata/80 mb-4 leading-relaxed">
+                    {evento.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1 text-baglio-oro text-sm">
+                      <Users className="w-4 h-4" />
+                      <span>{evento.participants}</span>
+                    </div>
+                    <Link 
+                      to="/eventi"
+                      className="inline-flex items-center gap-2 bg-baglio-oro text-baglio-ebano px-4 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-baglio-oroImperiale hover:shadow-lg transform hover:scale-105"
+                    >
+                      Scopri di più
+                      <MapPin className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
-
-                <h3 className="text-xl font-playfair font-bold mb-3 text-baglio-cremaIntonacata">
-                  {evento.title}
-                </h3>
-                
-                <p className="text-baglio-cremaIntonacata/80 mb-4 leading-relaxed">
-                  {evento.description}
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1 text-baglio-oro text-sm">
-                    <Users className="w-4 h-4" />
-                    <span>{evento.participants}</span>
-                  </div>
-                  
-                  <Link 
-                    to="/eventi"
-                    className="inline-flex items-center gap-2 bg-baglio-oro text-baglio-ebano px-4 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-baglio-oroImperiale hover:shadow-lg transform hover:scale-105"
-                  >
-                    Scopri di più
-                    <MapPin className="w-4 h-4" />
-                  </Link>
-                </div>
               </div>
+            ))}
+          </div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
+            <div className="bg-baglio-ebano/80 rounded-xl px-8 py-12 shadow-2xl text-center">
+              <h3 className="text-2xl md:text-3xl font-bold text-baglio-oro mb-4">Stiamo lavorando sui prossimi eventi</h3>
+              <p className="text-baglio-cremaIntonacata/80 text-lg">Torna presto per scoprire le nuove esperienze in programma al Baglio Abbate.</p>
             </div>
-          ))}
+          </div>
         </div>
 
         {/* CTA Bottom */}

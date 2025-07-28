@@ -34,8 +34,8 @@ const ChiSiamo = () => {
               />
               
               <div className="mb-8">
-                <p className="text-baglio-cremaIntonacata text-lg mb-6 italic">
-                  "Ogni pietra di questo baglio custodisce oltre 200 anni di storia siciliana, 
+                <p className="text-baglio-cremaIntonacata text-lg mb-6 italic border-l-4 border-baglio-oro pl-4">
+                  "Ogni pietra di questo baglio custodisce quasi 200 anni di storia siciliana, 
                   dove nobiltà e tradizione si fondono in un patrimonio senza tempo."
                 </p>
               </div>
@@ -45,11 +45,14 @@ const ChiSiamo = () => {
                   <h3 className="text-xl font-bold text-baglio-oro mb-3 font-playfair">
                     La Famiglia Abbate e il suo territorio
                   </h3>
+                  <p className="text-baglio-cremaIntonacata/90 leading-relaxed mb-4">
+                    Nel cuore di Balestrate, il Baglio Abbate fu costruito alla fine dell’Ottocento come cantina vinicola e fu parte dell’espansione enologica che vide Balestrate protagonista con le compagnie del vino dei Woodhouse, Ingham e Florio tra il 1835 e il 1840.
+                  </p>
+                  <p className="text-baglio-cremaIntonacata/90 leading-relaxed mb-4">
+                    Proprietari terrieri di grande prestigio, gli Abbate erano custodi di una visione che univa <b>eleganza architettonica</b> e <b>produttività agricola</b>.
+                  </p>
                   <p className="text-baglio-cremaIntonacata/90 leading-relaxed">
-                    Nel cuore di Balestrate, agli inizi del XIX secolo, la famiglia Abbate costruì 
-                    questa magnifica residenza nobiliare. Proprietari terrieri di grande prestigio, 
-                    gli Abbate erano custodi di una visione che univa **eleganza architettonica** 
-                    e **produttività agricola**.
+                    In sintesi, il Baglio Abbate rappresenta un tassello della storia di Balestrate, un borgo marinaro e agricolo che si è sviluppato nel corso dei secoli, legato alla tradizione del baglio siciliano e agli eventi storici che hanno segnato il territorio.
                   </p>
                 </div>
 
@@ -58,21 +61,20 @@ const ChiSiamo = () => {
                     Una masseria tra olio e vino
                   </h3>
                   <p className="text-baglio-cremaIntonacata/90 leading-relaxed mb-4">
-                    La struttura, con la sua **caratteristica corte interna**, era il cuore pulsante 
-                    di un'economia basata sui tesori della terra siciliana:
+                    La struttura, con la sua <b>caratteristica corte interna</b>, era il cuore pulsante di un'economia basata sui tesori della terra siciliana:
                   </p>
                   <ul className="text-baglio-cremaIntonacata/90 space-y-2 ml-6">
                     <li className="flex items-start">
                       <span className="text-baglio-oro mr-2">•</span>
-                      Produzione di **olio d'oliva extravergine** dai secolari uliveti circostanti
+                      Produzione di <b>olio d'oliva extravergine</b> dai secolari uliveti circostanti
                     </li>
                     <li className="flex items-start">
                       <span className="text-baglio-oro mr-2">•</span>
-                      Vinificazione di **uve autoctone** nelle antiche cantine sotterranee
+                      Vinificazione di <b>uve autoctone</b> nelle antiche cantine sotterranee
                     </li>
                     <li className="flex items-start">
                       <span className="text-baglio-oro mr-2">•</span>
-                      **Mura in pietra viva** che definivano spazi funzionali e residenziali
+                      <b>Mura in pietra viva</b> che definivano spazi funzionali e residenziali
                     </li>
                   </ul>
                 </div>
@@ -82,9 +84,7 @@ const ChiSiamo = () => {
                     Custodi di tradizioni secolari
                   </h3>
                   <p className="text-baglio-cremaIntonacata/90 leading-relaxed">
-                    Per generazioni, il Baglio Abbate ha attraversato le trasformazioni della Sicilia, 
-                    rimanendo sempre un **simbolo di cultura e tradizione**. Le sue possenti mura 
-                    hanno resistito al tempo, custodendo storie, segreti e l'autenticità di un'epoca irripetibile.
+                    Per generazioni, il Baglio Abbate ha attraversato le trasformazioni della Sicilia, rimanendo sempre un <b>simbolo di cultura e tradizione</b>. Le sue possenti mura hanno resistito al tempo, custodendo storie, segreti e l'autenticità di un'epoca irripetibile.
                   </p>
                 </div>
               </div>
@@ -129,10 +129,10 @@ const ChiSiamo = () => {
                     Il restauro conservativo del 2019
                   </h3>
                   <p className="text-baglio-ebano/80 leading-relaxed">
-                    Dopo un **attento restauro durato oltre due anni**, il Baglio Abbate ha riaperto 
+                    Dopo un <b>attento restauro durato oltre due anni</b>, il Baglio Abbate ha riaperto 
                     le sue porte nel 2019. Ogni intervento è stato guidato dal rispetto per 
-                    l'**autenticità architettonica**, preservando elementi originali come le volte a botte, 
-                    i pavimenti in cotto antico e i dettagli decorativi ottocenteschi.
+                    l'<b>autenticità architettonica</b>, preservando elementi originali come le volte a botte, le capriate, la corte  
+                    , i pavimenti in marmo antico e i dettagli decorativi ottocenteschi.
                   </p>
                 </div>
 
@@ -141,7 +141,7 @@ const ChiSiamo = () => {
                     Filosofia: tra passato e presente
                   </h3>
                   <p className="text-baglio-ebano/80 leading-relaxed">
-                    La nostra filosofia è quella di **creare un ponte tra epoche**, valorizzando 
+                    La nostra filosofia è quella di <b>creare un ponte tra epoche</b>, valorizzando 
                     l'heritage siciliano con un tocco contemporaneo. Ogni spazio racconta una storia, 
                     ogni dettaglio celebra la continuità tra tradizione e innovazione.
                   </p>
@@ -152,9 +152,9 @@ const ChiSiamo = () => {
                     Un'esperienza autentica oggi
                   </h3>
                   <p className="text-baglio-ebano/80 leading-relaxed">
-                    Oggi, il Baglio Abbate è molto più di una location: è un **viaggio sensoriale** 
+                    Oggi, il Baglio Abbate è molto più di una location: è un <b>viaggio sensoriale</b> 
                     dove gli ospiti si immergono nella cultura siciliana attraverso sapori autentici, 
-                    atmosfere suggestive e un servizio che incarna la **calda ospitalità dell'isola**. 
+                    atmosfere suggestive e un servizio che incarna la <b>calda ospitalità dell'isola</b>. 
                     Ogni piatto celebra la ricchezza gastronomica della nostra terra.
                   </p>
                 </div>
@@ -181,7 +181,7 @@ const ChiSiamo = () => {
               <h3 className="text-xl font-semibold mb-4 font-playfair text-baglio-ebano">Qualità e Autenticità</h3>
               <p className="text-baglio-ebano/70">
                 Selezioniamo con cura ingredienti locali e di stagione, valorizzando i produttori del territorio 
-                e le ricette della tradizione siciliana.
+                e le ricette della tradizione siciliana, con un occhio all'innovazione.
               </p>
             </div>
 
@@ -206,8 +206,7 @@ const ChiSiamo = () => {
               </div>
               <h3 className="text-xl font-semibold mb-4 font-playfair text-baglio-ebano">Innovazione e Rispetto</h3>
               <p className="text-baglio-ebano/70">
-                Innoviamo nel rispetto della tradizione, con un approccio sostenibile che valorizza il patrimonio 
-                culturale e naturale della Sicilia.
+                Innoviamo nel rispetto della tradizione, con un approccio sostenibile che valorizza il patrimonio culturale e naturale della Sicilia, anche con prodotti provenienti dai nostri possedimenti.
               </p>
             </div>
           </div>
