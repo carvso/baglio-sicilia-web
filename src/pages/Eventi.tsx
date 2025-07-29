@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ArrowRight, Heart, Users, Building, Camera, CheckCircle, Star, MapPin } from 'lucide-react';
+import { ArrowRight, Heart, Users, Building, Camera, CheckCircle, Star, MapPin, Calendar, Sparkles, Utensils, Bed, Image, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Layout from '@/components/Layout';
@@ -96,6 +95,48 @@ const TestimonialCard = ({ name, event, image, text }: { name: string; event: st
       ))}
     </div>
     <p className="text-baglio-cremaIntonacata italic leading-relaxed">"{text}"</p>
+  </div>
+);
+
+const ServizioCard = ({ icon, title, items, gradient }: { 
+  icon: React.ReactNode; 
+  title: string; 
+  items: string[]; 
+  gradient: string;
+}) => (
+  <div className="group relative bg-baglio-ebano rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-baglio-oro/20 hover:border-baglio-oro/60 hover:-translate-y-1">
+    {/* Gradient background overlay */}
+    <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}></div>
+    
+    {/* Content */}
+    <div className="relative p-8">
+      {/* Icon with modern styling */}
+      <div className="flex items-center justify-center w-16 h-16 mb-6 mx-auto">
+        <div className={`w-full h-full rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+          <div className="text-white">
+            {icon}
+          </div>
+        </div>
+      </div>
+      
+      {/* Title */}
+      <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-6 text-center group-hover:text-baglio-oroImperiale transition-colors duration-300">
+        {title}
+      </h3>
+      
+      {/* Items list with modern styling */}
+      <div className="space-y-3">
+        {items.map((item, index) => (
+          <div key={index} className="flex items-start text-baglio-cremaIntonacata/90 hover:text-baglio-cremaIntonacata transition-colors duration-200">
+            <div className="w-1.5 h-1.5 rounded-full bg-baglio-oro mt-2.5 mr-3 flex-shrink-0"></div>
+            <span className="text-sm leading-relaxed">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    {/* Hover effect border */}
+    <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-baglio-oro/30 transition-colors duration-300 pointer-events-none"></div>
   </div>
 );
 
@@ -198,119 +239,125 @@ const Eventi = () => {
       </section>
       <DividerEventi />
 
-      {/* NEW: Servizi Completi Section */}
-      <section className="py-16 bg-baglio-cremaIntonacata">
-        <div className="baglio-container">
-          <SectionTitle 
-            title="I nostri servizi completi" 
-            subtitle="Tutto quello che serve per rendere il tuo evento indimenticabile"
-            center
-          />
+      {/* UPDATED: Modern Servizi Completi Section with cutting edge UI */}
+      <section className="py-20 bg-gradient-to-br from-baglio-cremaIntonacata via-baglio-cremaIntonacata/95 to-baglio-cremaIntonacata relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-baglio-oro rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-baglio-oroImperiale rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-baglio-ebano rounded-full blur-2xl"></div>
+        </div>
+        
+        <div className="baglio-container relative z-10">
+          <div className="text-center mb-16">
+            <SectionTitle 
+              title="I nostri servizi completi" 
+              subtitle="Tutto quello che serve per rendere il tuo evento indimenticabile"
+              center
+            />
+            {/* Modern accent line */}
+            <div className="flex items-center justify-center mt-8">
+              <div className="w-20 h-0.5 bg-gradient-to-r from-transparent to-baglio-oro"></div>
+              <div className="w-2 h-2 bg-baglio-oro rounded-full mx-4"></div>
+              <div className="w-20 h-0.5 bg-gradient-to-l from-transparent to-baglio-oro"></div>
+            </div>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {/* Organizzazione e Coordinamento */}
-            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300">
-              <div className="text-baglio-oro mb-4 text-center">
-                <span className="text-3xl">💐</span>
-              </div>
-              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Organizzazione e Coordinamento</h3>
-              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
-                <li>• Wedding planner (in-house o partner)</li>
-                <li>• Coordinamento del giorno del matrimonio</li>
-                <li>• Assistenza alla scelta dei fornitori</li>
-                <li>• Servizio di hostess/accoglienza ospiti</li>
-                <li>• Gestione logistica e tempistiche</li>
-              </ul>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <ServizioCard
+              icon={<Calendar size={28} />}
+              title="Organizzazione e Coordinamento"
+              gradient="from-purple-500 to-indigo-600"
+              items={[
+                "Wedding planner (in-house o partner)",
+                "Coordinamento del giorno del matrimonio",
+                "Assistenza alla scelta dei fornitori",
+                "Servizio di hostess/accoglienza ospiti",
+                "Gestione logistica e tempistiche"
+              ]}
+            />
 
-            {/* Intrattenimento e Musica */}
-            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300">
-              <div className="text-baglio-oro mb-4 text-center">
-                <span className="text-3xl">🎶</span>
-              </div>
-              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Intrattenimento e Musica</h3>
-              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
-                <li>• Musica dal vivo (quartetto, jazz band, DJ)</li>
-                <li>• Spettacoli serali (fuochi d'artificio, danza del fuoco)</li>
-                <li>• Corner esperienziali (cigar bar, wine tasting)</li>
-                <li>• Animazione per bambini</li>
-                <li>• Photo booth o cabina 360°</li>
-              </ul>
-            </div>
+            <ServizioCard
+              icon={<Sparkles size={28} />}
+              title="Intrattenimento e Musica"
+              gradient="from-pink-500 to-rose-600"
+              items={[
+                "Musica dal vivo (quartetto, jazz band, DJ)",
+                "Spettacoli serali (fuochi d'artificio, danza del fuoco)",
+                "Corner esperienziali (cigar bar, wine tasting)",
+                "Animazione per bambini",
+                "Photo booth o cabina 360°"
+              ]}
+            />
 
-            {/* Catering & Banqueting */}
-            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300">
-              <div className="text-baglio-oro mb-4 text-center">
-                <span className="text-3xl">🍽️</span>
-              </div>
-              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Catering & Banqueting</h3>
-              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
-                <li>• Catering interno</li>
-                <li>• Aperitivo di benvenuto e cocktail bar</li>
-                <li>• Cena o pranzo serviti, a buffet o street food</li>
-                <li>• Torta nuziale personalizzata</li>
-                <li>• Menù per intolleranze e diete speciali</li>
-                <li>• Open bar / Mixology station</li>
-                <li>• Degustazioni pre-matrimonio</li>
-              </ul>
-            </div>
+            <ServizioCard
+              icon={<Utensils size={28} />}
+              title="Catering & Banqueting"
+              gradient="from-orange-500 to-amber-600"
+              items={[
+                "Catering interno",
+                "Aperitivo di benvenuto e cocktail bar",
+                "Cena o pranzo serviti, a buffet o street food",
+                "Torta nuziale personalizzata",
+                "Menù per intolleranze e diete speciali",
+                "Open bar / Mixology station",
+                "Degustazioni pre-matrimonio"
+              ]}
+            />
 
-            {/* Ospitalità e Pernottamento */}
-            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300">
-              <div className="text-baglio-oro mb-4 text-center">
-                <span className="text-3xl">🛏️</span>
-              </div>
-              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Ospitalità e Pernottamento</h3>
-              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
-                <li>• Suite nuziale</li>
-                <li>• Camere per ospiti (family & friends)</li>
-                <li>• Convenzioni con hotel vicini</li>
-                <li>• Servizio navetta o transfer privato</li>
-                <li>• Late check-out per gli sposi</li>
-              </ul>
-            </div>
+            <ServizioCard
+              icon={<Bed size={28} />}
+              title="Ospitalità e Pernottamento"
+              gradient="from-teal-500 to-cyan-600"
+              items={[
+                "Suite nuziale",
+                "Camere per ospiti (family & friends)",
+                "Convenzioni con hotel vicini",
+                "Servizio navetta o transfer privato",
+                "Late check-out per gli sposi"
+              ]}
+            />
 
-            {/* Foto e Video */}
-            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300">
-              <div className="text-baglio-oro mb-4 text-center">
-                <span className="text-3xl">📸</span>
-              </div>
-              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Foto e Video</h3>
-              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
-                <li>• Fotografi e videomaker professionisti</li>
-                <li>• Servizio drone</li>
-                <li>• Servizio social media live</li>
-                <li>• Album e video editing post-evento</li>
-              </ul>
-            </div>
+            <ServizioCard
+              icon={<Image size={28} />}
+              title="Foto e Video"
+              gradient="from-violet-500 to-purple-600"
+              items={[
+                "Fotografi e videomaker professionisti",
+                "Servizio drone",
+                "Servizio social media live",
+                "Album e video editing post-evento"
+              ]}
+            />
 
-            {/* Allestimenti e Decorazioni */}
-            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300">
-              <div className="text-baglio-oro mb-4 text-center">
-                <span className="text-3xl">🌿</span>
-              </div>
-              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Allestimenti e Decorazioni</h3>
-              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
-                <li>• Progettazione floreale personalizzata</li>
-                <li>• Illuminazione scenografica</li>
-                <li>• Set up per cerimonia simbolica o civile</li>
-                <li>• Tensostrutture, gazebi o pergolati</li>
-                <li>• Sedute, cuscini, tappeti, arredi vintage</li>
-              </ul>
-            </div>
+            <ServizioCard
+              icon={<Palette size={28} />}
+              title="Allestimenti e Decorazioni"
+              gradient="from-emerald-500 to-green-600"
+              items={[
+                "Progettazione floreale personalizzata",
+                "Illuminazione scenografica",
+                "Set up per cerimonia simbolica o civile",
+                "Tensostrutture, gazebi o pergolati",
+                "Sedute, cuscini, tappeti, arredi vintage"
+              ]}
+            />
+          </div>
 
-            {/* Servizi per gli sposi */}
-            <div className="bg-baglio-ebano p-6 rounded-xl shadow-lg border border-baglio-oro/20 hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1">
-              <div className="text-baglio-oro mb-4 text-center">
-                <span className="text-3xl">👗</span>
+          {/* Call to action at the bottom of services */}
+          <div className="text-center mt-16">
+            <div className="inline-flex items-center bg-baglio-ebano/10 backdrop-blur-sm rounded-2xl p-8 border border-baglio-oro/20">
+              <div className="text-baglio-oro mr-4">
+                <Heart size={32} />
               </div>
-              <h3 className="text-xl font-playfair font-bold text-baglio-oro mb-4 text-center">Servizi per gli sposi</h3>
-              <ul className="space-y-2 text-baglio-cremaIntonacata/80 text-sm">
-                <li>• Make-up artist & hair stylist</li>
-                <li>• Camerino sposi o area preparazione</li>
-                <li>• Noleggio abiti o accessori</li>
-                <li>• Trucco/parrucchiere anche per invitati VIP</li>
-              </ul>
+              <div className="text-left">
+                <h4 className="text-xl font-playfair font-bold text-baglio-ebanoIntenso mb-2">
+                  Servizi personalizzati per gli sposi
+                </h4>
+                <p className="text-baglio-ebanoIntenso/80 text-sm">
+                  Make-up artist, hair stylist, camerino dedicato e servizi esclusivi per il vostro giorno speciale
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -391,9 +438,6 @@ const Eventi = () => {
         </div>
       </section>
       <DividerEventi />
-
-      {/* UPDATED: Sapori Autentici with Caponata background and Amuni CTA */}
-      {/* --- SEZIONE RIMOSSA --- */}
 
       <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
