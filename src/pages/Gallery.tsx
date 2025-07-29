@@ -407,6 +407,7 @@ const Gallery = () => {
             title="Seguici su Instagram" 
             subtitle="Scopri gli ultimi scatti e rimani aggiornato sulle novità del Baglio"
             center
+            light
             className="text-white"
           />
           
