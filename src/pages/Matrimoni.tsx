@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Heart, Camera, Music, Flower, Crown, Car, Star, Bus, User, Home, ShoppingBag, Smile, Music2, PartyPopper, Wine, Users, Check, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -118,20 +117,6 @@ const Matrimoni = () => {
             </p>
           </div>
         </ImageWithOverlay>
-
-        {/* Introduction */}
-        <section className="section-padding bg-gradient-to-br from-baglio-ebano via-baglio-ebanoIntenso to-baglio-ebano shadow-2xl shadow-baglio-oro/10">
-          <div className="baglio-container">
-            <div className="max-w-4xl mx-auto text-center backdrop-blur-sm bg-baglio-ebano/30 rounded-2xl p-8 border border-baglio-oro/20 shadow-xl shadow-baglio-oro/15">
-              <p className="text-lg md:text-xl text-baglio-crema leading-relaxed">
-                Il vostro matrimonio è l'inizio di una nuova storia d'amore, e ogni storia merita una cornice perfetta. 
-                Al Baglio Abbate a Balestrate, tra le antiche mura in pietra e i profumi della campagna siciliana occidentale, il vostro "sì" 
-                risuonerà per sempre nel tempo. Dall'intimità della cerimonia alla gioia del ricevimento, ogni momento 
-                sarà curato nei minimi dettagli per renderlo indimenticabile.
-              </p>
-            </div>
-          </div>
-        </section>
 
         <DividerSottoEventi />
 
