@@ -10,24 +10,6 @@ export default defineConfig({
     host: "::",
     port: 8080,
     cors: true,
-    // Configurazione per gestire il routing SPA
-    historyApiFallback: {
-      index: '/index.html',
-      // Pulisci URL problematici
-      rewrites: [
-        {
-          from: /\/\?p=.*/,
-          to: '/'
-        },
-        {
-          from: /.*\?p=.*/,
-          to: (context) => {
-            const pathname = context.parsedUrl.pathname;
-            return pathname || '/';
-          }
-        }
-      ]
-    }
   },
   plugins: [
     react(),
