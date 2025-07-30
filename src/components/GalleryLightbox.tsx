@@ -200,37 +200,42 @@ const GalleryLightbox = ({
       {/* Bottom CTA section - nascosto su mobile per UX migliore */}
       {!isMobile && (
         <div className="absolute bottom-0 left-0 right-0 z-60 bg-gradient-to-t from-black/90 to-transparent p-4 md:p-6">
-          <div className="text-center">
-            {currentImage.description && (
-              <p className="text-baglio-cremaIntonacata text-sm md:text-base mb-4 max-w-2xl mx-auto">
-                {currentImage.description}
-              </p>
-            )}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
-              <CTAButton to="/eventi" className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso">
-                ✨ Organizza il tuo evento qui
-              </CTAButton>
-              <CTAButton to="/contatti" outline className="border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-baglio-ebanoIntenso">
-                📩 Contattaci per info
-              </CTAButton>
-            </div>
+          <div className="max-w-md mx-auto space-y-3">
+            {/* Primo bottone - Organizza evento */}
+            <CTAButton 
+              to="/eventi" 
+              className="w-full bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-bold py-4 px-6 rounded-xl text-lg shadow-xl"
+              fullWidth
+            >
+              ✨ Organizza il tuo evento qui
+            </CTAButton>
             
-            {/* Instagram CTA prominente */}
-            <div className="bg-gradient-to-r from-baglio-oro/20 to-baglio-oroImperiale/20 rounded-lg p-4 border border-baglio-oro/30">
-              <div className="flex items-center justify-center gap-3 mb-2">
-                <Instagram size={20} className="text-baglio-oro" />
-                <span className="text-baglio-oro font-semibold">Seguici su Instagram</span>
+            {/* Secondo bottone - Contattaci */}
+            <CTAButton 
+              to="/contatti" 
+              outline 
+              className="w-full border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-baglio-ebanoIntenso font-semibold py-3 px-6 rounded-xl bg-transparent shadow-lg"
+              fullWidth
+            >
+              📩 Contattaci per info
+            </CTAButton>
+            
+            {/* Sezione Instagram */}
+            <div className="bg-black/60 backdrop-blur-sm rounded-xl p-4 border border-baglio-oro/30">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Instagram size={24} className="text-baglio-oro" />
+                <span className="text-baglio-oro font-bold text-lg">Seguici su Instagram</span>
               </div>
-              <p className="text-baglio-cremaIntonacata/80 text-sm mb-3">
+              <p className="text-baglio-cremaIntonacata text-center text-sm mb-3">
                 @baglioabbateevents - Scopri altre foto esclusive!
               </p>
               <a 
                 href="https://instagram.com/baglioabbateevents" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105"
+                className="w-full inline-flex items-center justify-center bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-bold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-xl"
               >
-                <Instagram className="mr-2" size={16} />
+                <Instagram className="mr-2" size={20} />
                 Seguici ora
               </a>
             </div>
