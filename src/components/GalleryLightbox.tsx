@@ -162,14 +162,14 @@ const GalleryLightbox = ({
         <>
           <button
             onClick={onPrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-60 bg-baglio-oro/90 hover:bg-baglio-oro text-baglio-ebanoIntenso p-3 rounded-full transition-all duration-200 hover:scale-110"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-[70] bg-baglio-oro/90 hover:bg-baglio-oro text-baglio-ebanoIntenso p-3 rounded-full transition-all duration-200 hover:scale-110 shadow-lg"
             aria-label="Immagine precedente"
           >
             <ChevronLeft size={24} />
           </button>
           <button
             onClick={onNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-60 bg-baglio-oro/90 hover:bg-baglio-oro text-baglio-ebanoIntenso p-3 rounded-full transition-all duration-200 hover:scale-110"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-[70] bg-baglio-oro/90 hover:bg-baglio-oro text-baglio-ebanoIntenso p-3 rounded-full transition-all duration-200 hover:scale-110 shadow-lg"
             aria-label="Immagine successiva"
           >
             <ChevronRight size={24} />
