@@ -55,7 +55,10 @@ const BreadcrumbNavigation = () => {
   };
 
   const breadcrumbs = getBreadcrumbs();
-  if (location.pathname === '/' || breadcrumbs.length === 0) {
+  
+  // Hide breadcrumb on home page, pages with no breadcrumbs, and event subpages
+  const eventSubpages = ['/eventi-privati', '/matrimoni', '/eventi-aziendali'];
+  if (location.pathname === '/' || breadcrumbs.length === 0 || eventSubpages.includes(location.pathname)) {
     return null;
   }
 
