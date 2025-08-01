@@ -179,19 +179,19 @@ const Contatti = () => {
               />
               
               <ContactInfo icon={<MapPin size={24} />} title="Indirizzo">
-                <p className="font-semibold text-baglio-ebanoIntenso">Via Palermo 4, Balestrate (PA)</p>
-                <p>90041 - Sicilia occidentale, Italia</p>
+                <p className="font-semibold text-white">Via Palermo 4, Balestrate (PA)</p>
+                <p className="text-white">90041 - Sicilia occidentale, Italia</p>
               </ContactInfo>
               
               <ContactInfo icon={<Phone size={24} />} title="Telefono">
-                <p className="font-semibold text-baglio-ebanoIntenso">+39 331 8286888</p>
-                <p>+39 331 8286888 <span className="text-baglio-oro">(Prenotazioni)</span></p>
-                <p>+39 371 584 4048 <span className="text-baglio-oro">(Richieste informazioni)</span></p>
+                <p className="font-semibold text-white">+39 331 8286888</p>
+                <p className="text-white">+39 331 8286888 <span className="text-baglio-oro">(Prenotazioni)</span></p>
+                <p className="text-white">+39 371 584 4048 <span className="text-baglio-oro">(Richieste informazioni)</span></p>
               </ContactInfo>
               
               <ContactInfo icon={<Mail size={24} />} title="Email">
-                <p className="font-semibold text-baglio-ebanoIntenso">info@baglioabbate.it</p>
-                <p>eventi@baglioabbate.it <span className="text-baglio-oro">(Eventi privati)</span></p>
+                <p className="font-semibold text-white">info@baglioabbate.it</p>
+                <p className="text-white">eventi@baglioabbate.it <span className="text-baglio-oro">(Eventi privati)</span></p>
               </ContactInfo>
               
               <ContactInfo icon={<Clock size={24} />} title="Orari di apertura">
