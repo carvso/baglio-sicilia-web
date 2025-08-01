@@ -48,6 +48,10 @@ const Footer = () => {
                 +39 331 828 6888
               </li>
               <li className="flex items-center">
+                <Phone size={18} className="mr-2 text-elite-gold" />
+                +39 371 584 4048
+              </li>
+              <li className="flex items-center">
                 <Mail size={18} className="mr-2 text-elite-gold" />
                 info@baglioabbate.it
               </li>

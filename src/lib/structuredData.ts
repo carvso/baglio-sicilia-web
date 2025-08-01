@@ -12,7 +12,7 @@ export const getStructuredData = (page: string) => {
       "postalCode": "90041",
       "addressCountry": "IT"
     },
-    "telephone": "+39 331 8286888",
+    "telephone": ["+39 331 8286888", "+39 371 584 4048"],
     "url": "https://baglioabbate.it",
     "geo": {
       "@type": "GeoCoordinates",
