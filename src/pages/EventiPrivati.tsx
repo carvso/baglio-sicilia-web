@@ -121,6 +121,8 @@ const EventiPrivati = () => {
           </div>
         </ImageWithOverlay>
 
+        <DividerSottoEventi />
+
 
         {/* Modern Packages Section */}
         <section className="py-20 bg-gradient-to-br from-baglio-cremaIntonacata via-baglio-cremaIntonacata/95 to-baglio-cremaIntonacata relative overflow-hidden">
