@@ -50,6 +50,13 @@ const structureImages = [
     category: 'structure',
     title: 'Sala Panoramica',
     description: 'Vista d\'insieme della sala con la sua atmosfera accogliente e l\'allestimento elegante per eventi.'
+  },
+  { 
+    src: '/lovable-uploads/09808235-095f-4e3e-96ee-7999e281f10f.png', 
+    alt: 'Vista panoramica del cortile con tavoli rotondi apparecchiati e palme', 
+    category: 'structure',
+    title: 'Cortile Panoramico',
+    description: 'Suggestiva vista del cortile principale con l\'allestimento per eventi all\'aperto e l\'atmosfera magica del tramonto.'
   }
 ];
 
@@ -67,6 +74,13 @@ const foodImages = [
     category: 'food',
     title: 'Buffet Siciliano',
     description: 'Il nostro ricco buffet con specialità siciliane, antipasti di mare e terre, dolci tradizionali.'
+  },
+  { 
+    src: '/lovable-uploads/bf92be82-1679-4263-9ee4-a459b6320a83.png', 
+    alt: 'Elegante buffet di mare con ostriche, crostacei e specialità ittiche', 
+    category: 'food',
+    title: 'Buffet di Mare',
+    description: 'Raffinato buffet con le migliori specialità di mare: ostriche fresche, crostacei e prelibatezze ittiche del territorio.'
   }
 ];
 
