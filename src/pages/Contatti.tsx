@@ -141,7 +141,7 @@ const Contatti = () => {
               icon={<Phone size={28} />}
               title="Chiama ora"
               description="Parla direttamente con il nostro team per informazioni immediate"
-              action="✆ +39 331 8286888"
+              action="✆ +39 331 8286888 / +39 371 584 4048"
             />
             <QuickActionCard
               icon={<Mail size={28} />}
