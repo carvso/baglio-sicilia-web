@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Briefcase, Presentation, Coffee, Video, Users, Wifi, Instagram } from 'lucide-react';
+import { Briefcase, Presentation, Coffee, Video, Users, Wifi, Instagram, Crown, Star, Monitor, Shield, Headphones, Lightbulb, Camera, Zap, Globe, Settings, Clock, UserCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Layout from '@/components/Layout';
@@ -8,9 +8,11 @@ import ImageWithOverlay from '@/components/ImageWithOverlay';
 import SectionTitle from '@/components/SectionTitle';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { EventCalendar } from '@/components/EventCalendar';
 import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
 import DividerSottoEventi from '@/components/DividerSottoEventi';
+import DividerDecorativo from '@/components/DividerDecorativo';
 import { getLovableUploadPath } from '@/lib/paths';
 import { getStructuredData } from '@/lib/structuredData';
 
@@ -19,6 +21,9 @@ const EventiAziendali = () => {
     {
       name: "Base",
       price: "A partire da €600",
+      gradient: "from-blue-500/20 to-cyan-500/20",
+      borderGradient: "from-blue-500 to-cyan-500",
+      icon: <Briefcase size={24} />,
       benefits: [
         "Sala meeting fino a 50 persone",
         "Wi-Fi ad alta velocità",
@@ -31,6 +36,10 @@ const EventiAziendali = () => {
     {
       name: "Premium",
       price: "A partire da €1.200",
+      gradient: "from-baglio-oro/20 to-yellow-400/20",
+      borderGradient: "from-baglio-oro to-yellow-400",
+      icon: <Crown size={24} />,
+      badge: "PIÙ CONSIGLIATO",
       benefits: [
         "Tutto incluso nel pacchetto Base",
         "Cena servita al tavolo",
@@ -43,6 +52,9 @@ const EventiAziendali = () => {
     {
       name: "Exclusive",
       price: "Su preventivo",
+      gradient: "from-purple-500/20 to-indigo-600/20",
+      borderGradient: "from-purple-500 to-indigo-600",
+      icon: <Star size={24} />,
       benefits: [
         "Tutto incluso nel pacchetto Premium",
         "Regia audio/video completa",
@@ -55,12 +67,22 @@ const EventiAziendali = () => {
   ];
 
   const services = [
-    { icon: <Briefcase size={20} />, text: "Sale meeting modulari" },
-    { icon: <Wifi size={20} />, text: "Connessione internet dedicata" },
-    { icon: <Presentation size={20} />, text: "Attrezzature A/V professionali" },
-    { icon: <Coffee size={20} />, text: "Catering business" },
-    { icon: <Video size={20} />, text: "Streaming e registrazione" },
-    { icon: <Users size={20} />, text: "Team building activities" }
+    { icon: <Briefcase size={20} />, text: "Sale meeting modulari", gradient: "from-blue-500/15 to-cyan-500/15" },
+    { icon: <Wifi size={20} />, text: "Connessione internet dedicata", gradient: "from-green-500/15 to-emerald-500/15" },
+    { icon: <Presentation size={20} />, text: "Attrezzature A/V professionali", gradient: "from-purple-500/15 to-violet-500/15" },
+    { icon: <Coffee size={20} />, text: "Catering business", gradient: "from-amber-500/15 to-orange-500/15" },
+    { icon: <Video size={20} />, text: "Streaming e registrazione", gradient: "from-red-500/15 to-pink-500/15" },
+    { icon: <Users size={20} />, text: "Team building activities", gradient: "from-indigo-500/15 to-blue-500/15" },
+    { icon: <UserCheck size={20} />, text: "Servizio hostess", gradient: "from-rose-500/15 to-pink-500/15" },
+    { icon: <Monitor size={20} />, text: "Streaming professionale", gradient: "from-gray-500/15 to-slate-500/15" },
+    { icon: <Shield size={20} />, text: "Security service", gradient: "from-red-600/15 to-red-500/15" },
+    { icon: <Headphones size={20} />, text: "Assistenza tecnica H24", gradient: "from-yellow-500/15 to-amber-500/15" },
+    { icon: <Lightbulb size={20} />, text: "Consulenza eventi", gradient: "from-orange-500/15 to-yellow-500/15" },
+    { icon: <Camera size={20} />, text: "Fotografia professionale", gradient: "from-teal-500/15 to-cyan-500/15" },
+    { icon: <Zap size={20} />, text: "Setup rapido", gradient: "from-lime-500/15 to-green-500/15" },
+    { icon: <Globe size={20} />, text: "Coordinamento logistics", gradient: "from-sky-500/15 to-blue-500/15" },
+    { icon: <Settings size={20} />, text: "Personalizzazione completa", gradient: "from-violet-500/15 to-purple-500/15" },
+    { icon: <Clock size={20} />, text: "Gestione tempistiche", gradient: "from-emerald-500/15 to-teal-500/15" }
   ];
 
   return (
@@ -103,8 +125,14 @@ const EventiAziendali = () => {
           </div>
         </ImageWithOverlay>
 
+        <DividerSottoEventi />
+
         {/* Introduction */}
-        <section className="section-padding bg-gradient-to-br from-baglio-ebano via-baglio-ebanoIntenso to-baglio-ebano shadow-2xl shadow-baglio-oro/10">
+        <section className="section-padding bg-gradient-to-br from-baglio-ebano via-baglio-ebanoIntenso to-baglio-ebano shadow-2xl shadow-baglio-oro/10 relative overflow-hidden">
+          {/* Decorative blur elements */}
+          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-baglio-oro/10 rounded-full blur-3xl"></div>
+          
           <div className="baglio-container">
             <div className="max-w-4xl mx-auto text-center backdrop-blur-sm bg-baglio-ebano/30 rounded-2xl p-8 border border-baglio-oro/20 shadow-xl shadow-baglio-oro/15">
               <p className="text-lg md:text-xl text-baglio-crema leading-relaxed">
@@ -116,10 +144,13 @@ const EventiAziendali = () => {
             </div>
           </div>
         </section>
-        <DividerSottoEventi />
 
-        {/* Packages */}
-        <section className="section-padding bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso">
+        {/* Modern Packages Section */}
+        <section className="section-padding bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso relative overflow-hidden">
+          {/* Decorative blur elements */}
+          <div className="absolute top-10 right-20 w-48 h-48 bg-purple-500/8 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-20 w-56 h-56 bg-blue-500/8 rounded-full blur-3xl"></div>
+          
           <div className="baglio-container">
             <SectionTitle 
               title="Soluzioni business" 
@@ -130,50 +161,80 @@ const EventiAziendali = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               {packages.map((pkg, index) => (
-                <Card key={index} className="bg-gradient-to-br from-baglio-ebano via-baglio-ebanoIntenso to-baglio-ebano border border-baglio-oro/40 hover:border-baglio-oro/70 transition-all duration-500 group shadow-xl shadow-baglio-oro/25 hover:shadow-2xl hover:shadow-baglio-oro/35 hover:-translate-y-1 rounded-xl backdrop-blur-sm">
-                  <CardHeader className="text-center pb-4 relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-baglio-oro/10 to-baglio-oro/5 rounded-t-xl"></div>
-                    <CardTitle className="text-2xl font-playfair text-baglio-oro mb-2 relative z-10 drop-shadow-sm">
-                      {pkg.name}
-                    </CardTitle>
-                    <p className="text-baglio-oro font-semibold text-lg relative z-10 drop-shadow-sm">
-                      {pkg.price}
-                    </p>
-                  </CardHeader>
-                  <CardContent className="relative">
-                    <ul className="space-y-3">
-                      {pkg.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-start text-baglio-crema group-hover:text-white transition-colors duration-300">
-                          <span className="text-baglio-oro mr-2 mt-1 drop-shadow-sm">✓</span>
-                          <span className="text-sm md:text-base">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                <div key={index} className="relative group">
+                  {pkg.badge && (
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+                      <Badge className="bg-gradient-to-r from-baglio-oro to-yellow-400 text-baglio-ebanoIntenso font-bold px-3 py-1 text-xs shadow-lg">
+                        {pkg.badge}
+                      </Badge>
+                    </div>
+                  )}
+                  
+                  <Card className={`bg-gradient-to-br ${pkg.gradient} backdrop-blur-sm border-2 border-transparent bg-clip-padding relative overflow-hidden transition-all duration-500 group-hover:-translate-y-2 shadow-xl group-hover:shadow-2xl rounded-2xl h-full`}>
+                    {/* Gradient border effect */}
+                    <div className={`absolute inset-0 bg-gradient-to-r ${pkg.borderGradient} opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-2xl`}></div>
+                    <div className="absolute inset-[2px] bg-gradient-to-br from-baglio-ebano via-baglio-ebanoIntenso to-baglio-ebano rounded-2xl"></div>
+                    
+                    <CardHeader className="text-center pb-4 relative z-10">
+                      <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${pkg.borderGradient} text-white mb-4 mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                        {pkg.icon}
+                      </div>
+                      <CardTitle className="text-2xl font-playfair text-baglio-oro mb-2 drop-shadow-sm group-hover:text-yellow-300 transition-colors duration-300">
+                        {pkg.name}
+                      </CardTitle>
+                      <p className="text-baglio-oro font-semibold text-lg drop-shadow-sm group-hover:text-yellow-300 transition-colors duration-300">
+                        {pkg.price}
+                      </p>
+                    </CardHeader>
+                    <CardContent className="relative z-10">
+                      <ul className="space-y-3">
+                        {pkg.benefits.map((benefit, idx) => (
+                          <li key={idx} className="flex items-start text-baglio-crema group-hover:text-white transition-colors duration-300">
+                            <span className="text-baglio-oro mr-3 mt-1 drop-shadow-sm group-hover:text-yellow-300">✓</span>
+                            <span className="text-sm md:text-base leading-relaxed">{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
             </div>
           </div>
         </section>
         <DividerSottoEventi />
 
-        {/* Services */}
-        <section className="section-padding bg-gradient-to-br from-baglio-ebanoIntenso via-baglio-ebano to-baglio-ebanoIntenso shadow-2xl shadow-baglio-oro/10">
+        {/* Enhanced Services Section */}
+        <section className="section-padding bg-gradient-to-br from-baglio-ebanoIntenso via-baglio-ebano to-baglio-ebanoIntenso shadow-2xl shadow-baglio-oro/10 relative overflow-hidden">
+          {/* Decorative blur elements */}
+          <div className="absolute top-20 left-10 w-40 h-40 bg-green-500/8 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-32 h-32 bg-blue-500/8 rounded-full blur-3xl"></div>
+          
           <div className="baglio-container">
-            <SectionTitle 
-              title="Servizi business" 
-              subtitle="Tecnologia e ospitalità per il successo del vostro evento a Balestrate"
-              center
-              light={true}
-            />
+            <div className="text-center mb-12">
+              <SectionTitle 
+                title="Servizi business" 
+                subtitle="Tecnologia e ospitalità per il successo del vostro evento a Balestrate"
+                center
+                light={true}
+              />
+              {/* Decorative line under title */}
+              <div className="flex items-center justify-center mt-6">
+                <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-baglio-oro to-transparent"></div>
+                <div className="mx-4 w-2 h-2 bg-baglio-oro rounded-full"></div>
+                <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-baglio-oro to-transparent"></div>
+              </div>
+            </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
               {services.map((service, index) => (
-                <div key={index} className="flex items-center p-6 bg-gradient-to-br from-baglio-ebano to-baglio-ebanoIntenso rounded-xl border border-baglio-oro/40 shadow-lg shadow-baglio-oro/15 hover:shadow-xl hover:shadow-baglio-oro/25 transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-sm">
-                  <div className="text-baglio-oro mr-4 p-2 bg-gradient-to-br from-baglio-oro/15 to-baglio-oro/10 rounded-lg border border-baglio-oro/20">
-                    {service.icon}
+                <div key={index} className="group relative">
+                  <div className={`flex flex-col items-center text-center p-6 bg-gradient-to-br ${service.gradient} backdrop-blur-sm rounded-xl border border-baglio-oro/20 shadow-lg shadow-baglio-oro/10 hover:shadow-xl hover:shadow-baglio-oro/20 transition-all duration-500 hover:-translate-y-1 hover:scale-105 h-full`}>
+                    <div className="text-baglio-oro mb-4 p-3 bg-gradient-to-br from-baglio-oro/15 to-baglio-oro/10 rounded-full border border-baglio-oro/30 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                      {service.icon}
+                    </div>
+                    <span className="text-baglio-crema font-medium text-sm group-hover:text-white transition-colors duration-300 leading-relaxed">{service.text}</span>
                   </div>
-                  <span className="text-baglio-crema font-medium">{service.text}</span>
                 </div>
               ))}
             </div>
@@ -219,11 +280,21 @@ const EventiAziendali = () => {
         </section>
         <DividerSottoEventi />
 
-        {/* CTA */}
+        {/* Modern CTA Section */}
         <section className="section-padding bg-gradient-to-br from-baglio-ebanoIntenso to-baglio-ebano relative overflow-hidden">
+          {/* Decorative blur elements */}
+          <div className="absolute top-10 left-1/4 w-48 h-48 bg-baglio-oro/8 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-1/4 w-40 h-40 bg-blue-500/8 rounded-full blur-3xl"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-baglio-oro/5 to-transparent"></div>
+          
           <div className="baglio-container text-center relative z-10">
-            <div className="max-w-4xl mx-auto bg-gradient-to-br from-baglio-ebano/90 to-baglio-ebanoIntenso/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl shadow-baglio-oro/20 border border-baglio-oro/30">
+            <div className="max-w-4xl mx-auto bg-gradient-to-br from-baglio-ebano/95 to-baglio-ebanoIntenso/95 backdrop-blur-lg rounded-3xl p-12 shadow-2xl shadow-baglio-oro/25 border border-baglio-oro/40 hover:border-baglio-oro/60 transition-all duration-500 group hover:shadow-3xl hover:shadow-baglio-oro/35">
+              {/* Decorative elements */}
+              <div className="absolute top-8 left-8 w-6 h-6 border-t-2 border-l-2 border-baglio-oro/30 group-hover:border-baglio-oro/50 transition-colors duration-300"></div>
+              <div className="absolute top-8 right-8 w-6 h-6 border-t-2 border-r-2 border-baglio-oro/30 group-hover:border-baglio-oro/50 transition-colors duration-300"></div>
+              <div className="absolute bottom-8 left-8 w-6 h-6 border-b-2 border-l-2 border-baglio-oro/30 group-hover:border-baglio-oro/50 transition-colors duration-300"></div>
+              <div className="absolute bottom-8 right-8 w-6 h-6 border-b-2 border-r-2 border-baglio-oro/30 group-hover:border-baglio-oro/50 transition-colors duration-300"></div>
+              
               <SectionTitle 
                 title="Il vostro successo è il nostro obiettivo" 
                 subtitle="Contattaci per organizzare un evento aziendale di successo"
@@ -231,9 +302,11 @@ const EventiAziendali = () => {
                 light={true}
               />
               
+              <DividerDecorativo />
+              
               <div className="mt-8">
                 <Link to="/contatti">
-                  <Button className="bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-bold py-3 px-8 text-lg shadow-lg shadow-baglio-oro/30 hover:shadow-xl hover:shadow-baglio-oro/40 transition-all duration-300 hover:-translate-y-0.5">
+                  <Button className="bg-gradient-to-r from-baglio-oro to-baglio-oroImperiale hover:from-baglio-oroImperiale hover:to-baglio-oro text-baglio-ebanoIntenso font-bold py-4 px-10 text-lg shadow-xl shadow-baglio-oro/40 hover:shadow-2xl hover:shadow-baglio-oro/50 transition-all duration-500 hover:-translate-y-1 hover:scale-105 rounded-xl">
                     Richiedi un preventivo
                   </Button>
                 </Link>
