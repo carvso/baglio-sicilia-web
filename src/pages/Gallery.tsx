@@ -21,213 +21,52 @@ const galleryCategories = [
   { id: 'details', label: 'Dettagli', icon: '✨' }
 ];
 
-// Enhanced image data with the new interior images
+// Nuove immagini fornite dall'utente
 const structureImages = [
   { 
-    src: '/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png', 
-    alt: 'Arco interno con soffitto in legno - Architettura storica siciliana', 
+    src: '/lovable-uploads/1e9ae6fe-2ae4-4dd1-9ccb-6c27db8de957.png', 
+    alt: 'Vista attraverso arco di pietra con cortile per eventi e tavolo dolci', 
     category: 'structure',
-    title: 'Sala degli Archi',
-    description: 'Gli eleganti archi in pietra e i soffitti in legno creano un\'atmosfera unica per le vostre cerimonie.'
+    title: 'Cortile degli Archi',
+    description: 'L\'elegante cortile visto attraverso l\'arco di pietra, ideale per cerimonie e ricevimenti all\'aperto.'
   },
   { 
-    src: '/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png', 
-    alt: 'Ingresso del Baglio con piante ornamentali', 
+    src: '/lovable-uploads/220304d4-3d21-4d55-9ea1-ddd780157fc9.png', 
+    alt: 'Coppia di sposi che cammina mano nella mano attraverso corridoio con archi', 
     category: 'structure',
-    title: 'Ingresso Principale',
-    description: 'L\'accogliente ingresso del Baglio circondato da rigogliose piante mediterranee.'
-  },
-  { 
-    src: '/lovable-uploads/7c87682b-32e2-45e6-b99b-3b4bce99f00f.png', 
-    alt: 'Vista esterna del Baglio con ciminiera storica', 
-    category: 'structure',
-    title: 'Vista Esterna',
-    description: 'La storica architettura siciliana con la caratteristica ciminiera che domina il panorama.'
-  },
-  { 
-    src: '/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png', 
-    alt: 'Ingresso principale con decorazioni floreali', 
-    category: 'structure',
-    title: 'Cortile Fiorito',
-    description: 'Il cortile principale adornato con decorazioni floreali per eventi speciali.'
-  },
-  { 
-    src: '/lovable-uploads/097078d4-e512-4c97-b039-a82f102e8608.png', 
-    alt: 'Cortile principale del Baglio Abbate', 
-    category: 'structure',
-    title: 'Cortile Centrale',
-    description: 'Lo spazio principale per cerimonie e ricevimenti all\'aperto.'
-  },
-  {
-    src: '/lovable-uploads/97ade15d-9a2b-4fa8-89b8-847a2ea33c4c.png',
-    alt: 'Sala ricevimenti con tovaglie rosa cipria',
-    category: 'structure',
-    title: 'Sala Ricevimenti Rosa',
-    description: 'Un ambiente raffinato con tavoli rotondi e tovaglie rosa cipria, perfetto per matrimoni ed eventi eleganti.'
-  },
-  {
-    src: '/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png',
-    alt: 'Sala ricevimenti con tovaglie bianche e dettagli oro',
-    category: 'structure',
-    title: 'Sala Ricevimenti Oro',
-    description: 'Tavoli rotondi con tovaglie bianche e runner oro, ideali per eventi luminosi e raffinati.'
-  },
-  {
-    src: '/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png',
-    alt: 'Sala ricevimenti con tovaglie blu navy',
-    category: 'structure',
-    title: 'Sala Ricevimenti Blu Navy',
-    description: 'Atmosfera elegante con tovaglie blu navy e dettagli dorati, per eventi esclusivi.'
-  },
-  {
-    src: '/lovable-uploads/a64af1b5-6d30-4760-80df-66af10202399.png',
-    alt: 'Sala ricevimenti con illuminazione calda e pianoforte',
-    category: 'details',
-    title: 'Lounge & Piano Bar',
-    description: 'Un angolo lounge con pianoforte e bar, illuminazione calda per momenti di relax e musica.'
-  },
-  {
-    src: '/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png',
-    alt: 'Sala ricevimenti con tovaglie gialle e atmosfera accogliente',
-    category: 'structure',
-    title: 'Sala Ricevimenti Gialla',
-    description: 'Tavoli rotondi con tovaglie gialle, ambiente solare e accogliente per ogni occasione.'
-  },
-  {
-    src: '/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png',
-    alt: 'Sala ricevimenti con tovaglie rosa cipria e sedie chiare',
-    category: 'structure',
-    title: 'Sala Ricevimenti Rosa Pastello',
-    description: 'Un tocco di romanticismo con tovaglie rosa pastello e sedie chiare, ideale per eventi intimi.'
-  },
-  {
-    src: '/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png',
-    alt: 'Sala ricevimenti con tovaglie blu navy e atmosfera serale',
-    category: 'structure',
-    title: 'Sala Ricevimenti Notturna',
-    description: 'Un allestimento serale con tovaglie blu navy, luci soffuse e atmosfera elegante.'
-  },
-  {
-    src: '/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png',
-    alt: 'Arco interno con soffitto in legno',
-    category: 'details',
-    title: 'Archi e Soffitti',
-    description: 'Dettagli architettonici con archi in pietra e soffitti in legno, simbolo della tradizione siciliana.'
+    title: 'Corridoio Romantico',
+    description: 'Il suggestivo corridoio con archi in pietra, perfetto per foto romantiche e momenti indimenticabili.'
   }
 ];
 
 const foodImages = [
   { 
-    src: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
-    alt: 'Antipasto siciliano tradizionale', 
+    src: '/lovable-uploads/ab451fc1-8d8e-4c0a-b118-a723071c313b.png', 
+    alt: 'Dettaglio tavolo con tovagliolo Baglio Abbate e anelli di matrimonio', 
     category: 'food',
-    title: 'Antipasti Siciliani',
-    description: 'Selezione di antipasti della tradizione siciliana con prodotti locali di eccellenza.'
-  },
-  { 
-    src: 'https://images.unsplash.com/photo-1579349443343-73da56a71a20?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
-    alt: 'Pasta con frutti di mare freschi', 
-    category: 'food',
-    title: 'Pasta ai Frutti di Mare',
-    description: 'Pasta fresca con frutti di mare del golfo di Castellammare, pescati quotidianamente.'
-  },
-  { 
-    src: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
-    alt: 'Pesce alla griglia con erbe aromatiche', 
-    category: 'food',
-    title: 'Pesce alla Griglia',
-    description: 'Pesce fresco grigliato con erbe aromatiche del nostro giardino.'
-  },
-  { 
-    src: 'https://images.unsplash.com/photo-1510148199876-8a856ee41d42?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
-    alt: 'Dessert siciliano tradizionale', 
-    category: 'food',
-    title: 'Dolci della Tradizione',
-    description: 'Cannoli siciliani e cassata preparati secondo le ricette tradizionali.'
-  },
-  { 
-    src: 'https://images.unsplash.com/photo-1621328406700-17f517c790ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
-    alt: 'Cocktail siciliano con agrumi locali', 
-    category: 'food',
-    title: 'Cocktail agli Agrumi',
-    description: 'Cocktail artigianali preparati con agrumi siciliani e distillati locali.'
-  },
+    title: 'Dettagli Eleganti',
+    description: 'Raffinati dettagli della mise en place con tovaglioli personalizzati e atmosfera dorata.'
+  }
 ];
 
 const eventsImages = [
   { 
-    src: '/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png', 
-    alt: 'Sala allestita con eleganti tovaglie blu navy per eventi aziendali', 
+    src: '/lovable-uploads/0d9a74a2-49b5-433b-a994-142e31afd746.png', 
+    alt: 'Tavolo lungo elegantemente apparecchiato con luci sospese e decorazioni verdi', 
     category: 'events',
-    title: 'Eventi Aziendali',
-    description: 'Allestimento professionale con tovaglie blu navy per meeting e conferenze di alta qualità.'
+    title: 'Cena di Gala',
+    description: 'Tavolo imperiale con decorazioni verdi, luci sospese e atmosfera magica per eventi speciali.'
   },
   { 
-    src: '/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png', 
-    alt: 'Terrazza vista mare per ricevimenti e matrimoni', 
+    src: '/lovable-uploads/a78796f0-f9cb-43e8-94c4-69055097e270.png', 
+    alt: 'Vista del tavolo lungo con decorazioni e atmosfera serale dorata', 
     category: 'events',
-    title: 'Ricevimento Vista Mare',
-    description: 'La nostra terrazza panoramica con vista mozzafiato sulla costa di Balestrate.'
-  },
-  { 
-    src: '/lovable-uploads/abd0f4fc-88b2-4370-b75c-a060e0f81d76.png', 
-    alt: 'Allestimento romantico con tovaglie color pesca per matrimoni', 
-    category: 'events',
-    title: 'Matrimoni da Sogno',
-    description: 'Allestimento romantico con tovaglie color pesca per celebrare l\'amore eterno.'
-  },
-  { 
-    src: '/lovable-uploads/1a152ccf-f53d-47a9-8d2f-f43edceba327.png', 
-    alt: 'Sala interna elegante per eventi privati', 
-    category: 'events',
-    title: 'Eventi Privati',
-    description: 'Spazio intimo e raffinato per celebrazioni private e cene esclusive.'
-  },
-  { 
-    src: '/lovable-uploads/059acecc-9864-4084-bb89-9644fd4e4a41.png', 
-    alt: 'Area reception elegante del Baglio', 
-    category: 'events',
-    title: 'Reception Elegante',
-    description: 'Spazio di accoglienza raffinato per i vostri ospiti più importanti.'
-  },
+    title: 'Evento Serale',
+    description: 'L\'atmosfera dorata della sera avvolge il tavolo imperiale per una cena indimenticabile.'
+  }
 ];
 
 const detailsImages = [
-  { 
-    src: '/lovable-uploads/47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png', 
-    alt: 'Interni eleganti con archi in pietra e atmosfera calda', 
-    category: 'details',
-    title: 'Atmosfera Intima',
-    description: 'Gli interni del Baglio creano un\'atmosfera calda e accogliente per ogni occasione.'
-  },
-  { 
-    src: '/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png', 
-    alt: 'Dettagli architettonici delle volte storiche', 
-    category: 'details',
-    title: 'Volte Storiche',
-    description: 'Le antiche volte a crociera testimoniano la maestria artigianale del passato.'
-  },
-  { 
-    src: '/lovable-uploads/dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png', 
-    alt: 'Portale d\'ingresso con elementi decorativi originali', 
-    category: 'details',
-    title: 'Portale d\'Ingresso',
-    description: 'L\'elegante portale d\'ingresso adornato con elementi decorativi originali.'
-  },
-  { 
-    src: '/lovable-uploads/7c87682b-32e2-45e6-b99b-3b4bce99f00f.png', 
-    alt: 'Ciminiera storica simbolo della tradizione siciliana', 
-    category: 'details',
-    title: 'Ciminiera Storica',
-    description: 'La caratteristica ciminiera, simbolo della tradizione produttiva siciliana.'
-  },
-  { 
-    src: '/lovable-uploads/75cf2578-451c-46db-8c39-c3dcc02f7157.png', 
-    alt: 'Dettagli decorativi che impreziosiscono il Baglio', 
-    category: 'details',
-    title: 'Elementi Decorativi',
-    description: 'Dettagli artistici che impreziosiscono ogni angolo del Baglio.'
-  },
 ];
 
 // Combine all images
