@@ -201,24 +201,29 @@ const GalleryLightbox = ({
       {(
         <div className="absolute bottom-0 left-0 right-0 z-60 bg-gradient-to-t from-black/90 to-transparent p-4 md:p-6">
           <div className="max-w-md mx-auto space-y-3">
-            {/* Primo bottone - Organizza evento */}
-            <CTAButton 
-              to="/eventi" 
-              className="w-full bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-bold py-4 px-6 rounded-xl text-lg shadow-xl"
-              fullWidth
-            >
-              ✨ Organizza il tuo evento qui
-            </CTAButton>
-            
-            {/* Secondo bottone - Contattaci */}
-            <CTAButton 
-              to="/contatti" 
-              outline 
-              className="w-full border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-baglio-ebanoIntenso font-semibold py-3 px-6 rounded-xl bg-transparent shadow-lg"
-              fullWidth
-            >
-              📩 Contattaci per info
-            </CTAButton>
+            {/* Bottoni CTA - nascosti su mobile */}
+            {!isMobile && (
+              <>
+                {/* Primo bottone - Organizza evento */}
+                <CTAButton 
+                  to="/eventi" 
+                  className="w-full bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-bold py-4 px-6 rounded-xl text-lg shadow-xl"
+                  fullWidth
+                >
+                  ✨ Organizza il tuo evento qui
+                </CTAButton>
+                
+                {/* Secondo bottone - Contattaci */}
+                <CTAButton 
+                  to="/contatti" 
+                  outline 
+                  className="w-full border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-baglio-ebanoIntenso font-semibold py-3 px-6 rounded-xl bg-transparent shadow-lg"
+                  fullWidth
+                >
+                  📩 Contattaci per info
+                </CTAButton>
+              </>
+            )}
             
             {/* Sezione Instagram */}
             <div className="bg-black/60 backdrop-blur-sm rounded-xl p-4 border border-baglio-oro/30">
