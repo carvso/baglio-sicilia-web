@@ -53,16 +53,16 @@ const InstagramCTA = ({ variant = "default" }: { variant?: "default" | "compact"
 
   return (
     <div className={`${variants[variant]} text-center hover:shadow-xl transition-all duration-300 hover:scale-105`}>
-      <Instagram size={variant === "hero" ? 32 : 24} className={`mx-auto mb-3 ${variant === "hero" ? "text-black" : "text-baglio-oro"}`} />
-      <h4 className={`font-playfair font-bold text-lg mb-2 ${variant === "hero" ? "text-black" : "text-baglio-oro"}`}>Seguici su Instagram</h4>
-      <p className="text-baglio-cremaIntonacata text-sm mb-4">
+      <Instagram size={variant === "hero" ? 32 : 24} className={`mx-auto mb-3 ${variant === "default" || variant === "hero" ? "text-black" : "text-baglio-oro"}`} />
+      <h4 className={`font-playfair font-bold text-lg mb-2 ${variant === "default" || variant === "hero" ? "text-black" : "text-baglio-oro"}`}>Seguici su Instagram</h4>
+      <p className={`text-sm mb-4 ${variant === "default" ? "text-black" : "text-baglio-cremaIntonacata"}`}>
         @baglioabbateevents - Scopri le ultime foto e novità!
       </p>
       <a 
         href="https://instagram.com/baglioabbateevents" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="inline-flex items-center bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-semibold px-4 py-2 rounded-lg transition-colors"
+        className={`inline-flex items-center font-semibold px-4 py-2 rounded-lg transition-colors ${variant === "default" ? "bg-black hover:bg-gray-800 text-white" : "bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso"}`}
       >
         <Instagram className="mr-2" size={16} />
         Seguici
