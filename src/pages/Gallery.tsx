@@ -36,6 +36,20 @@ const structureImages = [
     category: 'structure',
     title: 'Corridoio Romantico',
     description: 'Il suggestivo corridoio con archi in pietra, perfetto per foto romantiche e momenti indimenticabili.'
+  },
+  { 
+    src: '/lovable-uploads/e8714e13-20c8-476a-9952-dc8c6c85d5f0.png', 
+    alt: 'Elegante sala ristorante con tavoli rotondi, sedie thonet e soffitto in legno', 
+    category: 'structure',
+    title: 'Sala Principale',
+    description: 'La raffinata sala principale con tavoli rotondi, sedie thonet e soffitto in legno con travi a vista.'
+  },
+  { 
+    src: '/lovable-uploads/8e4c9a6e-8fa7-47ad-90c2-9aacd48ddd4c.png', 
+    alt: 'Vista panoramica della sala ristorante con allestimento completo', 
+    category: 'structure',
+    title: 'Sala Panoramica',
+    description: 'Vista d\'insieme della sala con la sua atmosfera accogliente e l\'allestimento elegante per eventi.'
   }
 ];
 
@@ -46,6 +60,13 @@ const foodImages = [
     category: 'food',
     title: 'Dettagli Eleganti',
     description: 'Raffinati dettagli della mise en place con tovaglioli personalizzati e atmosfera dorata.'
+  },
+  { 
+    src: '/lovable-uploads/7aa53d04-cc12-421f-9ba6-fb53d80aec2d.png', 
+    alt: 'Ricco buffet con piatti tradizionali siciliani e specialità del territorio', 
+    category: 'food',
+    title: 'Buffet Siciliano',
+    description: 'Il nostro ricco buffet con specialità siciliane, antipasti di mare e terre, dolci tradizionali.'
   }
 ];
 
@@ -63,6 +84,20 @@ const eventsImages = [
     category: 'events',
     title: 'Evento Serale',
     description: 'L\'atmosfera dorata della sera avvolge il tavolo imperiale per una cena indimenticabile.'
+  },
+  { 
+    src: '/lovable-uploads/ef5bc2e9-f908-4ff9-8544-e6823fa9b0a9.png', 
+    alt: 'Matrimonio all\'aperto con sposi che camminano tra tavoli con luci sospese', 
+    category: 'events',
+    title: 'Matrimonio en Plein Air',
+    description: 'Cerimonia all\'aperto con luci sospese, decorazioni verdi e atmosfera romantica sotto le stelle.'
+  },
+  { 
+    src: '/lovable-uploads/9dd7830f-e6af-478a-89cb-7cb5ee6826e3.png', 
+    alt: 'Ricevimento matrimoniale interno con sposi e allestimento elegante', 
+    category: 'events',
+    title: 'Ricevimento Elegante',
+    description: 'Ricevimento matrimoniale nella sala interna con allestimento raffinato e atmosfera intima.'
   }
 ];
 
