@@ -121,20 +121,6 @@ const EventiPrivati = () => {
           </div>
         </ImageWithOverlay>
 
-        {/* Introduction */}
-        <section className="section-padding bg-gradient-to-br from-baglio-ebano via-baglio-ebanoIntenso to-baglio-ebano shadow-2xl shadow-baglio-oro/10">
-          <div className="baglio-container">
-            <div className="max-w-4xl mx-auto text-center backdrop-blur-sm bg-baglio-ebano/30 rounded-2xl p-8 border border-baglio-oro/20 shadow-xl shadow-baglio-oro/15">
-              <p className="text-lg md:text-xl text-baglio-crema leading-relaxed">
-                Dal compleanno importante all'anniversario speciale, ogni momento della vita merita di essere celebrato 
-                in grande stile. Il Baglio Abbate a Balestrate trasforma i vostri eventi privati in esperienze indimenticabili, 
-                dove l'eleganza della location si fonde con la calorosa ospitalità siciliana occidentale per creare ricordi che 
-                dureranno per sempre.
-              </p>
-            </div>
-          </div>
-        </section>
-        <DividerSottoEventi />
 
         {/* Modern Packages Section */}
         <section className="py-20 bg-gradient-to-br from-baglio-cremaIntonacata via-baglio-cremaIntonacata/95 to-baglio-cremaIntonacata relative overflow-hidden">
