@@ -197,8 +197,8 @@ const GalleryLightbox = ({
         />
       </div>
 
-      {/* Bottom CTA section - nascosto su mobile per UX migliore */}
-      {!isMobile && (
+      {/* Bottom CTA section */}
+      {(
         <div className="absolute bottom-0 left-0 right-0 z-60 bg-gradient-to-t from-black/90 to-transparent p-4 md:p-6">
           <div className="max-w-md mx-auto space-y-3">
             {/* Primo bottone - Organizza evento */}
