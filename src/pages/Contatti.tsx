@@ -53,8 +53,8 @@ const InstagramCTA = ({ variant = "default" }: { variant?: "default" | "compact"
 
   return (
     <div className={`${variants[variant]} text-center hover:shadow-xl transition-all duration-300 hover:scale-105`}>
-      <Instagram size={variant === "hero" ? 32 : 24} className="mx-auto mb-3 text-baglio-oro" />
-      <h4 className="font-playfair font-bold text-lg mb-2 text-baglio-oro">Seguici su Instagram</h4>
+      <Instagram size={variant === "hero" ? 32 : 24} className={`mx-auto mb-3 ${variant === "hero" ? "text-black" : "text-baglio-oro"}`} />
+      <h4 className={`font-playfair font-bold text-lg mb-2 ${variant === "hero" ? "text-black" : "text-baglio-oro"}`}>Seguici su Instagram</h4>
       <p className="text-baglio-cremaIntonacata text-sm mb-4">
         @baglioabbateevents - Scopri le ultime foto e novità!
       </p>
