@@ -200,8 +200,8 @@ const Gallery = () => {
       </Helmet>
       
       <ImageWithOverlay 
-        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
-        alt="Gallery Baglio Abbate Balestrate - Foto location eventi e matrimoni in Sicilia"
+        src="/lovable-uploads/e66aa1a3-df0a-4624-b1e6-d80eabfb0c77.png"
+        alt="Gallery Baglio Abbate - Matrimonio elegante con sposi nella sala interna allestita"
         className="h-screen -mt-16 pt-16"
         heroSection={true}
       >
