@@ -165,7 +165,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-10">
             <div className="rounded-lg overflow-hidden shadow-lg border border-baglio-oro/20">
               <img 
-                src={getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png")} 
+                src="/lovable-uploads/36812540-16ae-478e-9ab2-3dbe56471c4f.png" 
                 alt="Location eventi Baglio Abbate Balestrate - Spazi interni ed esterni per matrimoni e eventi" 
                 className="w-full h-64 object-cover"
                 loading="lazy"
