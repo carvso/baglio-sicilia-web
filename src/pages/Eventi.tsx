@@ -161,8 +161,8 @@ const Eventi = () => {
       </Helmet>
       
       <ImageWithOverlay 
-        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&q=80"
-        alt="Eventi e matrimoni al Baglio Abbate Balestrate - Location esclusiva per eventi in Sicilia"
+        src="/lovable-uploads/cb220e6f-e109-4cbd-9e71-182bcfa24102.png"
+        alt="Eventi e matrimoni al Baglio Abbate - Allestimento elegante con luci sospese e tavoli in terrazza"
         className="h-screen -mt-16 pt-16"
         heroSection={true}
       >
