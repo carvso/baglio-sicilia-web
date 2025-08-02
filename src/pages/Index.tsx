@@ -55,12 +55,12 @@ const Index = () => {
               alt: "Vista panoramica del cortile del Baglio con tavoli rotondi per il ricevimento"
             }
           ]}
-          autoplaySpeed={5000}
+          autoplaySpeed={3500}
         />
         
-        {/* Navy Blue Overlay Filters */}
-        <div className="absolute inset-0 bg-baglio-ebano/60 z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-baglio-ebano/40 via-baglio-ebano/60 to-baglio-ebano/80 z-10"></div>
+        {/* Navy Blue Overlay Filters - Reduced by 25% */}
+        <div className="absolute inset-0 bg-baglio-ebano/45 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-baglio-ebano/30 via-baglio-ebano/45 to-baglio-ebano/60 z-10"></div>
         
         {/* Heritage Pattern Overlay */}
         <div className="absolute inset-0 heritage-pattern opacity-10 z-10"></div>

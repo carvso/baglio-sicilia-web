@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 type HeroCarouselProps = {
   images: Array<{
@@ -10,11 +9,11 @@ type HeroCarouselProps = {
   autoplaySpeed?: number;
 };
 
-const HeroCarousel = ({ images, autoplaySpeed = 5000 }: HeroCarouselProps) => {
+const HeroCarousel = ({ images, autoplaySpeed = 3500 }: HeroCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   
   useEffect(() => {
-    if (autoplaySpeed > 0) {
+    if (autoplaySpeed > 0 && images.length > 1) {
       const interval = setInterval(() => {
         setActiveIndex((current) => (current + 1) % images.length);
       }, autoplaySpeed);
@@ -24,25 +23,23 @@ const HeroCarousel = ({ images, autoplaySpeed = 5000 }: HeroCarouselProps) => {
   }, [autoplaySpeed, images.length]);
   
   return (
-    <Carousel className="w-full h-full">
-      <CarouselContent className="h-full">
-        {images.map((image, index) => (
-          <CarouselItem key={index} className="h-full">
-            <div className="relative h-full w-full">
-              <img 
-                src={image.src} 
-                alt={image.alt} 
-                className="w-full h-full object-cover"
-                loading={index === 0 ? "eager" : "lazy"}
-              />
-              <div className="absolute inset-0 bg-black opacity-30"></div>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious className="left-4" />
-      <CarouselNext className="right-4" />
-    </Carousel>
+    <div className="w-full h-full relative overflow-hidden">
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            index === activeIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img 
+            src={image.src} 
+            alt={image.alt} 
+            className="w-full h-full object-cover"
+            loading={index === 0 ? "eager" : "lazy"}
+          />
+        </div>
+      ))}
+    </div>
   );
 };
 
