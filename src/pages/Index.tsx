@@ -214,10 +214,14 @@ const Index = () => {
                   </h3>
                 </div>
                 
+                <p className="text-lg text-baglio-ebanoIntenso/80 leading-relaxed font-crimson mb-6">
+                  L'organizzazione è concepita e curata da uno <strong className="text-baglio-oro">staff di rilievo con oltre 30 anni di esperienza</strong> nell'organizzazione di eventi di classe.
+                </p>
+                <p className="text-lg text-baglio-ebanoIntenso/80 leading-relaxed font-crimson mb-6">
+                  L'amore per i prodotti agroalimentari ed enologici della <em className="text-baglio-ebanoIntenso">terra Siciliana</em>, si fonde con la passione dell'arte della cucina, garantendo così <strong className="text-baglio-oro">esperienze uniche</strong>.
+                </p>
                 <p className="text-lg text-baglio-ebanoIntenso/80 leading-relaxed font-crimson mb-8">
-                  Il nostro <strong className="text-baglio-oro">baglio storico</strong> offre una location unica dove 
-                  tradizione siciliana e comfort moderno si fondono perfettamente. Ogni spazio è pensato per 
-                  creare <em className="text-baglio-ebanoIntenso">atmosfere indimenticabili</em> per i tuoi momenti più preziosi.
+                  Ogni singolo aspetto che riguarda la bellezza degli allestimenti e dei temi viene sapientemente curato da una delle <strong className="text-baglio-oro">wedding planner più preparate della Sicilia</strong>.
                 </p>
                 
                 {/* Enhanced Features List */}
@@ -242,7 +246,6 @@ const Index = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <CTAButton 
                     to="/gallery" 
-                    variant="primary"
                     className="flex-1 bg-gradient-to-r from-baglio-oro to-baglio-oro/80 hover:from-baglio-oro/90 hover:to-baglio-oro/70 transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     <span className="flex items-center gap-2">
@@ -252,8 +255,8 @@ const Index = () => {
                   
                   <CTAButton 
                     to="/contatti" 
-                    variant="outline"
-                    className="flex-1 border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-white transform hover:-translate-y-1 transition-all duration-300"
+                    outline={true}
+                    className="flex-1 transform hover:-translate-y-1 transition-all duration-300"
                   >
                     <span className="flex items-center gap-2">
                       💎 Richiedi Preventivo
