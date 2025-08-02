@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -12,6 +11,7 @@ import { getLovableUploadPath } from '@/lib/paths';
 import { EventCalendar } from '@/components/EventCalendar';
 import DividerDecorativo from '@/components/DividerDecorativo';
 import { useStructuredData, useMetaTags } from '@/hooks/useStructuredData';
+import ImageWithOverlay from '@/components/ImageWithOverlay';
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -153,36 +153,162 @@ const Index = () => {
       </section>
       <DividerDecorativo />
       
-      {/* Venue Showcase Section */}
-      <section className="py-16 bg-white">
-        <div className="baglio-container">
+      {/* Una Location da Sogno - Cutting Edge Design */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-baglio-oro/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-baglio-ebanoIntenso/3 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="baglio-container relative z-10">
           <SectionTitle 
             title="Una Location da Sogno" 
-            subtitle="Scopri i nostri spazi versatili per ogni tipo di evento"
-            center
+            subtitle="Il Baglio Abbate è il luogo perfetto per i tuoi eventi più speciali, immerso nella bellezza della campagna siciliana con vista mare." 
+            center={true}
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-10">
-            <div className="rounded-lg overflow-hidden shadow-lg border border-baglio-oro/20">
-              <img 
-                src="/lovable-uploads/36812540-16ae-478e-9ab2-3dbe56471c4f.png" 
-                alt="Location eventi Baglio Abbate Balestrate - Spazi interni ed esterni per matrimoni e eventi" 
-                className="w-full h-64 object-cover"
-                loading="lazy"
-              />
+          {/* Main Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-16">
+            {/* Hero Image with Advanced Effects */}
+            <div className="lg:col-span-7">
+              <div className="relative group">
+                {/* Decorative Frame */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-baglio-oro/20 to-baglio-ebanoIntenso/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
+                
+                <ImageWithOverlay
+                  src="/lovable-uploads/36812540-16ae-478e-9ab2-3dbe56471c4f.png"
+                  alt="Location eventi Baglio Abbate Balestrate - Spazi interni ed esterni per matrimoni e eventi"
+                  className="relative rounded-2xl overflow-hidden shadow-2xl transform group-hover:-translate-y-2 transition-all duration-500"
+                  imgClassName="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  overlayOpacity={0.1}
+                  overlayClassName="bg-gradient-to-t from-baglio-ebanoIntenso/30 via-transparent to-transparent"
+                >
+                  {/* Floating Badge */}
+                  <div className="absolute top-6 left-6">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+                      <span className="text-sm font-semibold text-baglio-ebanoIntenso">✨ Location Esclusiva</span>
+                    </div>
+                  </div>
+                  
+                  {/* Experience Badge */}
+                  <div className="absolute bottom-6 right-6">
+                    <div className="bg-baglio-oro/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+                      <span className="text-sm font-bold text-white">30+ Anni di Esperienza</span>
+                    </div>
+                  </div>
+                </ImageWithOverlay>
+              </div>
             </div>
             
-            <div className="flex flex-col justify-center">
-              <p className="text-baglio-ebanoIntenso/70 mb-4">
-                L’organizzazione degli eventi al <b>Baglio Abbate</b>, antico baglio a <b>Balestrate</b>, è curata da uno staff di rilievo con oltre 30 anni di esperienza nell’organizzazione di eventi di classe.<br/>
-                L’amore per i prodotti agroalimentari ed enologici della terra siciliana si fonde con la passione per l’arte della cucina, garantendo così esperienze uniche in un <b>baglio antico</b> immerso nella storia.
-              </p>
-              <p className="text-baglio-ebanoIntenso/70 mb-6">
-                Ogni singolo aspetto che riguarda la bellezza degli allestimenti e dei temi viene sapientemente curato da una delle wedding planner più preparate della Sicilia, per rendere ogni evento al <b>Baglio Abbate</b> davvero indimenticabile.
-              </p>
-              <CTAButton to="/gallery" className="self-start">
-                Esplora la Gallery
-              </CTAButton>
+            {/* Content Section */}
+            <div className="lg:col-span-5 space-y-8">
+              {/* Glass Card Container */}
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-baglio-oro to-baglio-oro/80 rounded-xl flex items-center justify-center">
+                    <span className="text-white text-xl">👑</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-baglio-ebanoIntenso font-playfair">
+                    Eleganza <span className="text-baglio-oro">Senza Tempo</span>
+                  </h3>
+                </div>
+                
+                <p className="text-lg text-baglio-ebanoIntenso/80 leading-relaxed font-crimson mb-8">
+                  Il nostro <strong className="text-baglio-oro">baglio storico</strong> offre una location unica dove 
+                  tradizione siciliana e comfort moderno si fondono perfettamente. Ogni spazio è pensato per 
+                  creare <em className="text-baglio-ebanoIntenso">atmosfere indimenticabili</em> per i tuoi momenti più preziosi.
+                </p>
+                
+                {/* Enhanced Features List */}
+                <div className="grid grid-cols-1 gap-4 mb-8">
+                  {[
+                    { icon: "🏛️", text: "Spazi interni ed esterni personalizzabili", highlight: "personalizzabili" },
+                    { icon: "🌊", text: "Vista panoramica sulla costa siciliana", highlight: "vista mare" },
+                    { icon: "🏰", text: "Architettura storica restaurata", highlight: "patrimonio storico" },
+                    { icon: "👨‍🍳", text: "Cucina tradizionale siciliana d'eccellenza", highlight: "chef esperti" }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center gap-4 p-3 rounded-xl bg-white/40 backdrop-blur-sm hover:bg-white/60 transition-colors duration-300">
+                      <div className="text-2xl">{item.icon}</div>
+                      <div className="flex-1 text-baglio-ebanoIntenso/80">
+                        {item.text.replace(item.highlight, "")}
+                        <span className="text-baglio-oro font-semibold">{item.highlight}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Enhanced CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <CTAButton 
+                    to="/gallery" 
+                    variant="primary"
+                    className="flex-1 bg-gradient-to-r from-baglio-oro to-baglio-oro/80 hover:from-baglio-oro/90 hover:to-baglio-oro/70 transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <span className="flex items-center gap-2">
+                      📸 Scopri la Gallery
+                    </span>
+                  </CTAButton>
+                  
+                  <CTAButton 
+                    to="/contatti" 
+                    variant="outline"
+                    className="flex-1 border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-white transform hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <span className="flex items-center gap-2">
+                      💎 Richiedi Preventivo
+                    </span>
+                  </CTAButton>
+                </div>
+              </div>
+              
+              {/* Stats Card */}
+              <div className="bg-gradient-to-r from-baglio-oro/10 to-baglio-ebanoIntenso/10 rounded-2xl p-6 border border-baglio-oro/20">
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <div className="text-2xl font-bold text-baglio-oro">500+</div>
+                    <div className="text-sm text-baglio-ebanoIntenso/70">Eventi Realizzati</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-baglio-oro">30+</div>
+                    <div className="text-sm text-baglio-ebanoIntenso/70">Anni Esperienza</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-baglio-oro">98%</div>
+                    <div className="text-sm text-baglio-ebanoIntenso/70">Clienti Soddisfatti</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Mini Gallery Preview */}
+          <div className="mt-16">
+            <div className="text-center mb-8">
+              <h4 className="text-xl font-semibold text-baglio-ebanoIntenso mb-2">Esplora i Nostri Spazi</h4>
+              <p className="text-baglio-ebanoIntenso/70">Scorri per vedere di più</p>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { src: getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png"), label: "Sala Ricevimenti" },
+                { src: getLovableUploadPath("82698643-0369-4ee1-9b14-cf38c7d570df.png"), label: "Spazi Esterni" },
+                { src: getLovableUploadPath("97ade15d-9a2b-4fa8-89b8-847a2ea33c4c.png"), label: "Vista Mare" },
+                { src: getLovableUploadPath("ef5bc2e9-f908-4ff9-8544-e6823fa9b0a9.png"), label: "Terrazza" }
+              ].map((item, index) => (
+                <div key={index} className="group relative">
+                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
+                    <img 
+                      src={item.src} 
+                      alt={item.label}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                      <span className="text-white font-semibold text-sm">{item.label}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -210,16 +336,16 @@ const Index = () => {
               <div className="bg-baglio-ebano/50 p-6 rounded-lg border border-baglio-oro/20">
                 <h3 className="text-xl font-semibold mb-3 text-baglio-oro font-playfair">🚗 In Auto</h3>
                 <p className="text-baglio-cremaIntonacata/70">
-                  Dall’autostrada A29 (Palermo-Mazara del Vallo), prendi l’uscita Balestrate. Segui le indicazioni per la stazione, poi per via Palermo.<br/>
-                  Dalla strada Statale SS113, prendi l’uscita per Balestrate e prosegui fino alla stazione, poi per via Palermo.
+                  Dall'autostrada A29 (Palermo-Mazara del Vallo), prendi l'uscita Balestrate. Segui le indicazioni per la stazione, poi per via Palermo.<br/>
+                  Dalla strada Statale SS113, prendi l'uscita per Balestrate e prosegui fino alla stazione, poi per via Palermo.
                 </p>
               </div>
               
               <div className="bg-baglio-ebano/50 p-6 rounded-lg border border-baglio-oro/20">
                 <h3 className="text-xl font-semibold mb-3 text-baglio-oro font-playfair">✈️ Dagli Aeroporti</h3>
                 <p className="text-baglio-cremaIntonacata/70">
-                  Falcone-Borsellino di Palermo (30 km), prendi l’uscita Balestrate<br/>
-                  Vincenzo Florio di Trapani-Birgi (60 km), prendi l’uscita Balestrate
+                  Falcone-Borsellino di Palermo (30 km), prendi l'uscita Balestrate<br/>
+                  Vincenzo Florio di Trapani-Birgi (60 km), prendi l'uscita Balestrate
                 </p>
               </div>
             </div>
