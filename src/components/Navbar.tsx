@@ -75,86 +75,98 @@ const Navbar = () => {
         )}
         
         <div className="baglio-container">
-          <nav className="flex justify-between items-center py-4 min-h-[64px]">
+          <nav className="flex justify-between items-center py-4 min-h-[64px] relative">
+            
+            {/* Left Navigation - Desktop Only */}
+            <div className="hidden lg:flex items-center space-x-8 flex-1">
+              <Link 
+                to="/chi-siamo" 
+                className={cn(
+                  "font-medium transition-all duration-300 min-h-[44px] flex items-center drop-shadow-sm relative group",
+                  isScrolled 
+                    ? "text-baglio-ebanoIntenso hover:text-baglio-oro" 
+                    : "text-baglio-cremaIntonacata hover:text-baglio-oro",
+                  location.pathname === "/chi-siamo" && "text-baglio-oro font-semibold"
+                )}
+                onClick={handleLinkClick}
+              >
+                Chi Siamo
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-baglio-oro transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link 
+                to="/eventi" 
+                className={cn(
+                  "font-medium transition-all duration-300 min-h-[44px] flex items-center drop-shadow-sm relative group",
+                  isScrolled 
+                    ? "text-baglio-ebanoIntenso hover:text-baglio-oro" 
+                    : "text-baglio-cremaIntonacata hover:text-baglio-oro",
+                  location.pathname.startsWith("/eventi") && "text-baglio-oro font-semibold"
+                )}
+                onClick={handleLinkClick}
+              >
+                Eventi
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-baglio-oro transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </div>
+
+            {/* Center Logo */}
             <Link 
               to="/" 
               className={cn(
-                "font-playfair text-2xl font-bold tracking-wider relative z-50 transition-colors duration-300 drop-shadow-lg",
+                "absolute left-1/2 transform -translate-x-1/2 font-playfair text-2xl font-bold tracking-wider z-50 transition-all duration-300 drop-shadow-lg hover:scale-105",
                 isScrolled ? "text-baglio-ebanoIntenso" : "text-baglio-cremaIntonacata"
               )}
               onClick={handleLinkClick}
             >
-              {/* Logo SVG al posto del testo */}
               <img
                 src="/logo_baglio_black.svg"
                 alt="Logo Baglio Abbate Events"
-                style={{ height: isMobile ? "60px" : "80px", width: "auto", maxWidth: "340px", transition: "height 0.2s" }}
-                className="block"
+                style={{ height: isMobile ? "50px" : "70px", width: "auto", maxWidth: "280px", transition: "all 0.3s ease" }}
+                className="block filter drop-shadow-lg"
               />
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <div className="flex space-x-8">
-                <Link 
-                  to="/chi-siamo" 
-                  className={cn(
-                    "font-medium transition-colors duration-300 min-h-[44px] flex items-center drop-shadow-sm",
-                    isScrolled 
-                      ? "text-baglio-ebanoIntenso hover:text-baglio-oro" 
-                      : "text-baglio-cremaIntonacata hover:text-baglio-oro",
-                    location.pathname === "/chi-siamo" && "text-baglio-oro font-semibold"
-                  )}
-                  onClick={handleLinkClick}
-                >
-                  Chi Siamo
-                </Link>
-                <Link 
-                  to="/eventi" 
-                  className={cn(
-                    "font-medium transition-colors duration-300 min-h-[44px] flex items-center drop-shadow-sm",
-                    isScrolled 
-                      ? "text-baglio-ebanoIntenso hover:text-baglio-oro" 
-                      : "text-baglio-cremaIntonacata hover:text-baglio-oro",
-                    location.pathname.startsWith("/eventi") && "text-baglio-oro font-semibold"
-                  )}
-                  onClick={handleLinkClick}
-                >
-                  Eventi
-                </Link>
-                <Link 
-                  to="/gallery" 
-                  className={cn(
-                    "font-medium transition-colors duration-300 min-h-[44px] flex items-center drop-shadow-sm",
-                    isScrolled 
-                      ? "text-baglio-ebanoIntenso hover:text-baglio-oro" 
-                      : "text-baglio-cremaIntonacata hover:text-baglio-oro",
-                    location.pathname === "/gallery" && "text-baglio-oro font-semibold"
-                  )}
-                  onClick={handleLinkClick}
-                >
-                  Gallery
-                </Link>
-                <Link 
-                  to="/contatti" 
-                  className={cn(
-                    "font-medium transition-colors duration-300 min-h-[44px] flex items-center drop-shadow-sm",
-                    isScrolled 
-                      ? "text-baglio-ebanoIntenso hover:text-baglio-oro" 
-                      : "text-baglio-cremaIntonacata hover:text-baglio-oro",
-                    location.pathname === "/contatti" && "text-baglio-oro font-semibold"
-                  )}
-                  onClick={handleLinkClick}
-                >
-                  Contatti
-                </Link>
-              </div>
+            {/* Right Navigation - Desktop Only */}
+            <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end">
+              <Link 
+                to="/gallery" 
+                className={cn(
+                  "font-medium transition-all duration-300 min-h-[44px] flex items-center drop-shadow-sm relative group",
+                  isScrolled 
+                    ? "text-baglio-ebanoIntenso hover:text-baglio-oro" 
+                    : "text-baglio-cremaIntonacata hover:text-baglio-oro",
+                  location.pathname === "/gallery" && "text-baglio-oro font-semibold"
+                )}
+                onClick={handleLinkClick}
+              >
+                Gallery
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-baglio-oro transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link 
+                to="/contatti" 
+                className={cn(
+                  "font-medium transition-all duration-300 min-h-[44px] flex items-center drop-shadow-sm relative group",
+                  isScrolled 
+                    ? "text-baglio-ebanoIntenso hover:text-baglio-oro" 
+                    : "text-baglio-cremaIntonacata hover:text-baglio-oro",
+                  location.pathname === "/contatti" && "text-baglio-oro font-semibold"
+                )}
+                onClick={handleLinkClick}
+              >
+                Contatti
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-baglio-oro transition-all duration-300 group-hover:w-full"></span>
+              </Link>
               
               <a 
                 href="https://wa.me/393318286888"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3 px-6 bg-baglio-oro text-baglio-ebanoIntenso hover:bg-baglio-oroImperiale rounded-md transition-all duration-300 font-semibold min-h-[44px] flex items-center shadow-lg hover:shadow-xl"
+                className={cn(
+                  "py-3 px-6 rounded-full transition-all duration-300 font-semibold min-h-[44px] flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 backdrop-blur-sm border",
+                  isScrolled 
+                    ? "bg-baglio-oro/90 text-baglio-ebanoIntenso hover:bg-baglio-oro border-baglio-oro/30" 
+                    : "bg-baglio-oro/20 text-baglio-cremaIntonacata hover:bg-baglio-oro hover:text-baglio-ebanoIntenso border-baglio-oro/40"
+                )}
               >
                 Prenota
               </a>
@@ -164,7 +176,7 @@ const Navbar = () => {
             <button 
               onClick={toggleMenu} 
               className={cn(
-                "md:hidden focus:outline-none p-2 min-h-[48px] min-w-[48px] flex items-center justify-center transition-colors duration-300 drop-shadow-lg",
+                "lg:hidden focus:outline-none p-3 min-h-[48px] min-w-[48px] flex items-center justify-center transition-all duration-300 drop-shadow-lg rounded-full backdrop-blur-sm border border-current/20 hover:scale-110",
                 isScrolled ? "text-baglio-ebanoIntenso" : "text-baglio-cremaIntonacata"
               )}
               aria-label="Toggle menu"
