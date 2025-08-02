@@ -92,8 +92,8 @@ const ChiSiamo = () => {
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg border border-baglio-oro/20">
               <img 
-                src="/lovable-uploads/82698643-0369-4ee1-9b14-cf38c7d570df.png" 
-                alt="Sala del Baglio allestita per eventi con tovaglie blu navy" 
+                src="/lovable-uploads/2b9f8532-d29d-4796-b3b0-18c5d0acf30a.png" 
+                alt="Corte del Baglio Abbate allestita per eventi con architettura storica siciliana" 
                 className="w-full h-full object-cover"
               />
             </div>
