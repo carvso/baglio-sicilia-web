@@ -58,6 +58,13 @@ const Index = () => {
           autoplaySpeed={5000}
         />
         
+        {/* Navy Blue Overlay Filters */}
+        <div className="absolute inset-0 bg-baglio-ebano/60 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-baglio-ebano/40 via-baglio-ebano/60 to-baglio-ebano/80 z-10"></div>
+        
+        {/* Heritage Pattern Overlay */}
+        <div className="absolute inset-0 heritage-pattern opacity-10 z-10"></div>
+        
         {/* Overlay Content */}
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
           {/* Main Title */}
