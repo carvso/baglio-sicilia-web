@@ -10,8 +10,8 @@ const ChiSiamo = () => {
   return (
     <Layout>
       <ImageWithOverlay 
-        src="/lovable-uploads/d7dc3f33-bd94-4e1b-b910-8a09026f94bf.png"
-        alt="Interni eleganti del Baglio Abbate"
+        src="/lovable-uploads/d1d88962-9ec3-4f09-b8f6-1a03939f6b80.png"
+        alt="Interni eleganti del Baglio Abbate con archi in pietra e pianoforte"
         className="h-[60vh]"
       >
         <div className="baglio-container text-center text-baglio-cremaIntonacata">
