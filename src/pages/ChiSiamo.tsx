@@ -4,6 +4,7 @@ import SectionTitle from '@/components/SectionTitle';
 import ImageWithOverlay from '@/components/ImageWithOverlay';
 import TacticalCTAGrid from '@/components/TacticalCTAGrid';
 import SocialMediaBanners from '@/components/SocialMediaBanners';
+import DividerDecorativo from '@/components/DividerDecorativo';
 
 const ChiSiamo = () => {
   return (
@@ -100,11 +101,15 @@ const ChiSiamo = () => {
         </div>
       </section>
 
+      <DividerDecorativo />
+
       {/* Tactical CTA Section */}
       <TacticalCTAGrid />
 
       {/* Social Media Banners Section */}
       <SocialMediaBanners />
+
+      <DividerDecorativo />
 
       <section className="section-padding bg-baglio-cremaIntonacata">
         <div className="baglio-container">
@@ -170,6 +175,8 @@ const ChiSiamo = () => {
         </div>
       </section>
 
+      <DividerDecorativo />
+
       <section className="section-padding bg-baglio-cremaIntonacata">
         <div className="baglio-container text-center">
           <SectionTitle 
@@ -219,6 +226,7 @@ const ChiSiamo = () => {
         </div>
       </section>
 
+      <DividerDecorativo />
 
       {/* Final CTA Section */}
       <section className="py-16 bg-baglio-oro">
