@@ -82,23 +82,9 @@ const foodImages = [
     title: 'Buffet Siciliano',
     description: 'Il nostro ricco buffet con specialità siciliane, antipasti di mare e terre, dolci tradizionali.'
   },
-  { 
-    src: '/lovable-uploads/bf92be82-1679-4263-9ee4-a459b6320a83.png', 
-    alt: 'Elegante buffet di mare con ostriche, crostacei e specialità ittiche', 
-    category: 'food',
-    title: 'Buffet di Mare',
-    description: 'Raffinato buffet con le migliori specialità di mare: ostriche fresche, crostacei e prelibatezze ittiche del territorio.'
-  }
 ];
 
 const eventsImages = [
-  { 
-    src: '/lovable-uploads/0d9a74a2-49b5-433b-a994-142e31afd746.png', 
-    alt: 'Tavolo lungo elegantemente apparecchiato con luci sospese e decorazioni verdi', 
-    category: 'events',
-    title: 'Cena di Gala',
-    description: 'Tavolo imperiale con decorazioni verdi, luci sospese e atmosfera magica per eventi speciali.'
-  },
   { 
     src: '/lovable-uploads/a78796f0-f9cb-43e8-94c4-69055097e270.png', 
     alt: 'Vista del tavolo lungo con decorazioni e atmosfera serale dorata', 
