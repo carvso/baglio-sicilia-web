@@ -100,6 +100,12 @@ const ChiSiamo = () => {
         </div>
       </section>
 
+      {/* Tactical CTA Section */}
+      <TacticalCTAGrid />
+
+      {/* Social Media Banners Section */}
+      <SocialMediaBanners />
+
       <section className="section-padding bg-baglio-cremaIntonacata">
         <div className="baglio-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -213,11 +219,6 @@ const ChiSiamo = () => {
         </div>
       </section>
 
-      {/* New Tactical CTA Section */}
-      <TacticalCTAGrid />
-
-      {/* New Social Media Banners Section */}
-      <SocialMediaBanners />
 
       {/* Final CTA Section */}
       <section className="py-16 bg-baglio-oro">
