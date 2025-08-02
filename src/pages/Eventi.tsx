@@ -364,6 +364,9 @@ const Eventi = () => {
       </section>
       <DividerEventi />
 
+      {/* CTA Section - Resta sempre aggiornato */}
+      <SocialMediaBanners />
+
       {/* Calendario Eventi Section */}
       <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
@@ -407,10 +410,7 @@ const Eventi = () => {
       </section>
       <DividerEventi />
 
-      {/* NEW: Social Media Banners - Resta sempre aggiornato */}
-      <SocialMediaBanners />
-
-      {/* NEW: CTA Section - Pronto a vivere la tua esperienza al Baglio */}
+      {/* CTA Section - Pronto a vivere la tua esperienza al Baglio */}
       <section className="py-16 bg-baglio-oro">
         <div className="baglio-container text-center">
           <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-6 text-baglio-ebano">
@@ -437,7 +437,6 @@ const Eventi = () => {
           </div>
         </div>
       </section>
-      <DividerEventi />
 
       <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
