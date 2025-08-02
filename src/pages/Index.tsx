@@ -39,19 +39,19 @@ const Index = () => {
         <HeroCarousel
           images={[
             {
-              src: "/lovable-uploads/d65e9f1e-b4d3-46a3-bef4-c104c4f6d279.png",
+              src: getLovableUploadPath("d65e9f1e-b4d3-46a3-bef4-c104c4f6d279.png"),
               alt: "Coppia di sposi attraversa eleganti archetti illuminati al Baglio Abbate"
             },
             {
-              src: "/lovable-uploads/819c5cc8-a41a-49dd-b92c-9901415d12ad.png", 
+              src: getLovableUploadPath("819c5cc8-a41a-49dd-b92c-9901415d12ad.png"), 
               alt: "Elegante tavola all'aperto con decorazioni floreali e luci soffuse"
             },
             {
-              src: "/lovable-uploads/888c9d74-7439-4430-a323-f2052fcabcf1.png",
+              src: getLovableUploadPath("888c9d74-7439-4430-a323-f2052fcabcf1.png"),
               alt: "Sala interna del Baglio con sposi e ospiti, tavoli elegantemente apparecchiati"
             },
             {
-              src: "/lovable-uploads/8b75dfa2-4cde-41a3-9086-dd13e03e23b8.png",
+              src: getLovableUploadPath("8b75dfa2-4cde-41a3-9086-dd13e03e23b8.png"),
               alt: "Vista panoramica del cortile del Baglio con tavoli rotondi per il ricevimento"
             }
           ]}
