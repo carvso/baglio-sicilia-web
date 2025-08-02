@@ -65,20 +65,6 @@ const structureImages = [
     title: 'Sala del Pianoforte',
     description: 'Raffinata sala con pianoforte a coda, elegante bar in mosaico e suggestivi archi in pietra per momenti esclusivi.'
   },
-  { 
-    src: '/lovable-uploads/7a5259e0-a1af-4440-93a4-22e79f7c8c44.png', 
-    alt: 'Vista attraverso arco di pietra verso cortile esterno con giardino', 
-    category: 'structure',
-    title: 'Passaggio al Giardino',
-    description: 'Incantevole passaggio attraverso l\'arco di pietra che conduce al giardino esterno con vista panoramica.'
-  },
-  { 
-    src: '/lovable-uploads/134a2500-7190-46a2-b091-6e11d003de82.png', 
-    alt: 'Corridoio interno con archi decorati da composizioni floreali', 
-    category: 'structure',
-    title: 'Corridoio Fiorito',
-    description: 'Elegante corridoio con archi in pietra impreziositi da raffinate composizioni floreali per un\'atmosfera romantica.'
-  }
 ];
 
 const foodImages = [
