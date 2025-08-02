@@ -27,7 +27,7 @@ const HeroCarousel = ({ images, autoplaySpeed = 3500 }: HeroCarouselProps) => {
       {images.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out z-0 ${
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out z-[1] ${
             index === activeIndex ? 'opacity-100' : 'opacity-0'
           }`}
         >
