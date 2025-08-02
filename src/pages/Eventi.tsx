@@ -364,16 +364,9 @@ const Eventi = () => {
       </section>
       <DividerEventi />
 
+
       {/* CTA Section - Resta sempre aggiornato */}
       <SocialMediaBanners />
-
-      {/* Calendario Eventi Section */}
-      <section className="py-16 bg-baglio-ebano">
-        <div className="baglio-container">
-          <EventCalendar compact={false} />
-        </div>
-      </section>
-      <DividerEventi />
 
       <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
@@ -437,6 +430,15 @@ const Eventi = () => {
           </div>
         </div>
       </section>
+      <DividerEventi />
+
+      {/* Calendario Eventi Section */}
+      <section className="py-16 bg-baglio-ebano">
+        <div className="baglio-container">
+          <EventCalendar compact={false} />
+        </div>
+      </section>
+      <DividerEventi />
 
       <section className="py-16 bg-baglio-ebano">
         <div className="baglio-container">
