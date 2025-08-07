@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { getLovableUploadPath } from '@/lib/paths';
 
 type HeroCarouselProps = {
   images: Array<{
@@ -22,42 +23,49 @@ const HeroCarousel = ({ images, autoplaySpeed = 4000 }: HeroCarouselProps) => {
     }
   }, [autoplaySpeed, images.length]);
 
-  // Preload all images
+  // Preload all images with unified path handling
   useEffect(() => {
     images.forEach((image) => {
       const img = new Image();
-      img.src = image.src;
+      const imageSrc = image.src.startsWith('/lovable-uploads/') 
+        ? getLovableUploadPath(image.src.replace('/lovable-uploads/', ''))
+        : image.src;
+      img.src = imageSrc;
     });
   }, [images]);
+
+  // Get unified image source
+  const getImageSrc = (src: string) => {
+    if (src.startsWith('/lovable-uploads/')) {
+      const filename = src.replace('/lovable-uploads/', '');
+      return getLovableUploadPath(filename);
+    }
+    return src;
+  };
   
   return (
     <div className="w-full h-full relative overflow-hidden">
-      <div 
-        className="flex w-full h-full transition-transform duration-1000 ease-in-out"
-        style={{
-          transform: `translateX(-${activeIndex * 100}%)`,
-          width: `${images.length * 100}%`
-        }}
-      >
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className="w-full h-full flex-shrink-0 relative"
-            style={{ width: `${100 / images.length}%` }}
-          >
-            <img 
-              src={image.src} 
-              alt={image.alt} 
-              className="w-full h-full object-cover"
-              loading={index <= 1 ? "eager" : "lazy"}
-              onError={(e) => {
-                console.error(`Failed to load image: ${image.src}`);
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-          </div>
-        ))}
-      </div>
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className="absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out"
+          style={{ 
+            opacity: index === activeIndex ? 1 : 0,
+            willChange: 'opacity'
+          }}
+        >
+          <img 
+            src={getImageSrc(image.src)} 
+            alt={image.alt} 
+            className="w-full h-full object-cover"
+            loading={index <= 1 ? "eager" : "lazy"}
+            onError={(e) => {
+              console.error(`Failed to load image: ${image.src}`);
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+        </div>
+      ))}
     </div>
   );
 };

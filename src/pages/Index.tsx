@@ -49,18 +49,6 @@ const Index = () => {
             {
               src: "/lovable-uploads/11d459f0-799b-4ce5-b53b-634b33c18c8e.png",
               alt: "Coppia di sposi cammina tra tavoli elegantemente apparecchiati all'aperto"
-            },
-            {
-              src: getLovableUploadPath("544d630f-d46c-4285-a5b2-e47895c974fc.png"),
-              alt: "Coppia di sposi attraversa eleganti archetti illuminati al Baglio Abbate"
-            },
-            {
-              src: getLovableUploadPath("1ed7e09e-ce71-44a0-8693-56be896d68c5.png"), 
-              alt: "Elegante tavola all'aperto con decorazioni floreali e luci soffuse"
-            },
-            {
-              src: getLovableUploadPath("f1e63b98-06ce-436c-97b5-8c5b53f74b4a.png"),
-              alt: "Sala interna del Baglio con sposi e ospiti, tavoli elegantemente apparecchiati"
             }
           ]}
           autoplaySpeed={4000}
