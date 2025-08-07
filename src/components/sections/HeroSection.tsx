@@ -25,13 +25,13 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
   };
 
   return (
-    <div className={cn("hero-section-enhanced relative overflow-hidden min-h-screen", className)}>
+    <div className={cn("hero-section-enhanced relative overflow-hidden min-h-screen min-h-[100dvh]", className)}>
       {/* Background Image with Enhanced Navy Blue Overlay */}
       <div className="absolute inset-0">
         <img 
           src={imageSrc} 
           alt={title} 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover will-change-transform"
           loading="eager"
         />
         {/* Navy blue overlays instead of black */}
@@ -42,8 +42,8 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
       {/* Heritage Pattern Overlay */}
       <div className="absolute inset-0 heritage-pattern opacity-10"></div>
       
-      {/* Main Content */}
-      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto min-h-screen">
+      {/* Main Content - Perfect Centering */}
+      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-screen min-h-[100dvh] py-safe-area-inset-top pb-20">
         
         {/* Main Title */}
         <div className="mb-8 animate-gentle-fade-in">
