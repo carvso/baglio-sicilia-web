@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { getLovableUploadPath } from '@/lib/paths';
 
 type HeroCarouselProps = {
   images: Array<{
@@ -12,15 +11,6 @@ type HeroCarouselProps = {
 
 const HeroCarousel = ({ images, autoplaySpeed = 4000 }: HeroCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  
-  // Handle lovable-uploads paths for GitHub Pages
-  const getImageSrc = (imageSrc: string) => {
-    if (imageSrc.startsWith('/lovable-uploads/')) {
-      const filename = imageSrc.replace('/lovable-uploads/', '');
-      return getLovableUploadPath(filename);
-    }
-    return imageSrc;
-  };
   
   useEffect(() => {
     if (autoplaySpeed > 0 && images.length > 1) {
@@ -36,35 +26,38 @@ const HeroCarousel = ({ images, autoplaySpeed = 4000 }: HeroCarouselProps) => {
   useEffect(() => {
     images.forEach((image) => {
       const img = new Image();
-      img.src = getImageSrc(image.src);
+      img.src = image.src;
     });
   }, [images]);
   
   return (
     <div className="w-full h-full relative overflow-hidden">
-      {images.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
-            index === activeIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
-          style={{
-            willChange: 'opacity',
-            transform: 'translate3d(0, 0, 0)' // GPU acceleration
-          }}
-        >
-          <img 
-            src={getImageSrc(image.src)} 
-            alt={image.alt}
-            className="w-full h-full object-cover"
-            loading={index <= 1 ? "eager" : "lazy"}
-            onError={(e) => {
-              console.error(`Failed to load image: ${image.src}`);
-              e.currentTarget.style.display = 'none';
-            }}
-          />
-        </div>
-      ))}
+      <div 
+        className="flex w-full h-full transition-transform duration-1000 ease-in-out"
+        style={{
+          transform: `translateX(-${activeIndex * 100}%)`,
+          width: `${images.length * 100}%`
+        }}
+      >
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className="w-full h-full flex-shrink-0 relative"
+            style={{ width: `${100 / images.length}%` }}
+          >
+            <img 
+              src={image.src} 
+              alt={image.alt} 
+              className="w-full h-full object-cover"
+              loading={index <= 1 ? "eager" : "lazy"}
+              onError={(e) => {
+                console.error(`Failed to load image: ${image.src}`);
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
