@@ -49,11 +49,62 @@
   --ring: 43 74% 49%;
 }
 
-/* Basic reset */
+/* Basic reset and cursor fix */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+/* Allow text selection for specific elements */
+input, 
+textarea, 
+[contenteditable="true"],
+.selectable-text,
+p, 
+h1, h2, h3, h4, h5, h6,
+span:not(.no-select),
+div:not(.no-select) {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  cursor: text;
+}
+
+/* Interactive elements should have pointer cursor */
+a, 
+button, 
+[role="button"],
+[tabindex]:not([tabindex="-1"]),
+.clickable,
+.interactive {
+  cursor: pointer !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Navigation and UI elements */
+nav,
+nav *,
+.navbar,
+.navbar *,
+.menu,
+.menu *,
+.dropdown,
+.dropdown * {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 html {
