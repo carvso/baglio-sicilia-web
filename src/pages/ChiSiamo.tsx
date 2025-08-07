@@ -67,15 +67,15 @@ const ChiSiamo = () => {
                   <ul className="text-baglio-cremaIntonacata/90 space-y-2 ml-6">
                     <li className="flex items-start">
                       <span className="text-baglio-oro mr-2">•</span>
-                      Produzione di <b>&nbsp olio d'oliva extravergine &nbsp</b> dai secolari uliveti circostanti
+                      Produzione di <b> olio d'oliva extravergine </b> dai secolari uliveti circostanti
                     </li>
                     <li className="flex items-start">
                       <span className="text-baglio-oro mr-2">•</span>
-                      Vinificazione di <b>&nbsp uve autoctone &nbsp</b> nelle antiche cantine sotterranee
+                      Vinificazione di <b> uve autoctone </b> nelle antiche cantine sotterranee
                     </li>
                     <li className="flex items-start">
                       <span className="text-baglio-oro mr-2">•</span>
-                      <b> Mura in pietra viva &nbsp</b> che definivano spazi funzionali e residenziali
+                      <b> Mura in pietra viva </b> che definivano spazi funzionali e residenziali
                     </li>
                   </ul>
                 </div>
