@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { getLovableUploadPath } from '@/lib/paths';
 
 type HeroCarouselProps = {
   images: Array<{
@@ -11,6 +12,15 @@ type HeroCarouselProps = {
 
 const HeroCarousel = ({ images, autoplaySpeed = 4000 }: HeroCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  
+  // Handle lovable-uploads paths for GitHub Pages
+  const getImageSrc = (imageSrc: string) => {
+    if (imageSrc.startsWith('/lovable-uploads/')) {
+      const filename = imageSrc.replace('/lovable-uploads/', '');
+      return getLovableUploadPath(filename);
+    }
+    return imageSrc;
+  };
   
   useEffect(() => {
     if (autoplaySpeed > 0 && images.length > 1) {
@@ -26,7 +36,7 @@ const HeroCarousel = ({ images, autoplaySpeed = 4000 }: HeroCarouselProps) => {
   useEffect(() => {
     images.forEach((image) => {
       const img = new Image();
-      img.src = image.src;
+      img.src = getImageSrc(image.src);
     });
   }, [images]);
   
@@ -44,8 +54,8 @@ const HeroCarousel = ({ images, autoplaySpeed = 4000 }: HeroCarouselProps) => {
           }}
         >
           <img 
-            src={image.src} 
-            alt={image.alt} 
+            src={getImageSrc(image.src)} 
+            alt={image.alt}
             className="w-full h-full object-cover"
             loading={index <= 1 ? "eager" : "lazy"}
             onError={(e) => {
