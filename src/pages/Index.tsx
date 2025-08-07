@@ -280,8 +280,8 @@ const Index = () => {
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { src: getLovableUploadPath("dbe1c6fb-b0fd-4f46-b937-20e7e2e4c8cc.png"), label: "Sala Ricevimenti" },
-                { src: getLovableUploadPath("82698643-0369-4ee1-9b14-cf38c7d570df.png"), label: "Spazi Esterni" },
+                { src: "/lovable-uploads/06d040af-176a-4abf-ab5c-4a5710f1700b.png", label: "Sala Ricevimenti" },
+                { src: "/lovable-uploads/088b4a2c-102f-44c1-a4c8-6a18b662e8e4.png", label: "Spazi Esterni" },
                 { src: getLovableUploadPath("97ade15d-9a2b-4fa8-89b8-847a2ea33c4c.png"), label: "Vista Mare" },
                 { src: getLovableUploadPath("ef5bc2e9-f908-4ff9-8544-e6823fa9b0a9.png"), label: "Terrazza" }
               ].map((item, index) => (
