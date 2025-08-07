@@ -67,7 +67,7 @@ const ChiSiamo = () => {
                   <ul className="text-baglio-cremaIntonacata/90 space-y-2 ml-6">
                     <li className="flex items-start">
                       <span className="text-baglio-oro mr-2">•</span>
-                      Produzione di {" "} <b>olio d'oliva extravergine </b> dai secolari uliveti circostanti
+                      Produzione di{" "} <b>olio d'oliva extravergine </b> dai secolari uliveti circostanti
                     </li>
                     <li className="flex items-start">
                       <span className="text-baglio-oro mr-2">•</span>
