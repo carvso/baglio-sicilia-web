@@ -32,32 +32,29 @@ const HeroCarousel = ({ images, autoplaySpeed = 4000 }: HeroCarouselProps) => {
   
   return (
     <div className="w-full h-full relative overflow-hidden">
-      <div 
-        className="flex w-full h-full transition-transform duration-1000 ease-in-out"
-        style={{
-          transform: `translateX(-${activeIndex * 100}%)`,
-          width: `${images.length * 100}%`
-        }}
-      >
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className="w-full h-full flex-shrink-0 relative"
-            style={{ width: `${100 / images.length}%` }}
-          >
-            <img 
-              src={image.src} 
-              alt={image.alt} 
-              className="w-full h-full object-cover"
-              loading={index <= 1 ? "eager" : "lazy"}
-              onError={(e) => {
-                console.error(`Failed to load image: ${image.src}`);
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-          </div>
-        ))}
-      </div>
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+            index === activeIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+          }`}
+          style={{
+            willChange: 'opacity',
+            transform: 'translate3d(0, 0, 0)' // GPU acceleration
+          }}
+        >
+          <img 
+            src={image.src} 
+            alt={image.alt} 
+            className="w-full h-full object-cover"
+            loading={index <= 1 ? "eager" : "lazy"}
+            onError={(e) => {
+              console.error(`Failed to load image: ${image.src}`);
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+        </div>
+      ))}
     </div>
   );
 };
