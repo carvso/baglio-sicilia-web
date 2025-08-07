@@ -63,7 +63,7 @@ const Index = () => {
               alt: "Sala interna del Baglio con sposi e ospiti, tavoli elegantemente apparecchiati"
             }
           ]}
-          autoplaySpeed={300}
+          autoplaySpeed={4000}
         />
         
         {/* Navy Blue Overlay Filters - Reduced by 25% */}

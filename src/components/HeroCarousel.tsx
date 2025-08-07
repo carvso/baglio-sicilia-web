@@ -9,7 +9,7 @@ type HeroCarouselProps = {
   autoplaySpeed?: number;
 };
 
-const HeroCarousel = ({ images, autoplaySpeed = 3500 }: HeroCarouselProps) => {
+const HeroCarousel = ({ images, autoplaySpeed = 4000 }: HeroCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   
   useEffect(() => {
@@ -21,24 +21,43 @@ const HeroCarousel = ({ images, autoplaySpeed = 3500 }: HeroCarouselProps) => {
       return () => clearInterval(interval);
     }
   }, [autoplaySpeed, images.length]);
+
+  // Preload all images
+  useEffect(() => {
+    images.forEach((image) => {
+      const img = new Image();
+      img.src = image.src;
+    });
+  }, [images]);
   
   return (
     <div className="w-full h-full relative overflow-hidden">
-      {images.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-300 ease-in-out z-[1] ${
-            index === activeIndex ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img 
-            src={image.src} 
-            alt={image.alt} 
-            className="w-full h-full object-cover"
-            loading={index === 0 ? "eager" : "lazy"}
-          />
-        </div>
-      ))}
+      <div 
+        className="flex w-full h-full transition-transform duration-1000 ease-in-out"
+        style={{
+          transform: `translateX(-${activeIndex * 100}%)`,
+          width: `${images.length * 100}%`
+        }}
+      >
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className="w-full h-full flex-shrink-0 relative"
+            style={{ width: `${100 / images.length}%` }}
+          >
+            <img 
+              src={image.src} 
+              alt={image.alt} 
+              className="w-full h-full object-cover"
+              loading={index <= 1 ? "eager" : "lazy"}
+              onError={(e) => {
+                console.error(`Failed to load image: ${image.src}`);
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
