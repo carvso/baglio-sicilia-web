@@ -10,7 +10,7 @@ const TacticalCTAGrid = () => {
       id: 'eventi-aziendali',
       title: 'Eventi Aziendali',
       description: 'Meeting, conferenze e team building in location esclusiva',
-      image: getLovableUploadPath('75cf2578-451c-46db-8c39-c3dcc02f7157.png'),
+      image: '/lovable-uploads/9ecdc519-b037-4d62-a662-90ab4707a819.png',
       link: '/eventi-aziendali',
       icon: Briefcase,
       color: 'from-baglio-oro to-baglio-oroImperiale'
