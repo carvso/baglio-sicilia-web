@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Facebook, Mail, Phone, MapPin, Smartphone } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -22,8 +22,11 @@ const Footer = () => {
               <a href="https://instagram.com/baglioabbateevents" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-elite-goldLight transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-elite-goldLight transition-colors">
+              <a href="https://www.facebook.com/share/16653QbwUk/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-elite-goldLight transition-colors">
                 <Facebook size={20} />
+              </a>
+              <a href="tel:+393318286888" className="text-foreground hover:text-elite-goldLight transition-colors">
+                <Smartphone size={20} />
               </a>
               <a href="mailto:info@baglioabbate.it" className="text-foreground hover:text-elite-goldLight transition-colors">
                 <Mail size={20} />
