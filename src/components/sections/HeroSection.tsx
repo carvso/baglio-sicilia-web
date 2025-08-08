@@ -47,7 +47,7 @@ const HeroSection = ({ title, subtitle, className }: HeroSectionProps) => {
     <div className={cn("hero-section-enhanced relative overflow-hidden min-h-screen min-h-[100dvh]", className)}>
       {/* Background Carousel with Enhanced Navy Blue Overlay */}
       <div className="absolute inset-0">
-        <HeroCarousel images={heroImages} autoplaySpeed={5000} />
+        <HeroCarousel images={heroImages} autoplaySpeed={0} />
         {/* Navy blue overlays instead of black */}
         <div className="absolute inset-0 bg-baglio-ebano/60"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-baglio-ebano/40 via-baglio-ebano/60 to-baglio-ebano/80"></div>
