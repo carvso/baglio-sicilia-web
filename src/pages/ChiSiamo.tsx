@@ -116,7 +116,7 @@ const ChiSiamo = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg border border-baglio-oro/20">
               <img 
-                src="/lovable-uploads/ac14664b-cf42-46ec-90e4-d0461e9f18a2.png" 
+                src="/lovable-uploads/770f0d12-daee-4ffa-95ed-4a72411e713c.png" 
                 alt="Terrazza vista mare del Baglio Abbate" 
                 className="w-full h-full object-cover"
               />
