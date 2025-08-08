@@ -28,7 +28,7 @@ const TacticalCTAGrid = () => {
       id: 'gallery',
       title: 'Esplora la Gallery',
       description: 'Scopri tutti gli spazi e i dettagli del nostro Baglio',
-      image: getLovableUploadPath('ac14664b-cf42-46ec-90e4-d0461e9f18a2.png'),
+      image: '/lovable-uploads/5115017c-d502-439a-b960-c35ece72638a.png',
       link: '/gallery',
       icon: Camera,
       color: 'from-baglio-oro to-baglio-oroImperiale'
