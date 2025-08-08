@@ -19,7 +19,7 @@ const TacticalCTAGrid = () => {
       id: 'eventi',
       title: 'Scopri i Nostri Eventi',
       description: 'Degustazioni, workshop e serate speciali nel nostro Baglio',
-      image: getLovableUploadPath('82698643-0369-4ee1-9b14-cf38c7d570df.png'),
+      image: '/lovable-uploads/575cde2d-ef86-454b-8ad1-02747a518962.png',
       link: '/eventi',
       icon: Calendar,
       color: 'from-baglio-oro to-baglio-oroImperiale'
