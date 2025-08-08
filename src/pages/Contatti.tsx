@@ -184,8 +184,7 @@ const Contatti = () => {
               </ContactInfo>
               
               <ContactInfo icon={<Phone size={24} />} title="Telefono">
-                <p className="font-semibold text-white">+39 331 8286888</p>
-                <p className="text-white">+39 331 8286888 <span className="text-baglio-oro">(Prenotazioni)</span></p>
+                <p className="font-semibold text-white">+39 331 8286888 <span className="text-baglio-oro">(Prenotazioni)</span></p>
                 <p className="text-white">+39 371 584 4048 <span className="text-baglio-oro">(Richieste informazioni)</span></p>
               </ContactInfo>
               
