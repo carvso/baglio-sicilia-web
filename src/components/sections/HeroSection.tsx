@@ -47,7 +47,7 @@ const HeroSection = ({ title, subtitle, className }: HeroSectionProps) => {
       {/* Static Background Image with Enhanced Navy Blue Overlay */}
       <div className="absolute inset-0">
         <img 
-          src="/lovable-uploads/787ca249-92de-43cc-967f-b849aa3f4c1a.png"
+          src="/lovable-uploads/5fbb274e-038d-4e1e-b3c4-f53846ff2a8f.png"
           alt="Sposi che camminano attraverso gli archi illuminati del Baglio"
           className="w-full h-full object-cover"
         />
