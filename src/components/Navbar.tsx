@@ -62,8 +62,8 @@ const Navbar = () => {
         className={cn(
           "fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b",
           isScrolled 
-            ? "bg-baglio-cremaIntonacata/98 backdrop-blur-md shadow-lg border-baglio-oro/40" 
-            : "bg-baglio-ebanoIntenso/30 backdrop-blur-sm border-baglio-oro/25",
+            ? "bg-baglio-cremaIntonacata/98 backdrop-blur-md shadow-lg border-baglio-oro/60" 
+            : "bg-baglio-ebanoIntenso/30 backdrop-blur-sm border-baglio-oro/45",
           isNavigating && "opacity-95"
         )}
       >
