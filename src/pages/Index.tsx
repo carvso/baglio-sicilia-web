@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import HeroSection from '@/components/sections/HeroSection';
-import HeroCarousel from '@/components/HeroCarousel';
+
 import EventiInEvidenza from '@/components/EventiInEvidenza';
 import { useIsMobile } from '@/hooks/use-mobile';
 import SectionTitle from '@/components/SectionTitle';
@@ -34,36 +34,12 @@ const Index = () => {
   
   return (
     <Layout hideNavbar={false} hideFooter={false} heroLayout={true}>
-      {/* Hero Carousel with Beautiful Images */}
+      {/* Static Hero Background */}
       <div className="relative min-h-screen">
-        <HeroCarousel
-          images={[
-            {
-              src: "/lovable-uploads/70dc225f-dc27-4e05-80de-3bd1693c6dc4.png",
-              alt: "Coppia di sposi attraversa eleganti archetti illuminati al Baglio Abbate"
-            },
-            {
-              src: "/lovable-uploads/ca77b389-47d5-4601-9d73-9a6c5ef78c5a.png", 
-              alt: "Vista panoramica del cortile del Baglio con tavoli rotondi per il ricevimento"
-            },
-            {
-              src: "/lovable-uploads/11d459f0-799b-4ce5-b53b-634b33c18c8e.png",
-              alt: "Coppia di sposi cammina tra tavoli elegantemente apparecchiati all'aperto"
-            },
-            {
-              src: getLovableUploadPath("544d630f-d46c-4285-a5b2-e47895c974fc.png"),
-              alt: "Coppia di sposi attraversa eleganti archetti illuminati al Baglio Abbate"
-            },
-            {
-              src: getLovableUploadPath("1ed7e09e-ce71-44a0-8693-56be896d68c5.png"), 
-              alt: "Elegante tavola all'aperto con decorazioni floreali e luci soffuse"
-            },
-            {
-              src: getLovableUploadPath("f1e63b98-06ce-436c-97b5-8c5b53f74b4a.png"),
-              alt: "Sala interna del Baglio con sposi e ospiti, tavoli elegantemente apparecchiati"
-            }
-          ]}
-          autoplaySpeed={4000}
+        <img 
+          src="/lovable-uploads/5fbb274e-038d-4e1e-b3c4-f53846ff2a8f.png"
+          alt="Sposi che camminano attraverso gli archi illuminati del Baglio"
+          className="absolute inset-0 w-full h-full object-cover"
         />
         
         {/* Navy Blue Overlay Filters - Reduced by 25% */}

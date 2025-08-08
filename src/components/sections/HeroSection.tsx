@@ -14,24 +14,6 @@ type HeroSectionProps = {
 const HeroSection = ({ title, subtitle, className }: HeroSectionProps) => {
   const isMobile = useIsMobile();
   
-  const heroImages = [
-    {
-      src: "/lovable-uploads/787ca249-92de-43cc-967f-b849aa3f4c1a.png",
-      alt: "Sposi che camminano attraverso gli archi illuminati del Baglio"
-    },
-    {
-      src: "/lovable-uploads/725d0b06-d760-447d-899c-9176fe1f39c6.png", 
-      alt: "Tavolo matrimoniale allestito con luci sospese e decorazioni verdi"
-    },
-    {
-      src: "/lovable-uploads/cd70f306-e10d-4d11-9d12-29361fc63703.png",
-      alt: "Festa notturna con ospiti che ballano nel cortile del Baglio"
-    },
-    {
-      src: "/lovable-uploads/168f7881-08e8-4161-a099-fc2fcd2eb34c.png",
-      alt: "Vista diurna del cortile con tavoli rotondi allestiti per eventi"
-    }
-  ];
   
   const scrollToNextSection = () => {
     const target = document.getElementById('eventi-in-evidenza');
