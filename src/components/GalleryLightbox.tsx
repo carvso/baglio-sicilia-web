@@ -197,56 +197,6 @@ const GalleryLightbox = ({
         />
       </div>
 
-      {/* Bottom CTA section */}
-      {(
-        <div className="absolute bottom-0 left-0 right-0 z-60 bg-gradient-to-t from-black/90 to-transparent p-4 md:p-6">
-          <div className="max-w-md mx-auto space-y-3">
-            {/* Bottoni CTA - nascosti su mobile */}
-            {!isMobile && (
-              <>
-                {/* Primo bottone - Organizza evento */}
-                <CTAButton 
-                  to="/eventi" 
-                  className="w-full bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-bold py-4 px-6 rounded-xl text-lg shadow-xl"
-                  fullWidth
-                >
-                  ✨ Organizza il tuo evento qui
-                </CTAButton>
-                
-                {/* Secondo bottone - Contattaci */}
-                <CTAButton 
-                  to="/contatti" 
-                  outline 
-                  className="w-full border-2 border-baglio-oro text-baglio-oro hover:bg-baglio-oro hover:text-baglio-ebanoIntenso font-semibold py-3 px-6 rounded-xl bg-transparent shadow-lg"
-                  fullWidth
-                >
-                  📩 Contattaci per info
-                </CTAButton>
-              </>
-            )}
-            
-            {/* Sezione Instagram */}
-            <div className="bg-black/60 backdrop-blur-sm rounded-xl p-4 border border-baglio-oro/30">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <Instagram size={24} className="text-baglio-oro" />
-                <span className="text-baglio-oro font-bold text-lg">Seguici su Instagram</span>
-              </div>
-              <p className="text-baglio-cremaIntonacata text-center text-sm mb-3">
-                @baglioabbateevents - Scopri altre foto esclusive!
-              </p>
-              <a 
-                href="https://instagram.com/baglioabbateevents" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center bg-baglio-oro hover:bg-baglio-oroImperiale text-baglio-ebanoIntenso font-bold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-xl"
-              >
-                <Instagram className="mr-2" size={20} />
-                Seguici ora
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Image thumbnails navigation */}
       {images.length > 1 && !isMobile && (
