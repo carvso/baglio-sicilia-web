@@ -169,9 +169,9 @@ const Contatti = () => {
       {/* Sezione principale con layout a due colonne - ridotto padding */}
       <section className="py-12 bg-baglio-ebano">
         <div className="baglio-container">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Informazioni contatto */}
-            <div className="lg:col-span-1 space-y-6">
+            <div className="lg:col-span-2 space-y-6">
               <SectionTitle 
                 title="Informazioni di contatto" 
                 subtitle="Ecco come raggiungerci e contattarci a Balestrate"
@@ -228,7 +228,7 @@ const Contatti = () => {
             </div>
             
             {/* Form di contatto */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-3">
               <div id="contact-form" className="bg-baglio-ebano p-8 rounded-2xl shadow-lg border border-baglio-oro/20">
                 <SectionTitle 
                   title="Mandaci un messaggio" 
