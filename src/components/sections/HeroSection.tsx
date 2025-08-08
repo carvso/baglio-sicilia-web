@@ -4,16 +4,35 @@ import { ChevronDown, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
+import HeroCarousel from '@/components/HeroCarousel';
 
 type HeroSectionProps = {
   title: string;
   subtitle: string;
-  imageSrc: string;
   className?: string;
 };
 
-const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps) => {
+const HeroSection = ({ title, subtitle, className }: HeroSectionProps) => {
   const isMobile = useIsMobile();
+  
+  const heroImages = [
+    {
+      src: "/lovable-uploads/787ca249-92de-43cc-967f-b849aa3f4c1a.png",
+      alt: "Sposi che camminano attraverso gli archi illuminati del Baglio"
+    },
+    {
+      src: "/lovable-uploads/725d0b06-d760-447d-899c-9176fe1f39c6.png", 
+      alt: "Tavolo matrimoniale allestito con luci sospese e decorazioni verdi"
+    },
+    {
+      src: "/lovable-uploads/cd70f306-e10d-4d11-9d12-29361fc63703.png",
+      alt: "Festa notturna con ospiti che ballano nel cortile del Baglio"
+    },
+    {
+      src: "/lovable-uploads/168f7881-08e8-4161-a099-fc2fcd2eb34c.png",
+      alt: "Vista diurna del cortile con tavoli rotondi allestiti per eventi"
+    }
+  ];
   
   const scrollToNextSection = () => {
     const target = document.getElementById('eventi-in-evidenza');
@@ -26,14 +45,9 @@ const HeroSection = ({ title, subtitle, imageSrc, className }: HeroSectionProps)
 
   return (
     <div className={cn("hero-section-enhanced relative overflow-hidden min-h-screen min-h-[100dvh]", className)}>
-      {/* Background Image with Enhanced Navy Blue Overlay */}
+      {/* Background Carousel with Enhanced Navy Blue Overlay */}
       <div className="absolute inset-0">
-        <img 
-          src={imageSrc} 
-          alt={title} 
-          className="w-full h-full object-cover will-change-transform"
-          loading="eager"
-        />
+        <HeroCarousel images={heroImages} autoplaySpeed={5000} />
         {/* Navy blue overlays instead of black */}
         <div className="absolute inset-0 bg-baglio-ebano/60"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-baglio-ebano/40 via-baglio-ebano/60 to-baglio-ebano/80"></div>
