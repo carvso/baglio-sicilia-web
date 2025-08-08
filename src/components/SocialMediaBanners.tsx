@@ -12,7 +12,7 @@ const SocialMediaBanners = () => {
       icon: Instagram,
       link: 'https://instagram.com/baglioabbateevents',
       color: 'from-baglio-oro to-baglio-oroImperiale',
-      bgImage: getLovableUploadPath('47aec7fc-7c64-4fac-b4eb-63d4913afc3a.png')
+      bgImage: '/lovable-uploads/698f1198-63bf-4807-bbc8-35e2993bde93.png'
     },
     {
       id: 'contact',
