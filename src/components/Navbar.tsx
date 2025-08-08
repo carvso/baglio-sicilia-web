@@ -121,7 +121,7 @@ const Navbar = () => {
               <img
                 src="/logo_baglio_black.svg"
                 alt="Logo Baglio Abbate Events"
-                style={{ height: isMobile ? "55px" : "80px", width: "auto", maxWidth: "320px", transition: "all 0.3s ease" }}
+                style={{ height: isMobile ? "50px" : "72px", width: "auto", maxWidth: "290px", transition: "all 0.3s ease" }}
                 className="block filter drop-shadow-lg"
               />
             </Link>
