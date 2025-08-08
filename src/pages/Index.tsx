@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import HeroSection from '@/components/sections/HeroSection';
-
+import HeroSlider from '@/components/HeroSlider';
 import EventiInEvidenza from '@/components/EventiInEvidenza';
 import { useIsMobile } from '@/hooks/use-mobile';
 import SectionTitle from '@/components/SectionTitle';
@@ -34,23 +34,34 @@ const Index = () => {
   
   return (
     <Layout hideNavbar={false} hideFooter={false} heroLayout={true}>
-      {/* Static Hero Background */}
-      <div className="relative min-h-screen">
-        <img 
-          src="/lovable-uploads/5fbb274e-038d-4e1e-b3c4-f53846ff2a8f.png"
-          alt="Sposi che camminano attraverso gli archi illuminati del Baglio"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        
-        {/* Navy Blue Overlay Filters - Reduced by 25% */}
-        <div className="absolute inset-0 bg-baglio-ebano/45 z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-baglio-ebano/30 via-baglio-ebano/45 to-baglio-ebano/60 z-10"></div>
-        
-        {/* Heritage Pattern Overlay */}
-        <div className="absolute inset-0 heritage-pattern opacity-10 z-10"></div>
-        
-        {/* Overlay Content */}
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
+      {/* Hero Slider with Background Images */}
+      <HeroSlider
+        images={[
+          {
+            src: "/lovable-uploads/7e1ccbb1-a1e1-4f29-8549-7a0d593e2f8a.png",
+            alt: "Sposi che camminano attraverso gli archi illuminati del Baglio"
+          },
+          {
+            src: "/lovable-uploads/68ed930e-7180-4f0e-ae36-5018a88ceb5d.png", 
+            alt: "Vista panoramica del cortile del Baglio con tavoli rotondi per il ricevimento"
+          },
+          {
+            src: "/lovable-uploads/b876d9d8-780a-467d-b254-1eca9dea0f68.png",
+            alt: "Festa notturna con ospiti che ballano nel cortile del Baglio"
+          },
+          {
+            src: "/lovable-uploads/4cb1d9bd-c558-4128-9922-192da21e889f.png",
+            alt: "Elegante tavola all'aperto con decorazioni floreali e luci soffuse"
+          },
+          {
+            src: "/lovable-uploads/c7129f53-7bb2-4e8c-951d-a6a4ca4de637.png",
+            alt: "Sala interna del Baglio con pianoforte e ambiente raffinato"
+          }
+        ]}
+        autoplaySpeed={5000}
+      >
+        {/* Hero Content */}
+        <div className="h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto min-h-screen min-h-[100dvh] py-safe-area-inset-top pb-20">
           {/* Main Title */}
           <div className="mb-8 animate-gentle-fade-in">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-playfair font-bold text-white mb-6 drop-shadow-lg">
@@ -132,7 +143,7 @@ const Index = () => {
             </div>
           </button>
         </div>
-      </div>
+      </HeroSlider>
       <DividerDecorativo />
       
       {/* Eventi in Evidenza Section */}
