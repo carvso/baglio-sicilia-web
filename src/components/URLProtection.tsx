@@ -26,14 +26,14 @@ const URLProtection: React.FC<URLProtectionProps> = ({ children }) => {
           const pathname = window.location.pathname;
           const cleanPath = pathname === '/' ? '/' : pathname;
           
-          // Se il pathname è diverso dalla location corrente, naviga
-          if (location.pathname !== cleanPath) {
+          // Solo per URL realmente problematici, evita navigazioni inutili
+          if (location.pathname !== cleanPath && cleanPath !== location.pathname) {
             console.log('🔄 Navigazione a URL pulito:', cleanPath);
             navigate(cleanPath, { replace: true });
           } else {
-            // Altrimenti, pulisci solo l'URL
+            // Pulisci silenziosamente l'URL senza interferire con la navigazione
             window.history.replaceState(null, '', cleanPath);
-            console.log('✅ URL pulito:', cleanPath);
+            console.log('✅ URL pulito silenziosamente:', cleanPath);
           }
         }
       } catch (error) {
@@ -41,12 +41,15 @@ const URLProtection: React.FC<URLProtectionProps> = ({ children }) => {
       }
     };
 
-    // Esegui pulizia immediata
-    cleanURL();
+    // Esegui pulizia solo se necessario
+    const currentURL = window.location.href;
+    if (currentURL.includes('?p=') || currentURL.includes('%3Fp%3D')) {
+      cleanURL();
+    }
 
-    // Aggiungi listener per intercettare cambiamenti
+    // Riduci interferenze con la navigazione normale
     const handlePopState = () => {
-      setTimeout(cleanURL, 50);
+      setTimeout(cleanURL, 100);
     };
 
     window.addEventListener('popstate', handlePopState);
