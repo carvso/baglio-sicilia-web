@@ -207,7 +207,7 @@ const Contatti = () => {
                   <a href="https://instagram.com/baglioabbateevents" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
                     <Instagram size={24} />
                   </a>
-                  <a href="https://facebook.com/baglioabbate" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
+                  <a href="https://www.facebook.com/share/16653QbwUk/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
                     <Facebook size={24} />
                   </a>
                   <a href="https://wa.me/393318286888" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
