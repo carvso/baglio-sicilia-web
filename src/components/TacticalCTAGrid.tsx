@@ -37,7 +37,7 @@ const TacticalCTAGrid = () => {
       id: 'matrimoni',
       title: 'Il Tuo Matrimonio',
       description: 'Una location da sogno per il giorno più importante',
-      image: getLovableUploadPath('abd0f4fc-88b2-4370-b75c-a060e0f81d76.png'),
+      image: '/lovable-uploads/54114da5-3d49-4cd8-a79d-f9c3755e52d8.png',
       link: '/matrimoni',
       icon: Heart,
       color: 'from-baglio-oro to-baglio-oroImperiale'
