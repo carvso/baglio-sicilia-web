@@ -4,7 +4,6 @@ import { ChevronDown, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
-import HeroCarousel from '@/components/HeroCarousel';
 
 type HeroSectionProps = {
   title: string;
@@ -45,9 +44,13 @@ const HeroSection = ({ title, subtitle, className }: HeroSectionProps) => {
 
   return (
     <div className={cn("hero-section-enhanced relative overflow-hidden min-h-screen min-h-[100dvh]", className)}>
-      {/* Background Carousel with Enhanced Navy Blue Overlay */}
+      {/* Static Background Image with Enhanced Navy Blue Overlay */}
       <div className="absolute inset-0">
-        <HeroCarousel images={heroImages} autoplaySpeed={0} />
+        <img 
+          src="/lovable-uploads/787ca249-92de-43cc-967f-b849aa3f4c1a.png"
+          alt="Sposi che camminano attraverso gli archi illuminati del Baglio"
+          className="w-full h-full object-cover"
+        />
         {/* Navy blue overlays instead of black */}
         <div className="absolute inset-0 bg-baglio-ebano/60"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-baglio-ebano/40 via-baglio-ebano/60 to-baglio-ebano/80"></div>
