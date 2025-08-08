@@ -75,7 +75,7 @@ const Navbar = () => {
         )}
         
         <div className="baglio-container">
-          <nav className="flex justify-between items-center py-4 min-h-[64px] relative">
+          <nav className="flex justify-between items-center py-6 min-h-[88px] relative">
             
             {/* Left Navigation - Desktop Only */}
             <div className="hidden lg:flex items-center space-x-8 flex-1">
@@ -121,7 +121,7 @@ const Navbar = () => {
               <img
                 src="/logo_baglio_black.svg"
                 alt="Logo Baglio Abbate Events"
-                style={{ height: isMobile ? "50px" : "70px", width: "auto", maxWidth: "280px", transition: "all 0.3s ease" }}
+                style={{ height: isMobile ? "55px" : "80px", width: "auto", maxWidth: "320px", transition: "all 0.3s ease" }}
                 className="block filter drop-shadow-lg"
               />
             </Link>
