@@ -34,7 +34,10 @@ const queryClient = new QueryClient({
   },
 });
 
-const ScrollToTopHandler = () => { useScrollToTop(); return null; };
+const ScrollToTopHandler = () => { 
+  useScrollToTop(); 
+  return null; 
+};
 
 const App = () => {
   useEffect(() => {
@@ -42,45 +45,6 @@ const App = () => {
     console.log('🌍 Current location:', window.location.href);
     console.log('⚙️ Base URL:', import.meta.env.BASE_URL);
     console.log('🔧 Mode:', import.meta.env.MODE);
-    
-    // Gestisci il problema URI Too Long e pulisci URL problematici
-    URL_CONFIG.handlePageRefresh();
-    
-    // Pulisci URL con parametri problematici
-    const cleanURL = () => {
-      try {
-        const currentURL = window.location.href;
-        
-        // Se l'URL contiene parametri p annidati, puliscilo
-        if (currentURL.includes('?p=') || currentURL.includes('%3Fp%3D')) {
-          console.warn('URL problematico rilevato, pulizia in corso...');
-          
-          // Estrai solo il pathname senza parametri
-          const cleanPath = window.location.pathname;
-          const newURL = window.location.origin + cleanPath;
-          
-          // Sostituisci l'URL senza ricaricare la pagina
-          window.history.replaceState(null, '', newURL);
-          console.log('URL pulito:', newURL);
-        }
-      } catch (error) {
-        console.error('Errore nella pulizia URL:', error);
-      }
-    };
-    
-    // Esegui la pulizia all'avvio
-    cleanURL();
-    
-    // Aggiungi listener per intercettare cambiamenti URL
-    const handlePopState = () => {
-      setTimeout(cleanURL, 100);
-    };
-    
-    window.addEventListener('popstate', handlePopState);
-    
-    return () => {
-      window.removeEventListener('popstate', handlePopState);
-    };
   }, []);
 
   console.log('🏗️ App component rendering...');
