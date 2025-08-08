@@ -21,7 +21,7 @@ const SocialMediaBanners = () => {
       icon: Phone,
       link: '/contatti',
       color: 'from-baglio-oro to-baglio-oroImperiale',
-      bgImage: getLovableUploadPath('75cf2578-451c-46db-8c39-c3dcc02f7157.png')
+      bgImage: '/lovable-uploads/127299b9-5502-49a4-8945-3bb89412eb3d.png'
     }
   ];
 
