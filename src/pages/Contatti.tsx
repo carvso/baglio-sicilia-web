@@ -201,25 +201,30 @@ const Contatti = () => {
                 </div>
               </ContactInfo>
               
-              <div className="bg-baglio-oro/10 p-6 rounded-xl border border-baglio-oro/30">
-                <h3 className="text-lg font-semibold mb-4 text-baglio-oro font-playfair">Social Media</h3>
-                <div className="flex space-x-4 mb-4">
-                  <a href="https://instagram.com/baglioabbateevents" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
-                    <Instagram size={24} />
-                  </a>
-                  <a href="https://www.facebook.com/share/16653QbwUk/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
-                    <Facebook size={24} />
-                  </a>
-                  <a href="https://wa.me/393318286888" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-baglio-ebano p-3 rounded-lg shadow-md hover:shadow-lg">
-                    <MessageCircle size={24} />
-                  </a>
+              <div className="relative bg-baglio-oro/10 p-8 rounded-xl border border-baglio-oro/30 overflow-hidden" style={{
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/lovable-uploads/5df4e529-2484-4f74-83a8-b8a8ea099df3.png')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                minHeight: '200px'
+              }}>
+                <div className="relative z-10">
+                  <h3 className="text-xl font-semibold mb-4 text-baglio-oro font-playfair">Social Media</h3>
+                  <div className="flex space-x-4 mb-4">
+                    <a href="https://instagram.com/baglioabbateevents" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-black/50 p-3 rounded-lg shadow-md hover:shadow-lg backdrop-blur-sm">
+                      <Instagram size={24} />
+                    </a>
+                    <a href="https://www.facebook.com/share/16653QbwUk/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-black/50 p-3 rounded-lg shadow-md hover:shadow-lg backdrop-blur-sm">
+                      <Facebook size={24} />
+                    </a>
+                    <a href="https://wa.me/393318286888" target="_blank" rel="noopener noreferrer" className="text-baglio-oro hover:text-baglio-oroImperiale transition-colors bg-black/50 p-3 rounded-lg shadow-md hover:shadow-lg backdrop-blur-sm">
+                      <MessageCircle size={24} />
+                    </a>
+                  </div>
+                  <p className="text-white text-sm">
+                    Seguici per foto esclusive e aggiornamenti sui nostri eventi a Balestrate!
+                  </p>
                 </div>
-                <p className="text-baglio-cremaIntonacata text-sm">
-                  Seguici per foto esclusive e aggiornamenti sui nostri eventi a Balestrate!
-                </p>
               </div>
-
-              <InstagramCTA variant="default" />
             </div>
             
             {/* Form di contatto */}
