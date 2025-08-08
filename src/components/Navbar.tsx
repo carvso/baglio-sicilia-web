@@ -60,24 +60,12 @@ const Navbar = () => {
     <>
       <header 
         className={cn(
-          "fixed top-0 left-0 w-full z-50 transition-all duration-300 relative",
+          "fixed top-0 left-0 w-full z-50 transition-all duration-300",
           isScrolled 
-            ? "bg-baglio-cremaIntonacata/98 backdrop-blur-md shadow-lg" 
+            ? "bg-baglio-cremaIntonacata/98 backdrop-blur-md shadow-lg border-b border-baglio-oro/20" 
             : "bg-baglio-ebanoIntenso/30 backdrop-blur-sm",
           isNavigating && "opacity-95"
         )}
-        style={{
-          borderBottom: `2px solid transparent`,
-          backgroundImage: isScrolled 
-            ? `linear-gradient(90deg, hsl(var(--baglio-oro)) 0%, hsl(var(--baglio-oro) / 0.7) 50%, hsl(var(--baglio-oro) / 0.3) 100%), linear-gradient(to bottom, var(--tw-gradient-stops))`
-            : `linear-gradient(90deg, hsl(var(--baglio-oro) / 0.6) 0%, hsl(var(--baglio-oro) / 0.4) 50%, hsl(var(--baglio-oro) / 0.2) 100%), linear-gradient(to bottom, var(--tw-gradient-stops))`,
-          backgroundSize: isScrolled ? `100% 2px, 100% 100%` : `100% 1px, 100% 100%`,
-          backgroundPosition: `bottom, center`,
-          backgroundRepeat: `no-repeat, no-repeat`,
-          boxShadow: isScrolled 
-            ? `0 1px 3px -1px hsl(var(--baglio-oro) / 0.1), 0 1px 2px -1px hsl(var(--baglio-oro) / 0.06), 0 0 0 1px hsl(var(--baglio-oro) / 0.05)`
-            : `0 0 0 1px hsl(var(--baglio-oro) / 0.1)`
-        }}
       >
         {/* Subtle loading bar for navigation feedback */}
         {isNavigating && (
