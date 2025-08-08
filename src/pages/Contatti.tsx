@@ -169,7 +169,7 @@ const Contatti = () => {
       {/* Sezione principale con layout a due colonne - ridotto padding */}
       <section className="py-12 bg-baglio-ebano">
         <div className="baglio-container">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-6 gap-12">
             {/* Informazioni contatto */}
             <div className="lg:col-span-2 space-y-6">
               <SectionTitle 
@@ -201,6 +201,10 @@ const Contatti = () => {
                 </div>
               </ContactInfo>
               
+            </div>
+            
+            {/* Sezione Social Media separata */}
+            <div className="lg:col-span-2">
               <div className="relative bg-baglio-oro/10 p-8 rounded-xl border border-baglio-oro/30 overflow-hidden" style={{
                 backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/lovable-uploads/5df4e529-2484-4f74-83a8-b8a8ea099df3.png')`,
                 backgroundSize: 'cover',
@@ -228,7 +232,7 @@ const Contatti = () => {
             </div>
             
             {/* Form di contatto */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-2">
               <div id="contact-form" className="bg-baglio-ebano p-8 rounded-2xl shadow-lg border border-baglio-oro/20">
                 <SectionTitle 
                   title="Mandaci un messaggio" 
